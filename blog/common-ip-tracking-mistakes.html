@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Learn about the most common IP tracking mistakes and how to avoid them to ensure effective monitoring of your links, emails, images, and documents.">
+  <meta name="keywords" content="IP tracking mistakes, IP logging errors, IP tracker problems, fix IP tracking issues, improve IP tracking, effective IP tracking">
+  <meta name="author" content="whatstheirip.tech">
+  <meta name="theme-color" content="#4A90E2">
+  <meta property="og:title" content="Common IP Tracking Mistakes and How to Avoid Them | whatstheirip.tech">
+  <meta property="og:description" content="Learn about the most common IP tracking mistakes and how to avoid them to ensure effective monitoring of your links, emails, images, and documents.">
+  <meta property="og:url" content="https://whatstheirip.tech/blog/common-ip-tracking-mistakes.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://whatstheirip.tech/blog/images/tracking-mistakes.jpg">
+  <title>Common IP Tracking Mistakes and How to Avoid Them | whatstheirip.tech</title>
+  
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
+      --error-color: #e74c3c;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--dark-color);
+      line-height: 1.8;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .article-header {
+      background-color: var(--primary-color);
+      padding: 8rem 0 4rem;
+      color: white;
+    }
+    
+    .article-content {
+      padding: 3rem 0;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #3A80D2;
+      border-color: #3A80D2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border: none;
+      margin-bottom: 30px;
+    }
+    
+    footer {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      padding: 3rem 0;
+    }
+    
+    footer a, footer .text-muted {
+      color: var(--light-color);
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    footer a:hover {
+      opacity: 1;
+      text-decoration: none;
+      color: white;
+    }
+    
+    .highlight {
+      background-color: rgba(74, 144, 226, 0.1);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .table-of-contents {
+      background-color: var(--light-color);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .table-of-contents ul {
+      padding-left: 1.5rem;
+      margin-bottom: 0;
+    }
+    
+    .table-of-contents a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .mistake-card {
+      border-left: 4px solid var(--error-color);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      background-color: rgba(231, 76, 60, 0.05);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    
+    .solution-card {
+      border-left: 4px solid var(--primary-color);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      background-color: rgba(74, 144, 226, 0.05);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    
+    .mistake-icon {
+      color: var(--error-color);
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    
+    .solution-icon {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    
+    .tip-box {
+      background-color: rgba(255, 159, 28, 0.1);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 159, 28, 0.2);
+    }
+    
+    .tip-icon {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">whatstheirip.tech</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html#url">URL Tracker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html#email">Email Tracker</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="mb-4">Common IP Tracking Mistakes and How to Avoid Them</h1>
+          <p class="lead">Learn how to get reliable results from your tracking efforts</p>
+          <div class="mt-4">
+            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> May 13, 2025</span>
+            <span><i class="far fa-clock mr-1"></i> 8 min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <section class="article-content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <!-- Table of Contents -->
+          <div class="table-of-contents">
+            <h5>Table of Contents</h5>
+            <ul>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#url-tracking-mistakes">URL Tracking Mistakes</a></li>
+              <li><a href="#email-tracking-mistakes">Email Tracking Mistakes</a></li>
+              <li><a href="#image-tracking-mistakes">Image Tracking Mistakes</a></li>
+              <li><a href="#pdf-tracking-mistakes">PDF Tracking Mistakes</a></li>
+              <li><a href="#general-mistakes">General Tracking Mistakes</a></li>
+              <li><a href="#best-practices">Best Practices for Reliable Tracking</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+          </div>
+
+          <!-- Introduction -->
+          <h2 id="introduction" class="mt-5">Introduction</h2>
+          <p>IP tracking is a powerful tool that can provide valuable insights about who's viewing your content, but it's not always as straightforward as it seems. Even with user-friendly tools like those offered by whatstheirip.tech, there are common pitfalls that can lead to inaccurate data or failed tracking attempts.</p>
+          
+          <p>This guide identifies the most common mistakes people make when setting up IP tracking and provides practical solutions to ensure you get reliable results. Whether you're using URL, email, image, or PDF tracking, understanding these potential issues will significantly improve your tracking success rate.</p>
+
+          <div class="highlight">
+            <h5>Why Tracking Sometimes Fails:</h5>
+            <p>Many tracking failures aren't due to technical issues with the tracking tools themselves, but rather with how they're implemented or the environment in which they're used. Understanding these limitations will help you set realistic expectations and implement more effective tracking strategies.</p>
+          </div>
+
+          <!-- URL Tracking Mistakes -->
+          <h2 id="url-tracking-mistakes" class="mt-5">URL Tracking Mistakes</h2>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #1: Using Obviously Suspicious URLs</h4>
+            <p>One of the most common mistakes is sharing tracking links that look suspicious, containing obvious tracking parameters or unusual domain names. Most savvy internet users are hesitant to click links that don't appear legitimate.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Use our URL shortening feature to create clean, professional-looking links. When possible, explain what the link is for when sharing it to establish trust. For important tracking, consider using custom domains that match your business or personal brand.</p>
+            <div class="mt-3">
+              <p><strong>Example:</strong></p>
+              <p>Instead of: <code>https://whatstheirip.tech/track.php?id=12345&redirect=example.com</code></p>
+              <p>Use: <code>https://wti.tech/r/fD8Ts</code> or a custom domain</p>
+            </div>
+          </div>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #2: Not Testing URL Redirects First</h4>
+            <p>Another common error is failing to test tracking links before sharing them. If the destination URL is misconfigured or the redirect doesn't work properly, you'll lose valuable tracking opportunities and potentially damage your credibility.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Always test your tracking links by clicking them yourself before sharing. Verify that they redirect properly to the intended destination and that the tracking is working by checking your tracking dashboard. Use an incognito/private browser window to simulate a new visitor.</p>
+          </div>
+
+          <!-- Email Tracking Mistakes -->
+          <h2 id="email-tracking-mistakes" class="mt-5">Email Tracking Mistakes</h2>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #1: Embedding Tracking Pixels Incorrectly</h4>
+            <p>Email tracking relies on a small invisible image loading when the email is opened. If this tracking pixel isn't properly embedded in your email's HTML, the tracking won't work at all.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Follow our exact instructions for embedding the tracking pixel code. Don't modify the code unless you're experienced with HTML. If you're using an email marketing platform, use their built-in tracking features or consult their documentation for inserting custom HTML.</p>
+            <div class="mt-3">
+              <p><strong>Correct example:</strong></p>
+              <p><code>&lt;img src="https://whatstheirip.tech/pixel.php?id=YOURID" width="1" height="1" style="display:none"&gt;</code></p>
+            </div>
+          </div>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #2: Not Accounting for Image Blocking</h4>
+            <p>Many email clients block images by default, which means your tracking pixel won't load unless the recipient enables images.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Create compelling email content that encourages recipients to enable images. Include visible images that are relevant to your message, not just the tracking pixel. Consider including a note like "If images aren't displaying correctly, please click here" with a URL tracking link as a backup tracking method.</p>
+          </div>
+
+          <!-- Image Tracking Mistakes -->
+          <h2 id="image-tracking-mistakes" class="mt-5">Image Tracking Mistakes</h2>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #1: Using Low-Quality or Irrelevant Images</h4>
+            <p>For image tracking to work, people need to actually view the image. Using low-quality, uninteresting images reduces the likelihood that recipients will pay attention to them.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Create high-quality, relevant images that recipients will want to view. For tracking links shared on social media or messaging apps, use images that grab attention and are relevant to your audience's interests. When using QR codes, make sure they're large enough to scan easily and include a compelling call to action.</p>
+          </div>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #2: Not Considering Platform Image Caching</h4>
+            <p>Some platforms and messaging apps cache images to improve loading times, which can interfere with tracking because the image is loaded from the cache rather than your tracking server.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Make each image slightly different when tracking multiple recipients. For important tracking, consider using a combination of image and URL tracking. When tracking is critical, favor platforms known to disable caching (like email) over those that heavily cache content (like some messaging apps).</p>
+          </div>
+
+          <!-- PDF Tracking Mistakes -->
+          <h2 id="pdf-tracking-mistakes" class="mt-5">PDF Tracking Mistakes</h2>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #1: Not Accounting for Offline PDF Readers</h4>
+            <p>PDF tracking only works when the document is opened in a reader that loads external content and is connected to the internet. Many privacy-conscious users use offline readers or disable network connections in their PDF software.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Include URL tracking links within the PDF content that recipients might click for additional information. This provides a secondary tracking method. For business documents, consider embedding forms or surveys that encourage online interaction.</p>
+          </div>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #2: Creating Unnecessarily Large PDFs</h4>
+            <p>Large PDF files are less likely to be opened immediately and may be saved for later viewing (often in offline mode) or not opened at all.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Optimize your PDFs for faster loading. Keep file sizes reasonable by compressing images and removing unnecessary elements. For long documents, consider breaking them into smaller, more focused PDFs that are more likely to be opened right away.</p>
+          </div>
+
+          <!-- General Tracking Mistakes -->
+          <h2 id="general-mistakes" class="mt-5">General Tracking Mistakes</h2>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #1: Forgetting to Save Tracking Codes</h4>
+            <p>Perhaps the most frustrating mistake is successfully setting up tracking but then losing the tracking code needed to view the results.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Always save your tracking codes in a secure but accessible location. Consider using a password manager or dedicated note-taking app. For business use, establish a consistent naming convention and storage system for tracking codes.</p>
+          </div>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #2: Not Accounting for VPN and Proxy Usage</h4>
+            <p>As privacy awareness increases, more internet users are using VPNs and proxies that mask their true location. This can lead to inaccurate geolocation data in your tracking results.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Set realistic expectations about the accuracy of location data. Look for patterns in behavior rather than relying solely on location. For important tracking, consider collecting additional identifying information through forms or surveys to supplement IP tracking.</p>
+          </div>
+          
+          <div class="mistake-card">
+            <h4><i class="fas fa-exclamation-circle mistake-icon"></i>Mistake #3: Over-Relying on a Single Tracking Method</h4>
+            <p>Depending entirely on one tracking method creates a single point of failure. If that method is blocked or fails, you lose all tracking capability.</p>
+          </div>
+          
+          <div class="solution-card">
+            <h4><i class="fas fa-check-circle solution-icon"></i>Solution:</h4>
+            <p>Implement multiple tracking methods when tracking is important. For example, use both email tracking and URL tracking in newsletters, or combine PDF tracking with embedded URL tracking links within the document. This redundancy increases the likelihood of capturing accurate data.</p>
+          </div>
+
+          <!-- Best Practices -->
+          <h2 id="best-practices" class="mt-5">Best Practices for Reliable Tracking</h2>
+          
+          <div class="tip-box text-center">
+            <div class="tip-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h4>Pro Tips for Effective IP Tracking</h4>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">1. Create Compelling Content</h5>
+                  <p class="card-text">The more compelling your content, the more likely recipients are to engage with it, triggering your tracking mechanisms. Focus on providing value to increase interaction rates.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">2. Test Across Devices & Platforms</h5>
+                  <p class="card-text">Different devices and platforms handle tracking differently. Test your tracking methods on various devices, browsers, and email clients to ensure consistent performance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">3. Consider Your Audience's Tech Savvy</h5>
+                  <p class="card-text">Adjust your tracking approach based on your audience's technical knowledge. More tech-savvy audiences may require more sophisticated or discreet tracking methods.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">4. Establish Clear Tracking Goals</h5>
+                  <p class="card-text">Define what you want to learn from tracking before you implement it. This helps you choose the right methods and metrics to focus on in your results.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">5. Respect Privacy Considerations</h5>
+                  <p class="card-text">Transparent tracking practices build trust. When appropriate, be open about your tracking and explain its purpose, especially in professional contexts.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">6. Analyze Patterns, Not Just Individual Data</h5>
+                  <p class="card-text">Look for patterns across multiple tracking points rather than focusing solely on individual tracking events. This provides more reliable insights about behavior.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conclusion -->
+          <h2 id="conclusion" class="mt-5">Conclusion</h2>
+          <p>Effective IP tracking requires attention to detail and an understanding of how different tracking methods work in various environments. By avoiding these common mistakes and implementing the suggested solutions, you'll significantly improve the reliability and effectiveness of your tracking efforts.</p>
+          
+          <p>Remember that no tracking method is perfect, and a combination of approaches often yields the best results. At whatstheirip.tech, we provide multiple tracking tools to give you flexibility in how you monitor engagement with your content.</p>
+          
+          <p>As tracking technology and privacy practices continue to evolve, staying informed about best practices will help you adapt your approach and maintain effective tracking capabilities.</p>
+          
+          <div class="alert alert-primary mt-5">
+            <p class="mb-0"><strong>Ready to implement these tips?</strong> Head back to our <a href="../index.html" class="alert-link">homepage</a> to set up your tracking with these best practices in mind.</p>
+          </div>
+          
+          <!-- Related Articles -->
+          <div class="mt-5">
+            <h4>Related Articles</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <a href="ip-tracking-methods-comparison.html" class="text-decoration-none">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Comparing Different IP Tracking Methods</h5>
+                      <p class="card-text text-muted">Find the right tracking solution for your specific needs</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="ip-tracking-use-cases.html" class="text-decoration-none">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Practical Use Cases for IP Tracking</h5>
+                      <p class="card-text text-muted">Discover real-world applications and benefits of IP tracking technology</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>whatstheirip.tech</h5>
+          <p>Advanced IP tracking solutions for various use cases, helping you understand who's visiting your links, opening your emails, and viewing your content.</p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Tools</h5>
+          <ul class="list-unstyled">
+            <li><a href="../index.html#url">URL Tracker</a></li>
+            <li><a href="../index.html#email">Email Tracker</a></li>
+            <li><a href="https://maipdf.com/qr.php#pic">Image Tracker</a></li>
+            <li><a href="https://www.maipdf.com/pdf/boot.php">PDF Tracker</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li><a href="how-ip-tracking-works.html">How IP Tracking Works</a></li>
+            <li><a href="protect-your-online-privacy.html">Protect Your Privacy</a></li>
+            <li><a href="ip-tracking-methods-comparison.html">Methods Comparison</a></li>
+            <li><a href="ip-tracking-use-cases.html">Use Cases</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Legal</h5>
+          <p class="small text-muted">The information provided on this website is for general informational purposes only. All information is provided in good faith, however we make no representation or warranty of any kind regarding the accuracy or completeness of any information.</p>
+          <p class="small text-muted">Copyright © 2025 whatstheirip.tech - All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

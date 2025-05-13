@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="grabify,ip logger,iplogger,whatstheirip,link shortener,ip,grabtheirip,grab ip,ip address,track ip,IP tracker,tacking IP">
+  <meta name="description" content="whatstheirip tracks IP address and locations. Find IPs from Facebook, Twitter, friends on other sites From MaiPDF">
+  <meta name="author" content="MaiPDF">
+  <meta name="theme-color" content="#4A90E2">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="Joe" content="MaiPDF">
+  <title>whatstheirip - Advanced IP Tracking Solutions</title>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  
+  <!-- Plugin CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet">
+  <link href="https://maipdf.com/pdf/css/creative.min.css" rel="stylesheet">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property='og:title' content='whatstheirip - Advanced IP Tracking Solutions'>
+  <meta property='og:image' content='https://doc.maitube.club/read/pic/grabify-home.png'>
+  <meta property='og:description' content='Grabify IP Logger URL Shortener tracks IP address and locations'>
+  <meta http-equiv='content-language' content='en-gb'>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860" crossorigin="anonymous"></script>
+
+  <script>
+    var d = new Date();
+    document.cookie = "usertime=" + d;
+    document.cookie = "userjoe=" + d;
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--dark-color);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .page-section {
+      padding: 6rem 0;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #3A80D2;
+      border-color: #3A80D2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-xl {
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .divider {
+      max-width: 3.25rem;
+      border-width: 0.2rem;
+      border-color: var(--primary-color);
+    }
+
+    .form-control {
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      box-shadow: none;
+      transition: all 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    }
+    
+    .card {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border: none;
+    }
+    
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      max-width: 400px;
+      height: 8px;
+      border-radius: 4px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      margin: 2rem auto;
+    }
+    
+    .slider:hover {
+      opacity: 1;
+    }
+    
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+    }
+    
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+      background: var(--secondary-color);
+    }
+    
+    .slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    #qrcodeweb {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+    
+    footer {
+      background-color: var(--dark-color) !important;
+      color: var(--light-color) !important;
+    }
+    
+    footer a, footer .text-muted {
+      color: var(--light-color) !important;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    footer a:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .page-section {
+        padding: 4rem 0;
+      }
+    }
+    
+    /* Service Icons Animation */
+    .service-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .service-icon:hover {
+      transform: translateY(-5px);
+      color: var(--secondary-color) !important;
+    }
+    
+    /* Tracking result styles */
+    .tracking-result {
+      background: var(--light-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .highlight {
+      background: rgba(74, 144, 226, 0.1);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="https://grabify.icu">whatstheirip.tech</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://www.maipdf.com/pdf/boot.php">PDF</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#email">Email</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#url">URL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://maipdf.com/qr.php#pic">Images</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header/Intro Section -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h1 class="text-white font-weight-bold">Track IP Addresses with Multiple Methods</h1>
+          <hr class="divider my-4">
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5">whatstheirip provides powerful tools to track IP addresses through various methods including URLs, emails, images, and PDFs</p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services/Features Section -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">Ways To Track & Logger an IP</h2>
+      <hr class="divider my-4">
+      <h5 class="text-center mb-4" id='resultlink'></h5>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <p class="lead">
+            Find the geographic location of anyone you're interacting with online. This information can be valuable for verification or tracking purposes.
+            Our tools create specialized links that can be shared via social media or messaging to instantly capture IP addresses.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a class="nav-link js-scroll-trigger" href="#url">
+              <i class="fas fa-2x fa-link text-primary mb-4 service-icon"></i>
+              <h3 class="h4 mb-2">URL Tracking</h3>
+              <p class="text-muted mb-0">Generate and share tracked links that log IP data</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a class="nav-link js-scroll-trigger" href="#email">
+              <i class="fas fa-2x fa-envelope text-primary mb-4 service-icon"></i>
+              <h3 class="h4 mb-2">Email Tracking</h3>
+              <p class="text-muted mb-0">Invisible images that track when emails are opened</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a class="nav-link js-scroll-trigger" href="qr.php#pic">
+              <i class="fas fa-2x fa-images text-primary mb-4 service-icon"></i>
+              <h3 class="h4 mb-2">Image Tracking</h3>
+              <p class="text-muted mb-0">Create images that report when they're viewed</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <a class="nav-link js-scroll-trigger" href="https://www.maipdf.com/pdf/boot.php">
+              <i class="fas fa-2x fa-file-pdf text-primary mb-4 service-icon"></i>
+              <h3 class="h4 mb-2">PDF Tracking</h3>
+              <p class="text-muted mb-0">Track when PDFs are opened and viewed</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="url">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">URL & QR Tracker Generator</h2>
+          <hr class="divider my-4">
+          <p class="text-muted mb-4">Create a tracking link that logs information when someone visits it. You'll also get a QR code that points to your tracking link.</p>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="webinput" id="joehint" class="font-weight-bold">Enter the URL you want to track:</label>
+            <input type="text" class="form-control" id="webinput" value="https://" placeholder="https://example.com">
+          </div>
+          
+          <div class="text-center my-4">
+            <input type="range" class="slider" id="myRange" value="1" max="100">
+            <div id="rangeValue" style="font-size:0.875em;color:var(--primary-color);">Drag Progress Bar to the End</div>
+          </div>
+          
+          <div class="text-center">
+            <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb()">
+              <i class="fas fa-link mr-2"></i> Generate Tracking URL/QR
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div id="xingxi" class="col-lg-7 col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title mb-4">Your Tracking Information</h4>
+              <div class="tracking-result">
+                <p id="atype" class="mb-3"></p>
+                <p id="btypesay" class="mb-3 highlight"></p>
+                <p id="btype" class="mb-3"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-5 col-md-6 text-center d-flex align-items-center justify-content-center">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title mb-3">QR Code</h4>
+              <div id="qrcodeweb" class="mx-auto"></div>
+              <small class="text-muted d-block mt-3">Scan with any QR reader to open the tracking link</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mt-5">
+        <div class="card-body">
+          <h5 class="mb-3">How It Works:</h5>
+          <ol class="pl-3">
+            <li class="mb-2">Enter the URL you want whatstheirip to track</li>
+            <li class="mb-2">Drag the progress bar to 100% and click the generate button</li>
+            <li class="mb-2">Share the generated tracking link with your target</li>
+            <li class="mb-2">Save your tracking code for later reference</li>
+            <li class="mb-2">Enter the tracking code on the home page to see captured information</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="email">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Email Tracker / Invisible Image</h6>
+          <h6 class="mt-0"><a href="ok/trackemail.html" class="text-muted">(Learn how it works)</a></h6>
+          <hr class="divider my-4">
+          <p class="text-muted mb-4">Track when your emails are opened using an invisible image. Insert this image into your emails to know when they're viewed.</p>
+        </div>
+      </div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="text-center my-4">
+            <input type="range" class="slider" id="myRange2" value="1" max="100">
+            <div id="rangeValue2" style="font-size:0.875em;color:var(--primary-color);">Drag Progress Bar to the End</div>
+          </div>
+          
+          <div class="text-center">
+            <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb2()">
+              <i class="fas fa-envelope mr-2"></i> Generate Email Tracking Link
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="mb-3">Step 1: Copy this image into your email</h5>
+              <div class="text-center p-3 bg-light rounded">
+                <img src="https://grabify.icu/pic/step1.png" id="tpng" class="border" style="height:15px;width:15px;outline:var(--primary-color) dotted 2px;" alt="Tracking Pixel">
+                <p class="mt-2 mb-0 small text-muted">This invisible pixel will track when your email is opened</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <h5 class="mb-3">Step 2: Save your tracking information</h5>
+              <div class="tracking-result">
+                <p id="aer" class="mb-2"></p>
+                <p id="bsay" class="mb-2 highlight"></p>
+                <p id="ber" class="mb-2"></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="alert alert-info mt-4">
+            <i class="fas fa-info-circle mr-2"></i> 
+            When the recipient opens your email containing this image, their IP address and other information will be logged.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-light" id="howemail">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Technical Implementation</h2>
+          <hr class="divider my-4">
+          <p class="lead mb-4">The source code below shows how email tracking works using PHP to create invisible tracking pixels</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">PHP Source Code for Creating Tracking Pixels</h5>
+        </div>
+        <div class="card-body">
+          <pre><code><span style="color: #000000">
+&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//We can pass in 'Get' variable to make each link unique in order to track accordingly
+	<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">])){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Below to line's function is to log device inforamtion and their ip address
+		<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$agent</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">];<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Option1:we can use a SQL database to log details<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #0000BB">$servername</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dbname</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Failed:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Option2:we can also use a txt file to log data alternatively<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$myfile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"feed.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a+"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;open&nbsp;file!"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rich</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//After the log of data, we can use the code from part1 to display image afterward<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">120</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$text_color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">233</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">14</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">91</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagestring</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #DD0000">'A&nbsp;Simple&nbsp;Text&nbsp;String'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$text_color</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/jpeg'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;</span></span>
+</code></pre>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-md-4 mb-3">
+          <a class="btn btn-primary btn-block" href="https://maipdf.com/qr.php">
+            <i class="fas fa-qrcode mr-2"></i> MaiPDF QR Maker
+          </a>
+        </div>
+        <div class="col-md-4 mb-3">
+          <a class="btn btn-primary btn-block" href="https://www.maipdf.com">
+            <i class="fas fa-file-pdf mr-2"></i> PDF to QR
+          </a>
+        </div>
+        <div class="col-md-4 mb-3">
+          <a class="btn btn-primary btn-block" href="https://maipdf.com/qr.php">
+            <i class="fas fa-image mr-2"></i> Image to QR
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+          <h5 class="text-white mb-3">Resources</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.maipdf.com">MaiPDF Home</a></li>
+            <li><a href="https://grabify.icu">Grabify</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+          <h5 class="text-white mb-3">Connect With Us</h5>
+     joe@pdfhost.online
+        </div>
+        <div class="col-md-4 text-center text-md-right">
+        
+          <p class="small text-muted">Copyright &copy; 2025 </p>
+          <p class="small text-muted">Last updated: May 13, 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://www.maipdf.com/pdf/qrcode.min.js"></script>
+
+  <script>
+    // Existing script for tracking code input
+    $("#joeresult").
+      on("blur", function () {
+        doCode();
+      }).
+      on("keydown", function (e) {
+        if (e.keyCode == 13) {
+          doCode();
+        }
+      });
+
+    function doCode() {
+      var resu = document.getElementById("joeresult");
+      // var resu=resu.value;
+      // document.getElementById("resultlink").innerHTML="Click Link to View Result: <br>"+"<a href=https://grabify.icu/"+resu+" target=\"_blank\">https://grabify.icu/"+resu+"</a>";
+    }
+
+    // Slider for email tracker
+    $('#myRange2').mousemove(function() {
+      if($('#myRange2').val()==100){
+        document.getElementById("rangeValue2").innerHTML="You're Good to Go";
+      } else {
+        document.getElementById("rangeValue2").innerHTML="Drag Progress Bar to the End";
+      }
+    });
+
+    document.getElementById("myRange2").addEventListener('touchend', function(){
+      if($('#myRange2').val()==100){
+        document.getElementById("rangeValue2").innerHTML="You're Good to Go";
+      } else {
+        document.getElementById("rangeValue2").innerHTML="Drag Progress Bar to the End";
+      }
+    });
+
+    document.getElementById("myRange2").addEventListener('touchmove', function(){
+      if($('#myRange2').val()==100){
+        document.getElementById("rangeValue2").innerHTML="You're Good to Go";
+      } else {
+        document.getElementById("rangeValue2").innerHTML="Drag Progress Bar to the End";
+      }
+    });
+
+    // Slider for URL tracker
+    $('#myRange').mousemove(function(){
+      if($('#myRange').val()==100){
+        document.getElementById("rangeValue").innerHTML="You're Good to Go";
+      } else {
+        document.getElementById("rangeValue").innerHTML="Drag Progress Bar to the End";
+      }
+    });
+
+    document.getElementById("myRange").addEventListener('touchend', function(){
+      if($('#myRange').val()==100){
+        document.getElementById("rangeValue").innerHTML="You're Good to Go";
+      } else {
+        document.getElementById("rangeValue").innerHTML="Drag Progress Bar to the End";
+      }
+    });
+
+    document.getElementById("myRange").addEventListener('touchmove', function(){
+      if($('#myRange').val()==100){
+        document.getElementById("rangeValue").innerHTML="You're Good to Go";
+      } else {
+        document.getElementById("rangeValue").innerHTML="Drag Progress Bar to the End";
+      }
+    });
+
+    // Initialize QR code generator
+    var qrcode2 = new QRCode(document.getElementById("qrcodeweb"), {
+      width: 170,
+      height: 170,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Generate URL tracking code
+    async function makeCodeweb() {
+      document.getElementById("btypesay").innerHTML='<div class="spinner-grow text-primary mx-1"></div><div class="spinner-grow text-primary mx-1"></div><div class="spinner-grow text-primary mx-1"></div>';
+      var web = document.getElementById("webinput");
+      
+      if(web.value.length<10){
+        alert('Please enter a valid URL');
+        return;
+      }
+      
+      let filterstrings = ['porn','redtube','81ea'];
+      let regex = new RegExp(filterstrings.join("|"), "i");  
+      if(regex.test(web.value)){
+        alert('That content is not allowed'); 
+        return 0;
+      }
+
+      if($('#myRange').val()==100){
+        var ranger20 = document.getElementById("myRange");
+        ranger20.value=20;
+        document.getElementById("rangeValue").innerHTML="Drag Progress Bar to the End";
+      } else {
+        alert('Please drag the progress bar to the end');
+        return;
+      }
+      
+      qrcode2.makeCode(web.value);
+      const data = new FormData();
+      data.append('i', web.value);
+      const response = await fetch("https://grabify.icu/qrcode.php", {
+        method: "POST",
+        body: data
+      });
+      
+      try {
+        const res = await response.text().then(text => text.trim());
+        continuewithcode(res);
+      } catch (error) {
+        return;
+      }
+    }
+
+    async function continuewithcode(res){
+      if (res.includes("Reachable")) {
+        alert('Please enter a valid URL');
+        return;
+      }
+      
+      res = res.split(":");
+      $("#xingxi").fadeOut("slow");
+      var qd ="https://grabb.site/"+res[1];
+      qrcode2.makeCode(qd);
+      document.getElementById("atype").innerHTML="<strong>New Tracking Link:</strong> <br>"+"<a href=https://grabb.site/"+res[1]+" target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-external-link-alt mr-1\"></i> https://grabb.site/"+res[1]+"</a>";
+      document.getElementById("btypesay").innerHTML="<strong>Tracking Code:</strong> "+res[2];
+      document.getElementById("btype").innerHTML="<strong>Tracking Results:</strong> <br>"+"<a href=https://grabify.icu/"+res[2]+" target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-chart-line mr-1\"></i> View Tracking Data</a>";
+      $("#xingxi").fadeIn("slow");
+    }
+
+    // Generate email tracking code
+    async function continuewithcode2(res){
+      if (res.includes("Reachable")) {
+        alert('An error occurred');
+        return;
+      }
+      
+      res = res.split(":");
+      document.getElementById("tpng").src = "https://grabb.site/wx/"+res[1]+".png";
+      document.getElementById("aer").innerHTML="<strong>Email Tracker Image:</strong> <br>"+"<a href=https://grabb.site/wx/"+res[1]+".png target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-image mr-1\"></i> https://grabb.site/wx/"+res[1]+".png</a>";
+      document.getElementById("bsay").innerHTML="<strong>Tracking Code:</strong> "+res[2];
+      document.getElementById("ber").innerHTML="<strong>Tracking Results:</strong> <br>"+"<a href=https://grabify.icu/"+res[2]+" target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-chart-line mr-1\"></i> View Tracking Data</a>";
+    }
+
+    async function makeCodeweb2() {
+      document.getElementById("bsay").innerHTML="<div class=\"spinner-grow text-primary mx-1\"></div><div class=\"spinner-grow text-primary mx-1\"></div><div class=\"spinner-grow text-primary mx-1\"></div>";
+      
+      if($('#myRange2').val()==100){
+        var ranger20 = document.getElementById("myRange2");
+        ranger20.value=20;
+        document.getElementById("rangeValue2").innerHTML="Drag Progress Bar to the End";
+      } else {
+        alert('Please drag the progress bar to the end');
+        return;
+      }
+      
+      const data = new FormData();
+      data.append('i', 'mm');
+      const response = await fetch("https://grabify.icu/qrcode.php", {
+        method: "POST",
+        body: data
+      });
+      
+      try {
+        const res = await response.text().then(text => text.trim());
+        continuewithcode2(res);
+      } catch (error) {
+        return;
+      }
+    }
+
+    function myFunctionpic() {
+      var copyText = document.getElementById("webinputpic");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      document.getElementById("Copied").innerHTML = "Copied";
+    }
+
+    // Add smooth scrolling
+    $(document).ready(function() {
+      // Add smooth scrolling to all links
+      $("a.js-scroll-trigger").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top - 70
+          }, 800);
+        }
+      });
+      
+      // Close responsive menu when a scroll trigger link is clicked
+      $('.js-scroll-trigger').click(function() {
+        $('.navbar-collapse').collapse('hide');
+      });
+      
+      // Activate scrollspy to add active class to navbar items on scroll
+      $('body').scrollspy({
+        target: '#mainNav',
+        offset: 75
+      });
+    });
+  </script>
+</body>
+</html>
