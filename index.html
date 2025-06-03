@@ -43,19 +43,25 @@
     document.cookie = "usertime=" + d;
     document.cookie = "userjoe=" + d;
   </script>
-
   <style>
     :root {
-      --primary-color: #4A90E2;
-      --secondary-color: #FF5733;
-      --accent-color: #FF9F1C;
-      --dark-color: #2C3E50;
-      --light-color: #ECF0F1;
-    }
-    
+      --primary-color: #667eea;
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-color: #f093fb;
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-color: #4facfe;
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --dark-color: #1a1a2e;
+      --light-color: #f8f9fa;
+      --success-color: #00d4aa;
+      --warning-color: #ffb142;
+      --danger-color: #ff6b6b;
+    }    
     body {
       font-family: 'Roboto', sans-serif;
       color: var(--dark-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -63,165 +69,606 @@
       font-weight: 600;
     }
     
+    /* Animated Background */
+    .masthead {
+      background: var(--primary-gradient);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    
+    .masthead::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
     .navbar {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95) !important;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(255, 255, 255, 0.98) !important;
     }
     
     .navbar-brand {
       font-weight: 700;
       letter-spacing: 1px;
-    }
-    
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }    
     .page-section {
       padding: 6rem 0;
+      position: relative;
+    }
+    
+    .btn {
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
     }
     
     .btn-primary {
-      background-color: var(--primary-color);
-      border-color: var(--primary-color);
-      transition: all 0.3s ease;
+      background: var(--primary-gradient);
+      border: none;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
     
     .btn-primary:hover {
-      background-color: #3A80D2;
-      border-color: #3A80D2;
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
     }
     
     .btn-xl {
-      padding: 1rem 2rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
+      padding: 1.25rem 2.5rem;
+      font-size: 1.1rem;
     }
     
     .divider {
       max-width: 3.25rem;
       border-width: 0.2rem;
-      border-color: var(--primary-color);
+      border-color: var(--accent-color);
+      position: relative;
     }
-
-    .form-control {
-      border-radius: 0.5rem;
-      padding: 0.75rem 1rem;
-      border: 1px solid #ddd;
-      box-shadow: none;
-      transition: all 0.3s;
+    
+    .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      background: var(--accent-color);
+      border-radius: 50%;
+    }    .form-control {
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .form-control:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-1px);
     }
     
     .card {
-      border-radius: 1rem;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       border: none;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    .slider {
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-body {
+      padding: 2rem;
+    }
+      .slider {
       -webkit-appearance: none;
+      appearance: none;
       width: 100%;
       max-width: 400px;
-      height: 8px;
-      border-radius: 4px;
-      background: #d3d3d3;
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #e0e0e0 0%, var(--accent-color) 0%);
       outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       margin: 2rem auto;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     
     .slider:hover {
-      opacity: 1;
+      transform: scale(1.02);
     }
     
     .slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--primary-color);
+      background: var(--primary-gradient);
       cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 3px solid white;
     }
     
     .slider::-webkit-slider-thumb:hover {
-      transform: scale(1.1);
-      background: var(--secondary-color);
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
     }
     
     .slider::-moz-range-thumb {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--primary-color);
+      background: var(--primary-gradient);
       cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-    
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      border: 3px solid white;
+      -moz-appearance: none;
+      appearance: none;
+    }    
     #qrcodeweb {
       background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
       display: inline-block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #qrcodeweb:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
     }
     
     footer {
-      background-color: var(--dark-color) !important;
+      background: var(--dark-color) !important;
       color: var(--light-color) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary-gradient);
     }
     
     footer a, footer .text-muted {
       color: var(--light-color) !important;
       opacity: 0.8;
-      transition: opacity 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     footer a:hover {
       opacity: 1;
       text-decoration: none;
+      transform: translateY(-2px);
+      color: var(--accent-color) !important;
     }
     
     @media (max-width: 768px) {
       .page-section {
         padding: 4rem 0;
       }
+      
+      .btn-xl {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+      
+      .masthead h1 {
+        font-size: 2.5rem;
+      }
     }
     
     /* Service Icons Animation */
+    .service-box {
+      padding: 2rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .service-box:hover {
+      transform: translateY(-10px) scale(1.02);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
     .service-icon {
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
     }
     
     .service-icon:hover {
-      transform: translateY(-5px);
-      color: var(--secondary-color) !important;
+      transform: scale(1.2) rotate(5deg);
+      background: var(--secondary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     /* Tracking result styles */
     .tracking-result {
-      background: var(--light-color);
-      padding: 1.5rem;
-      border-radius: 8px;
+      background: var(--accent-gradient);
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
       margin-top: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 32px rgba(79, 172, 254, 0.3);
+      backdrop-filter: blur(10px);
     }
     
     .highlight {
-      background: rgba(74, 144, 226, 0.1);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      color: var(--primary-color);
-      font-weight: 500;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0.25rem;
     }
-  </style>
+    
+    /* Loading Animation */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Pulse Animation */
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Gradient Text */
+    .gradient-text {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Custom Alert */
+    .alert-custom {
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+      border: 1px solid rgba(79, 172, 254, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    /* Smooth reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }      /* Enhanced Interactive Styles */
+      .navbar {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .navbar-scrolled {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .input-focused {
+        transform: scale(1.02);
+        transition: transform 0.2s ease;
+      }
+      
+      .typing {
+        position: relative;
+      }
+      
+      .typing::after {
+        content: '';
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 20px;
+        background: var(--primary-color);
+        animation: blink 1s infinite;
+      }
+      
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+      
+      /* Enhanced Button Animations */
+      .btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+      
+      .btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+      
+      .btn:active {
+        transform: translateY(1px);
+      }
+      
+      /* Enhanced Service Box Animations */
+      .service-box {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .service-box.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .service-box:nth-child(1) { transition-delay: 0.1s; }
+      .service-box:nth-child(2) { transition-delay: 0.2s; }
+      .service-box:nth-child(3) { transition-delay: 0.3s; }
+      .service-box:nth-child(4) { transition-delay: 0.4s; }
+      
+      /* Enhanced Card Animations */
+      .card {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .card.animate-in {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      
+      /* Enhanced Range Slider Styles */
+      .form-range {
+        transition: all 0.3s ease;
+      }
+      
+      .form-range:focus {
+        box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.25);
+        outline: none;
+      }
+      
+      .form-range::-webkit-slider-thumb {
+        transition: all 0.2s ease;
+      }
+      
+      .form-range::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.4);
+      }
+      
+      .form-range::-moz-range-thumb {
+        transition: all 0.2s ease;
+      }
+      
+      .form-range::-moz-range-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.4);
+      }
+      
+      /* Enhanced QR Code Container */
+      #qrcodeweb {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      #qrcodeweb:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      /* Improved Loading States */
+      .spinner-grow {
+        animation-duration: 1s;
+      }
+      
+      /* Enhanced Results Containers */
+      .results-container {
+        animation: slideUp 0.5s ease-out;
+      }
+      
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Copy Button Styles */
+      .copy-btn {
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-left: 8px;
+      }
+      
+      .copy-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .copy-btn:active {
+        transform: translateY(0);
+      }
+      
+      /* Paste Button Styles */
+      .paste-btn {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .paste-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Enhanced Input Groups */
+      .input-group {
+        position: relative;
+        margin-bottom: 1rem;
+      }
+      
+      .input-group-append {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+      }
+      
+      /* Progress Enhancement */
+      .progress-text {
+        transition: all 0.3s ease;
+        font-weight: 500;
+        min-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* Feature Enhancement */
+      .feature-item {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .feature-item.animate-in {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      
+      .feature-item:nth-child(odd) { transition-delay: 0.1s; }
+      .feature-item:nth-child(even) { transition-delay: 0.2s; }
+    </style>
 </head>
 
 <body id="page-top">
@@ -250,116 +697,231 @@
       </div>
     </div>
   </nav>
-
   <!-- Header/Intro Section -->
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-white font-weight-bold">Track IP Addresses with Multiple Methods</h1>
+          <h1 class="text-white font-weight-bold fade-in-up">🚀 Advanced IP Tracking Solutions</h1>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">whatstheirip provides powerful tools to track IP addresses through various methods including URLs, emails, images, and PDFs</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Explore Services</a>
+          <p class="text-white-75 font-weight-light mb-5 fade-in-up" style="animation-delay: 0.3s;">
+            🎯 Track IP addresses with precision using our powerful suite of tools. Generate tracking URLs, invisible email trackers, QR codes, and more!
+          </p>
+          <div class="fade-in-up" style="animation-delay: 0.6s;">
+            <a class="btn btn-primary btn-xl js-scroll-trigger pulse" href="#services">
+              <i class="fas fa-rocket mr-2"></i>Explore Tools
+            </a>
+            <a class="btn btn-outline-light btn-xl ml-3" href="#url">
+              <i class="fas fa-play mr-2"></i>Get Started
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </header>
-
   <!-- Services/Features Section -->
   <section class="page-section" id="services">
     <div class="container">
-      <h2 class="text-center mt-0">Ways To Track & Logger an IP</h2>
-      <hr class="divider my-4">
-      <h5 class="text-center mb-4" id='resultlink'></h5>
-
-      <div class="card mb-4">
-        <div class="card-body">
-          <p class="lead">
-            Find the geographic location of anyone you're interacting with online. This information can be valuable for verification or tracking purposes.
-            Our tools create specialized links that can be shared via social media or messaging to instantly capture IP addresses.
-          </p>
+      <div class="text-center mb-5">
+        <h2 class="mt-0 gradient-text">🛠️ Powerful IP Tracking Methods</h2>
+        <hr class="divider my-4">
+        <p class="text-muted lead">Choose from our comprehensive suite of tracking tools</p>
+      </div>
+      
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="mb-3">📍 Track IP Locations Instantly</h5>
+              <p class="lead mb-4">
+                🌍 Discover the geographic location of anyone you're interacting with online. Our advanced tools create specialized tracking links that can be shared via social media, messaging apps, or email to instantly capture detailed IP information including location, ISP, and device details.
+              </p>
+              <div class="row text-center">
+                <div class="col-md-3">
+                  <div class="p-3">
+                    <i class="fas fa-2x fa-globe-americas text-primary mb-2"></i>
+                    <h6>Geographic Data</h6>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="p-3">
+                    <i class="fas fa-2x fa-wifi text-success mb-2"></i>
+                    <h6>ISP Information</h6>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="p-3">
+                    <i class="fas fa-2x fa-mobile-alt text-warning mb-2"></i>
+                    <h6>Device Detection</h6>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="p-3">
+                    <i class="fas fa-2x fa-clock text-info mb-2"></i>
+                    <h6>Real-time Tracking</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <a class="nav-link js-scroll-trigger" href="#url">
-              <i class="fas fa-2x fa-link text-primary mb-4 service-icon"></i>
-              <h3 class="h4 mb-2">URL Tracking</h3>
-              <p class="text-muted mb-0">Generate and share tracked links that log IP data</p>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="service-box text-center h-100">
+            <a class="nav-link js-scroll-trigger text-decoration-none" href="#url">
+              <i class="fas fa-3x fa-link service-icon text-primary mb-4"></i>
+              <h3 class="h4 mb-3 gradient-text">🔗 URL Tracking</h3>
+              <p class="text-muted mb-0">Generate smart tracking links with QR codes that capture detailed visitor information</p>
+              <div class="mt-3">
+                <span class="badge badge-primary">Advanced Analytics</span>
+              </div>
             </a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <a class="nav-link js-scroll-trigger" href="#email">
-              <i class="fas fa-2x fa-envelope text-primary mb-4 service-icon"></i>
-              <h3 class="h4 mb-2">Email Tracking</h3>
-              <p class="text-muted mb-0">Invisible images that track when emails are opened</p>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="service-box text-center h-100">
+            <a class="nav-link js-scroll-trigger text-decoration-none" href="#email">
+              <i class="fas fa-3x fa-envelope service-icon text-success mb-4"></i>
+              <h3 class="h4 mb-3 gradient-text">📧 Email Tracking</h3>
+              <p class="text-muted mb-0">Invisible tracking pixels that report when emails are opened and viewed</p>
+              <div class="mt-3">
+                <span class="badge badge-success">Stealth Mode</span>
+              </div>
             </a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <a class="nav-link js-scroll-trigger" href="qr.php#pic">
-              <i class="fas fa-2x fa-images text-primary mb-4 service-icon"></i>
-              <h3 class="h4 mb-2">Image Tracking</h3>
-              <p class="text-muted mb-0">Create images that report when they're viewed</p>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="service-box text-center h-100">
+            <a class="nav-link js-scroll-trigger text-decoration-none" href="qr.php#pic">
+              <i class="fas fa-3x fa-images service-icon text-warning mb-4"></i>
+              <h3 class="h4 mb-3 gradient-text">🖼️ Image Tracking</h3>
+              <p class="text-muted mb-0">Create tracking images that log viewer data when displayed anywhere online</p>
+              <div class="mt-3">
+                <span class="badge badge-warning">Multi-Platform</span>
+              </div>
             </a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <a class="nav-link js-scroll-trigger" href="https://www.maipdf.com/pdf/boot.php">
-              <i class="fas fa-2x fa-file-pdf text-primary mb-4 service-icon"></i>
-              <h3 class="h4 mb-2">PDF Tracking</h3>
-              <p class="text-muted mb-0">Track when PDFs are opened and viewed</p>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="service-box text-center h-100">
+            <a class="nav-link js-scroll-trigger text-decoration-none" href="https://www.maipdf.com/pdf/boot.php">
+              <i class="fas fa-3x fa-file-pdf service-icon text-danger mb-4"></i>
+              <h3 class="h4 mb-3 gradient-text">📄 PDF Tracking</h3>
+              <p class="text-muted mb-0">Monitor when PDFs are opened, viewed, and downloaded with detailed analytics</p>
+              <div class="mt-3">
+                <span class="badge badge-danger">Document Intelligence</span>
+              </div>
             </a>
           </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <h5 class="text-center mb-4" id='resultlink'></h5>
+        <div class="alert alert-custom">
+          <i class="fas fa-info-circle mr-2"></i>
+          <strong>Pro Tip:</strong> All tracking methods are designed to be ethical and comply with privacy regulations. Always ensure you have proper consent before tracking.
         </div>
       </div>
     </div>
   </section>
-
-  <section class="page-section" id="url">
+  <section class="page-section bg-light" id="url">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0">URL & QR Tracker Generator</h2>
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="mt-0 gradient-text">🔗 URL & QR Tracker Generator</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-4">Create a tracking link that logs information when someone visits it. You'll also get a QR code that points to your tracking link.</p>
+          <p class="text-muted mb-4">
+            Create powerful tracking links that capture detailed visitor information. Generate QR codes automatically for easy sharing across all platforms.
+          </p>
         </div>
       </div>
       
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="form-group">
-            <label for="webinput" id="joehint" class="font-weight-bold">Enter the URL you want to track:</label>
-            <input type="text" class="form-control" id="webinput" value="https://" placeholder="https://example.com">
-          </div>
-          
-          <div class="text-center my-4">
-            <input type="range" class="slider" id="myRange" value="1" max="100">
-            <div id="rangeValue" style="font-size:0.875em;color:var(--primary-color);">Drag Progress Bar to the End</div>
-          </div>
-          
-          <div class="text-center">
-            <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb()">
-              <i class="fas fa-link mr-2"></i> Generate Tracking URL/QR
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row mt-5">
-        <div id="xingxi" class="col-lg-7 col-md-6">
-          <div class="card h-100">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="card shadow-lg">
             <div class="card-body">
-              <h4 class="card-title mb-4">Your Tracking Information</h4>
+              <div class="text-center mb-4">
+                <i class="fas fa-3x fa-link text-primary mb-3"></i>
+                <h4 class="gradient-text">Generate Your Tracking Link</h4>
+              </div>
+              
+              <div class="form-group">
+                <label for="webinput" id="joehint" class="font-weight-bold">
+                  <i class="fas fa-globe mr-2"></i>Enter the URL you want to track:
+                </label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-link"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" id="webinput" value="https://" placeholder="https://example.com" />
+                  <div class="input-group-append">                    <button class="btn btn-outline-secondary" type="button" onclick="pasteURL()" title="Paste from clipboard">
+                      <i class="fas fa-paste"></i>
+                    </button>
+                  </div>
+                </div>
+                <small class="form-text text-muted">
+                  <i class="fas fa-info-circle mr-1"></i>
+                  Enter any valid URL you want to track (websites, social media, etc.)
+                </small>
+              </div>
+              
+              <div class="text-center my-4">
+                <label class="font-weight-bold mb-3">
+                  <i class="fas fa-sliders-h mr-2"></i>Security Verification:
+                </label>
+                <input type="range" class="slider" id="myRange" value="1" max="100">
+                <div id="rangeValue" class="mt-2 font-weight-bold">Drag Progress Bar to the End</div>
+                <small class="text-muted">This helps prevent automated abuse of our service</small>
+              </div>
+              
+              <div class="text-center">
+                <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb()" id="generateBtn">
+                  <i class="fas fa-magic mr-2"></i>Generate Tracking URL & QR Code
+                </button>
+              </div>
+              
+              <div id="generationStatus" class="text-center mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div class="row mt-5" id="resultsSection" style="display: none;">
+        <div id="xingxi" class="col-lg-7 col-md-6">
+          <div class="card h-100 shadow">
+            <div class="card-body">
+              <h5 class="card-title gradient-text">
+                <i class="fas fa-link mr-2"></i>Your Tracking Information
+              </h5>
               <div class="tracking-result">
+                <div class="mb-3">
+                  <strong>🔗 Tracking URL:</strong>
+                  <div class="bg-dark text-light p-2 rounded mt-2 position-relative">
+                    <code id="trackingUrl">Your tracking URL will appear here</code>
+                    <button class="btn btn-sm btn-light position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);" onclick="copyToClipboard('trackingUrl')">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <strong>🔑 Tracking Code:</strong>
+                  <div class="bg-dark text-light p-2 rounded mt-2 position-relative">
+                    <code id="trackingCode">Your tracking code will appear here</code>
+                    <button class="btn btn-sm btn-light position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);" onclick="copyToClipboard('trackingCode')">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="alert alert-info">
+                  <i class="fas fa-lightbulb mr-2"></i>
+                  <strong>Save your tracking code!</strong> You'll need it to view the captured data later.
+                </div>
                 <p id="atype" class="mb-3"></p>
                 <p id="btypesay" class="mb-3 highlight"></p>
                 <p id="btype" class="mb-3"></p>
@@ -368,12 +930,16 @@
           </div>
         </div>
         
-        <div class="col-lg-5 col-md-6 text-center d-flex align-items-center justify-content-center">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title mb-3">QR Code</h4>
-              <div id="qrcodeweb" class="mx-auto"></div>
-              <small class="text-muted d-block mt-3">Scan with any QR reader to open the tracking link</small>
+        <div class="col-lg-5 col-md-6">
+          <div class="card h-100 shadow text-center">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title gradient-text mb-4">
+                <i class="fas fa-qrcode mr-2"></i>QR Code
+              </h5>
+              <div id="qrcodeweb" class="mx-auto mb-3"></div>
+              <p class="text-muted">Scan this QR code to access your tracking link</p>              <button class="btn btn-outline-primary" onclick="downloadQRCode()" title="Download QR code as PNG">
+                <i class="fas fa-download mr-2"></i>Download QR Code
+              </button>
             </div>
           </div>
         </div>
@@ -393,57 +959,111 @@
       </div>
     </div>
   </section>
-
   <section class="page-section" id="email">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Email Tracker / Invisible Image</h6>
+        <div class="col-lg-8 text-center mb-5">
+          <h2 class="mt-0 gradient-text">📧 Email Tracker / Invisible Image</h2>
           <h6 class="mt-0"><a href="ok/trackemail.html" class="text-muted">(Learn how it works)</a></h6>
           <hr class="divider my-4">
-          <p class="text-muted mb-4">Track when your emails are opened using an invisible image. Insert this image into your emails to know when they're viewed.</p>
+          <p class="text-muted mb-4">
+            Track when your emails are opened using invisible tracking pixels. Perfect for marketing campaigns, sales outreach, and email analytics.
+          </p>
         </div>
       </div>
       
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="text-center my-4">
-            <input type="range" class="slider" id="myRange2" value="1" max="100">
-            <div id="rangeValue2" style="font-size:0.875em;color:var(--primary-color);">Drag Progress Bar to the End</div>
-          </div>
-          
-          <div class="text-center">
-            <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb2()">
-              <i class="fas fa-envelope mr-2"></i> Generate Email Tracking Link
-            </button>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="card shadow-lg">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <i class="fas fa-3x fa-envelope text-success mb-3"></i>
+                <h4 class="gradient-text">Generate Email Tracking Pixel</h4>
+              </div>
+              
+              <div class="text-center my-4">
+                <label class="font-weight-bold mb-3">
+                  <i class="fas fa-sliders-h mr-2"></i>Security Verification:
+                </label>
+                <input type="range" class="slider" id="myRange2" value="1" max="100">
+                <div id="rangeValue2" class="mt-2 font-weight-bold">Drag Progress Bar to the End</div>
+                <small class="text-muted">This helps prevent automated abuse of our service</small>
+              </div>
+              
+              <div class="text-center">
+                <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb2()">
+                  <i class="fas fa-envelope mr-2"></i>Generate Email Tracking Pixel
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="card mt-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">
-              <h5 class="mb-3">Step 1: Copy this image into your email</h5>
-              <div class="text-center p-3 bg-light rounded">
-                <img src="https://grabify.icu/pic/step1.png" id="tpng" class="border" style="height:15px;width:15px;outline:var(--primary-color) dotted 2px;" alt="Tracking Pixel">
-                <p class="mt-2 mb-0 small text-muted">This invisible pixel will track when your email is opened</p>
+      </div>      
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="card shadow-lg">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="mb-3 gradient-text">
+                    <i class="fas fa-image mr-2"></i>Step 1: Copy Tracking Image
+                  </h5>
+                  <div class="text-center p-4 bg-light rounded-lg">
+                    <img src="https://grabify.icu/pic/step1.png" id="tpng" class="border shadow-sm" style="height:20px;width:20px;outline:var(--accent-color) dotted 2px;" alt="Tracking Pixel">
+                    <p class="mt-3 mb-0 text-muted">
+                      <i class="fas fa-eye-slash mr-1"></i>
+                      This invisible pixel tracks when your email is opened
+                    </p>
+                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="copyImageToClipboard()">
+                      <i class="fas fa-copy mr-1"></i>Copy Image URL
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <h5 class="mb-3 gradient-text">
+                    <i class="fas fa-chart-line mr-2"></i>Step 2: Tracking Information
+                  </h5>
+                  <div class="tracking-result">
+                    <div class="mb-3">
+                      <strong>📧 Tracking Image URL:</strong>
+                      <div class="bg-dark text-light p-2 rounded mt-2 position-relative">
+                        <code id="emailTrackingUrl">Your tracking image URL will appear here</code>
+                        <button class="btn btn-sm btn-light position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);" onclick="copyToClipboard('emailTrackingUrl')">
+                          <i class="fas fa-copy"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <strong>🔑 Tracking Code:</strong>
+                      <div class="bg-dark text-light p-2 rounded mt-2 position-relative">
+                        <code id="emailTrackingCode">Your tracking code will appear here</code>
+                        <button class="btn btn-sm btn-light position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);" onclick="copyToClipboard('emailTrackingCode')">
+                          <i class="fas fa-copy"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <p id="aer" class="mb-2"></p>
+                    <p id="bsay" class="mb-2 highlight"></p>
+                    <p id="ber" class="mb-2"></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="alert alert-custom mt-4">
+                <div class="row align-items-center">
+                  <div class="col-md-8">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    <strong>How it works:</strong> When the recipient opens your email containing this image, their IP address and other information will be logged automatically.
+                  </div>
+                  <div class="col-md-4 text-md-right">
+                    <a href="ok/trackemail.html" class="btn btn-outline-primary btn-sm">
+                      <i class="fas fa-graduation-cap mr-1"></i>Learn More
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div class="col-md-6">
-              <h5 class="mb-3">Step 2: Save your tracking information</h5>
-              <div class="tracking-result">
-                <p id="aer" class="mb-2"></p>
-                <p id="bsay" class="mb-2 highlight"></p>
-                <p id="ber" class="mb-2"></p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="alert alert-info mt-4">
-            <i class="fas fa-info-circle mr-2"></i> 
-            When the recipient opens your email containing this image, their IP address and other information will be logged.
           </div>
         </div>
       </div>
@@ -636,11 +1256,9 @@
       } catch (error) {
         return;
       }
-    }
-
-    async function continuewithcode(res){
+    }    async function continuewithcode(res){
       if (res.includes("Reachable")) {
-        alert('Please enter a valid URL');
+        showToast('Please enter a valid URL', 'warning');
         return;
       }
       
@@ -648,24 +1266,69 @@
       $("#xingxi").fadeOut("slow");
       var qd ="https://grabb.site/"+res[1];
       qrcode2.makeCode(qd);
-      document.getElementById("atype").innerHTML="<strong>New Tracking Link:</strong> <br>"+"<a href=https://grabb.site/"+res[1]+" target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-external-link-alt mr-1\"></i> https://grabb.site/"+res[1]+"</a>";
-      document.getElementById("btypesay").innerHTML="<strong>Tracking Code:</strong> "+res[2];
-      document.getElementById("btype").innerHTML="<strong>Tracking Results:</strong> <br>"+"<a href=https://grabify.icu/"+res[2]+" target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-chart-line mr-1\"></i> View Tracking Data</a>";
+      
+      document.getElementById("atype").innerHTML=`
+        <div class="d-flex align-items-center justify-content-between">
+          <strong>New Tracking Link:</strong>
+          <button class="copy-btn" onclick="copyToClipboard('${qd}', 'Tracking link copied!')" title="Copy tracking link">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>
+        <a href="${qd}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
+          <i class="fas fa-external-link-alt mr-1"></i> ${qd}
+        </a>`;
+      
+      document.getElementById("btypesay").innerHTML=`
+        <div class="d-flex align-items-center justify-content-between">
+          <span><strong>Tracking Code:</strong> ${res[2]}</span>
+          <button class="copy-btn" onclick="copyToClipboard('${res[2]}', 'Tracking code copied!')" title="Copy tracking code">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>`;
+      
+      document.getElementById("btype").innerHTML=`
+        <strong>Tracking Results:</strong><br>
+        <a href="https://grabify.icu/${res[2]}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
+          <i class="fas fa-chart-line mr-1"></i> View Tracking Data
+        </a>`;
+      
       $("#xingxi").fadeIn("slow");
-    }
-
-    // Generate email tracking code
+    }    // Generate email tracking code
     async function continuewithcode2(res){
       if (res.includes("Reachable")) {
-        alert('An error occurred');
+        showToast('An error occurred', 'error');
         return;
       }
       
       res = res.split(":");
-      document.getElementById("tpng").src = "https://grabb.site/wx/"+res[1]+".png";
-      document.getElementById("aer").innerHTML="<strong>Email Tracker Image:</strong> <br>"+"<a href=https://grabb.site/wx/"+res[1]+".png target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-image mr-1\"></i> https://grabb.site/wx/"+res[1]+".png</a>";
-      document.getElementById("bsay").innerHTML="<strong>Tracking Code:</strong> "+res[2];
-      document.getElementById("ber").innerHTML="<strong>Tracking Results:</strong> <br>"+"<a href=https://grabify.icu/"+res[2]+" target=\"_blank\" class=\"btn btn-sm btn-outline-primary mt-2\"><i class=\"fas fa-chart-line mr-1\"></i> View Tracking Data</a>";
+      const imageUrl = `https://grabb.site/wx/${res[1]}.png`;
+      
+      document.getElementById("tpng").src = imageUrl;
+      
+      document.getElementById("aer").innerHTML=`
+        <div class="d-flex align-items-center justify-content-between">
+          <strong>Email Tracker Image:</strong>
+          <button class="copy-btn" onclick="copyToClipboard('${imageUrl}', 'Email tracker image URL copied!')" title="Copy image URL">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>
+        <a href="${imageUrl}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
+          <i class="fas fa-image mr-1"></i> ${imageUrl}
+        </a>`;
+      
+      document.getElementById("bsay").innerHTML=`
+        <div class="d-flex align-items-center justify-content-between">
+          <span><strong>Tracking Code:</strong> ${res[2]}</span>
+          <button class="copy-btn" onclick="copyToClipboard('${res[2]}', 'Email tracking code copied!')" title="Copy tracking code">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>`;
+      
+      document.getElementById("ber").innerHTML=`
+        <strong>Tracking Results:</strong><br>
+        <a href="https://grabify.icu/${res[2]}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
+          <i class="fas fa-chart-line mr-1"></i> View Tracking Data
+        </a>`;
     }
 
     async function makeCodeweb2() {
@@ -701,18 +1364,409 @@
       copyText.setSelectionRange(0, 99999);
       document.execCommand("copy");
       document.getElementById("Copied").innerHTML = "Copied";
+    }    // Enhanced Utility Functions
+    function copyToClipboard(text, successMessage = 'Copied to clipboard!') {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMessage, 'success');
+        }).catch(() => {
+          fallbackCopyTextToClipboard(text, successMessage);
+        });
+      } else {
+        fallbackCopyTextToClipboard(text, successMessage);
+      }
     }
 
-    // Add smooth scrolling
+    function fallbackCopyTextToClipboard(text, successMessage) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.top = '0';
+      textArea.style.left = '0';
+      textArea.style.position = 'fixed';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMessage, 'success');
+      } catch (err) {
+        showToast('Failed to copy', 'error');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Toast Notification System
+    function showToast(message, type = 'info', duration = 3000) {
+      const toast = document.createElement('div');
+      toast.className = `toast-notification toast-${type}`;
+      toast.innerHTML = `
+        <div class="toast-content">
+          <i class="fas ${getToastIcon(type)} toast-icon"></i>
+          <span class="toast-message">${message}</span>
+          <button class="toast-close" onclick="this.parentElement.parentElement.remove()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      `;
+      
+      // Add toast styles if not already added
+      if (!document.querySelector('#toast-styles')) {
+        const style = document.createElement('style');
+        style.id = 'toast-styles';
+        style.textContent = `
+          .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 0;
+            min-width: 300px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease-out;
+          }
+          .toast-content {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            gap: 12px;
+          }
+          .toast-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+          }
+          .toast-message {
+            flex: 1;
+            font-weight: 500;
+            font-size: 14px;
+          }
+          .toast-close {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+          }
+          .toast-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: #333;
+          }
+          .toast-success { border-left: 4px solid #10b981; }
+          .toast-success .toast-icon { color: #10b981; }
+          .toast-error { border-left: 4px solid #ef4444; }
+          .toast-error .toast-icon { color: #ef4444; }
+          .toast-warning { border-left: 4px solid #f59e0b; }
+          .toast-warning .toast-icon { color: #f59e0b; }
+          .toast-info { border-left: 4px solid #3b82f6; }
+          .toast-info .toast-icon { color: #3b82f6; }
+          @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        if (toast.parentNode) {
+          toast.style.animation = 'slideInRight 0.3s ease-out reverse';
+          setTimeout(() => toast.remove(), 300);
+        }
+      }, duration);
+    }
+
+    function getToastIcon(type) {
+      const icons = {
+        success: 'fa-check-circle',
+        error: 'fa-exclamation-circle',
+        warning: 'fa-exclamation-triangle',
+        info: 'fa-info-circle'
+      };
+      return icons[type] || icons.info;
+    }
+
+    // Enhanced QR Code Download Function
+    function downloadQRCode() {
+      try {
+        const qrCanvas = document.querySelector('#qrcodeweb canvas');
+        if (!qrCanvas) {
+          showToast('No QR code to download', 'warning');
+          return;
+        }
+        
+        const link = document.createElement('a');
+        link.download = 'tracking-qr-code.png';
+        link.href = qrCanvas.toDataURL();
+        link.click();
+        showToast('QR code downloaded successfully!', 'success');
+      } catch (error) {
+        showToast('Failed to download QR code', 'error');
+      }
+    }
+
+    // Enhanced Copy Functions with Toast Feedback
+    function copyTrackingLink() {
+      const linkElement = document.querySelector('#atype a');
+      if (linkElement) {
+        copyToClipboard(linkElement.href, 'Tracking link copied!');
+      }
+    }
+
+    function copyTrackingCode() {
+      const codeText = document.getElementById('btypesay').textContent;
+      if (codeText && !codeText.includes('spinner')) {
+        const code = codeText.replace('Tracking Code:', '').trim();
+        copyToClipboard(code, 'Tracking code copied!');
+      }
+    }
+
+    function copyEmailTrackerImage() {
+      const imgElement = document.querySelector('#aer a');
+      if (imgElement) {
+        copyToClipboard(imgElement.href, 'Email tracker image URL copied!');
+      }
+    }
+
+    // Enhanced Form Validation
+    function validateURL(url) {
+      try {
+        new URL(url);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    // Paste URL functionality
+    function pasteURL() {
+      if (navigator.clipboard && navigator.clipboard.readText) {
+        navigator.clipboard.readText().then(text => {
+          const webInput = document.getElementById('webinput');
+          if (webInput) {
+            webInput.value = text.trim();
+            webInput.focus();
+            showToast('URL pasted from clipboard', 'success');
+          }
+        }).catch(() => {
+          showToast('Unable to access clipboard', 'warning');
+        });
+      } else {
+        showToast('Clipboard access not supported', 'warning');
+      }
+    }
+
+    // Enhanced makeCodeweb function with better UX
+    async function makeCodeweb() {
+      const loadingHtml = '<div class="d-flex align-items-center"><div class="spinner-grow text-primary me-2" style="width: 1rem; height: 1rem;"></div><span>Generating...</span></div>';
+      document.getElementById("btypesay").innerHTML = loadingHtml;
+      
+      const webInput = document.getElementById("webinput");
+      const url = webInput.value.trim();
+      
+      // Enhanced validation
+      if (url.length < 10) {
+        showToast('Please enter a valid URL (minimum 10 characters)', 'warning');
+        document.getElementById("btypesay").innerHTML = '';
+        return;
+      }
+      
+      if (!validateURL(url)) {
+        showToast('Please enter a valid URL format', 'warning');
+        document.getElementById("btypesay").innerHTML = '';
+        return;
+      }
+      
+      // Filter check
+      let filterstrings = ['porn','redtube','81ea'];
+      let regex = new RegExp(filterstrings.join("|"), "i");  
+      if(regex.test(url)){
+        showToast('That content is not allowed', 'error');
+        document.getElementById("btypesay").innerHTML = '';
+        return;
+      }
+
+      // Slider validation
+      if($('#myRange').val() != 100){
+        showToast('Please drag the progress bar to the end', 'warning');
+        document.getElementById("btypesay").innerHTML = '';
+        return;
+      }
+      
+      try {
+        // Reset slider
+        var ranger20 = document.getElementById("myRange");
+        ranger20.value = 20;
+        document.getElementById("rangeValue").innerHTML = "Drag Progress Bar to the End";
+        
+        // Generate QR code
+        qrcode2.makeCode(url);
+        
+        // Make API call
+        const data = new FormData();
+        data.append('i', url);
+        const response = await fetch("https://grabify.icu/qrcode.php", {
+          method: "POST",
+          body: data
+        });
+        
+        const res = await response.text().then(text => text.trim());
+        await continuewithcode(res);
+        showToast('Tracking link generated successfully!', 'success');
+        
+      } catch (error) {
+        console.error('Error generating tracking code:', error);
+        showToast('Failed to generate tracking code. Please try again.', 'error');
+        document.getElementById("btypesay").innerHTML = '';
+      }
+    }
+
+    // Enhanced makeCodeweb2 function
+    async function makeCodeweb2() {
+      const loadingHtml = '<div class="d-flex align-items-center"><div class="spinner-grow text-primary me-2" style="width: 1rem; height: 1rem;"></div><span>Generating...</span></div>';
+      document.getElementById("bsay").innerHTML = loadingHtml;
+      
+      if($('#myRange2').val() != 100){
+        showToast('Please drag the progress bar to the end', 'warning');
+        document.getElementById("bsay").innerHTML = '';
+        return;
+      }
+      
+      try {
+        // Reset slider
+        var ranger20 = document.getElementById("myRange2");
+        ranger20.value = 20;
+        document.getElementById("rangeValue2").innerHTML = "Drag Progress Bar to the End";
+        
+        const data = new FormData();
+        data.append('i', 'mm');
+        const response = await fetch("https://grabify.icu/qrcode.php", {
+          method: "POST",
+          body: data
+        });
+        
+        const res = await response.text().then(text => text.trim());
+        await continuewithcode2(res);
+        showToast('Email tracker generated successfully!', 'success');
+        
+      } catch (error) {
+        console.error('Error generating email tracker:', error);
+        showToast('Failed to generate email tracker. Please try again.', 'error');
+        document.getElementById("bsay").innerHTML = '';
+      }
+    }
+
+    // Enhanced navbar scroll effects
+    function initNavbarEffects() {
+      const navbar = document.querySelector('.navbar');
+      let lastScrollTop = 0;
+      
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add/remove scrolled class
+        if (scrollTop > 100) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
+        
+        // Hide/show navbar on scroll
+        if (scrollTop > lastScrollTop && scrollTop > 200) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+    }
+
+    // Intersection Observer for animations
+    function initScrollAnimations() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe elements with animation classes
+      document.querySelectorAll('.service-box, .card, .feature-item').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Enhanced slider interactions
+    function initEnhancedSliders() {
+      const sliders = ['myRange', 'myRange2'];
+      
+      sliders.forEach(sliderId => {
+        const slider = document.getElementById(sliderId);
+        const valueDisplay = document.getElementById(sliderId === 'myRange' ? 'rangeValue' : 'rangeValue2');
+        
+        if (slider && valueDisplay) {
+          // Add visual feedback
+          slider.addEventListener('input', function() {
+            const value = this.value;
+            const percentage = (value - this.min) / (this.max - this.min) * 100;
+            
+            // Update slider background
+            this.style.background = `linear-gradient(90deg, var(--primary-gradient) 0%, var(--primary-gradient) ${percentage}%, #e2e8f0 ${percentage}%, #e2e8f0 100%)`;
+            
+            // Update text with smooth transition
+            valueDisplay.style.opacity = '0.7';
+            setTimeout(() => {
+              if (value == 100) {
+                valueDisplay.innerHTML = "✅ You're Good to Go";
+                valueDisplay.style.color = '#10b981';
+              } else {
+                valueDisplay.innerHTML = "👆 Drag Progress Bar to the End";
+                valueDisplay.style.color = '#6b7280';
+              }
+              valueDisplay.style.opacity = '1';
+            }, 100);
+          });
+          
+          // Add completion animation
+          slider.addEventListener('change', function() {
+            if (this.value == 100) {
+              this.style.transform = 'scale(1.02)';
+              setTimeout(() => {
+                this.style.transform = 'scale(1)';
+              }, 200);
+            }
+          });
+        }
+      });
+    }
+
+    // Add smooth scrolling and enhanced interactions
     $(document).ready(function() {
-      // Add smooth scrolling to all links
+      // Initialize all enhancements
+      initNavbarEffects();
+      initScrollAnimations();
+      initEnhancedSliders();
+      
+      // Enhanced smooth scrolling
       $("a.js-scroll-trigger").on('click', function(event) {
         if (this.hash !== "") {
           event.preventDefault();
           var hash = this.hash;
           $('html, body').animate({
             scrollTop: $(hash).offset().top - 70
-          }, 800);
+          }, 800, 'easeInOutCubic');
         }
       });
       
@@ -721,10 +1775,37 @@
         $('.navbar-collapse').collapse('hide');
       });
       
-      // Activate scrollspy to add active class to navbar items on scroll
+      // Activate scrollspy
       $('body').scrollspy({
         target: '#mainNav',
         offset: 75
+      });
+      
+      // Add hover effects to buttons
+      $('.btn').hover(
+        function() {
+          $(this).css('transform', 'translateY(-2px)');
+        },
+        function() {
+          $(this).css('transform', 'translateY(0)');
+        }
+      );
+      
+      // Add focus effects to form inputs
+      $('input, textarea').on('focus', function() {
+        $(this).parent().addClass('input-focused');
+      }).on('blur', function() {
+        $(this).parent().removeClass('input-focused');
+      });
+      
+      // Add typing indicator for URL input
+      let typingTimer;
+      $('#webinput').on('input', function() {
+        clearTimeout(typingTimer);
+        $(this).addClass('typing');
+        typingTimer = setTimeout(() => {
+          $(this).removeClass('typing');
+        }, 1000);
       });
     });
   </script>

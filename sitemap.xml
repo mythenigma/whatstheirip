@@ -223,8 +223,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- New Professional SEO Articles -->
+    <!-- New Professional SEO Articles -->
   <url>
     <loc>https://whatstheirip.tech/blog/enterprise-seo-ip-analytics.html</loc>
     <lastmod>2025-05-15</lastmod>
@@ -248,5 +247,127 @@
     <lastmod>2025-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Additional SEO and Advanced Articles -->
+  <url>
+    <loc>https://whatstheirip.tech/blog/advanced-onpage-seo-2025.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/eeat-seo-mastery.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/voice-search-seo-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- New IP Tracking and Monitoring Articles -->
+  <url>
+    <loc>https://whatstheirip.tech/blog/how-to-get-someones-ip-address-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/chat-app-ip-tracking-methods.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/one-click-ip-grabbing-methods.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/how-to-create-ip-grabber-ethical-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/ip-tracker-vs-ip-grabber-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/realtime-ip-analytics-geographic-intelligence.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/vpn-impact-ip-tracking-accuracy.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/browser-fingerprinting-beyond-ip-tracking.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Specialized Tracking Techniques -->
+  <url>
+    <loc>https://whatstheirip.tech/blog/email-tracking-pixel-technology-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/image-tracking-invisible-monitoring-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/pdf-tracking-document-intelligence-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/qr-code-url-tracking-complete-guide.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Chinese Blog Articles -->
+  <url>
+    <loc>https://whatstheirip.tech/blog/zh/how-to-get-others-ip-address.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/zh/wechat-ip-tracking-methods.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/zh/one-click-ip-grabbing-methods.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://whatstheirip.tech/blog/zh/email-tracking-pixel-technology.html</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

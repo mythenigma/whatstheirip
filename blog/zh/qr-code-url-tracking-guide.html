@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二维码URL追踪完整指南 - IP追踪技术</title>
+    <meta name="description" content="学习如何使用二维码进行URL追踪，获取访客IP地址、地理位置和设备信息的完整技术指南。">
+    <meta name="keywords" content="二维码追踪, URL追踪, IP地址获取, 地理位置追踪, 设备检测">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">WhatsTheirIP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blog/">博客</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blog/">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 mb-4">二维码URL追踪完整指南</h1>
+                    <p class="lead">掌握二维码追踪技术，获取访客IP地址、地理位置和设备信息</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article>
+                    <h2>什么是二维码URL追踪？</h2>
+                    <p>二维码URL追踪是一种现代数字分析技术，通过在二维码中嵌入特殊的追踪URL来收集访客数据。当用户扫描二维码时，系统会自动记录其IP地址、地理位置、设备信息等详细数据。</p>
+
+                    <h3>核心技术原理</h3>
+                    <div class="code-block">
+                        <h5>二维码生成规格</h5>
+                        <ul>
+                            <li><strong>尺寸：</strong>170x170像素（标准追踪二维码）</li>
+                            <li><strong>格式：</strong>PNG格式，确保清晰度</li>
+                            <li><strong>容错率：</strong>中等级别（M级），平衡可靠性和数据容量</li>
+                            <li><strong>追踪URL：</strong>集成grabify.icu域名系统</li>
+                        </ul>
+                    </div>
+
+                    <h3>IP数据收集能力</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card feature-card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">地理位置数据</h5>
+                                    <ul class="list-unstyled">
+                                        <li>• 国家和城市定位</li>
+                                        <li>• ISP服务商识别</li>
+                                        <li>• 时区自动检测</li>
+                                        <li>• 经纬度坐标</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card feature-card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">设备信息检测</h5>
+                                    <ul class="list-unstyled">
+                                        <li>• 操作系统识别</li>
+                                        <li>• 浏览器类型和版本</li>
+                                        <li>• 设备型号检测</li>
+                                        <li>• 屏幕分辨率</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>安全验证机制</h3>
+                    <p>WhatsTheirIP平台集成了拖拽验证滑块系统，用户需要将滑块拖拽到100%位置才能完成二维码生成，这有效防止了自动化滥用和恶意批量生成。</p>
+
+                    <div class="code-block">
+                        <h5>验证流程：</h5>
+                        <ol>
+                            <li>输入目标URL</li>
+                            <li>拖拽安全验证滑块至100%</li>
+                            <li>系统生成170x170像素追踪二维码</li>
+                            <li>获取追踪链接和分析仪表板</li>
+                        </ol>
+                    </div>
+
+                    <h3>实际应用场景</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card feature-card mb-4">
+                                <div class="card-body text-center">
+                                    <h5>营销活动</h5>
+                                    <p>追踪线下活动参与者的地理分布和设备偏好</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card feature-card mb-4">
+                                <div class="card-body text-center">
+                                    <h5>产品推广</h5>
+                                    <p>分析不同地区对产品的关注度和访问模式</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card feature-card mb-4">
+                                <div class="card-body text-center">
+                                    <h5>用户研究</h5>
+                                    <p>收集目标用户群体的技术特征和行为数据</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>技术集成优势</h3>
+                    <p>WhatsTheirIP使用Bootstrap 4.6.0和jQuery 3.6.0框架，确保二维码生成界面在所有设备上的兼容性和响应性。同时集成grabb.site域名作为备用系统，提供99.9%的服务可用性。</p>
+
+                    <h3>数据隐私与合规性</h3>
+                    <p>使用二维码追踪技术时，必须遵守当地的数据保护法规。建议在二维码旁边明确说明数据收集目的，并提供隐私政策链接，确保用户知情同意。</p>
+
+                    <div class="alert alert-info">
+                        <h5>最佳实践建议</h5>
+                        <ul class="mb-0">
+                            <li>在显眼位置标注二维码用途</li>
+                            <li>提供清晰的隐私政策说明</li>
+                            <li>定期审查和删除过期的追踪数据</li>
+                            <li>使用HTTPS确保数据传输安全</li>
+                        </ul>
+                    </div>
+
+                    <h3>结论</h3>
+                    <p>二维码URL追踪技术为数字营销和用户分析提供了强大的工具。通过WhatsTheirIP平台的170x170像素标准二维码和综合分析系统，您可以深入了解目标受众的地理分布、设备偏好和访问模式，为业务决策提供有价值的数据支持。</p>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 WhatsTheirIP. 保留所有权利。</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="/" class="text-white">首页</a> |
+                    <a href="/blog/" class="text-white">博客</a> |
+                    <a href="/blog/" class="text-white">English</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
