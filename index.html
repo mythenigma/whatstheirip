@@ -23,12 +23,11 @@
   
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" type="text/css">
-  
-  <!-- Plugin CSS -->
+    <!-- Plugin CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet">
   
-  <!-- MaiPDF CSS Framework -->
-  <link href="https://maipdf.com/pdf/css/creative.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS for layout support -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Open Graph Meta Tags -->
   <meta property='og:title' content='whatstheirip - Advanced IP Tracking Solutions'>
@@ -105,14 +104,13 @@
       transition: var(--transition);
       padding: 1rem 0;
     }
-    
-    .navbar-brand {
+      .navbar-brand {
       font-weight: 800;
       font-size: 1.5rem;
       background: var(--gradient-primary);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
       letter-spacing: -0.5px;
     }
     
@@ -285,15 +283,15 @@
       box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
       transform: translateY(-1px);
       background: white;
-    }
-    
-    /* Dividers */
+    }      /* Dividers */
     .divider {
       max-width: 4rem;
       border-width: 3px;
       border-color: var(--primary-color);
       border-radius: 2px;
       opacity: 1;
+      margin: 0 auto !important;
+      display: block;
     }
     
     /* Service Icons */
@@ -488,8 +486,7 @@
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
-    
-    /* Responsive Design */
+      /* Responsive Design */
     @media (max-width: 768px) {
       .masthead h1 {
         font-size: 2.5rem;
@@ -507,9 +504,14 @@
       .card-body {
         padding: 1.5rem;
       }
+      
+      .divider {
+        max-width: 3rem;
+        border-width: 2px;
+        margin: 1rem auto !important;
+      }
     }
-    
-    @media (max-width: 576px) {
+      @media (max-width: 576px) {
       .masthead h1 {
         font-size: 2rem;
       }
@@ -520,6 +522,12 @@
       
       .btn-xl {
         width: 100%;
+      }
+      
+      .divider {
+        max-width: 2.5rem;
+        border-width: 2px;
+        margin: 0.75rem auto !important;
       }
     }
     
@@ -578,7 +586,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">        <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="https://www.maipdf.com/pdf/boot.php">PDF</a>
+            <a class="nav-link js-scroll-trigger" href="https://www.maipdf.com/pdf/maipdf.php">PDF</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#email">Email</a>
@@ -601,7 +609,7 @@
         <div class="col-lg-10 align-self-end">
           <h1 class="text-white font-weight-bold mb-4">
             🚀 Advanced IP Tracking<br>
-            <span class="gradient-text" style="background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Made Simple</span>
+            <span class="gradient-text" style="background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Made Simple</span>
           </h1>
           <hr class="divider my-4" style="border-color: rgba(255,255,255,0.8);">
         </div>
@@ -701,48 +709,37 @@
             Our tools create specialized links that can be shared via social media or messaging to instantly capture IP addresses.
           </p>
         </div>
-      </div>      <div class="row">
+      </div>      <div class="row justify-content-center">
         <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
+          <div class="mt-4">
             <a class="nav-link js-scroll-trigger text-decoration-none" href="#url">
-              <div class="service-icon">
+              <div class="service-icon" style="font-size: 2rem;">
                 <i class="fas fa-link"></i>
               </div>
-              <h3 class="h4 mb-2 gradient-text">URL Tracking</h3>
-              <p class="text-muted mb-0">Generate and share tracked links that log IP data</p>
+              <h3 class="h5 mb-2 gradient-text">URL Tracking</h3>
+              <p class="text-muted mb-0 small">Generate tracked links that log IP data</p>
             </a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
+          <div class="mt-4">
             <a class="nav-link js-scroll-trigger text-decoration-none" href="#email">
-              <div class="service-icon">
+              <div class="service-icon" style="font-size: 2rem;">
                 <i class="fas fa-envelope"></i>
               </div>
-              <h3 class="h4 mb-2 gradient-text">Email Tracking</h3>
-              <p class="text-muted mb-0">Invisible images that track when emails are opened</p>
+              <h3 class="h5 mb-2 gradient-text">Email Tracking</h3>
+              <p class="text-muted mb-0 small">Invisible images that track email opens</p>
             </a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <a class="nav-link js-scroll-trigger text-decoration-none" href="qr.php#pic">
-              <div class="service-icon">
-                <i class="fas fa-images"></i>
+          <div class="mt-4">
+            <a class="nav-link text-decoration-none" href="https://privnote.chat" target="_blank">
+              <div class="service-icon" style="font-size: 2rem;">
+                <i class="fas fa-sticky-note"></i>
               </div>
-              <h3 class="h4 mb-2 gradient-text">Image Tracking</h3>
-              <p class="text-muted mb-0">Create images that report when they're viewed</p>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <a class="nav-link js-scroll-trigger text-decoration-none" href="https://www.maipdf.com/pdf/boot.php">
-              <div class="service-icon">
-                <i class="fas fa-file-pdf"></i>
-              </div>
-              <h3 class="h4 mb-2 gradient-text">PDF Tracking</h3>
-              <p class="text-muted mb-0">Track when PDFs are opened and viewed</p>
+              <h3 class="h5 mb-2 gradient-text">Notes Tracking</h3>
+              <p class="text-muted mb-0 small">Create secure notes with tracking</p>
             </a>
           </div>
         </div>
@@ -1012,11 +1009,8 @@
         <div class="card-header">
           <h5 class="mb-0">PHP Source Code for Creating Tracking Pixels</h5>
         </div>
-        <div class="card-body">
-          <pre><code><span style="color: #000000">
-&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//We can pass in 'Get' variable to make each link unique in order to track accordingly
-	<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">])){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Below to line's function is to log device inforamtion and their ip address
-		<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$agent</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">];<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Option1:we can use a SQL database to log details<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #0000BB">$servername</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dbname</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Failed:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Option2:we can also use a txt file to log data alternatively<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$myfile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"feed.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a+"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;open&nbsp;file!"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rich</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//After the log of data, we can use the code from part1 to display image afterward<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">120</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$text_color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">233</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">14</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">91</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagestring</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #DD0000">'A&nbsp;Simple&nbsp;Text&nbsp;String'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$text_color</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/jpeg'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;</span></span>
+        <div class="card-body">          <pre><code><span style="color: #000000">
+&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//GET for tracking<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">])){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Log device info<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$agent</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">];<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Option 1: SQL<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #0000BB">$servername</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dbname</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Failed:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Option 2: Text file<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$myfile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"feed.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a+"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;open&nbsp;file!"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rich</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Display pixel<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">120</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$text_color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">233</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">14</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">91</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagestring</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #DD0000">'A&nbsp;Simple&nbsp;Text&nbsp;String'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$text_color</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/jpeg'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;</span></span>
 </code></pre>
         </div>
       </div>
@@ -1036,19 +1030,61 @@
           <a class="btn btn-primary btn-block" href="https://maipdf.com/qr.php">
             <i class="fas fa-image mr-2"></i> Image to QR
           </a>
+        </div>      </div>    </div>
+  </section>
+
+  <!-- Blog Promotion Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="bg-white rounded-lg shadow-lg p-4 border">
+            <h3 class="mb-4">
+              <i class="fas fa-blog text-primary mr-3"></i>
+              <span class="gradient-text">IP Tracking Knowledge Center</span>
+            </h3>
+            <p class="lead mb-4">Discover expert guides, tutorials, and insights on IP tracking technologies, applications, and privacy considerations. Learn from comprehensive articles covering everything from fundamentals to advanced techniques.</p>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="text-center">
+                  <i class="fas fa-book-open text-primary mb-2" style="font-size: 2rem;"></i>
+                  <h6>Fundamentals</h6>
+                  <small class="text-muted">IP basics, geolocation, and core concepts</small>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="text-center">
+                  <i class="fas fa-briefcase text-primary mb-2" style="font-size: 2rem;"></i>
+                  <h6>Business Applications</h6>
+                  <small class="text-muted">Marketing, analytics, and ROI strategies</small>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="text-center">
+                  <i class="fas fa-shield-alt text-primary mb-2" style="font-size: 2rem;"></i>
+                  <h6>Security & Compliance</h6>
+                  <small class="text-muted">GDPR, privacy, and ethical considerations</small>
+                </div>
+              </div>
+            </div>
+            <a href="blog/index.html" class="btn btn-primary btn-lg mt-3">
+              <i class="fas fa-arrow-right mr-2"></i>Explore Our Blog
+            </a>
+          </div>
         </div>
-      </div>    </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+      <div class="row">        <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
           <h5 class="text-white mb-3">Resources</h5>
           <ul class="list-unstyled">
-            <li><a href="https://www.maipdf.com">MaiPDF Home</a></li>
-            <li><a href="https://grabify.icu">Grabify</a></li>
+            <li><a href="blog/index.html" class="text-muted"><i class="fas fa-blog mr-2"></i>IP Tracking Blog</a></li>
+            <li><a href="https://www.maipdf.com" class="text-muted">MaiPDF Home</a></li>
+            <li><a href="https://grabify.icu" class="text-muted">Grabify</a></li>
           </ul>
         </div>
         <div class="col-md-4 text-center mb-3 mb-md-0">
