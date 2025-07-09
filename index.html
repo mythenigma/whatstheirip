@@ -15,7 +15,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta name="Joe" content="MaiPDF">
-  <title>whatstheirip - Advanced IP Tracking Solutions</title>
+  <title data-translate="site.title">whatstheirip - Advanced IP Tracking Solutions</title>
 <link href="styles.css" rel="stylesheet">  
   <!-- Bootstrap core JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -56,25 +56,17 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="https://grabify.icu">whatstheirip.tech</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="https://www.maipdf.com/pdf/maipdf.php">PDF</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#email">Email</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#url">URL</a>
-          </li>          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#code-to-link">View Stats</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="https://maipdf.com/qr.php#pic">Images</a>
-          </li>
-        </ul>
+      
+      <!-- Direct Language Selector - No hamburger menu needed -->
+      <div class="navbar-nav ml-auto">
+        <div class="nav-item language-selector">
+          <button class="nav-link btn btn-link language-toggle" id="languageToggle" onclick="handleLanguageSwitch()" style="border: none; background: none; color: inherit; cursor: pointer; display: flex; align-items: center;">
+            <span class="flag-icon">🇺🇸</span>
+            <span class="lang-name">English</span>
+            <i class="fas fa-chevron-down ml-1"></i>
+          </button>
+          <!-- Dropdown will be inserted here by JavaScript -->
+        </div>
       </div>
     </div>
   </nav>
@@ -83,22 +75,22 @@
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
           <h1 class="text-white font-weight-bold mb-4">
-            🚀 Advanced IP Tracking<br>
-            <span class="gradient-text" style="background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Made Simple</span>
+            <span data-translate="hero.title1">🚀 Advanced IP Tracking</span><br>
+            <span class="gradient-text" style="background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-translate="hero.title2">Made Simple</span>
           </h1>
           <hr class="divider my-4" style="border-color: rgba(255,255,255,0.8);">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5 lead">
+          <p class="text-white-75 font-weight-light mb-5 lead" data-translate="hero.description">
             🌐 Track IP addresses with precision using our advanced suite of tools. 
             Monitor URLs, emails, images, and PDFs with real-time analytics and comprehensive reporting.
           </p>
           <div class="d-flex justify-content-center gap-3 flex-wrap">
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#code-to-link">
-              <i class="fas fa-chart-line mr-2"></i>View Your Stats
+              <i class="fas fa-chart-line mr-2"></i><span data-translate="hero.viewStats">View Your Stats</span>
             </a>
             <a class="btn btn-outline-light btn-xl js-scroll-trigger" href="#services">
-              <i class="fas fa-rocket mr-2"></i>Get Started
+              <i class="fas fa-rocket mr-2"></i><span data-translate="hero.getStarted">Get Started</span>
             </a>
           </div>
         </div>
@@ -111,25 +103,25 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Enter Your Tracking Code to View Stats</h2>
+          <h2 class="mt-0" data-translate="tracking.title">Enter Your Tracking Code to View Stats</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-4">Have a tracking code? Enter it below to view your tracking statistics and data.</p>
+          <p class="text-muted mb-4" data-translate="tracking.description">Have a tracking code? Enter it below to view your tracking statistics and data.</p>
         </div>
       </div>
       
       <div class="card mb-4">
         <div class="card-body">
           <div class="form-group">
-            <label for="trackingCodeInput" class="font-weight-bold">Enter your tracking code:</label>
-            <input type="text" class="form-control" id="trackingCodeInput" placeholder="e.g., abc123" oninput="generateTrackingLink()" autocomplete="off">
+            <label for="trackingCodeInput" class="font-weight-bold" data-translate="tracking.label">Enter your tracking code:</label>
+            <input type="text" class="form-control" id="trackingCodeInput" data-translate="tracking.placeholder" placeholder="e.g., abc123" oninput="generateTrackingLink()" autocomplete="off">
             <small class="form-text text-muted">
               <i class="fas fa-info-circle mr-1"></i>
-              Enter your tracking code to view statistics and tracking data
+              <span data-translate="tracking.hint">Enter your tracking code to view statistics and tracking data</span>
             </small>
             <div id="trackingCodeFeedback" class="mt-2" style="display: none;">
               <small class="text-success">
                 <i class="fas fa-check-circle mr-1"></i>
-                Valid tracking code format detected
+                <span data-translate="tracking.validFormat">Valid tracking code format detected</span>
               </small>
             </div>
           </div>
@@ -142,7 +134,7 @@
           <div class="card shadow-lg">
             <div class="card-body">
               <h5 class="mb-3" style="color: var(--primary-color);">
-                <i class="fas fa-chart-line mr-2"></i>📊 Tracking Statistics
+                <i class="fas fa-chart-line mr-2"></i><span data-translate="tracking.statisticsTitle">📊 Tracking Statistics</span>
               </h5>
               <div style="background: #2c3e50; color: #ecf0f1; padding: 1rem; border-radius: 8px; position: relative;">
                 <code id="generatedTrackingLink" style="font-size: 0.9rem; word-break: break-all; line-height: 1.4;">https://grabify.icu/</code>
@@ -154,14 +146,14 @@
               <div class="text-center mt-4">
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
                   <a id="viewGeneratedTrackingData" href="#" target="_blank" class="btn btn-primary btn-lg" title="View tracking statistics">
-                    <i class="fas fa-chart-line mr-1"></i>View Statistics
+                    <i class="fas fa-chart-line mr-1"></i><span data-translate="tracking.viewStatistics">View Statistics</span>
                   </a>
                 </div>
               </div>
               
               <div class="alert alert-info mt-3 mb-0">
                 <i class="fas fa-lightbulb mr-2"></i>
-                <strong>How to use:</strong> Enter your tracking code above to view detailed statistics including visitor data, locations, devices, and more.
+                <strong data-translate="tracking.howToUse">How to use:</strong> Enter your tracking code above to view detailed statistics including visitor data, locations, devices, and more.
               </div>
             </div>
           </div>
@@ -173,13 +165,13 @@
   <!-- Services/Features Section -->
   <section class="page-section" id="services">
     <div class="container">
-      <h2 class="text-center mt-0">Ways To Track & Logger an IP</h2>
+      <h2 class="text-center mt-0" data-translate="services.title">Ways To Track & Logger an IP</h2>
       <hr class="divider my-4">
       <h5 class="text-center mb-4" id='resultlink'></h5>
 
       <div class="card mb-4">
         <div class="card-body">
-          <p class="lead">
+          <p class="lead" data-translate="services.description">
             Find the geographic location of anyone you're interacting with online. This information can be valuable for verification or tracking purposes.
             Our tools create specialized links that can be shared via social media or messaging to instantly capture IP addresses.
           </p>
@@ -191,8 +183,8 @@
               <div class="service-icon" style="font-size: 2rem;">
                 <i class="fas fa-link"></i>
               </div>
-              <h3 class="h5 mb-2 gradient-text">URL Tracking</h3>
-              <p class="text-muted mb-0 small">Generate tracked links that log IP data</p>
+              <h3 class="h5 mb-2 gradient-text" data-translate="services.urlTracking">URL Tracking</h3>
+              <p class="text-muted mb-0 small" data-translate="services.urlDesc">Generate tracked links that log IP data</p>
             </a>
           </div>
         </div>
@@ -202,8 +194,8 @@
               <div class="service-icon" style="font-size: 2rem;">
                 <i class="fas fa-envelope"></i>
               </div>
-              <h3 class="h5 mb-2 gradient-text">Email Tracking</h3>
-              <p class="text-muted mb-0 small">Invisible images that track email opens</p>
+              <h3 class="h5 mb-2 gradient-text" data-translate="services.emailTracking">Email Tracking</h3>
+              <p class="text-muted mb-0 small" data-translate="services.emailDesc">Invisible images that track email opens</p>
             </a>
           </div>
         </div>
@@ -213,8 +205,8 @@
               <div class="service-icon" style="font-size: 2rem;">
                 <i class="fas fa-sticky-note"></i>
               </div>
-              <h3 class="h5 mb-2 gradient-text">Notes Tracking</h3>
-              <p class="text-muted mb-0 small">Create secure notes with tracking</p>
+              <h3 class="h5 mb-2 gradient-text" data-translate="services.notesTracking">Notes Tracking</h3>
+              <p class="text-muted mb-0 small" data-translate="services.notesDesc">Create secure notes with tracking</p>
             </a>
           </div>
         </div>
@@ -226,17 +218,17 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">URL & QR Tracker Generator</h2>
+          <h2 class="mt-0" data-translate="url.title">URL & QR Tracker Generator</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-4">Create a tracking link that logs information when someone visits it. You'll also get a QR code that points to your tracking link.</p>
+          <p class="text-muted mb-4" data-translate="url.description">Create a tracking link that logs information when someone visits it. You'll also get a QR code that points to your tracking link.</p>
         </div>
       </div>
       
       <div class="card mb-4">
         <div class="card-body">
           <div class="form-group">
-            <label for="webinput" id="joehint" class="font-weight-bold">Enter the URL you want to track:</label>
-            <input type="text" class="form-control" id="webinput" value="https://" placeholder="https://example.com">
+            <label for="webinput" id="joehint" class="font-weight-bold" data-translate="url.label">Enter the URL you want to track:</label>
+            <input type="text" class="form-control" id="webinput" value="https://" data-translate="url.placeholder" placeholder="https://example.com">
           </div>
           
           <div class="text-center my-4">
@@ -245,7 +237,7 @@
           </div>
             <div class="text-center">
             <button type="button" class="btn btn-primary btn-xl" onclick="makeCodeweb()">
-              <i class="fas fa-link mr-2"></i> Generate Tracking URL/QR
+              <i class="fas fa-link mr-2"></i><span data-translate="url.generateButton"> Generate Tracking URL/QR</span>
             </button>
           </div>
         </div>
@@ -260,7 +252,7 @@
                 <!-- Primary Focus: Tracking URL (larger) -->
                 <div class="col-md-8">
                   <h5 class="mb-3" style="color: var(--primary-color);">
-                    <i class="fas fa-link mr-2"></i>🔗 Tracking URL
+                    <i class="fas fa-link mr-2"></i><span data-translate="url.trackingUrlTitle">🔗 Tracking URL</span>
                   </h5>
                   <div style="background: #2c3e50; color: #ecf0f1; padding: 1rem; border-radius: 8px; position: relative;">
                     <code id="immediateTrackingUrl" style="font-size: 0.9rem; word-break: break-all; line-height: 1.4;">Your tracking URL will appear here</code>
@@ -270,14 +262,14 @@
                   </div>
                   <p class="mt-3 mb-0 text-muted">
                     <i class="fas fa-share-alt mr-1"></i>
-                    Share this link to track visitor information
+                    <span data-translate="url.shareLink">Share this link to track visitor information</span>
                   </p>
                 </div>
                 
                 <!-- Secondary: Tracking Code (smaller) -->
                 <div class="col-md-4">
                   <h5 class="mb-3" style="color: var(--primary-color);">
-                    <i class="fas fa-key mr-2"></i>🔑 Tracking Code
+                    <i class="fas fa-key mr-2"></i><span data-translate="url.trackingCodeTitle">🔑 Tracking Code</span>
                   </h5>
                   <div style="background: #2c3e50; color: #ecf0f1; padding: 1rem; border-radius: 8px; position: relative;">
                     <code id="immediateTrackingCode" style="font-size: 0.9rem; word-break: break-all; line-height: 1.4;">Your tracking code will appear here</code>
@@ -287,7 +279,7 @@
                   </div>
                   <p class="mt-3 mb-0 text-muted">
                     <i class="fas fa-chart-line mr-1"></i>
-                    Save this code to view tracking results later
+                    <span data-translate="url.saveCode">Save this code to view tracking results later</span>
                   </p>
                 </div>
               </div>
@@ -295,17 +287,17 @@
               <div class="text-center mt-4">
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
                   <button class="btn btn-outline-primary btn-sm" onclick="copyFromElement('immediateTrackingUrl', 'Tracking URL copied to clipboard!')" title="Copy tracking URL">
-                    <i class="fas fa-copy mr-1"></i>Copy URL
+                    <i class="fas fa-copy mr-1"></i><span data-translate="url.copyUrl">Copy URL</span>
                   </button>
                   <button class="btn btn-outline-success btn-sm" onclick="copyFromElement('immediateTrackingCode', 'Tracking code copied to clipboard!')" title="Copy tracking code">
-                    <i class="fas fa-key mr-1"></i>Copy Code
+                    <i class="fas fa-key mr-1"></i><span data-translate="url.copyCode">Copy Code</span>
                   </button>
                   <a id="viewTrackingData" href="#" target="_blank" class="btn btn-outline-info btn-sm" title="View tracking data" style="display: none;">
-                    <i class="fas fa-chart-line mr-1"></i>View Results
+                    <i class="fas fa-chart-line mr-1"></i><span data-translate="url.viewResults">View Results</span>
                   </a>
                 </div>
                 <small class="text-muted d-block mt-2">
-                  <i class="fas fa-info-circle mr-1"></i>Generate a tracking link above to populate these fields
+                  <i class="fas fa-info-circle mr-1"></i><span data-translate="url.generateHint">Generate a tracking link above to populate these fields</span>
                 </small>
               </div>
             </div>
@@ -317,7 +309,7 @@
         <div id="xingxi" class="col-lg-7 col-md-6">
           <div class="card h-100">
             <div class="card-body">
-              <h4 class="card-title mb-4">Your Tracking Information</h4>
+              <h4 class="card-title mb-4" data-translate="url.trackingInfo">Your Tracking Information</h4>
               <div class="tracking-result">
                 <p id="atype" class="mb-3"></p>
                 <p id="btypesay" class="mb-3 highlight"></p>
@@ -330,9 +322,9 @@
         <div class="col-lg-5 col-md-6 text-center d-flex align-items-center justify-content-center">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title mb-3">QR Code</h4>
+              <h4 class="card-title mb-3" data-translate="url.qrCode">QR Code</h4>
               <div id="qrcodeweb" class="mx-auto"></div>
-              <small class="text-muted d-block mt-3">Scan with any QR reader to open the tracking link</small>
+              <small class="text-muted d-block mt-3" data-translate="url.qrHint">Scan with any QR reader to open the tracking link</small>
             </div>
           </div>
         </div>
@@ -340,13 +332,13 @@
       
       <div class="card mt-5">
         <div class="card-body">
-          <h5 class="mb-3">How It Works:</h5>
+          <h5 class="mb-3" data-translate="url.howItWorks">How It Works:</h5>
           <ol class="pl-3">
-            <li class="mb-2">Enter the URL you want whatstheirip to track</li>
-            <li class="mb-2">Drag the progress bar to 100% and click the generate button</li>
-            <li class="mb-2">Share the generated tracking link with your target</li>
-            <li class="mb-2">Save your tracking code for later reference</li>
-            <li class="mb-2">Enter the tracking code on the home page to see captured information</li>
+            <li class="mb-2" data-translate="url.step1">Enter the URL you want whatstheirip to track</li>
+            <li class="mb-2" data-translate="url.step2">Drag the progress bar to 100% and click the generate button</li>
+            <li class="mb-2" data-translate="url.step3">Share the generated tracking link with your target</li>
+            <li class="mb-2" data-translate="url.step4">Save your tracking code for later reference</li>
+            <li class="mb-2" data-translate="url.step5">Enter the tracking code on the home page to see captured information</li>
           </ol>
         </div>
       </div>
@@ -577,7 +569,26 @@
 
   <script type="text/javascript" src="https://www.maipdf.com/pdf/qrcode.min.js"></script>
 
-  <!-- Remove all the inline JavaScript and replace with external file -->
+  <!-- Translation System - Load BEFORE custom scripts -->
+  <script src="translations.js"></script>
+  
+  <!-- Custom JavaScript -->
   <script src="scripts.js"></script>
+  
+  <!-- Ensure handleLanguageSwitch is available globally -->
+  <script>
+    // Backup function definition in case translations.js hasn't loaded yet
+    if (typeof handleLanguageSwitch === 'undefined') {
+      window.handleLanguageSwitch = function() {
+        console.log('Backup language switch called');
+        // Try to call the main function if it exists
+        if (typeof switchLanguage === 'function') {
+          switchLanguage();
+        } else {
+          console.log('switchLanguage function not available yet');
+        }
+      };
+    }
+  </script>
 </body>
 </html>
