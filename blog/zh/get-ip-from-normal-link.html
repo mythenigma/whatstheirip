@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何通过一个普通链接获取他人IP地址 - WhatsTheirIP</title>
+    <meta name="description" content="详细教程：学习如何使用WhatsTheirIP工具通过普通链接获取访问者的IP地址，包括实施步骤、安全考虑和最佳实践。">
+    <meta name="keywords" content="IP获取, 链接追踪, IP地址, WhatsTheirIP, 网络监控, 访客追踪">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://whatstheirip.tech/blog/zh/get-ip-from-normal-link.html">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860" crossorigin="anonymous"></script>
+    
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        .feature-card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .success-box {
+            background-color: #d1edff;
+            border: 1px solid #74b9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">WhatsTheirIP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">中文博客</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">English Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">如何通过一个普通链接获取他人IP地址</h1>
+                    <p class="lead mb-4">使用WhatsTheirIP.tech工具，轻松创建追踪链接并获取访问者的详细IP信息</p>
+                    <p class="text-light"><i class="fas fa-calendar"></i> 2025年1月20日发布 | <i class="fas fa-clock"></i> 8分钟阅读</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Introduction -->
+                <section class="mb-5">
+                    <h2>什么是IP地址获取？</h2>
+                    <p>IP地址获取是指通过技术手段收集访问特定链接或资源的用户的网络标识信息。使用<strong>WhatsTheirIP.tech</strong>平台，您可以创建看似普通的链接，但实际上能够记录点击者的IP地址、地理位置、设备信息等详细数据。</p>
+                    
+                    <div class="success-box">
+                        <h5><i class="fas fa-lightbulb text-primary"></i> 主要应用场景</h5>
+                        <ul class="mb-0">
+                            <li><strong>网络安全调查</strong>：识别可疑访问者和潜在威胁</li>
+                            <li><strong>数字营销分析</strong>：了解受众的地理分布和设备偏好</li>
+                            <li><strong>内容保护</strong>：监控敏感内容的访问情况</li>
+                            <li><strong>用户行为研究</strong>：分析用户访问模式和兴趣点</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- How It Works -->
+                <section class="mb-5">
+                    <h2>工作原理详解</h2>
+                    <p>WhatsTheirIP.tech使用先进的重定向技术和服务器日志分析，在用户点击链接的瞬间捕获其网络信息，然后将用户重定向到目标页面，整个过程对用户完全透明。</p>
+
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6">
+                            <div class="card feature-card">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title text-primary">
+                                        <i class="fas fa-link mr-2"></i>链接伪装
+                                    </h5>
+                                    <p class="card-text">生成看似正常的短链接，隐藏追踪功能，确保目标用户正常点击。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card feature-card">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title text-primary">
+                                        <i class="fas fa-server mr-2"></i>数据捕获
+                                    </h5>
+                                    <p class="card-text">服务器自动记录访问者的IP地址、User-Agent、时间戳等关键信息。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card feature-card">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title text-primary">
+                                        <i class="fas fa-globe mr-2"></i>地理定位
+                                    </h5>
+                                    <p class="card-text">通过IP地址数据库查询，获取访问者的国家、城市等地理位置信息。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card feature-card">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title text-primary">
+                                        <i class="fas fa-chart-line mr-2"></i>数据分析
+                                    </h5>
+                                    <p class="card-text">提供详细的访问统计和可视化图表，便于分析和理解数据。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step by Step Guide -->
+                <section class="mb-5">
+                    <h2>详细操作步骤</h2>
+                    <p>以下是使用WhatsTheirIP.tech获取他人IP地址的完整步骤：</p>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <h4>访问WhatsTheirIP.tech平台</h4>
+                                    <p>打开浏览器，访问 <strong>https://whatstheirip.tech</strong>，这是我们的官方平台。</p>
+                                    <div class="code-block">
+                                        <p><strong>直接访问：</strong> <a href="https://whatstheirip.tech" target="_blank">https://whatstheirip.tech</a></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <h4>选择URL追踪功能</h4>
+                                    <p>在主页上找到"URL & QR Tracker Generator"部分，这是我们的核心功能模块。</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <h4>输入目标URL</h4>
+                                    <p>在输入框中输入您要伪装的目标网站地址。这可以是任何有效的网站链接。</p>
+                                    <div class="code-block">
+                                        <h6>示例输入：</h6>
+                                        <pre><code>https://www.youtube.com/watch?v=dQw4w9WgXcQ
+https://www.google.com
+https://github.com
+https://stackoverflow.com</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <h4>设置进度条</h4>
+                                    <p>将页面上的进度条拖动到100%，这是激活生成功能的必要步骤。</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">5</div>
+                                <div>
+                                    <h4>生成追踪链接</h4>
+                                    <p>点击"Generate Tracking URL/QR"按钮，系统将为您生成专属的追踪链接。</p>
+                                    <div class="code-block">
+                                        <h6>生成的链接格式示例：</h6>
+                                        <pre><code>https://grabify.icu/track/ABC123DEF456
+追踪代码：ABC123DEF456</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">6</div>
+                                <div>
+                                    <h4>分享追踪链接</h4>
+                                    <p>将生成的链接发送给目标用户。可以通过以下方式分享：</p>
+                                    <ul>
+                                        <li>社交媒体私信</li>
+                                        <li>即时通讯工具（微信、QQ、WhatsApp等）</li>
+                                        <li>电子邮件</li>
+                                        <li>论坛或社区发帖</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="step-number">7</div>
+                                <div>
+                                    <h4>查看追踪结果</h4>
+                                    <p>返回WhatsTheirIP.tech主页，在"Enter Your Tracking Code to View Stats"部分输入您的追踪代码，即可查看详细的访问数据。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Advanced Features -->
+                <section class="mb-5">
+                    <h2>高级功能和技巧</h2>
+                    
+                    <h3 class="mt-4">1. 链接伪装技巧</h3>
+                    <div class="code-block">
+                        <h6>使用URL缩短服务进一步隐藏：</h6>
+                        <pre><code>原始追踪链接：https://grabify.icu/track/ABC123DEF456
+通过bit.ly缩短：https://bit.ly/3xYz9Qm
+通过tinyurl缩短：https://tinyurl.com/sample123</code></pre>
+                    </div>
+
+                    <h3 class="mt-4">2. 社交工程结合</h3>
+                    <p>提高点击率的消息模板：</p>
+                    <div class="code-block">
+                        <h6>示例消息：</h6>
+                        <pre><code>"嘿，你看过这个有趣的视频吗？[链接]"
+"这个网站有免费的资源下载：[链接]"
+"新发现的小游戏，很有意思：[链接]"
+"这篇文章提到了你，快看看：[链接]"</code></pre>
+                    </div>
+
+                    <h3 class="mt-4">3. 批量追踪管理</h3>
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">📊 数据导出</h6>
+                                    <p class="card-text small">支持将追踪数据导出为CSV或JSON格式，便于进一步分析。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">⏰ 实时监控</h6>
+                                    <p class="card-text small">提供实时通知功能，第一时间了解链接被点击的情况。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">🎯 精确定位</h6>
+                                    <p class="card-text small">除IP地址外，还提供ISP信息、连接类型等详细网络数据。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">📱 设备识别</h6>
+                                    <p class="card-text small">自动识别访问设备的操作系统、浏览器版本等信息。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security and Legal -->
+                <section class="mb-5">
+                    <h2>安全考虑与法律合规</h2>
+                    
+                    <div class="warning-box">
+                        <h5><i class="fas fa-exclamation-triangle text-warning"></i> 重要提醒</h5>
+                        <ul class="mb-0">
+                            <li><strong>合法使用</strong>：请确保您的使用目的符合当地法律法规</li>
+                            <li><strong>隐私保护</strong>：尊重他人隐私，避免用于恶意目的</li>
+                            <li><strong>数据安全</strong>：妥善保管获取的数据，防止泄露</li>
+                            <li><strong>透明原则</strong>：在必要时应告知被追踪者相关情况</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="mt-4">数据保护最佳实践</h3>
+                    <div class="code-block">
+                        <h6>建议的数据处理流程：</h6>
+                        <pre><code>1. 数据收集 → 仅收集必要的信息
+2. 数据存储 → 使用加密存储方式
+3. 数据访问 → 限制访问权限
+4. 数据保留 → 设定合理的保留期限
+5. 数据销毁 → 超期自动删除</code></pre>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting -->
+                <section class="mb-5">
+                    <h2>常见问题解决</h2>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Q: 链接生成后没有人点击怎么办？
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>A:</strong> 可以尝试以下方法提高点击率：
+                                    <ul>
+                                        <li>使用更吸引人的描述文字</li>
+                                        <li>选择目标用户感兴趣的内容作为重定向目标</li>
+                                        <li>在合适的时间发送链接</li>
+                                        <li>考虑使用URL缩短服务进一步伪装</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Q: 如何提高IP地址定位的准确性？
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>A:</strong> IP地理定位的准确性取决于多个因素：
+                                    <ul>
+                                        <li>IPv4地址通常比IPv6更准确</li>
+                                        <li>宽带连接比移动网络定位更精确</li>
+                                        <li>大城市的定位精度高于偏远地区</li>
+                                        <li>VPN和代理会影响定位准确性</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Q: 追踪代码丢失了怎么办？
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>A:</strong> 如果追踪代码丢失：
+                                    <ul>
+                                        <li>检查浏览器历史记录</li>
+                                        <li>查看邮件或聊天记录中的备份</li>
+                                        <li>联系WhatsTheirIP.tech客服支持</li>
+                                        <li>建议将代码保存在安全的地方</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="mb-5">
+                    <h2>总结</h2>
+                    <p>通过WhatsTheirIP.tech平台，您可以轻松创建看似普通但实际具有追踪功能的链接，获取访问者的详细IP信息和地理位置数据。这项技术在网络安全、数字营销、用户研究等领域有着广泛的应用价值。</p>
+                    
+                    <p>记住始终遵循法律法规和道德准则，合理使用这项技术，确保在获取有价值信息的同时保护他人的隐私权益。</p>
+
+                    <div class="text-center mt-4">
+                        <a href="https://whatstheirip.tech" class="btn btn-primary btn-lg" target="_blank">
+                            <i class="fas fa-external-link-alt mr-2"></i>立即使用WhatsTheirIP.tech
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Related Articles -->
+                <section class="mt-5">
+                    <h3>相关文章推荐</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">
+                                        <a href="ip-basics-guide.html" class="text-decoration-none">IP地址基础知识完全指南</a>
+                                    </h6>
+                                    <p class="card-text small text-muted">了解IP地址的基本概念和工作原理</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">
+                                        <a href="gdpr-compliance-ip-tracking.html" class="text-decoration-none">GDPR合规与IP追踪</a>
+                                    </h6>
+                                    <p class="card-text small text-muted">了解IP追踪的法律合规要求</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>WhatsTheirIP</h5>
+                    <p>专业的IP追踪和分析平台，提供企业级的网络情报解决方案。</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../../index.html" class="text-light text-decoration-none">首页</a></li>
+                        <li><a href="index.html" class="text-light text-decoration-none">中文博客</a></li>
+                        <li><a href="../../index.html#privacy" class="text-light text-decoration-none">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 WhatsTheirIP. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
