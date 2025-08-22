@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Track an IP from a Link (No Code): Safe, Consent-Based Guide | WhatsTheirIP</title>
+  <meta name="description" content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for curiosity and analytics." />
+  <link rel="canonical" href="https://whatstheirip.tech/blog/track-ip-from-a-link" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" />
+  <meta property="og:description" content="A practical, privacy-aware way to view IP, region, ISP, and device info via a trackable link—no coding required." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://whatstheirip.tech/blog/track-ip-from-a-link" />
+  <meta property="og:site_name" content="WhatsTheirIP" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" />
+  <meta name="twitter:description" content="See where a click came from—safely and legally—with consent-based link analytics from WhatsTheirIP.tech." />
+
+  <style>
+    :root { --fg:#111827; --muted:#6b7280; --brand:#2563eb; --bg:#fff; --card:#f3f4f6; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+    .wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}
+    header{margin:8px 0 22px}
+    h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:.2em 0 .4em}
+    h2{font-size:clamp(21px,3vw,28px);margin:1.6em 0 .5em}
+    h3{font-size:20px;margin:1.2em 0 .4em}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border-radius:14px;padding:18px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border-radius:10px;padding:12px 18px;font-weight:600}
+    .btn:hover{opacity:.94}
+    .toc a{color:var(--brand);text-decoration:none}
+    .note{border-left:4px solid var(--brand);padding:10px 12px;background:#eef2ff;border-radius:8px}
+    ul{padding-left:22px}
+    ol{padding-left:24px}
+    .faq details{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
+    .faq summary{cursor:pointer;font-weight:600}
+    .foot{margin-top:32px;font-size:14px}
+    code.k{background:#1118270f;padding:2px 6px;border-radius:6px}
+  </style>
+
+  <!-- Structured data: Article + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Track an IP from a Link (No Code): Safe, Consent-Based Guide",
+    "description":"A practical, privacy-aware tutorial showing how to view high-level IP analytics (region, ISP, device) through a tracking link—no coding required.",
+    "author":{"@type":"Organization","name":"WhatsTheirIP"},
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://whatstheirip.tech/blog/track-ip-from-a-link"},
+    "about":["IP address","IP tracking","link analytics","privacy"],
+    "dateModified":"2025-08-22"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do I need to code to track an IP from a link?",
+       "acceptedAnswer":{"@type":"Answer","text":"No. WhatsTheirIP.tech generates a trackable link in seconds and shows high-level analytics like IP, region, ISP, device, and timestamps."}},
+      {"@type":"Question","name":"Can I see someone’s exact address from their IP?",
+       "acceptedAnswer":{"@type":"Answer","text":"No. IPs reveal coarse location (e.g., city/region) and ISP, not an exact street address."}},
+      {"@type":"Question","name":"Is consent required?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes. Use analytics responsibly with notice/consent and comply with local privacy laws and platform policies."}},
+      {"@type":"Question","name":"What if the person uses a VPN?",
+       "acceptedAnswer":{"@type":"Answer","text":"You’ll see the VPN/proxy exit location and network, which may differ from their physical location."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="muted">Hands-on • Privacy-aware link analytics</p>
+      <h1>Track an IP from a Link (No Code): Safe, Consent-Based Guide</h1>
+      <p class="muted">Curious where a click came from? Here’s a practical way to see IP, region, ISP, and device info using a trackable link—without writing a single line of code.</p>
+    </header>
+
+    <nav class="card toc" aria-label="Table of contents">
+      <strong>Quick links:</strong>
+      <a href="#what-you-see">What you can (and can’t) see</a> •
+      <a href="#how-to">Step-by-step (no code)</a> •
+      <a href="#use-cases">Fun & legit use cases</a> •
+      <a href="#accuracy">Accuracy & VPNs</a> •
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <section id="intro">
+      <p>Whether you’re testing a link with friends, running a quick poll, or exploring how the internet routes traffic, it’s useful to know where a click originates. The trick is doing it <em>simply</em> and <em>responsibly</em>.</p>
+      <div class="note"><strong>Heads-up:</strong> Stick to analytics, education, or security. Always use notice/consent and respect local privacy rules. This guide is <em>not</em> for harassment or doxxing.</div>
+    </section>
+
+    <section id="what-you-see">
+      <h2>What You Can (and Can’t) See from an IP</h2>
+      <p>An IP address is a network identifier—closer to a postcode than a street address. Typical insights include:</p>
+      <ul>
+        <li>Coarse <strong>region/city</strong> (geolocation databases)</li>
+        <li><strong>ISP</strong> or network provider</li>
+        <li><strong>Connection type</strong> (mobile, broadband, corporate)</li>
+        <li><strong>Device & browser</strong> (from user agent)</li>
+        <li><strong>Timestamps</strong> of clicks</li>
+      </ul>
+      <p>What you do <strong>not</strong> get: exact street address, precise identity, or private content. VPNs can also mask true origin.</p>
+    </section>
+
+    <section id="how-to">
+      <h2>Track an IP from a Link in 3 Steps (No Coding)</h2>
+      <div class="card">
+        <ol>
+          <li><strong>Create a trackable link:</strong> Visit <a href="https://whatstheirip.tech" target="_blank" rel="noopener">WhatsTheirIP.tech</a> and generate a unique link.</li>
+          <li><strong>Share with notice:</strong> Send the link to your audience/friends with a clear note that analytics (IP, region, ISP, device) will be collected.</li>
+          <li><strong>View the dashboard:</strong> Open your analytics page to see clicks with high-level details and timestamps.</li>
+        </ol>
+      </div>
+      <p>Optional tips:</p>
+      <ul>
+        <li>Add context in your message (e.g., “This link uses analytics to show where responses come from”).</li>
+        <li>Combine with campaign tags (e.g., <code class="k">?ref=friends</code>) to segment clicks.</li>
+      </ul>
+      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Generate a tracking link</a></p>
+    </section>
+
+    <section id="use-cases">
+      <h2>Fun & Legit Use Cases</h2>
+      <ul>
+        <li><strong>“Where are people voting from?”</strong> Run a quick poll and view regional interest.</li>
+        <li><strong>Group trips & events:</strong> See whether responses came from home, campus, or abroad (coarse level).</li>
+        <li><strong>Learning lab:</strong> Demonstrate IP, ISPs, and geolocation in class with consent.</li>
+        <li><strong>Marketing tests:</strong> Gauge city/region engagement on a teaser link.</li>
+      </ul>
+    </section>
+
+    <section id="accuracy">
+      <h2>Accuracy, VPNs, and Common Myths</h2>
+      <ul>
+        <li><strong>IP ≠ exact address:</strong> You’ll typically get city/region accuracy, not someone’s doorstep.</li>
+        <li><strong>VPNs & proxies:</strong> You’ll see the egress location/network of the VPN, which may differ from the user’s physical location.</li>
+        <li><strong>Mobile networks:</strong> Carrier NATs can map many users to shared IP ranges, reducing granularity.</li>
+      </ul>
+    </section>
+
+    <section id="cta" class="card">
+      <h2>Try WhatsTheirIP — Privacy-Aware Link Analytics</h2>
+      <p>Create a trackable link in seconds, view IP/region/ISP/device data, and keep things respectful with clear notice and consent.</p>
+      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Start now</a></p>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>Do I need to code or run a server?</summary>
+        <p>No. WhatsTheirIP generates the link and analytics for you—no scripts, no hosting.</p>
+      </details>
+
+      <details>
+        <summary>Can I identify a person from their IP?</summary>
+        <p>No. You’ll see high-level network/region info, not personally identifying details.</p>
+      </details>
+
+      <details>
+        <summary>Is this legal where I live?</summary>
+        <p>Analytics are generally lawful with notice/consent and adherence to local privacy laws (e.g., GDPR/CCPA-style rules). When in doubt, seek legal advice.</p>
+      </details>
+
+      <details>
+        <summary>What if someone uses a VPN?</summary>
+        <p>You’ll see the VPN exit IP/location. That’s normal and expected behavior.</p>
+      </details>
+    </section>
+
+    <section class="foot">
+      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Generate a consent-based tracking link</a></p>
+      <p class="muted">Disclaimer: Educational/analytic use only. Always inform participants and comply with applicable laws and platform policies.</p>
+    </section>
+  </div>
+</body>
+</html>
