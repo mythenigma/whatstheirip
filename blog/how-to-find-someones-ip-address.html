@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do | WhatsTheirIP</title>
+  <meta name="description" content="Curious about where a click came from? Learn what an IP address reveals, the legal/ethical limits, and how WhatsTheirIP.tech offers consent-based link analytics to see region, ISP, device, and timestamps — without invading privacy." />
+  <link rel="canonical" href="https://whatstheirip.tech/blog/find-someones-ip-address" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do" />
+  <meta property="og:description" content="What an IP really shows, legal/ethical limits, and a safer way to satisfy curiosity with consent-based link analytics using WhatsTheirIP.tech." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://whatstheirip.tech/blog/find-someones-ip-address" />
+  <meta property="og:site_name" content="WhatsTheirIP" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do" />
+  <meta name="twitter:description" content="Curiosity is fine — just keep it ethical. Learn what an IP shows and try consent-based link analytics with WhatsTheirIP.tech." />
+
+  <style>
+    :root { --fg:#1f2a37; --muted:#6b7280; --brand:#3b82f6; --bg:#fff; --card:#f8fafc; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:880px;margin:0 auto;padding:28px 20px 64px}
+    header{margin:8px 0 22px}
+    h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:.2em 0 .4em}
+    h2{font-size:clamp(21px,3vw,28px);margin:1.6em 0 .45em}
+    h3{font-size:20px;margin:1.2em 0 .4em}
+    p,li{color:var(--fg)}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border-radius:14px;padding:18px 18px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border-radius:10px;padding:12px 18px;font-weight:600}
+    .btn:hover{opacity:.92}
+    .toc a{color:var(--brand);text-decoration:none}
+    .note{border-left:4px solid var(--brand);padding:10px 12px;background:#eef5ff;border-radius:8px}
+    ul{padding-left:22px}
+    .faq details{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
+    .faq summary{cursor:pointer;font-weight:600}
+    .foot{margin-top:32px;font-size:14px}
+  </style>
+
+  <!-- Structured data: Article + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do",
+    "description":"Curiosity is okay—here’s what an IP reveals, legal/ethical limits, and a safer way to satisfy curiosity with consent-based link analytics using WhatsTheirIP.tech.",
+    "author":{"@type":"Organization","name":"WhatsTheirIP"},
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://whatstheirip.tech/blog/find-someones-ip-address"},
+    "about":["IP address","IP lookup","link analytics","online privacy"],
+    "dateModified":"2025-08-22"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I get someone’s exact address from an IP?",
+       "acceptedAnswer":{"@type":"Answer","text":"No. An IP can reveal a coarse region, ISP, and rough city at best. It does not expose an exact street address."}},
+      {"@type":"Question","name":"Is it legal to look up IP information?",
+       "acceptedAnswer":{"@type":"Answer","text":"Generally legal when used for analytics and security with notice/consent and in compliance with local privacy laws. Do not use IP data to harass, stalk, or dox anyone."}},
+      {"@type":"Question","name":"Do VPNs and proxies affect IP visibility?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes. You’ll see the VPN/proxy egress location, not the user’s home network."}},
+      {"@type":"Question","name":"What does WhatsTheirIP.tech show?",
+       "acceptedAnswer":{"@type":"Answer","text":"Consent-based link analytics such as IP, rough region, ISP, device/browser, and timestamps—designed for legitimate analytics and education."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="muted">Guide • Privacy-aware link analytics</p>
+      <h1>How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do</h1>
+      <p class="muted">Curious where a click came from? Learn what an IP really reveals, the do’s & don’ts, and a consent-based way to see high-level details.</p>
+    </header>
+
+    <nav class="card toc" aria-label="Table of contents">
+      <strong>Quick links:</strong>
+      <a href="#what-is-ip">What is an IP?</a> •
+      <a href="#is-it-legal">Is it legal?</a> •
+      <a href="#legit-ways">Legit, consent-based ways</a> •
+      <a href="#about-wti">About WhatsTheirIP</a> •
+      <a href="#use-cases">Fun & useful use cases</a> •
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <section id="intro">
+      <p>Maybe a friend says they’re “abroad,” or you’re just geeking out about how the internet works. It’s normal to feel curious about where a click originates. The key is doing it <em>responsibly</em>.</p>
+      <div class="note"><strong>Important:</strong> Respect privacy. Use consent-based analytics and follow local laws. This guide explains what an IP can show—and where to draw the line.</div>
+    </section>
+
+    <section id="what-is-ip">
+      <h2>What an IP Address Actually Reveals</h2>
+      <p>An IP (Internet Protocol) address is a network identifier—more like a postcode than a precise street address. Typical insights:</p>
+      <ul>
+        <li>Approximate <strong>region/city</strong> (coarse geolocation)</li>
+        <li><strong>Internet Service Provider</strong> (ISP)</li>
+        <li><strong>Connection type</strong> (mobile, broadband, corporate)</li>
+      </ul>
+      <p>It does <strong>not</strong> disclose a person’s exact home address. VPNs and proxies can also mask true location by showing the exit server instead.</p>
+    </section>
+
+    <section id="is-it-legal">
+      <h2>Is Finding Someone’s IP Address Legal?</h2>
+      <p>Generally, looking up IP information is lawful when done for <strong>analytics, security, or education</strong> with <strong>notice/consent</strong> and in line with privacy rules (e.g., GDPR/CCPA equivalents). It is <strong>not</strong> okay to use IP data to harass, stalk, dox, or break terms of service.</p>
+    </section>
+
+    <section id="legit-ways">
+      <h2>Legit, Consent-Based Ways to Satisfy Curiosity</h2>
+      <ul>
+        <li><strong>Link analytics you control:</strong> Share a link where visitors know analytics are collected; view high-level info like region, ISP, device, and timestamps.</li>
+        <li><strong>Your site or landing page:</strong> If you operate a site, standard server logs and analytics can show coarse IP insights with proper disclosure.</li>
+        <li><strong>Classroom & learning:</strong> Demonstrate networks and IPs in a lab setting where all participants agree.</li>
+      </ul>
+    </section>
+
+    <section id="about-wti">
+      <h2>Meet <em>WhatsTheirIP.tech</em> — Curiosity, But Keep It Classy</h2>
+      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Try WhatsTheirIP.tech</a></p>
+      <div class="card">
+        <h3>What it does</h3>
+        <ul>
+          <li>Creates <strong>consent-based trackable links</strong> for analytics and education.</li>
+          <li>Shows <strong>IP, rough region, ISP, device/browser, timestamps</strong>.</li>
+          <li>Simple dashboard, privacy-aware defaults, and clear user controls.</li>
+        </ul>
+        <h3>What it doesn’t do</h3>
+        <ul>
+          <li>No exact street addresses or invasive personal data.</li>
+          <li>Not a doxxing tool; misuse violates ethics and likely the law.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="use-cases">
+      <h2>Fun & Useful Use Cases</h2>
+      <ul>
+        <li><strong>“Are you really abroad?”</strong> Light-hearted, consented link analytics with friends.</li>
+        <li><strong>Event RSVPs & polls:</strong> See where responses come from at a high level.</li>
+        <li><strong>Marketing tests:</strong> Measure regional interest by link—ethically disclosed.</li>
+        <li><strong>Class demos:</strong> Show students how IPs map to regions and ISPs.</li>
+      </ul>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>Can I get someone’s exact address from an IP?</summary>
+        <p>No. You’ll typically see a rough region/city and ISP. Exact addresses are not exposed.</p>
+      </details>
+
+      <details>
+        <summary>Is it okay to grab an IP without telling someone?</summary>
+        <p>No. Use consent and follow local privacy laws. Stick to analytics, education, or security—not harassment or doxxing.</p>
+      </details>
+
+      <details>
+        <summary>Do VPNs make this useless?</summary>
+        <p>They can mask the original network, showing the VPN exit location instead. That’s expected behavior.</p>
+      </details>
+
+      <details>
+        <summary>What will I see in WhatsTheirIP?</summary>
+        <p>Consent-based analytics such as IP, coarse region, ISP, device/browser, and timestamps—designed for legitimate purposes.</p>
+      </details>
+    </section>
+
+    <section class="foot">
+      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Generate a consent-based tracking link</a></p>
+      <p class="muted">Disclaimer: This content is for educational/analytic purposes. Always inform participants and comply with applicable privacy laws and platform policies.</p>
+    </section>
+  </div>
+</body>
+</html>

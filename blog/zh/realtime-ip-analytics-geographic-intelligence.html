@@ -106,7 +106,7 @@
                 <!-- Introduction -->
                 <section class="mb-5">
                     <h2>什么是实时IP分析？</h2>
-                    <p>实时IP分析是一种先进的网络情报技术，通过即时分析IP地址信息来获得关于网络访问者的详细洞察。WhatsTheirIP平台提供企业级的实时IP分析服务，结合地理定位、设备识别、威胁检测等多维度数据，为用户提供全面的网络情报解决方案。</p>
+                        <p>实时IP分析是一种先进的网络情报技术，通过即时分析IP地址信息来获得关于网络访问者的详细洞察。WhatsTheirIP平台适合所有普通用户，结合地理定位、设备识别、威胁检测等多维度数据，为用户提供全面的网络情报参考。</p>
                     
                     <div class="analytics-box">
                         <h5><i class="bi bi-globe text-white"></i> 核心分析维度</h5>
@@ -175,24 +175,14 @@
                     <h2>实时IP分析实施指南</h2>
                     <p>以下是使用WhatsTheirIP平台实施实时IP分析的详细步骤和代码示例：</p>
 
-                    <h3 class="mt-4">1. 基础IP分析API调用</h3>
+                    <h3 class="mt-4">1. 基础IP分析示例（已移除API相关内容）</h3>
                     <div class="code-block">
                         <h6>JavaScript实时IP分析：</h6>
                         <pre><code>// 获取访问者IP并进行实时分析
 async function analyzeVisitorIP() {
     try {
         // 获取访问者IP
-        const ipResponse = await fetch('https://api.whatstheirip.com/get-ip');
-        const ipData = await ipResponse.json();
-        const visitorIP = ipData.ip;
-        
-        // 实时IP分析
-        const analysisResponse = await fetch(
-            `https://grabify.icu/analyze/${visitorIP}?format=json&detailed=true`, 
-            {
-                headers: {
-                    'Authorization': 'Bearer YOUR_API_KEY',
-                    'User-Agent': 'WhatsTheirIP-Client/1.0'
+    // 已移除API相关JS代码，普通用户无需API接口或密钥
                 }
             }
         );
