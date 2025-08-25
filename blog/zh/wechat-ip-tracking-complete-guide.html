@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何在微信聊天中获取他人IP地址 - 完整指南 | WhatsTheirIP 中文博客</title>
+    <meta name="description" content="学习如何在微信聊天中获取他人IP地址的详细方法。了解微信IP追踪技术、工具使用和最佳实践。">
+    <meta name="keywords" content="微信IP追踪, 微信聊天IP获取, 微信IP地址, 微信监控, 聊天追踪">
+    <link rel="stylesheet" href="../../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860" crossorigin="anonymous"></script>
+    
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        .article-content {
+            padding: 3rem 0;
+            line-height: 1.8;
+        }
+        .method-card {
+            border: 2px solid #25D366;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 5px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        .step-list li {
+            counter-increment: step-counter;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step-list li::before {
+            content: counter(step-counter);
+            background: #25D366;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        .wechat-features {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #25D366;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">whatstheirip.tech</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="../../index.html">首页</a>
+                <a class="nav-link" href="../index.html">English Blog</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">中文博客</a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="article-header text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 font-weight-bold mb-4">
+                        <i class="fab fa-weixin mr-3"></i>如何在微信聊天中获取他人IP地址
+                    </h1>
+                    <p class="lead mb-4">微信IP追踪的完整技术指南和最佳实践</p>
+                    <div class="row text-center mt-4">
+                        <div class="col-md-4">
+                            <i class="fas fa-clock text-white-50 mb-2" style="font-size: 2rem;"></i>
+                            <p>阅读时间: 12分钟</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fas fa-calendar text-white-50 mb-2" style="font-size: 2rem;"></i>
+                            <p>更新时间: 2024年12月</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fas fa-eye text-white-50 mb-2" style="font-size: 2rem;"></i>
+                            <p>难度: 高级</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article>
+                        <div class="warning-box">
+                            <h5><i class="fas fa-exclamation-triangle text-warning mr-2"></i>重要提醒</h5>
+                            <p class="mb-0">本文仅用于教育目的和合法的网络管理。请确保在获取IP地址时遵守当地法律法规，尊重他人隐私，并获得必要的授权。微信IP追踪涉及复杂的网络技术，请谨慎使用。</p>
+                        </div>
+
+                        <h2>微信IP追踪的特殊性</h2>
+                        <p>微信作为中国最大的即时通讯应用，其IP追踪具有以下特殊性：</p>
+                        <ul>
+                            <li><strong>网络架构复杂</strong>：微信使用多层代理和CDN网络</li>
+                            <li><strong>加密通信</strong>：所有通信都经过端到端加密</li>
+                            <li><strong>移动优先</strong>：主要用户通过移动设备访问</li>
+                            <li><strong>网络环境多样</strong>：WiFi、4G/5G、VPN等多种网络环境</li>
+                            <li><strong>安全机制完善</strong>：具有反追踪和反检测机制</li>
+                        </ul>
+
+                        <h2>技术原理分析</h2>
+                        <p>微信IP追踪的技术原理基于以下几个层面：</p>
+                        
+                        <div class="wechat-features">
+                            <h4><i class="fas fa-network-wired text-primary mr-2"></i>网络层面分析</h4>
+                            <div class="row text-center">
+                                <div class="col-md-3">
+                                    <i class="fas fa-server feature-icon"></i>
+                                    <p><strong>服务器连接</strong></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="fas fa-arrow-right feature-icon"></i>
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="fas fa-cloud feature-icon"></i>
+                                    <p><strong>CDN节点</strong></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="fas fa-arrow-right feature-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row text-center mt-3">
+                                <div class="col-md-3">
+                                    <i class="fas fa-mobile-alt feature-icon"></i>
+                                    <p><strong>客户端设备</strong></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="fas fa-arrow-right feature-icon"></i>
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="fas fa-map-marker-alt feature-icon"></i>
+                                    <p><strong>地理位置</strong></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="fas fa-database feature-icon"></i>
+                                    <p><strong>数据记录</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>具体实现方法</h2>
+
+                        <div class="method-card">
+                            <h3><i class="fas fa-link text-primary mr-2"></i>方法一：通过链接分享追踪</h3>
+                            <p>这是最常用且相对可靠的方法，通过微信分享追踪链接来获取IP地址。</p>
+                            
+                            <ol class="step-list">
+                                <li>
+                                    <strong>创建追踪链接</strong>
+                                    <p>使用whatstheirip.tech或其他IP追踪服务创建追踪链接</p>
+                                </li>
+                                <li>
+                                    <strong>优化链接内容</strong>
+                                    <p>确保链接内容对目标用户有吸引力，提高点击率</p>
+                                </li>
+                                <li>
+                                    <strong>通过微信分享</strong>
+                                    <p>将追踪链接发送到微信聊天、朋友圈或微信群</p>
+                                </li>
+                                <li>
+                                    <strong>监控访问记录</strong>
+                                    <p>实时监控追踪链接的访问情况</p>
+                                </li>
+                                <li>
+                                    <strong>分析IP数据</strong>
+                                    <p>分析获取到的IP地址和地理位置信息</p>
+                                </li>
+                            </ol>
+
+                            <h4>链接优化技巧：</h4>
+                            <ul>
+                                <li><strong>内容吸引力</strong>：分享有趣的文章、视频或资源</li>
+                                <li><strong>时机选择</strong>：选择用户活跃的时间段分享</li>
+                                <li><strong>个性化推荐</strong>：根据聊天内容推荐相关内容</li>
+                                <li><strong>紧急程度</strong>：制造一定的紧迫感</li>
+                            </ul>
+                        </div>
+
+                        <div class="method-card">
+                            <h3><i class="fas fa-qrcode text-success mr-2"></i>方法二：二维码追踪</h3>
+                            <p>结合二维码技术，在微信中分享二维码图片来追踪IP。</p>
+                            
+                            <h4>实施步骤：</h4>
+                            <ol>
+                                <li><strong>生成追踪二维码</strong>：将追踪链接转换为二维码图片</li>
+                                <li><strong>图片优化</strong>：确保二维码清晰可扫描</li>
+                                <li><strong>微信分享</strong>：将二维码发送到微信聊天</li>
+                                <li><strong>引导扫描</strong>：鼓励用户扫描二维码</li>
+                            </ol>
+
+                            <h4>二维码设计建议：</h4>
+                            <ul>
+                                <li>使用高对比度的黑白配色</li>
+                                <li>确保二维码尺寸足够大</li>
+                                <li>在二维码周围添加说明文字</li>
+                                <li>考虑添加品牌Logo</li>
+                            </ul>
+                        </div>
+
+                        <div class="method-card">
+                            <h3><i class="fas fa-file-alt text-info mr-2"></i>方法三：文档和媒体追踪</h3>
+                            <p>通过分享文档、图片或视频等媒体文件来追踪IP地址。</p>
+                            
+                            <h4>媒体追踪技术：</h4>
+                            <div class="code-example">
+                                <pre><code>// 图片追踪代码示例
+&lt;img src="tracking-pixel.gif" 
+     alt="隐藏追踪像素" 
+     style="width:1px;height:1px;opacity:0;" 
+     onload="trackVisit()"&gt;
+
+&lt;script&gt;
+function trackVisit() {
+    const trackingData = {
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer,
+        url: window.location.href
+    };
+    
+    // 发送追踪数据
+    fetch('/track/wechat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(trackingData)
+    });
+}
+&lt;/script&gt;</code></pre>
+                            </div>
+
+                            <h4>支持的媒体类型：</h4>
+                            <ul>
+                                <li><strong>图片文件</strong>：JPG、PNG、GIF等格式</li>
+                                <li><strong>文档文件</strong>：PDF、Word、Excel等</li>
+                                <li><strong>视频文件</strong>：MP4、AVI、MOV等</li>
+                                <li><strong>音频文件</strong>：MP3、WAV、AAC等</li>
+                            </ul>
+                        </div>
+
+                        <div class="method-card">
+                            <h3><i class="fas fa-code text-warning mr-2"></i>方法四：高级技术追踪</h3>
+                            <p>使用更高级的技术手段来追踪微信用户的IP地址。</p>
+                            
+                            <h4>1. 网络流量分析</h4>
+                            <p>通过分析网络流量来识别微信用户的真实IP：</p>
+                            <div class="code-example">
+                                <pre><code>// 网络流量分析示例（Python）
+import pyshark
+import time
+
+def capture_wechat_traffic(interface="eth0", duration=60):
+    """捕获微信相关网络流量"""
+    
+    # 创建捕获对象
+    capture = pyshark.LiveCapture(interface=interface)
+    
+    # 设置过滤器，捕获微信相关流量
+    capture.set_debug()
+    
+    start_time = time.time()
+    wechat_ips = set()
+    
+    for packet in capture.sniff_continuously():
+        if time.time() - start_time > duration:
+            break
+            
+        try:
+            # 检查是否是微信相关流量
+            if hasattr(packet, 'ip'):
+                src_ip = packet.ip.src
+                dst_ip = packet.ip.dst
+                
+                # 检查目标端口（微信常用端口）
+                if hasattr(packet, 'tcp'):
+                    if packet.tcp.dstport in ['80', '443', '8080']:
+                        wechat_ips.add(src_ip)
+                        
+        except AttributeError:
+            continue
+    
+    capture.close()
+    return list(wechat_ips)
+
+# 使用示例
+wechat_ips = capture_wechat_traffic()
+print("检测到的微信IP地址:", wechat_ips)</code></pre>
+                            </div>
+
+                            <h4>2. 代理检测技术</h4>
+                            <p>检测用户是否使用代理，并尝试获取真实IP：</p>
+                            <ul>
+                                <li><strong>HTTP头分析</strong>：检查X-Forwarded-For、X-Real-IP等头信息</li>
+                                <li><strong>代理特征识别</strong>：识别常见的代理服务器特征</li>
+                                <li><strong>地理位置验证</strong>：通过多种方式验证IP地理位置的一致性</li>
+                            </ul>
+                        </div>
+
+                        <h2>微信环境下的特殊考虑</h2>
+
+                        <h3>1. 微信内置浏览器特性</h3>
+                        <p>微信内置浏览器具有以下特殊特性，需要特别注意：</p>
+                        <ul>
+                            <li><strong>User-Agent特殊</strong>：包含微信特有的标识信息</li>
+                            <li><strong>JavaScript限制</strong>：某些JavaScript功能可能受限</li>
+                            <li><strong>Cookie策略</strong>：Cookie存储和访问策略不同</li>
+                            <li><strong>网络请求限制</strong>：某些网络请求可能被阻止</li>
+                        </ul>
+
+                        <h3>2. 移动网络环境</h3>
+                        <p>微信主要在移动设备上使用，需要考虑：</p>
+                        <ul>
+                            <li><strong>网络切换</strong>：WiFi和移动网络之间的切换</li>
+                            <li><strong>IP变化</strong>：移动网络下IP地址可能频繁变化</li>
+                            <li><strong>延迟问题</strong>：移动网络延迟较高</li>
+                            <li><strong>流量限制</strong>：用户可能担心流量消耗</li>
+                        </ul>
+
+                        <h3>3. 微信安全机制</h3>
+                        <p>微信具有完善的安全机制，需要规避：</p>
+                        <ul>
+                            <li><strong>反垃圾检测</strong>：避免被识别为垃圾信息</li>
+                            <li><strong>链接安全检测</strong>：微信会检测链接的安全性</li>
+                            <li><strong>用户举报机制</strong>：用户可能举报可疑链接</li>
+                            <li><strong>账号封禁风险</strong>：违规行为可能导致账号被封</li>
+                        </ul>
+
+                        <h2>工具和服务对比</h2>
+
+                        <div class="comparison-table">
+                            <h3><i class="fas fa-balance-scale text-primary mr-2"></i>微信IP追踪工具对比</h3>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>工具名称</th>
+                                            <th>微信兼容性</th>
+                                            <th>追踪精度</th>
+                                            <th>使用难度</th>
+                                            <th>价格</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>whatstheirip.tech</strong></td>
+                                            <td>✅ 优秀</td>
+                                            <td>⭐⭐⭐⭐⭐</td>
+                                            <td>⭐⭐⭐</td>
+                                            <td>免费</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Grabify</strong></td>
+                                            <td>✅ 良好</td>
+                                            <td>⭐⭐⭐⭐</td>
+                                            <td>⭐⭐</td>
+                                            <td>免费</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>IP Logger</strong></td>
+                                            <td>⚠️ 一般</td>
+                                            <td>⭐⭐⭐</td>
+                                            <td>⭐⭐⭐⭐</td>
+                                            <td>$9.99/月</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>自建系统</strong></td>
+                                            <td>❌ 困难</td>
+                                            <td>⭐⭐⭐⭐⭐</td>
+                                            <td>⭐⭐⭐⭐⭐</td>
+                                            <td>开发成本</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h2>最佳实践和技巧</h2>
+
+                        <h3>1. 内容策略优化</h3>
+                        <ul>
+                            <li><strong>价值导向</strong>：确保分享的内容对用户真正有价值</li>
+                            <li><strong>个性化推荐</strong>：根据聊天内容推荐相关内容</li>
+                            <li><strong>时机把握</strong>：选择用户最活跃的时间分享</li>
+                            <li><strong>互动引导</strong>：鼓励用户点击和分享</li>
+                        </ul>
+
+                        <h3>2. 技术优化</h3>
+                        <ul>
+                            <li><strong>移动端优化</strong>：确保追踪页面在移动设备上表现良好</li>
+                            <li><strong>加载速度</strong>：优化页面加载速度，减少用户等待时间</li>
+                            <li><strong>兼容性测试</strong>：在不同设备和微信版本上测试</li>
+                            <li><strong>错误处理</strong>：提供友好的错误提示和备用方案</li>
+                        </ul>
+
+                        <h3>3. 用户体验优化</h3>
+                            <li><strong>界面设计</strong>：使用简洁美观的界面设计</li>
+                            <li><strong>操作流程</strong>：简化用户操作流程</li>
+                            <li><strong>反馈机制</strong>：提供及时的用户反馈</li>
+                            <li><strong>隐私保护</strong>：明确告知用户数据收集情况</li>
+                        </ul>
+
+                        <h2>隐私和法律考虑</h2>
+                        
+                        <div class="warning-box">
+                            <h5><i class="fas fa-gavel text-warning mr-2"></i>法律合规要求</h5>
+                            <p>在微信环境中进行IP追踪时，必须特别注意以下法律要求：</p>
+                            <ul>
+                                <li><strong>个人信息保护法</strong>：遵守中国的个人信息保护法规</li>
+                                <li><strong>网络安全法</strong>：符合网络安全相关要求</li>
+                                <li><strong>微信平台规则</strong>：遵守微信平台的使用条款</li>
+                                <li><strong>行业标准</strong>：遵循相关行业的最佳实践</li>
+                            </ul>
+                        </div>
+
+                        <h3>合规建议：</h3>
+                        <ol>
+                            <li><strong>明确告知</strong>：在分享链接前明确告知用户追踪目的</li>
+                            <li><strong>获得同意</strong>：在可能的情况下获得用户的明确同意</li>
+                            <li><strong>数据最小化</strong>：只收集必要的追踪数据</li>
+                            <li><strong>安全保护</strong>：采用适当的安全措施保护用户数据</li>
+                            <li><strong>定期审查</strong>：定期审查和更新隐私政策</li>
+                        </ol>
+
+                        <h2>常见问题和解决方案</h2>
+
+                        <h3>Q: 微信内置浏览器无法正常追踪怎么办？</h3>
+                        <p>A: 解决微信内置浏览器追踪问题的方案：</p>
+                        <ul>
+                            <li>使用微信兼容的追踪技术</li>
+                            <li>优化页面加载速度</li>
+                            <li>提供微信外浏览器访问选项</li>
+                            <li>使用微信小程序作为替代方案</li>
+                        </ul>
+
+                        <h3>Q: 如何提高微信环境下的追踪成功率？</h3>
+                        <p>A: 提高微信追踪成功率的关键策略：</p>
+                        <ul>
+                            <li>优化链接内容，提高用户点击意愿</li>
+                            <li>选择合适的分享时机和方式</li>
+                            <li>使用多种追踪技术组合</li>
+                            <li>持续优化用户体验</li>
+                        </ul>
+
+                        <h3>Q: 微信IP追踪有什么特殊风险？</h3>
+                        <p>A: 微信IP追踪的特殊风险及防范措施：</p>
+                        <ul>
+                            <li><strong>账号风险</strong>：避免被识别为垃圾信息发送者</li>
+                            <li><strong>链接封禁</strong>：使用可信的域名和SSL证书</li>
+                            <li><strong>用户举报</strong>：确保追踪行为的合法性和合理性</li>
+                            <li><strong>平台检测</strong>：避免触发微信的安全检测机制</li>
+                        </ul>
+
+                        <h2>总结</h2>
+                        <p>微信IP追踪是一项复杂而具有挑战性的技术，需要综合考虑技术、法律、用户体验等多个方面。通过合理的方法和工具，可以在微信环境中成功追踪IP地址，但必须始终牢记隐私保护和法律合规的重要性。</p>
+
+                        <div class="alert alert-info">
+                            <h5><i class="fas fa-info-circle mr-2"></i>相关资源</h5>
+                            <ul class="mb-0">
+                                <li><a href="get-ip-from-single-link.html">如何通过链接获取他人IP</a></li>
+                                <li><a href="qr-code-ip-tracking-complete-guide.html">二维码IP追踪完整指南</a></li>
+                                <li><a href="mobile-ip-tracking-guide.html">移动设备IP追踪指南</a></li>
+                                <li><a href="ip-tracking-privacy-compliance.html">IP追踪隐私合规指南</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card sticky-top" style="top: 2rem;">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-list mr-2"></i>文章目录</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#wechat-specialty" class="text-decoration-none">微信IP追踪的特殊性</a></li>
+                                <li><a href="#technical-principles" class="text-decoration-none">技术原理分析</a></li>
+                                <li><a href="#implementation-methods" class="text-decoration-none">具体实现方法</a></li>
+                                <li><a href="#wechat-environment" class="text-decoration-none">微信环境下的特殊考虑</a></li>
+                                <li><a href="#tools-comparison" class="text-decoration-none">工具和服务对比</a></li>
+                                <li><a href="#best-practices" class="text-decoration-none">最佳实践和技巧</a></li>
+                                <li><a href="#privacy-legal" class="text-decoration-none">隐私和法律考虑</a></li>
+                                <li><a href="#faq" class="text-decoration-none">常见问题和解决方案</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-tools mr-2"></i>推荐工具</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success mr-2"></i>whatstheirip.tech</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>Grabify IP Logger</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>IP Logger</li>
+                                <li><i class="fas fa-check text-success mr-2"></i>自建追踪系统</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="fas fa-book mr-2"></i>学习资源</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-link text-info mr-2"></i>微信开发文档</li>
+                                <li><i class="fas fa-link text-info mr-2"></i>移动设备追踪指南</li>
+                                <li><i class="fas fa-link text-info mr-2"></i>网络安全法规</li>
+                                <li><i class="fas fa-link text-info mr-2"></i>隐私保护最佳实践</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 whatstheirip.tech. 保留所有权利。</p>
+            <p><small>本文仅供教育和合法用途参考，请遵守当地法律法规。</small></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
