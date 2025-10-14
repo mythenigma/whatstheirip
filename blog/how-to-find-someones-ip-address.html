@@ -15,61 +15,343 @@
   <meta property="og:site_name" content="WhatsTheirIP" />
 
   <!-- Twitter -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do" />
+  <meta name="twitter:title" content="How to Find Someone's IP Address (For Fun) — What You Can & Can't Do" />
   <meta name="twitter:description" content="Curiosity is fine — just keep it ethical. Learn what an IP shows and try consent-based link analytics with WhatsTheirIP.tech." />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
   <style>
-    :root { 
-      --fg:#1f2937; 
-      --muted:#6b7280; 
-      --brand:#3b82f6; 
-      --brand-light:#dbeafe;
-      --bg:linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); 
-      --card:#ffffff;
-      --shadow:0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg:0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 'Inter', system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    body{min-height:100vh}
-    .wrap{max-width:900px;margin:0 auto;padding:40px 20px 80px}
     
-    /* Header styling */
-    header{margin:20px 0 40px;text-align:center}
-    header .muted{font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:500}
-    h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:.3em 0 .6em;font-weight:700;background:linear-gradient(135deg, #3b82f6, #1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    h2{font-size:clamp(24px,4vw,32px);margin:2em 0 .8em;font-weight:600;color:#1f2937}
-    h3{font-size:22px;margin:1.5em 0 .6em;font-weight:600;color:#374151}
-    p,li{color:var(--fg);line-height:1.7}
+    :root {
+      --primary-color: #667eea;
+      --primary-dark: #5568d3;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --success-color: #10b981;
+      --text-dark: #1a202c;
+      --text-light: #718096;
+      --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --card-bg: #ffffff;
+      --section-bg: #f7fafc;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     
-    /* Cards and layout */
-    .card{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--shadow);border:1px solid #e5e7eb;margin:20px 0}
-    .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);transition:all 0.3s ease}
+    html {
+      scroll-behavior: smooth;
+    }
     
-    /* Navigation */
-    .toc{background:linear-gradient(135deg, var(--brand-light) 0%, #f0f9ff 100%);border:2px solid var(--brand);margin:30px 0}
-    .toc a{color:var(--brand);text-decoration:none;font-weight:500;padding:2px 6px;border-radius:4px}
-    .toc a:hover{background:var(--brand);color:white;transition:all 0.2s ease}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
     
-    /* Buttons */
-    .btn{display:inline-block;background:linear-gradient(135deg, var(--brand) 0%, #1d4ed8 100%);color:#fff;text-decoration:none;border-radius:12px;padding:14px 24px;font-weight:600;box-shadow:var(--shadow);transition:all 0.3s ease}
-    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+    /* Navigation Bar */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
     
-    /* Notes and highlights */
-    .note{border-left:4px solid var(--brand);padding:16px 20px;background:linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%);border-radius:8px;margin:20px 0;box-shadow:var(--shadow)}
-    .note strong{color:var(--brand)}
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     
-    /* Lists */
-    ul,ol{padding-left:24px;margin:16px 0}
-    li{margin:8px 0;line-height:1.7}
+    nav .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--bg-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
     
-    /* Misc */
-    .muted{color:var(--muted)}
+    nav .nav-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
     
-    /* Responsive */
+    nav .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: var(--bg-gradient);
+      color: white;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Content Container */
+    .article-container {
+      max-width: 900px;
+      margin: -3rem auto 0;
+      padding: 0 2rem 5rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* Related Articles */
+    .related-articles {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+    
+    .related-articles h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    .related-articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .related-article-card {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    
+    .related-article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-color);
+    }
+    
+    .related-article-card h4 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    
+    .related-article-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+    
+    /* Content Sections */
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+    
+    section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--bg-gradient);
+      border-radius: 2px;
+    }
+    
+    section h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: var(--text-dark);
+    }
+    
+    section p {
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+    
+    ul, ol {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+    
+    li::marker {
+      color: var(--primary-color);
+    }
+    
+    .card {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+      border-left: 4px solid var(--primary-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .note {
+      background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+      border-left: 4px solid #ffa500;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--bg-gradient);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .foot {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border-color);
+      margin-top: 3rem;
+      background: var(--card-bg);
+    }
+    
     @media (max-width: 768px) {
-      .wrap{padding:20px 16px 40px}
-      .card{padding:20px}
+      .hero {
+        padding: 3rem 1.5rem 2rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .article-container {
+        padding: 0 1rem 3rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      nav .nav-links a {
+        margin-left: 1rem;
+      }
+      
+      .related-articles-grid {
+        grid-template-columns: 1fr;
+      }
     }
     .faq details{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
     .faq summary{cursor:pointer;font-weight:600}
@@ -107,25 +389,31 @@
   </script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <p class="muted">Guide • Privacy-aware link analytics</p>
-      <h1>How to Find Someone’s IP Address (For Fun) — What You Can & Can’t Do</h1>
-      <p class="muted">Curious where a click came from? Learn what an IP really reveals, the do’s & don’ts, and a consent-based way to see high-level details.</p>
-    </header>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo">WhatsTheirIP</a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#features">Features</a>
+      </div>
+    </div>
+  </nav>
 
-    <nav class="card toc" aria-label="Table of contents">
-      <strong>Quick links:</strong>
-      <a href="#what-is-ip">What is an IP?</a> •
-      <a href="#is-it-legal">Is it legal?</a> •
-      <a href="#legit-ways">Legit, consent-based ways</a> •
-      <a href="#about-wti">About WhatsTheirIP</a> •
-      <a href="#use-cases">Fun & useful use cases</a> •
-      <a href="#faq">FAQ</a>
-    </nav>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-user-secret"></i> Privacy-Aware Guide</span>
+      <h1>How to Find Someone's IP<br>(Just for Fun)</h1>
+      <p>Curious where a click came from? Learn what an IP reveals, the legal limits, and how to track responsibly.</p>
+    </div>
+  </div>
 
+  <!-- Article Content -->
+  <div class="article-container">
     <section id="intro">
-      <p>Maybe a friend says they’re “abroad,” or you’re just geeking out about how the internet works. It’s normal to feel curious about where a click originates. The key is doing it <em>responsibly</em>.</p>
+      <p>Maybe a friend says they're "abroad," or you're just geeking out about how the internet works. It's normal to feel curious about where a click originates. The key is doing it <em>responsibly</em>.</p>
       <div class="note"><strong>Important:</strong> Respect privacy. Use consent-based analytics and follow local laws. This guide explains what an IP can show—and where to draw the line.</div>
     </section>
 
@@ -206,8 +494,27 @@
       </details>
     </section>
 
+    <!-- Related Articles -->
+    <div class="related-articles">
+      <h3><i class="fas fa-bookmark"></i> Related Articles</h3>
+      <div class="related-articles-grid">
+        <a href="track-ip-from-a-link.html" class="related-article-card">
+          <h4><i class="fas fa-link"></i> Track IP from a Link</h4>
+          <p>Learn how to create tracking links and see where clicks come from - no coding required!</p>
+        </a>
+        <a href="ip-address-basics.html" class="related-article-card">
+          <h4><i class="fas fa-network-wired"></i> IP Address Basics</h4>
+          <p>Understanding what IP addresses are and how they work on the internet.</p>
+        </a>
+        <a href="protect-your-online-privacy.html" class="related-article-card">
+          <h4><i class="fas fa-shield-alt"></i> Protect Your Privacy</h4>
+          <p>Tips and tools to keep your online identity and location secure.</p>
+        </a>
+      </div>
+    </div>
+
     <section class="foot">
-      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Generate a consent-based tracking link</a></p>
+      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Generate a Tracking Link Now</a></p>
       <p class="muted">Disclaimer: This content is for educational/analytic purposes. Always inform participants and comply with applicable privacy laws and platform policies.</p>
     </section>
   </div>
