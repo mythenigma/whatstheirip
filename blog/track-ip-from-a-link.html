@@ -4,7 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Track an IP from a Link (No Code): Safe, Consent-Based Guide | WhatsTheirIP</title>
-  <meta name="description" content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for curiosity and analytics." />
+  <meta name="description" content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for c</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="logo">WhatsTheirIP</a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#features">Features</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-shield-alt"></i> Privacy-Aware Analytics</span>
+      <h1>Track an IP from a Link<br>(No Coding Required)</h1>
+      <p>Discover where your clicks come from with safe, consent-based IP analytics. Learn what IP data reveals and how to use it responsibly.</p>
+    </div>
+  </div>
+
+  <!-- Article Content -->
+  <div class="article-container">
+    <!-- Table of Contents -->
+    <div class="toc-card">nd analytics." />
   <link rel="canonical" href="https://whatstheirip.tech/blog/track-ip-from-a-link" />
 
   <!-- Open Graph -->
@@ -19,26 +45,394 @@
   <meta name="twitter:title" content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" />
   <meta name="twitter:description" content="See where a click came from—safely and legally—with consent-based link analytics from WhatsTheirIP.tech." />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
   <style>
-    :root { --fg:#111827; --muted:#6b7280; --brand:#2563eb; --bg:#fff; --card:#f3f4f6; }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
-    .wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}
-    header{margin:8px 0 22px}
-    h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:.2em 0 .4em}
-    h2{font-size:clamp(21px,3vw,28px);margin:1.6em 0 .5em}
-    h3{font-size:20px;margin:1.2em 0 .4em}
-    .muted{color:var(--muted)}
-    .card{background:var(--card);border-radius:14px;padding:18px}
-    .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border-radius:10px;padding:12px 18px;font-weight:600}
-    .btn:hover{opacity:.94}
-    .toc a{color:var(--brand);text-decoration:none}
-    .note{border-left:4px solid var(--brand);padding:10px 12px;background:#eef2ff;border-radius:8px}
-    ul{padding-left:22px}
-    ol{padding-left:24px}
-    .faq details{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
-    .faq summary{cursor:pointer;font-weight:600}
-    .foot{margin-top:32px;font-size:14px}
-    code.k{background:#1118270f;padding:2px 6px;border-radius:6px}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-color: #667eea;
+      --primary-dark: #5568d3;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --success-color: #10b981;
+      --text-dark: #1a202c;
+      --text-light: #718096;
+      --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --card-bg: #ffffff;
+      --section-bg: #f7fafc;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    
+    /* Navigation Bar */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+    
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    nav .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--bg-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    
+    nav .nav-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    nav .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: var(--bg-gradient);
+      color: white;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Content Container */
+    .article-container {
+      max-width: 900px;
+      margin: -3rem auto 0;
+      padding: 0 2rem 5rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* Table of Contents */
+    .toc-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-color);
+    }
+    
+    .toc-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+    
+    .toc-card .toc-links {
+      display: grid;
+      gap: 0.75rem;
+    }
+    
+    .toc-card a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: var(--transition);
+      display: block;
+    }
+    
+    .toc-card a:hover {
+      background: #f0f4ff;
+      padding-left: 1.5rem;
+    }
+    
+    /* Content Sections */
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+    
+    section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--bg-gradient);
+      border-radius: 2px;
+    }
+    
+    section h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: var(--text-dark);
+    }
+    
+    section p {
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+    
+    /* Lists */
+    ul, ol {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+    
+    li::marker {
+      color: var(--primary-color);
+    }
+    
+    /* Info Cards */
+    .card {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+      border-left: 4px solid var(--primary-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .card ol {
+      margin-top: 1rem;
+    }
+    
+    /* Note Boxes */
+    .note {
+      background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+      border-left: 4px solid #ffa500;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .note strong {
+      color: #e07700;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--bg-gradient);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* FAQ Section */
+    .faq details {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    
+    .faq details:hover {
+      border-color: var(--primary-color);
+    }
+    
+    .faq summary {
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--primary-color);
+      font-size: 1.125rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .faq summary::before {
+      content: '▶';
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+    
+    .faq details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    
+    .faq details[open] summary {
+      margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    .foot {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border-color);
+      margin-top: 3rem;
+      background: var(--card-bg);
+    }
+    
+    /* Code blocks */
+    code.k {
+      background: #f1f5f9;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #e11d48;
+      border: 1px solid #e2e8f0;
+    }
+    
+    /* Links */
+    a {
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 1.5rem 2rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .article-container {
+        padding: 0 1rem 3rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      nav .nav-links a {
+        margin-left: 1rem;
+      }
+    }
   </style>
 
   <!-- Structured data: Article + FAQ -->
@@ -79,14 +473,19 @@
       <p class="muted">Curious where a click came from? Here’s a practical way to see IP, region, ISP, and device info using a trackable link—without writing a single line of code.</p>
     </header>
 
-    <nav class="card toc" aria-label="Table of contents">
-      <strong>Quick links:</strong>
-      <a href="#what-you-see">What you can (and can’t) see</a> •
-      <a href="#how-to">Step-by-step (no code)</a> •
-      <a href="#use-cases">Fun & legit use cases</a> •
-      <a href="#accuracy">Accuracy & VPNs</a> •
-      <a href="#faq">FAQ</a>
-    </nav>
+      <!-- Article Content -->
+  <div class="article-container">
+    <!-- Table of Contents -->
+    <div class="toc-card">
+      <h3><i class="fas fa-list"></i> Quick Navigation</h3>
+      <div class="toc-links">
+        <a href="#what-you-see"><i class="fas fa-eye"></i> What you can (and can't) see</a>
+        <a href="#how-to"><i class="fas fa-rocket"></i> Step-by-step guide (no code)</a>
+        <a href="#use-cases"><i class="fas fa-lightbulb"></i> Fun & legitimate use cases</a>
+        <a href="#accuracy"><i class="fas fa-crosshairs"></i> Accuracy & VPN considerations</a>
+        <a href="#faq"><i class="fas fa-question-circle"></i> Frequently Asked Questions</a>
+      </div>
+    </div>
 
     <section id="intro">
       <p>Whether you’re testing a link with friends, running a quick poll, or exploring how the internet routes traffic, it’s useful to know where a click originates. The trick is doing it <em>simply</em> and <em>responsibly</em>.</p>

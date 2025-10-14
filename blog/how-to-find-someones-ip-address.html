@@ -20,21 +20,57 @@
   <meta name="twitter:description" content="Curiosity is fine — just keep it ethical. Learn what an IP shows and try consent-based link analytics with WhatsTheirIP.tech." />
 
   <style>
-    :root { --fg:#1f2a37; --muted:#6b7280; --brand:#3b82f6; --bg:#fff; --card:#f8fafc; }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    .wrap{max-width:880px;margin:0 auto;padding:28px 20px 64px}
-    header{margin:8px 0 22px}
-    h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:.2em 0 .4em}
-    h2{font-size:clamp(21px,3vw,28px);margin:1.6em 0 .45em}
-    h3{font-size:20px;margin:1.2em 0 .4em}
-    p,li{color:var(--fg)}
+    :root { 
+      --fg:#1f2937; 
+      --muted:#6b7280; 
+      --brand:#3b82f6; 
+      --brand-light:#dbeafe;
+      --bg:linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); 
+      --card:#ffffff;
+      --shadow:0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg:0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 'Inter', system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    body{min-height:100vh}
+    .wrap{max-width:900px;margin:0 auto;padding:40px 20px 80px}
+    
+    /* Header styling */
+    header{margin:20px 0 40px;text-align:center}
+    header .muted{font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:500}
+    h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:.3em 0 .6em;font-weight:700;background:linear-gradient(135deg, #3b82f6, #1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    h2{font-size:clamp(24px,4vw,32px);margin:2em 0 .8em;font-weight:600;color:#1f2937}
+    h3{font-size:22px;margin:1.5em 0 .6em;font-weight:600;color:#374151}
+    p,li{color:var(--fg);line-height:1.7}
+    
+    /* Cards and layout */
+    .card{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--shadow);border:1px solid #e5e7eb;margin:20px 0}
+    .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);transition:all 0.3s ease}
+    
+    /* Navigation */
+    .toc{background:linear-gradient(135deg, var(--brand-light) 0%, #f0f9ff 100%);border:2px solid var(--brand);margin:30px 0}
+    .toc a{color:var(--brand);text-decoration:none;font-weight:500;padding:2px 6px;border-radius:4px}
+    .toc a:hover{background:var(--brand);color:white;transition:all 0.2s ease}
+    
+    /* Buttons */
+    .btn{display:inline-block;background:linear-gradient(135deg, var(--brand) 0%, #1d4ed8 100%);color:#fff;text-decoration:none;border-radius:12px;padding:14px 24px;font-weight:600;box-shadow:var(--shadow);transition:all 0.3s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+    
+    /* Notes and highlights */
+    .note{border-left:4px solid var(--brand);padding:16px 20px;background:linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%);border-radius:8px;margin:20px 0;box-shadow:var(--shadow)}
+    .note strong{color:var(--brand)}
+    
+    /* Lists */
+    ul,ol{padding-left:24px;margin:16px 0}
+    li{margin:8px 0;line-height:1.7}
+    
+    /* Misc */
     .muted{color:var(--muted)}
-    .card{background:var(--card);border-radius:14px;padding:18px 18px}
-    .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border-radius:10px;padding:12px 18px;font-weight:600}
-    .btn:hover{opacity:.92}
-    .toc a{color:var(--brand);text-decoration:none}
-    .note{border-left:4px solid var(--brand);padding:10px 12px;background:#eef5ff;border-radius:8px}
-    ul{padding-left:22px}
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .wrap{padding:20px 16px 40px}
+      .card{padding:20px}
+    }
     .faq details{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
     .faq summary{cursor:pointer;font-weight:600}
     .foot{margin-top:32px;font-size:14px}
