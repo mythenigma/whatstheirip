@@ -1,0 +1,11 @@
+# Cloudflare Pages Redirects
+# Redirect .html URLs to clean URLs (without .html extension)
+
+# Blog articles - redirect .html to clean URL
+/blog/*.html /blog/:splat 301
+
+# Ensure trailing slash for directories  
+/blog /blog/ 301
+
+# Catch-all for any other .html files (except index.html)
+/*.html /:splat 301

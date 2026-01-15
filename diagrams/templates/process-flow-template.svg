@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Inter, sans-serif" font-size="24" font-weight="600" text-anchor="middle" fill="#2d3748">
+    Process Flow Title
+  </text>
+  
+  <!-- 开始节点 -->
+  <g id="start">
+    <ellipse cx="400" cy="100" rx="80" ry="40" fill="#667eea" stroke="#764ba2" stroke-width="2"/>
+    <text x="400" y="108" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white" font-weight="500">
+      Start
+    </text>
+  </g>
+  
+  <!-- 箭头 -->
+  <path d="M 400 140 L 400 180" stroke="#667eea" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- 步骤1 -->
+  <g id="step1">
+    <rect x="300" y="180" width="200" height="60" rx="10" fill="white" stroke="#667eea" stroke-width="2"/>
+    <text x="400" y="205" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#2d3748" font-weight="600">
+      Step 1
+    </text>
+    <text x="400" y="225" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="#4a5568">
+      Description
+    </text>
+  </g>
+  
+  <!-- 箭头 -->
+  <path d="M 400 240 L 400 280" stroke="#667eea" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- 步骤2 -->
+  <g id="step2">
+    <rect x="300" y="280" width="200" height="60" rx="10" fill="white" stroke="#667eea" stroke-width="2"/>
+    <text x="400" y="305" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#2d3748" font-weight="600">
+      Step 2
+    </text>
+    <text x="400" y="325" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="#4a5568">
+      Description
+    </text>
+  </g>
+  
+  <!-- 箭头 -->
+  <path d="M 400 340 L 400 380" stroke="#667eea" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- 结束节点 -->
+  <g id="end">
+    <ellipse cx="400" cy="440" rx="80" ry="40" fill="#48bb78" stroke="#38a169" stroke-width="2"/>
+    <text x="400" y="448" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white" font-weight="500">
+      End
+    </text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#667eea"/>
+    </marker>
+  </defs>
+</svg>

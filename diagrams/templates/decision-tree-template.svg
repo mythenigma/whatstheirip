@@ -1,0 +1,65 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="500" y="40" font-family="Inter, sans-serif" font-size="24" font-weight="600" text-anchor="middle" fill="#2d3748">
+    Decision Tree
+  </text>
+  
+  <!-- 根节点 -->
+  <g id="root">
+    <rect x="450" y="80" width="100" height="50" rx="10" fill="#667eea" stroke="#764ba2" stroke-width="2"/>
+    <text x="500" y="110" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="white" font-weight="600">
+      Start
+    </text>
+  </g>
+  
+  <!-- 分支1 -->
+  <path d="M 500 130 L 300 200" stroke="#667eea" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <g id="branch1">
+    <rect x="200" y="200" width="200" height="60" rx="10" fill="white" stroke="#667eea" stroke-width="2"/>
+    <text x="300" y="225" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="#2d3748" font-weight="600">
+      Decision 1
+    </text>
+    <text x="300" y="245" font-family="Inter, sans-serif" font-size="11" text-anchor="middle" fill="#4a5568">
+      Yes
+    </text>
+  </g>
+  
+  <!-- 分支2 -->
+  <path d="M 500 130 L 700 200" stroke="#667eea" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <g id="branch2">
+    <rect x="600" y="200" width="200" height="60" rx="10" fill="white" stroke="#667eea" stroke-width="2"/>
+    <text x="700" y="225" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="#2d3748" font-weight="600">
+      Decision 2
+    </text>
+    <text x="700" y="245" font-family="Inter, sans-serif" font-size="11" text-anchor="middle" fill="#4a5568">
+      No
+    </text>
+  </g>
+  
+  <!-- 结果节点 -->
+  <path d="M 300 260 L 200 350" stroke="#48bb78" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <g id="result1">
+    <ellipse cx="150" cy="380" rx="60" ry="30" fill="#48bb78" stroke="#38a169" stroke-width="2"/>
+    <text x="150" y="388" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="white" font-weight="500">
+      Result 1
+    </text>
+  </g>
+  
+  <path d="M 700 260 L 800 350" stroke="#48bb78" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <g id="result2">
+    <ellipse cx="850" cy="380" rx="60" ry="30" fill="#48bb78" stroke="#38a169" stroke-width="2"/>
+    <text x="850" y="388" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="white" font-weight="500">
+      Result 2
+    </text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#667eea"/>
+    </marker>
+  </defs>
+</svg>
