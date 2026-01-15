@@ -9,7 +9,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="icon" type="image/svg+xml" href="../favicon.ico" type="image/x-icon">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
-</head>
+
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 <body>
   <!-- Navigation (same as other articles) -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -75,6 +81,38 @@
 
           <!-- Introduction -->
           <h2 id="introduction" class="mt-5">Introduction to GDPR and IP Tracking</h2>
+          
+            <!-- GDPR Compliance Checklist Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">GDPR Compliance Checklist</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/gdpr-compliance-checklist.svg" 
+                     alt="GDPR Compliance Checklist Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of gdpr compliance checklist</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+flowchart TD
+    A[GDPR Compliance] --> B[Legal Basis]
+    A --> C[Privacy Policy]
+    A --> D[Data Minimization]
+    A --> E[User Rights]
+    A --> F[Security Measures]
+    A --> G[Data Retention]
+    A --> H[Breach Notification]
+    
+    style A fill:#4A90E2,stroke:#357ABD,stroke-width:3px,color:#fff
+                </div>
+              </div>
+            </div>
+
           <p>Under the General Data Protection Regulation (GDPR), IP addresses are considered personal data. This comprehensive guide explores how to implement IP tracking while maintaining GDPR compliance.</p>
 
           <!-- Legal Basis -->

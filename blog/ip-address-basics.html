@@ -6,7 +6,13 @@
     <link rel="canonical" href="https://whatstheirip.tech/blog/ip-address-basics">
   <meta name="keywords" content="IP address guide, IPv4 IPv6 differences, static dynamic IPs, public private IPs, IP routing, IP security, find your IP, IP geolocation">
   <title>IP Address Basics & Geolocation Guide | whatstheirip.tech</title>
-</head>
+
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 <body>
   ...existing navbar...
   <header class="article-header">
@@ -44,7 +50,41 @@
 
       <!-- What Is an IP Address? -->
       <h2 id="what-is-ip" class="mt-5">What Is an IP Address?</h2>
-      <p>An Internet Protocol (IP) address is a unique identifier assigned to devices connected to a network. Think of it as a digital address that allows devices to communicate with each other over the internet or local networks. It serves two main purposes: identifying the device and providing its location within the network.</p>
+      
+            <!-- IP Address Structure Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">IP Address Structure</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/ip-address-structure.svg" 
+                     alt="IP Address Structure Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of ip address structure</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+graph TB
+    A[IP Address] --> B[IPv4]
+    A --> C[IPv6]
+    B --> B1[32-bit address]
+    B --> B2[4 octets]
+    B --> B3[Dotted decimal]
+    C --> C1[128-bit address]
+    C --> C2[8 groups]
+    C --> C3[Hexadecimal]
+    
+    style B fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style C fill:#f5576c,stroke:#d32f2f,stroke-width:2px,color:#fff
+                </div>
+              </div>
+            </div>
+
+          <p>An Internet Protocol (IP) address is a unique identifier assigned to devices connected to a network. Think of it as a digital address that allows devices to communicate with each other over the internet or local networks. It serves two main purposes: identifying the device and providing its location within the network.</p>
       <p>For example, when you visit a website, your device's IP address tells the website where to send the requested data. Similarly, the website's IP address ensures your request reaches the correct server.</p>
 
       <!-- IP Address Structure -->

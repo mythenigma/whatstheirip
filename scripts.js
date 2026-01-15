@@ -276,6 +276,45 @@ function showToast(message, type = 'success') {
 }
 
 // Copy text from an element by ID
+// Copy code block function
+function copyCodeBlock(elementId) {
+  try {
+    const element = document.getElementById(elementId);
+    if (!element) {
+      alert('Code block not found');
+      return;
+    }
+    
+    // Get text from code element
+    const codeElement = element.querySelector('code');
+    const text = codeElement ? codeElement.textContent : element.textContent;
+    
+    if (!text || text.trim() === '') {
+      alert('No code to copy');
+      return;
+    }
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('Code copied to clipboard!', 'success');
+    }).catch(() => {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      showToast('Code copied to clipboard!', 'success');
+    });
+  } catch (error) {
+    console.error('Error copying code:', error);
+    alert('Failed to copy code');
+  }
+}
+
 function copyFromElement(elementId, successMessage = 'Copied to clipboard!') {
   try {
     const element = document.getElementById(elementId);

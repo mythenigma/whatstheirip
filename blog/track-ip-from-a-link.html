@@ -4,7 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Track an IP from a Link (No Code): Safe, Consent-Based Guide | WhatsTheirIP</title>
-  <meta name="description" content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for c</head>
+  <meta name="description" content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for c
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 <body>
   <!-- Navigation -->
   <nav>
@@ -464,7 +470,13 @@
     ]
   }
   </script>
-</head>
+
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 <body>
   <div class="wrap">
     <header>
@@ -494,7 +506,38 @@
 
     <section id="what-you-see">
       <h2>What You Can (and Can’t) See from an IP</h2>
-      <p>An IP address is a network identifier—closer to a postcode than a street address. Typical insights include:</p>
+      
+            <!-- Link IP Tracking Process Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">Link IP Tracking Process</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/link-tracking-process-flow.svg" 
+                     alt="Link IP Tracking Process Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of link ip tracking process</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+flowchart TD
+    A[Create Tracking Link] --> B[Share Link]
+    B --> C[User Clicks Link]
+    C --> D[Redirect & Capture]
+    D --> E[Store Data]
+    E --> F[View Analytics]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style F fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+                </div>
+              </div>
+            </div>
+
+          <p>An IP address is a network identifier—closer to a postcode than a street address. Typical insights include:</p>
       <ul>
         <li>Coarse <strong>region/city</strong> (geolocation databases)</li>
         <li><strong>ISP</strong> or network provider</li>

@@ -29,6 +29,12 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
   
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  
   <style>
     :root {
       --primary-color: #4A90E2;
@@ -209,6 +215,39 @@
 
           <!-- What is an IP Address -->
           <h2 id="what-is-ip" class="mt-5">What is an IP Address?</h2>
+          
+            <!-- IP Tracking Process Flow Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">IP Tracking Process Flow</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/how-ip-tracking-works.svg" 
+                     alt="IP Tracking Process Flow Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of ip tracking process flow</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+flowchart TD
+    A[User Visits Website] --> B[Browser Sends Request]
+    B --> C[Server Receives Request]
+    C --> D[Server Logs IP Address]
+    D --> E[IP Geolocation Lookup]
+    E --> F[Data Collection]
+    F --> G[Analytics Processing]
+    G --> H[Results Display]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style H fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+                </div>
+              </div>
+            </div>
+
           <p>An IP (Internet Protocol) address is a unique numerical label assigned to every device connected to a computer network that uses the Internet Protocol for communication. Think of it as your home's mailing address, but for your device on the internet.</p>
           
           <p>There are two main types of IP addresses:</p>
@@ -240,6 +279,41 @@
             <li>The server receives and logs this IP address</li>
             <li>The website can then use this IP for various purposes, including geolocation</li>
           </ol>
+          
+          <!-- IP Tracking Process Flow Diagram -->
+          <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+            <h4 style="margin-bottom: 1.5rem; color: #2d3748;">IP Tracking Process Flow</h4>
+            
+            <!-- SVG Diagram -->
+            <figure style="margin-bottom: 2rem;">
+              <img src="../diagrams/en/how-ip-tracking-works.svg" 
+                   alt="How IP Tracking Works Flow Diagram"
+                   loading="lazy"
+                   style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+              <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of the IP tracking process</figcaption>
+            </figure>
+            
+            <!-- Mermaid Diagram -->
+            <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+              <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+              <div class="mermaid">
+flowchart TD
+    A[User Visits Website] --> B[Browser Sends Request]
+    B --> C[Server Receives Request]
+    C --> D[Server Logs IP Address]
+    D --> E[IP Geolocation Lookup]
+    E --> F[Data Collection]
+    F --> G[Analytics Processing]
+    G --> H[Results Display]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style H fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+    style C fill:#764ba2,stroke:#667eea,stroke-width:2px,color:#fff
+    style E fill:#f093fb,stroke:#764ba2,stroke-width:2px,color:#fff
+    style G fill:#4facfe,stroke:#667eea,stroke-width:2px,color:#fff
+              </div>
+            </div>
+          </div>
           
           <p>Website owners can capture this information through various methods, including server logs, tracking scripts, and specialized IP logging tools like those offered by whatstheirip.tech.</p>
 

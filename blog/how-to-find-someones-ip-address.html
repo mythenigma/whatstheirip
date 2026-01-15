@@ -387,7 +387,13 @@
     ]
   }
   </script>
-</head>
+
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 <body>
   <!-- Navigation -->
   <nav>
@@ -419,7 +425,37 @@
 
     <section id="what-is-ip">
       <h2>What an IP Address Actually Reveals</h2>
-      <p>An IP (Internet Protocol) address is a network identifier—more like a postcode than a precise street address. Typical insights:</p>
+      
+            <!-- Methods to Find IP Address Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">Methods to Find IP Address</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/find-ip-methods.svg" 
+                     alt="Methods to Find IP Address Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of methods to find ip address</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+graph LR
+    A[Find IP Methods] --> B[URL Tracking]
+    A --> C[Email Tracking]
+    A --> D[Social Media]
+    A --> E[Gaming Platforms]
+    A --> F[Chat Apps]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+                </div>
+              </div>
+            </div>
+
+          <p>An IP (Internet Protocol) address is a network identifier—more like a postcode than a precise street address. Typical insights:</p>
       <ul>
         <li>Approximate <strong>region/city</strong> (coarse geolocation)</li>
         <li><strong>Internet Service Provider</strong> (ISP)</li>

@@ -284,7 +284,13 @@
       color: #9b59b6;
     }
   </style>
-</head>
+
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 
 <body>
 
@@ -353,6 +359,37 @@
 
           <!-- Introduction -->
           <h2 id="introduction" class="mt-5">Introduction</h2>
+          
+            <!-- Email Tracking Process Flow Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">Email Tracking Process Flow</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/email-tracking-process-flow.svg" 
+                     alt="Email Tracking Process Flow Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of email tracking process flow</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+flowchart TD
+    A[Send Email] --> B[Email Opened]
+    B --> C[Pixel Loaded]
+    C --> D[IP Captured]
+    D --> E[Data Recorded]
+    E --> F[Analytics Updated]
+    
+    style A fill:#4A90E2,stroke:#357ABD,stroke-width:2px,color:#fff
+    style F fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+                </div>
+              </div>
+            </div>
+
           <p>Email tracking has become an essential tool for businesses, marketers, and individuals who want to understand how recipients engage with their messages. When implemented correctly, email tracking provides valuable insights into who opens your emails, when they read them, and from what location—information that can help you improve communication strategies and measure the effectiveness of your messages.</p>
           
           <p>However, with great power comes great responsibility. Email tracking must be implemented thoughtfully, with consideration for privacy concerns, legal compliance, and recipient expectations. This comprehensive guide will walk you through email tracking best practices, from technical implementation to data interpretation and optimization.</p>

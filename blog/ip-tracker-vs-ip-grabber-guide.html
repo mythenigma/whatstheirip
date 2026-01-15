@@ -16,6 +16,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="icon" type="image/svg+xml" href="../favicon.ico" type="image/x-icon">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
   <style>
     .blog-header {
       background-color: #4A90E2;
@@ -204,7 +210,44 @@
           <!-- Introduction -->
           <div id="introduction">
             <h2>Introduction to IP Tracking Tools</h2>
-            <p>In today's digital landscape, understanding who is visiting your website, clicking your links, or opening your emails provides valuable insights for businesses, content creators, and security professionals. Two primary tools used for this purpose are <strong>IP trackers</strong> and <strong>IP grabbers</strong>. While these terms are often used interchangeably, they represent distinct approaches to collecting IP address information, each with specific use cases, implementation methods, and ethical considerations.</p>
+            
+            <!-- IP Tracker vs IP Grabber Comparison Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">IP Tracker vs IP Grabber Comparison</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/ip-tracker-vs-ip-grabber.svg" 
+                     alt="IP Tracker vs IP Grabber Comparison Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of ip tracker vs ip grabber comparison</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
+                <div class="mermaid">
+graph LR
+    A[IP Tracker] --> A1[Real-time monitoring]
+    A --> A2[Analytics dashboard]
+    A --> A3[Geolocation data]
+    A --> A4[Multiple tracking methods]
+    A --> A5[Legal compliance]
+    
+    B[IP Grabber] --> B1[One-time capture]
+    B --> B2[Simple link sharing]
+    B --> B3[Basic IP logging]
+    B --> B4[Quick setup]
+    B --> B5[Lightweight tool]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+    style B fill:#f5576c,stroke:#d32f2f,stroke-width:3px,color:#fff
+                </div>
+              </div>
+            </div>
+
+          <p>In today's digital landscape, understanding who is visiting your website, clicking your links, or opening your emails provides valuable insights for businesses, content creators, and security professionals. Two primary tools used for this purpose are <strong>IP trackers</strong> and <strong>IP grabbers</strong>. While these terms are often used interchangeably, they represent distinct approaches to collecting IP address information, each with specific use cases, implementation methods, and ethical considerations.</p>
             
             <p>Whether you're a marketer trying to understand your audience, a security professional monitoring network activity, or a website owner looking to enhance user experience through geolocation, understanding the nuances between these tools is essential for effective implementation and responsible use.</p>
             
@@ -274,6 +317,42 @@
           <div id="comparison" class="mt-5">
             <h2>IP Tracker vs IP Grabber: Key Differences</h2>
             <p>While both tools collect IP address information, there are significant differences in their purpose, implementation, and typical use cases:</p>
+            
+            <!-- Comparison Diagram -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">IP Tracker vs IP Grabber Comparison</h4>
+              
+              <!-- SVG Diagram -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../diagrams/en/ip-tracker-vs-ip-grabber.svg" 
+                     alt="IP Tracker vs IP Grabber Comparison Diagram"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual comparison of IP Tracker and IP Grabber features</figcaption>
+              </figure>
+              
+              <!-- Mermaid Diagram -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Comparison Chart</h5>
+                <div class="mermaid">
+graph LR
+    A[IP Tracker] --> A1[Real-time monitoring]
+    A --> A2[Analytics dashboard]
+    A --> A3[Geolocation data]
+    A --> A4[Multiple tracking methods]
+    A --> A5[Legal compliance]
+    
+    B[IP Grabber] --> B1[One-time capture]
+    B --> B2[Simple link sharing]
+    B --> B3[Basic IP logging]
+    B --> B4[Quick setup]
+    B --> B5[Lightweight tool]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+    style B fill:#f5576c,stroke:#d32f2f,stroke-width:3px,color:#fff
+                </div>
+              </div>
+            </div>
             
             <div class="tool-comparison">
               <div class="row">

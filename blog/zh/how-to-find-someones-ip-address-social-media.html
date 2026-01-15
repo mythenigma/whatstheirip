@@ -71,7 +71,13 @@
         .difficulty-medium { background: #fff3cd; color: #856404; }
         .difficulty-hard { background: #f8d7da; color: #721c24; }
     </style>
-</head>
+
+  <!-- Mermaid.js for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+  </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -125,7 +131,37 @@
                         </div>
 
                         <h2>为什么要在社交媒体上追踪IP地址？</h2>
-                        <p>社交媒体平台非常适合IP追踪，因为：</p>
+                        
+            <!-- 查找IP地址的方法 流程图 -->
+            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
+              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">查找IP地址的方法</h4>
+              
+              <!-- SVG流程图 -->
+              <figure style="margin-bottom: 2rem;">
+                <img src="../../diagrams/zh/find-ip-methods.svg" 
+                     alt="查找IP地址的方法 流程图"
+                     loading="lazy"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">查找IP地址的方法可视化图表</figcaption>
+              </figure>
+              
+              <!-- Mermaid交互式流程图 -->
+              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                <h5 style="margin-bottom: 1rem; color: #2d3748;">交互式流程图</h5>
+                <div class="mermaid">
+graph LR
+    A[查找IP方法] --> B[URL追踪]
+    A --> C[邮件追踪]
+    A --> D[社交媒体]
+    A --> E[游戏平台]
+    A --> F[聊天应用]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+                </div>
+              </div>
+            </div>
+
+          <p>社交媒体平台非常适合IP追踪，因为：</p>
                         <ul>
                             <li><strong>高参与度：</strong>人们更可能点击有趣的内容</li>
                             <li><strong>信任因素：</strong>用户信任朋友和联系人分享的链接</li>
