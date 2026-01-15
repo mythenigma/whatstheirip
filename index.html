@@ -487,38 +487,11 @@
           </button>
         </div>
         <div class="card-body p-0">
-          <pre id="phpTrackingCode" style="margin: 0; padding: 1.5rem; background: #1e1e1e; color: #d4d4d4; overflow-x: auto; font-size: 0.875rem; line-height: 1.6; font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; max-height: 500px; overflow-y: auto; border: none;"><code style="color: #d4d4d4; background: transparent; display: block; white-space: pre;"><?php
-// GET for tracking
-if(isset($_GET['mail'])){
-    $key = htmlspecialchars($_GET['mail']);
-}
-
-// Log device info
-$agent = $_SERVER['HTTP_USER_AGENT'];
-$ip = $_SERVER['REMOTE_ADDR'];
-
-// Option 1: SQL
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error){
-    die("Failed: " . $conn->connect_error);
-}
-
-// Option 2: Text file
-$myfile = fopen("feed.txt", "a+") or die("Unable to open file!");
-fwrite($myfile, $rich);
-fclose($myfile);
-
-// Display pixel
-?>
-
-<?php
-$im = imagecreatetruecolor(120, 20);
-$text_color = imagecolorallocate($im, 233, 14, 91);
-imagestring($im, 1, 5, 5, 'A Simple Text String', $text_color);
-header('Content-Type: image/jpeg');
-imagejpeg($im);
-imagedestroy($im);
-?></code></pre>
+          <pre id="phpTrackingCode" style="margin: 0; padding: 1.5rem; background: #1e1e1e; color: #d4d4d4; overflow-x: auto; font-size: 0.9rem; line-height: 1.8; font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; border: none;"><code style="color: #d4d4d4; background: transparent; display: block; white-space: pre; font-family: inherit;"><span style="color: #000000">
+   <span style="color: #0000BB">&lt;?php&nbsp;<br /><br />   </span><span style="color: #FF8000">//We can pass in 'Get' variable to make each link unique in order to track accordingly
+	<br />   </span><span style="color: #007700">if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">])){<br />      </span><span style="color: #0000BB">$key</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'mail'</span><span style="color: #007700">]);<br />   }<br />   <br />   </span><span style="color: #FF8000">//Below to line's function is to log device inforamtion and their ip address
+		<br />   </span><span style="color: #0000BB">$agent</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">];<br />   </span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">];<br /><br /><br />   </span><span style="color: #FF8000">//Option1:we can use a SQL database to log details<br />   </span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #0000BB">$servername</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dbname</span><span style="color: #007700">);<br />   if&nbsp;(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">){<br />      die(</span><span style="color: #DD0000">"Failed:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />   }&nbsp;<br />   </span><span style="color: #FF8000">//Option2:we can also use a txt file to log data alternatively<br />   </span><span style="color: #0000BB">$myfile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"feed.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a+"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;open&nbsp;file!"</span><span style="color: #007700">);<br />   </span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rich</span><span style="color: #007700">);<br />   </span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$myfile</span><span style="color: #007700">);<br /><br />   </span><span style="color: #FF8000">//After the log of data, we can use the code from part1 to display image afterward<br /><br />   </span><span style="color: #0000BB">?&gt;<br /></span><br />   <span style="color: #0000BB">&lt;?php&nbsp;<br />      <br />      $im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">120</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br />      </span><span style="color: #0000BB">$text_color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">233</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">14</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">91</span><span style="color: #007700">);<br />      </span><span style="color: #0000BB">imagestring</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #DD0000">'A&nbsp;Simple&nbsp;Text&nbsp;String'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$text_color</span><span style="color: #007700">);<br />      </span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/jpeg'</span><span style="color: #007700">);<br />      </span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />      </span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />   </span><span style="color: #0000BB">?&gt;</span></span>
+</code></pre>
         </div>
       </div>
       
@@ -531,20 +504,23 @@ imagedestroy($im);
         #phpTrackingCode {
           scrollbar-width: thin;
           scrollbar-color: #4a4a4a #1a1a1a;
+          min-height: auto;
         }
         
         #phpTrackingCode::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
+          width: 10px;
+          height: 10px;
         }
         
         #phpTrackingCode::-webkit-scrollbar-track {
           background: #1a1a1a;
+          border-radius: 5px;
         }
         
         #phpTrackingCode::-webkit-scrollbar-thumb {
           background: #4a4a4a;
-          border-radius: 4px;
+          border-radius: 5px;
+          border: 2px solid #1a1a1a;
         }
         
         #phpTrackingCode::-webkit-scrollbar-thumb:hover {
@@ -552,15 +528,24 @@ imagedestroy($im);
         }
         
         #phpTrackingCode code {
-          font-size: 0.875rem;
-          line-height: 1.6;
+          font-size: 0.9rem;
+          line-height: 1.8;
+          display: block;
+          width: 100%;
+          overflow: visible;
         }
         
         /* Responsive code block */
         @media (max-width: 768px) {
           #phpTrackingCode {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             padding: 1rem;
+            line-height: 1.6;
+          }
+          
+          #phpTrackingCode code {
+            font-size: 0.8rem;
+            line-height: 1.6;
           }
         }
       </style>
