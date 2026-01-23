@@ -1,155 +1,337 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>如何获取他人IP地址？5种实用方法详解 - WhatsTheirIP</title>
-    <meta name="description" content="详细介绍如何合法获取他人IP地址的方法，包括技术原理、实操步骤和注意事项。适合网络安全学习和技术研究使用。">
-    <meta name="keywords" content="获取他人IP, IP地址获取, 网络技术, IP追踪, WhatsTheirIP">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="canonical" href="https://whatstheirip.com/blog/zh/how-to-get-others-ip-address">
-    <meta property="og:title" content="如何获取他人IP地址？5种实用方法详解">
-    <meta property="og:description" content="详细介绍如何合法获取他人IP地址的方法，包括技术原理、实操步骤和注意事项。">
-    <meta property="og:type" content="article">
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 0;
-        }
-        .method-card {
-            transition: transform 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .method-card:hover {
-            transform: translateY(-5px);
-        }
-        .code-block {
-            background-color: #f8f9fa;
-            border-left: 4px solid #007bff;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .warning-box {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .success-box {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .step-number {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../../index">WhatsTheirIP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">博客</a>
-                    </li>
-                </ul>
-            </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   如何获取他人IP地址？5种实用方法详解 - WhatsTheirIP
+  </title>
+  <meta content="详细介绍如何合法获取他人IP地址的方法，包括技术原理、实操步骤和注意事项。适合网络安全学习和技术研究使用。" name="description"/>
+  <meta content="获取他人IP, IP地址获取, 网络技术, IP追踪, WhatsTheirIP" name="keywords"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://whatstheirip.com/blog/zh/how-to-get-others-ip-address" rel="canonical"/>
+  <meta content="如何获取他人IP地址？5种实用方法详解" property="og:title"/>
+  <meta content="详细介绍如何合法获取他人IP地址的方法，包括技术原理、实操步骤和注意事项。" property="og:description"/>
+  <meta content="article" property="og:type"/>
+  <style>
+   <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
+      color: var(--dark-color);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .article-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 8rem 0 4rem;
+      color: white;
+    }
+    
+    .article-content {
+      padding: 3rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .highlight {
+      background: rgba(102, 126, 234, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .diagram-container {
+      margin: 3rem 0;
+      text-align: center;
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+    }
+    
+    .diagram-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .mermaid-diagram {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin: 0.5rem 0;
+      line-height: 1.8;
+    }
+    
+    p {
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+    
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9em;
+    }
+    
+    blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #555;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .article-content { padding: 2rem 1rem; }
+    }
+  </style>
+  <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+ </head>
+ <body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container">
+    <a class="navbar-brand" href="../../index">
+     WhatsTheirIP
+    </a>
+    <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="../../index">
+        首页
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html">
+        博客
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-section">
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 mx-auto text-center">
+      <h1 class="display-4 fw-bold mb-4">
+       如何获取他人IP地址？
+      </h1>
+      <p class="lead mb-4">
+       5种实用方法详解，教你轻松掌握IP获取技术
+      </p>
+      <p class="text-light">
+       ⚠️ 仅供学习和合法用途使用
+      </p>
+      <p class="text-light">
+       <i class="bi bi-calendar">
+       </i>
+       2025年6月3日更新
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Main Content -->
+  <div class="container my-5">
+   <div class="row">
+    <div class="col-lg-8 mx-auto">
+     <!-- Introduction -->
+     <section class="mb-5">
+      <div class="warning-box">
+       <h5>
+        <i class="bi bi-exclamation-triangle text-warning">
+        </i>
+        重要声明
+       </h5>
+       <p class="mb-0">
+        本文内容仅供技术学习和网络安全研究使用。请遵守相关法律法规，不得用于非法用途。未经他人同意获取其IP地址可能涉及隐私侵犯，请谨慎使用。
+       </p>
+      </div>
+      <div class_="diagram-container">
+       <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
+        流程图
+       </h4>
+       <div class="mermaid-diagram">
+        <h5 style="margin-bottom: 1rem; color: #2d3748;">
+         交互式流程图
+        </h5>
+        <div class="mermaid">
+         flowchart TD
+    A[开始] --&gt; B[处理步骤]
+    B --&gt; C[收集数据]
+    C --&gt; D[分析结果]
+    D --&gt; E[完成]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style E fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold mb-4">如何获取他人IP地址？</h1>
-                    <p class="lead mb-4">5种实用方法详解，教你轻松掌握IP获取技术</p>
-                    <p class="text-light">⚠️ 仅供学习和合法用途使用</p>
-                    <p class="text-light"><i class="bi bi-calendar"></i> 2025年6月3日更新</p>
-                </div>
-            </div>
+       </div>
+      </div>
+      <h2>
+       什么是IP地址？为什么要获取？
+      </h2>
+      <p>
+       IP地址（Internet 协议 Address）是网络设备在互联网上的唯一标识，就像现实中的门牌号码。了解如何获取IP地址对于网络安全防护、系统管理和技术研究都有重要意义。
+      </p>
+      <div class="success-box">
+       <h5>
+        <i class="bi bi-lightbulb text-success">
+        </i>
+        合法应用场景
+       </h5>
+       <ul class="mb-0">
+        <li>
+         <strong>
+          网络安全防护
+         </strong>
+         ：识别和阻止恶意访问
+        </li>
+        <li>
+         <strong>
+          系统管理
+         </strong>
+         ：监控网络流量和用户活动
+        </li>
+        <li>
+         <strong>
+          技术研究
+         </strong>
+         ：学习网络协议和安全技术
+        </li>
+        <li>
+         <strong>
+          故障排查
+         </strong>
+         ：定位网络连接问题
+        </li>
+       </ul>
+      </div>
+     </section>
+     <!-- Method 1 -->
+     <section class="mb-5">
+      <h2>
+       方法一：使用WhatsTheirIP专业平台
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title text-primary">
+         🌟 推荐指数：★★★★★
+        </h5>
+        <p class="card-text">
+         WhatsTheirIP是专业的IP追踪平台，提供简单易用的工具来获取访问者IP地址信息。
+        </p>
+        <h6 class="mt-4">
+         操作步骤：
+        </h6>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          1
+         </span>
+         <span>
+          访问 WhatsTheirIP 官网
+         </span>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- Introduction -->
-                <section class="mb-5">
-                    <div class="warning-box">
-                        <h5><i class="bi bi-exclamation-triangle text-warning"></i> 重要声明</h5>
-                        <p class="mb-0">本文内容仅供技术学习和网络安全研究使用。请遵守相关法律法规，不得用于非法用途。未经他人同意获取其IP地址可能涉及隐私侵犯，请谨慎使用。</p>
-                    </div>
-
-                    <h2>什么是IP地址？为什么要获取？</h2>
-                    <p>IP地址（Internet Protocol Address）是网络设备在互联网上的唯一标识，就像现实中的门牌号码。了解如何获取IP地址对于网络安全防护、系统管理和技术研究都有重要意义。</p>
-                    
-                    <div class="success-box">
-                        <h5><i class="bi bi-lightbulb text-success"></i> 合法应用场景</h5>
-                        <ul class="mb-0">
-                            <li><strong>网络安全防护</strong>：识别和阻止恶意访问</li>
-                            <li><strong>系统管理</strong>：监控网络流量和用户活动</li>
-                            <li><strong>技术研究</strong>：学习网络协议和安全技术</li>
-                            <li><strong>故障排查</strong>：定位网络连接问题</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Method 1 -->
-                <section class="mb-5">
-                    <h2>方法一：使用WhatsTheirIP专业平台</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title text-primary">🌟 推荐指数：★★★★★</h5>
-                            <p class="card-text">WhatsTheirIP是专业的IP追踪平台，提供简单易用的工具来获取访问者IP地址信息。</p>
-                            
-                            <h6 class="mt-4">操作步骤：</h6>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">1</span>
-                                <span>访问 WhatsTheirIP 官网</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">2</span>
-                                <span>创建追踪链接或二维码</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">3</span>
-                                <span>分享链接给目标用户</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">4</span>
-                                <span>查看实时IP分析结果</span>
-                            </div>
-
-                            <div class="code-block mt-3">
-                                <h6>创建追踪链接示例：</h6>
-                                <pre><code>// 已移除API相关代码，普通用户无需API接口或密钥
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          2
+         </span>
+         <span>
+          创建追踪链接或二维码
+         </span>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          3
+         </span>
+         <span>
+          分享链接给目标用户
+         </span>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          4
+         </span>
+         <span>
+          查看实时IP分析结果
+         </span>
+        </div>
+        <div class="code-block mt-3">
+         <h6>
+          创建追踪链接示例：
+         </h6>
+         <pre><code>// 已移除API相关代码，普通用户无需API接口或密钥
             url: targetUrl,
             title: '有趣的链接'
         })
@@ -160,26 +342,34 @@
 };
 
 // 使用示例
-createTrackingLink('https://example.com').then(shortUrl => {
+createTrackingLink('https://example.com').then(shortUrl =&gt; {
     console.log('追踪链接：', shortUrl);
 });</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 2 -->
-                <section class="mb-5">
-                    <h2>方法二：通过网页日志分析</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title text-primary">📊 技术难度：中等</h5>
-                            <p class="card-text">如果你有自己的网站，可以通过分析网站访问日志来获取访问者的IP地址。</p>
-                            
-                            <h6 class="mt-4">实施方法：</h6>
-                            <div class="code-block">
-                                <h6>PHP获取访问者IP：</h6>
-                                <pre><code>&lt;?php
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 2 -->
+     <section class="mb-5">
+      <h2>
+       方法二：通过网页日志分析
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title text-primary">
+         📊 技术难度：中等
+        </h5>
+        <p class="card-text">
+         如果你有自己的网站，可以通过分析网站访问日志来获取访问者的IP地址。
+        </p>
+        <h6 class="mt-4">
+         实施方法：
+        </h6>
+        <div class="code-block">
+         <h6>
+          PHP获取访问者IP：
+         </h6>
+         <pre><code>&lt;?php
 // 获取真实IP地址的函数
 function getRealIP() {
     $ip = '';
@@ -209,11 +399,11 @@ function logVisitor() {
     $referer = $_SERVER['HTTP_REFERER'] ?? 'Direct';
     
     $logData = [
-        'ip' => $ip,
-        'user_agent' => $userAgent,
-        'timestamp' => $timestamp,
-        'referer' => $referer,
-        'url' => $_SERVER['REQUEST_URI']
+        'ip' =&gt; $ip,
+        'user_agent' =&gt; $userAgent,
+        'timestamp' =&gt; $timestamp,
+        'referer' =&gt; $referer,
+        'url' =&gt; $_SERVER['REQUEST_URI']
     ];
     
     // 保存到文件
@@ -229,30 +419,57 @@ function logVisitor() {
 $visitorIP = logVisitor();
 echo "访问者IP: " . $visitorIP;
 ?&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 3 -->
-                <section class="mb-5">
-                    <h2>方法三：社交工程结合技术手段</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">⚠️ 需要谨慎使用</h5>
-                            <p class="card-text">通过创建吸引人的内容页面，诱导目标用户访问，从而获取其IP信息。</p>
-                            
-                            <h6 class="mt-4">常用策略：</h6>
-                            <ul>
-                                <li><strong>有趣图片/视频</strong>：分享热门内容吸引点击</li>
-                                <li><strong>在线工具</strong>：提供实用工具服务</li>
-                                <li><strong>游戏页面</strong>：创建简单的网页游戏</li>
-                                <li><strong>问卷调查</strong>：制作看似正当的调查页面</li>
-                            </ul>
-
-                            <div class="code-block">
-                                <h6>创建简单的IP收集页面：</h6>
-                                <pre><code>&lt;!DOCTYPE html&gt;
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 3 -->
+     <section class="mb-5">
+      <h2>
+       方法三：社交工程结合技术手段
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title text-warning">
+         ⚠️ 需要谨慎使用
+        </h5>
+        <p class="card-text">
+         通过创建吸引人的内容页面，诱导目标用户访问，从而获取其IP信息。
+        </p>
+        <h6 class="mt-4">
+         常用策略：
+        </h6>
+        <ul>
+         <li>
+          <strong>
+           有趣图片/视频
+          </strong>
+          ：分享热门内容吸引点击
+         </li>
+         <li>
+          <strong>
+           在线工具
+          </strong>
+          ：提供实用工具服务
+         </li>
+         <li>
+          <strong>
+           游戏页面
+          </strong>
+          ：创建简单的网页游戏
+         </li>
+         <li>
+          <strong>
+           问卷调查
+          </strong>
+          ：制作看似正当的调查页面
+         </li>
+        </ul>
+        <div class="code-block">
+         <h6>
+          创建简单的IP收集页面：
+         </h6>
+         <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;有趣的网页工具&lt;/title&gt;
@@ -289,7 +506,7 @@ echo "访问者IP: " . $visitorIP;
             });
             
             // 模拟测试结果
-            setTimeout(() => {
+            setTimeout(() =&gt; {
                 document.getElementById('result').innerHTML = 
                     '&lt;h3&gt;测试完成！&lt;/h3&gt;&lt;p&gt;下载速度: 50 Mbps&lt;br&gt;上传速度: 10 Mbps&lt;/p&gt;';
             }, 2000);
@@ -301,22 +518,28 @@ echo "访问者IP: " . $visitorIP;
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 4 -->
-                <section class="mb-5">
-                    <h2>方法四：邮件追踪像素技术</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title text-info">📧 适用于邮件营销</h5>
-                            <p class="card-text">在邮件中嵌入1x1像素的透明图片，当收件人打开邮件时自动获取其IP地址。</p>
-                            
-                            <div class="code-block">
-                                <h6>邮件追踪实现：</h6>
-                                <pre><code>&lt;!-- 在邮件HTML中添加追踪像素 --&gt;
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 4 -->
+     <section class="mb-5">
+      <h2>
+       方法四：邮件追踪像素技术
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title text-info">
+         📧 适用于邮件营销
+        </h5>
+        <p class="card-text">
+         在邮件中嵌入1x1像素的透明图片，当收件人打开邮件时自动获取其IP地址。
+        </p>
+        <div class="code-block">
+         <h6>
+          邮件追踪实现：
+         </h6>
+         <pre><code>&lt;!-- 在邮件HTML中添加追踪像素 --&gt;
 &lt;img src="https://grabify.icu/track/email-{unique_id}?format=pixel" 
      width="1" height="1" style="display:none;" alt=""&gt;
 
@@ -330,17 +553,17 @@ $timestamp = date('Y-m-d H:i:s');
 
 // 记录邮件打开信息
 $trackingData = [
-    'email_id' => $uniqueId,
-    'ip_address' => $ip,
-    'user_agent' => $userAgent,
-    'opened_at' => $timestamp,
-    'country' => getCountryFromIP($ip)
+    'email_id' =&gt; $uniqueId,
+    'ip_address' =&gt; $ip,
+    'user_agent' =&gt; $userAgent,
+    'opened_at' =&gt; $timestamp,
+    'country' =&gt; getCountryFromIP($ip)
 ];
 
 // 保存到数据库
 $pdo = new PDO("mysql:host=localhost;dbname=tracking", $user, $pass);
-$stmt = $pdo->prepare("INSERT INTO email_tracking (email_id, ip_address, user_agent, opened_at, country) VALUES (?, ?, ?, ?, ?)");
-$stmt->execute(array_values($trackingData));
+$stmt = $pdo-&gt;prepare("INSERT INTO email_tracking (email_id, ip_address, user_agent, opened_at, country) VALUES (?, ?, ?, ?, ?)");
+$stmt-&gt;execute(array_values($trackingData));
 
 // 返回1x1透明PNG图片
 header('Content-Type: image/png');
@@ -352,23 +575,31 @@ function getCountryFromIP($ip) {
     return $data['country'] ?? 'Unknown';
 }
 ?&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 5 -->
-                <section class="mb-5">
-                    <h2>方法五：命令行工具和网络分析</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title text-success">💻 适合技术人员</h5>
-                            <p class="card-text">使用网络命令和工具来分析网络连接，获取对方IP信息。</p>
-                            
-                            <h6 class="mt-4">常用命令：</h6>
-                            <div class="code-block">
-                                <h6>Windows命令行工具：</h6>
-                                <pre><code># 查看当前网络连接
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 5 -->
+     <section class="mb-5">
+      <h2>
+       方法五：命令行工具和网络分析
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title text-success">
+         💻 适合技术人员
+        </h5>
+        <p class="card-text">
+         使用网络命令和工具来分析网络连接，获取对方IP信息。
+        </p>
+        <h6 class="mt-4">
+         常用命令：
+        </h6>
+        <div class="code-block">
+         <h6>
+          Windows命令行工具：
+         </h6>
+         <pre><code># 查看当前网络连接
 netstat -an | findstr ESTABLISHED
 
 # 查看路由表
@@ -385,11 +616,12 @@ arp -a
 
 # 使用nslookup查询DNS
 nslookup www.example.com</code></pre>
-                            </div>
-
-                            <div class="code-block">
-                                <h6>高级网络分析脚本：</h6>
-                                <pre><code># PowerShell网络连接分析
+        </div>
+        <div class="code-block">
+         <h6>
+          高级网络分析脚本：
+         </h6>
+         <pre><code># PowerShell网络连接分析
 Get-NetTCPConnection | Where-Object {$_.State -eq "Established"} | 
     Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort, @{
         Name="ProcessName"; 
@@ -406,36 +638,69 @@ foreach ($ip in $ips) {
         Write-Host "查询 $ip 失败"
     }
 }</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Security Considerations -->
-                <section class="mb-5">
-                    <h2>安全防护与反制措施</h2>
-                    <div class="warning-box">
-                        <h5><i class="bi bi-shield-exclamation text-warning"></i> 如何保护自己的IP不被获取</h5>
-                        <ul>
-                            <li><strong>使用VPN服务</strong>：隐藏真实IP地址</li>
-                            <li><strong>使用代理服务器</strong>：通过中间服务器访问网络</li>
-                            <li><strong>使用Tor浏览器</strong>：多层加密匿名网络</li>
-                            <li><strong>谨慎点击链接</strong>：避免点击可疑链接</li>
-                            <li><strong>禁用图片自动加载</strong>：防止邮件追踪像素</li>
-                        </ul>
-                    </div>
-
-                    <h3 class="mt-4">检测和识别IP获取攻击</h3>
-                    <div class="code-block">
-                        <h6>简单的防护检测脚本：</h6>
-                        <pre><code>// 检测可疑的追踪行为
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Security Considerations -->
+     <section class="mb-5">
+      <h2>
+       安全防护与反制措施
+      </h2>
+      <div class="warning-box">
+       <h5>
+        <i class="bi bi-shield-exclamation text-warning">
+        </i>
+        如何保护自己的IP不被获取
+       </h5>
+       <ul>
+        <li>
+         <strong>
+          使用VPN服务
+         </strong>
+         ：隐藏真实IP地址
+        </li>
+        <li>
+         <strong>
+          使用代理服务器
+         </strong>
+         ：通过中间服务器访问网络
+        </li>
+        <li>
+         <strong>
+          使用Tor浏览器
+         </strong>
+         ：多层加密匿名网络
+        </li>
+        <li>
+         <strong>
+          谨慎点击链接
+         </strong>
+         ：避免点击可疑链接
+        </li>
+        <li>
+         <strong>
+          禁用图片自动加载
+         </strong>
+         ：防止邮件追踪像素
+        </li>
+       </ul>
+      </div>
+      <h3 class="mt-4">
+       检测和识别IP获取攻击
+      </h3>
+      <div class="code-block">
+       <h6>
+        简单的防护检测脚本：
+       </h6>
+       <pre><code>// 检测可疑的追踪行为
 function detectSuspiciousActivity() {
     // 检查URL参数
     const urlParams = new URLSearchParams(window.location.search);
     const suspiciousParams = ['track', 'ref', 'utm_source', 'id'];
     
     let suspiciousCount = 0;
-    suspiciousParams.forEach(param => {
+    suspiciousParams.forEach(param =&gt; {
         if (urlParams.has(param)) {
             suspiciousCount++;
         }
@@ -445,11 +710,11 @@ function detectSuspiciousActivity() {
     const referrer = document.referrer;
     const suspiciousDomains = ['grabify', 'iplogger', 'bit.ly'];
     
-    const hasSuspiciousReferrer = suspiciousDomains.some(domain => 
+    const hasSuspiciousReferrer = suspiciousDomains.some(domain =&gt; 
         referrer.includes(domain)
     );
     
-    if (suspiciousCount > 2 || hasSuspiciousReferrer) {
+    if (suspiciousCount &gt; 2 || hasSuspiciousReferrer) {
         console.warn('检测到可能的IP追踪行为');
         return true;
     }
@@ -461,109 +726,172 @@ function detectSuspiciousActivity() {
 if (detectSuspiciousActivity()) {
     alert('警告：此页面可能正在尝试获取您的IP地址！');
 }</code></pre>
-                    </div>
-                </section>
-
-                <!-- Legal and Ethical -->
-                <section class="mb-5">
-                    <h2>法律与道德考量</h2>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h4>✅ 合法使用场景</h4>
-                            <ul>
-                                <li>网站管理员分析访问日志</li>
-                                <li>网络安全研究和防护</li>
-                                <li>企业内部安全监控</li>
-                                <li>教育和技术学习</li>
-                                <li>经过授权的渗透测试</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>❌ 禁止使用场景</h4>
-                            <ul>
-                                <li>恶意追踪他人隐私</li>
-                                <li>未经授权的信息收集</li>
-                                <li>网络骚扰和威胁</li>
-                                <li>商业间谍活动</li>
-                                <li>违反平台服务条款</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="success-box mt-4">
-                        <h5><i class="bi bi-lightbulb text-success"></i> 专业建议</h5>
-                        <p class="mb-0">学习IP获取技术的目的应该是提升网络安全意识和技术能力。在实际应用中，务必遵守相关法律法规，尊重他人隐私，并且只在合法授权的情况下使用这些技术。</p>
-                    </div>
-                </section>
-
-                <!-- Conclusion -->
-                <section class="mb-5">
-                    <h2>总结</h2>
-                    <p>获取他人IP地址虽然在技术上并不复杂，但涉及到隐私和法律问题。通过本文介绍的5种方法，你可以了解IP获取的基本原理和实现方式。</p>
-                    
-                    <p><strong>记住：</strong></p>
-                    <ul>
-                        <li>技术学习要以提升安全防护能力为目标</li>
-                        <li>任何技术都要在法律框架内合理使用</li>
-                        <li>尊重他人隐私，不进行恶意追踪</li>
-                        <li>持续关注网络安全发展，提升防护意识</li>
-                    </ul>
-
-                    <div class="text-center mt-4">
-                        <a href="../../index" class="btn btn-primary btn-lg">体验WhatsTheirIP专业服务</a>
-                    </div>
-                </section>
-
-                <!-- Related Articles -->
-                <section class="mt-5">
-                    <h3>相关文章推荐</h3>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title"><a href="qr-code-url-tracking-guide" class="text-decoration-none">二维码URL追踪完整指南</a></h6>
-                                    <p class="card-text small text-muted">学习如何使用二维码进行IP追踪</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title"><a href="email-tracking-pixel-technology" class="text-decoration-none">邮件追踪像素技术详解</a></h6>
-                                    <p class="card-text small text-muted">深入了解邮件追踪的技术原理</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+      </div>
+     </section>
+     <!-- Legal and Ethical -->
+     <section class="mb-5">
+      <h2>
+       法律与道德考量
+      </h2>
+      <div class="row g-4">
+       <div class="col-md-6">
+        <h4>
+         ✅ 合法使用场景
+        </h4>
+        <ul>
+         <li>
+          网站管理员分析访问日志
+         </li>
+         <li>
+          网络安全研究和防护
+         </li>
+         <li>
+          企业内部安全监控
+         </li>
+         <li>
+          教育和技术学习
+         </li>
+         <li>
+          经过授权的渗透测试
+         </li>
+        </ul>
+       </div>
+       <div class="col-md-6">
+        <h4>
+         ❌ 禁止使用场景
+        </h4>
+        <ul>
+         <li>
+          恶意追踪他人隐私
+         </li>
+         <li>
+          未经授权的信息收集
+         </li>
+         <li>
+          网络骚扰和威胁
+         </li>
+         <li>
+          商业间谍活动
+         </li>
+         <li>
+          违反平台服务条款
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="success-box mt-4">
+       <h5>
+        <i class="bi bi-lightbulb text-success">
+        </i>
+        专业建议
+       </h5>
+       <p class="mb-0">
+        学习IP获取技术的目的应该是提升网络安全意识和技术能力。在实际应用中，务必遵守相关法律法规，尊重他人隐私，并且只在合法授权的情况下使用这些技术。
+       </p>
+      </div>
+     </section>
+     <!-- Conclusion -->
+     <section class="mb-5">
+      <h2>
+       总结
+      </h2>
+      <p>
+       获取他人IP地址虽然在技术上并不复杂，但涉及到隐私和法律问题。通过本文介绍的5种方法，你可以了解IP获取的基本原理和实现方式。
+      </p>
+      <p>
+       记住：
+      </p>
+      <ul>
+       <li>
+        技术学习要以提升安全防护能力为目标
+       </li>
+       <li>
+        任何技术都要在法律框架内合理使用
+       </li>
+       <li>
+        尊重他人隐私，不进行恶意追踪
+       </li>
+       <li>
+        持续关注网络安全发展，提升防护意识
+       </li>
+      </ul>
+      <div class="text-center mt-4">
+       <a class="btn btn-primary btn-lg" href="../../index">
+        体验WhatsTheirIP专业服务
+       </a>
+      </div>
+     </section>
+     <!-- Related Articles -->
+     <section class="mt-5">
+      <h3>
+       相关文章推荐
+      </h3>
+      <div class="row g-3">
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           <a class="text-decoration-none" href="qr-code-url-tracking-guide">
+            二维码URL追踪完整指南
+           </a>
+          </h6>
+          <p class="card-text small text-muted">
+           学习如何使用二维码进行IP追踪
+          </p>
+         </div>
         </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           <a class="text-decoration-none" href="email-tracking-pixel-technology">
+            邮件追踪像素技术详解
+           </a>
+          </h6>
+          <p class="card-text small text-muted">
+           深入了解邮件追踪的技术原理
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>WhatsTheirIP</h5>
-                    <p>专业的IP追踪和分析平台，提供安全可靠的网络情报服务。</p>
-                </div>
-                <div class="col-md-6">
-                    <h5>快速链接</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../../index" class="text-light text-decoration-none">首页</a></li>
-                        <li><a href="../index.html" class="text-light text-decoration-none">博客</a></li>
-                        <li><a href="../../index.html#privacy" class="text-light text-decoration-none">隐私政策</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                <p>&copy; 2025 WhatsTheirIP. 保留所有权利。仅供学习和合法用途使用。</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4 mt-5">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-6">
+      <h5>
+       WhatsTheirIP
+      </h5>
+      <p>
+       专业的IP追踪和分析平台，提供安全可靠的网络情报服务。
+      </p>
+     </div>
+     <div class="col-md-6">
+      <h5>
+       快速链接
+      </h5>
+      <ul class="list-unstyled">
+       <li>
+        隐私政策
+       </li>
+      </ul>
+     </div>
+    </div>
+    <hr/>
+    <div class="text-center">
+     <p>
+      © 2025 WhatsTheirIP.  保留所有权利。仅供学习和合法用途使用。
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+ </body>
 </html>

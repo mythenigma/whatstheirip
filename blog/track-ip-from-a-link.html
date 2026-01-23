@@ -1,449 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Track an IP from a Link (No Code): Safe, Consent-Based Guide | WhatsTheirIP</title>
-  <meta name="description" content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for c
-  <!-- Mermaid.js for diagrams -->
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Track an IP from a Link (No Code): Safe, Consent-Based Guide | WhatsTheirIP
+  </title>
+  <meta content="Want to see where a click came from—without coding? Learn what IP data reveals, how to use a consent-based tracking link, and why WhatsTheirIP.tech is a safer choice for c
+  &lt;!-- Mermaid.js for diagrams -->
+  &lt;script type=" module"="" name="description"/>
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true, theme: 'default' });
-  </script>
-  </head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <a href="../index.html" class="logo">WhatsTheirIP</a>
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="index">Blog</a>
-        <a href="../index.html#features">Features</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-content">
-      <span class="hero-badge"><i class="fas fa-shield-alt"></i> Privacy-Aware Analytics</span>
-      <h1>Track an IP from a Link<br>(No Coding Required)</h1>
-      <p>Discover where your clicks come from with safe, consent-based IP analytics. Learn what IP data reveals and how to use it responsibly.</p>
-    </div>
-  </div>
-
-  <!-- Article Content -->
-  <div class="article-container">
-    <!-- Table of Contents -->
-    <div class="toc-card">nd analytics." />
-  <link rel="canonical" href="https://whatstheirip.tech/blog/track-ip-from-a-link">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" />
-  <meta property="og:description" content="A practical, privacy-aware way to view IP, region, ISP, and device info via a trackable link—no coding required." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://whatstheirip.tech/blog/track-ip-from-a-link" />
-  <meta property="og:site_name" content="WhatsTheirIP" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" />
-  <meta name="twitter:description" content="See where a click came from—safely and legally—with consent-based link analytics from WhatsTheirIP.tech." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+   <style>
     :root {
-      --primary-color: #667eea;
-      --primary-dark: #5568d3;
-      --secondary-color: #764ba2;
-      --accent-color: #f093fb;
-      --success-color: #10b981;
-      --text-dark: #1a202c;
-      --text-light: #718096;
-      --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --card-bg: #ffffff;
-      --section-bg: #f7fafc;
-      --border-color: #e2e8f0;
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
-      --radius: 16px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    html {
-      scroll-behavior: smooth;
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.7;
-      color: var(--text-dark);
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      background-attachment: fixed;
-      min-height: 100vh;
-    }
-    
-    /* Navigation Bar */
-    nav {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow-sm);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-    
-    nav .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    nav .logo {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: var(--bg-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-decoration: none;
-    }
-    
-    nav .nav-links a {
-      color: var(--text-dark);
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-    
-    nav .nav-links a:hover {
-      color: var(--primary-color);
-    }
-    
-    /* Hero Section */
-    .hero {
-      background: var(--bg-gradient);
-      color: white;
-      padding: 5rem 2rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-      opacity: 0.3;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero p {
-      font-size: 1.25rem;
-      opacity: 0.95;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    
-    /* Content Container */
-    .article-container {
-      max-width: 900px;
-      margin: -3rem auto 0;
-      padding: 0 2rem 5rem;
-      position: relative;
-      z-index: 10;
-    }
-    
-    /* Table of Contents */
-    .toc-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
-      border: 1px solid var(--border-color);
-    }
-    
-    .toc-card h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
-    }
-    
-    .toc-card .toc-links {
-      display: grid;
-      gap: 0.75rem;
-    }
-    
-    .toc-card a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: var(--transition);
-      display: block;
-    }
-    
-    .toc-card a:hover {
-      background: #f0f4ff;
-      padding-left: 1.5rem;
-    }
-    
-    /* Content Sections */
-    section {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-color);
-    }
-    
-    section h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--text-dark);
-      position: relative;
-      padding-bottom: 0.75rem;
-    }
-    
-    section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--bg-gradient);
-      border-radius: 2px;
-    }
-    
-    section h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 2rem 0 1rem;
-      color: var(--text-dark);
-    }
-    
-    section p {
-      margin-bottom: 1.25rem;
+      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
+      color: var(--dark-color);
       line-height: 1.8;
-      color: var(--text-dark);
+      font-size: 16px;
     }
     
-    /* Lists */
-    ul, ol {
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .article-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 8rem 0 4rem;
+      color: white;
+    }
+    
+    .article-content {
+      padding: 3rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .highlight {
+      background: rgba(102, 126, 234, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
       margin: 1.5rem 0;
-      padding-left: 1.5rem;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .diagram-container {
+      margin: 3rem 0;
+      text-align: center;
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+    }
+    
+    .diagram-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .mermaid-diagram {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
     }
     
     li {
-      margin-bottom: 0.75rem;
+      margin: 0.5rem 0;
       line-height: 1.8;
-      color: var(--text-dark);
     }
     
-    li::marker {
-      color: var(--primary-color);
+    p {
+      margin: 1rem 0;
+      line-height: 1.8;
     }
     
-    /* Info Cards */
-    .card {
-      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
-      border-left: 4px solid var(--primary-color);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .card ol {
-      margin-top: 1rem;
-    }
-    
-    /* Note Boxes */
-    .note {
-      background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
-      border-left: 4px solid #ffa500;
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .note strong {
-      color: #e07700;
-    }
-    
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background: var(--bg-gradient);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    /* FAQ Section */
-    .faq details {
-      background: var(--section-bg);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid var(--border-color);
-      transition: var(--transition);
-    }
-    
-    .faq details:hover {
-      border-color: var(--primary-color);
-    }
-    
-    .faq summary {
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--primary-color);
-      font-size: 1.125rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .faq summary::before {
-      content: '▶';
-      font-size: 0.875rem;
-      transition: var(--transition);
-    }
-    
-    .faq details[open] summary::before {
-      transform: rotate(90deg);
-    }
-    
-    .faq details[open] summary {
-      margin-bottom: 1rem;
-    }
-    
-    /* Footer */
-    .foot {
-      text-align: center;
-      padding: 3rem 2rem;
-      color: var(--text-light);
-      border-top: 1px solid var(--border-color);
-      margin-top: 3rem;
-      background: var(--card-bg);
-    }
-    
-    /* Code blocks */
-    code.k {
-      background: #f1f5f9;
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      font-family: 'Fira Code', 'Courier New', monospace;
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
       font-size: 0.9em;
-      color: #e11d48;
-      border: 1px solid #e2e8f0;
     }
     
-    /* Links */
-    a {
-      color: var(--primary-color);
-      transition: var(--transition);
+    blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #555;
     }
     
-    a:hover {
-      color: var(--primary-dark);
-    }
-    
-    /* Responsive Design */
     @media (max-width: 768px) {
-      .hero {
-        padding: 3rem 1.5rem 2rem;
-      }
-      
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .article-container {
-        padding: 0 1rem 3rem;
-      }
-      
-      section {
-        padding: 1.5rem;
-      }
-      
-      nav .nav-links a {
-        margin-left: 1rem;
-      }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .article-content { padding: 2rem 1rem; }
     }
   </style>
-
-  <!-- Structured data: Article + FAQ -->
-  <script type="application/ld+json">
-  {
+ </head>
+ <body>
+  <!-- Navigation -->
+  <nav>
+   <div class="container">
+    <a class="logo" href="../index.html">
+     WhatsTheirIP
+    </a>
+    <div class="nav-links">
+     <a href="../index.html">
+      Home
+     </a>
+     <a href="index">
+      Blog
+     </a>
+     <a href="../index.html#features">
+      Features
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <div class="hero">
+   <div class="hero-content">
+    <span class="hero-badge">
+     <i class="fas fa-shield-alt">
+     </i>
+     Privacy-Aware Analytics
+    </span>
+    <h1>
+     Track an IP from a Link
+     <br/>
+     (No Coding Required)
+    </h1>
+    <p>
+     Discover where your clicks come from with safe, consent-based IP Data Analytics.  Learn what IP data reveals and how to use it responsibly.
+    </p>
+   </div>
+  </div>
+  <!-- Article Content -->
+  <div class="article-container">
+   <!-- Table of Contents -->
+   <div class="toc-card">
+    nd analytics." /&gt;
+    <link href="https://whatstheirip.tech/blog/track-ip-from-a-link" rel="canonical"/>
+    <!-- Open Graph -->
+    <meta content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" property="og:title"/>
+    <meta content="A practical, privacy-aware way to view IP, region, ISP, and device info via a trackable link—no coding required." property="og:description"/>
+    <meta content="article" property="og:type"/>
+    <meta content="https://whatstheirip.tech/blog/track-ip-from-a-link" property="og:url">
+     <meta content="WhatsTheirIP" property="og:site_name"/>
+     <!-- Twitter -->
+     <meta content="summary" name="twitter:card"/>
+     <meta content="Track an IP from a Link (No Code): Safe, Consent-Based Guide" name="twitter:title"/>
+     <meta content="See where a click came from—safely and legally—with consent-based link analytics from WhatsTheirIP.tech." name="twitter:description"/>
+     <!-- Fonts -->
+     <link href="https://fonts.googleapis.com" rel="preconnect"/>
+     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+     <!-- Structured data: Article + FAQ -->
+     <script type="application/ld+json">
+      {
     "@context":"https://schema.org",
     "@type":"Article",
     "headline":"Track an IP from a Link (No Code): Safe, Consent-Based Guide",
@@ -453,9 +218,9 @@
     "about":["IP address","IP tracking","link analytics","privacy"],
     "dateModified":"2025-08-22"
   }
-  </script>
-  <script type="application/ld+json">
-  {
+     </script>
+     <script type="application/ld+json">
+      {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
@@ -469,174 +234,373 @@
        "acceptedAnswer":{"@type":"Answer","text":"You’ll see the VPN/proxy exit location and network, which may differ from their physical location."}}
     ]
   }
-  </script>
-
-  <!-- Mermaid.js for diagrams -->
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+     </script>
+     <!-- Mermaid.js for diagrams -->
+     <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true, theme: 'default' });
-  </script>
-  </head>
-<body>
-  <div class="wrap">
-    <header>
-      <p class="muted">Hands-on • Privacy-aware link analytics</p>
-      <h1>Track an IP from a Link (No Code): Safe, Consent-Based Guide</h1>
-      <p class="muted">Curious where a click came from? Here’s a practical way to see IP, region, ISP, and device info using a trackable link—without writing a single line of code.</p>
-    </header>
-
-      <!-- Article Content -->
-  <div class="article-container">
-    <!-- Table of Contents -->
-    <div class="toc-card">
-      <h3><i class="fas fa-list"></i> Quick Navigation</h3>
-      <div class="toc-links">
-        <a href="#what-you-see"><i class="fas fa-eye"></i> What you can (and can't) see</a>
-        <a href="#how-to"><i class="fas fa-rocket"></i> Step-by-step guide (no code)</a>
-        <a href="#use-cases"><i class="fas fa-lightbulb"></i> Fun & legitimate use cases</a>
-        <a href="#accuracy"><i class="fas fa-crosshairs"></i> Accuracy & VPN considerations</a>
-        <a href="#faq"><i class="fas fa-question-circle"></i> Frequently Asked Questions</a>
-      </div>
-    </div>
-
-    <section id="intro">
-      <p>Whether you’re testing a link with friends, running a quick poll, or exploring how the internet routes traffic, it’s useful to know where a click originates. The trick is doing it <em>simply</em> and <em>responsibly</em>.</p>
-      <div class="note"><strong>Heads-up:</strong> Stick to analytics, education, or security. Always use notice/consent and respect local privacy rules. This guide is <em>not</em> for harassment or doxxing.</div>
-    </section>
-
-    <section id="what-you-see">
-      <h2>What You Can (and Can’t) See from an IP</h2>
-      
-            <!-- Link IP Tracking Process Diagram -->
-            <div class="diagram-container" style="margin: 3rem 0; text-align: center;">
-              <h4 style="margin-bottom: 1.5rem; color: #2d3748;">Link IP Tracking Process</h4>
-              
-              <!-- SVG Diagram -->
-              <figure style="margin-bottom: 2rem;">
-                <img src="../diagrams/en/link-tracking-process-flow.svg" 
-                     alt="Link IP Tracking Process Diagram"
-                     loading="lazy"
-                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">Visual representation of link ip tracking process</figcaption>
-              </figure>
-              
-              <!-- Mermaid Diagram -->
-              <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
-                <h5 style="margin-bottom: 1rem; color: #2d3748;">Interactive Flow Diagram</h5>
-                <div class="mermaid">
-flowchart TD
-    A[Create Tracking Link] --> B[Share Link]
-    B --> C[User Clicks Link]
-    C --> D[Redirect & Capture]
-    D --> E[Store Data]
-    E --> F[View Analytics]
+     </script>
+     <body>
+      <div class="wrap">
+       <header>
+        <p class="muted">
+         Hands-on • Privacy-aware link Data Analytics
+        </p>
+        <h1>
+         Track an IP from a Link (No Code): Safe, Consent-Based Guide
+        </h1>
+        <p class="muted">
+         Curious where a click came from? Here’s a practical way to see IP.  region.  ISP.  and device info using a trackable link—without writing a single line of code.
+        </p>
+       </header>
+       <!-- Article Content -->
+       <div class="article-container">
+        <!-- Table of Contents -->
+        <div class="toc-card">
+         <h3>
+          <i class="fas fa-list">
+          </i>
+          Quick Navigation
+         </h3>
+         <div class="toc-links">
+          <a href="#what-you-see">
+           <i class="fas fa-eye">
+           </i>
+           What you can (and can't) see
+          </a>
+          <a href="#how-to">
+           <i class="fas fa-rocket">
+           </i>
+           Step-by-step guide (no code)
+          </a>
+          <a href="#use-cases">
+           <i class="fas fa-lightbulb">
+           </i>
+           Fun &amp; legitimate use cases
+          </a>
+          <a href="#accuracy">
+           <i class="fas fa-crosshairs">
+           </i>
+           Accuracy &amp; VPN considerations
+          </a>
+          <a href="#faq">
+           <i class="fas fa-question-circle">
+           </i>
+           Frequently Asked Questions
+          </a>
+         </div>
+        </div>
+        <section id="intro">
+         <p>
+          Whether you’re testing a link with friends, running a quick poll, or exploring how the internet routes traffic, it’s useful to know where a click originates. The trick is doing it
+          <em>
+           simply
+          </em>
+          and
+          <em>
+           responsibly
+          </em>
+          .
+         </p>
+         <div class="note">
+          <strong>
+           Heads-up:
+          </strong>
+          Stick to analytics, education, or security. Always use notice/consent and respect local privacy rules. This guide is
+          <em>
+           not
+          </em>
+          for harassment or doxxing.
+         </div>
+        </section>
+        <section id="what-you-see">
+         <h2>
+          What You Can (and Can’t) See from an IP
+         </h2>
+         <!-- Link IP Tracking Process Diagram -->
+         <div class="diagram-container" style="margin: 3rem 0; text-align: center; background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+          <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
+           IP Tracking Process Flow
+          </h4>
+          <figure style="margin-bottom: 2rem;">
+           <img alt="Link IP Tracking Process Diagram" loading="lazy" src="../diagrams/en/link-tracking-process-flow.svg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"/>
+           <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">
+            Visual representation of link ip tracking process
+           </figcaption>
+          </figure>
+         </div>
+         <div class="mermaid-diagram" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 3rem 0; text-align: center;">
+          <h5 style="margin-bottom: 1rem; color: #2d3748;">
+           Interactive Flow Diagram
+          </h5>
+          <div class="mermaid">
+           flowchart TD
+    A[User Visits Website] --> B[Browser Sends Request]
+    B --> C[Server Receives Request]
+    C --> D[Server Logs IP Address]
+    D --> E[IP Geolocation Lookup]
+    E --> F[Data Collection]
+    F --> G[Analytics Processing]
+    G --> H[Display Results]
     
     style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
-    style F fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
-                </div>
-              </div>
-            </div>
-
-          <p>An IP address is a network identifier—closer to a postcode than a street address. Typical insights include:</p>
-      <ul>
-        <li>Coarse <strong>region/city</strong> (geolocation databases)</li>
-        <li><strong>ISP</strong> or network provider</li>
-        <li><strong>Connection type</strong> (mobile, broadband, corporate)</li>
-        <li><strong>Device & browser</strong> (from user agent)</li>
-        <li><strong>Timestamps</strong> of clicks</li>
-      </ul>
-      <p>What you do <strong>not</strong> get: exact street address, precise identity, or private content. VPNs can also mask true origin.</p>
-    </section>
-
-    <section id="how-to">
-      <h2>Track an IP from a Link in 3 Steps (No Coding)</h2>
-      <div class="card">
-        <ol>
-          <li><strong>Create a trackable link:</strong> Visit <a href="https://whatstheirip.tech" target="_blank" rel="noopener">WhatsTheirIP.tech</a> and generate a unique link.</li>
-          <li><strong>Share with notice:</strong> Send the link to your audience/friends with a clear note that analytics (IP, region, ISP, device) will be collected.</li>
-          <li><strong>View the dashboard:</strong> Open your analytics page to see clicks with high-level details and timestamps.</li>
-        </ol>
+    style H fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+          </div>
+         </div>
+         <p>
+          An IP address is a network identifier—closer to a postcode than a street address.  Typical insights include:
+         </p>
+         <ul>
+          <li>
+           Coarse
+           <strong>
+            region/city
+           </strong>
+           (geolocation databases)
+          </li>
+          <li>
+           <strong>
+            ISP
+           </strong>
+           or network provider
+          </li>
+          <li>
+           <strong>
+            Connection type
+           </strong>
+           (mobile, broadband, corporate)
+          </li>
+          <li>
+           <strong>
+            Device &amp; browser
+           </strong>
+           (from user agent)
+          </li>
+          <li>
+           <strong>
+            Timestamps
+           </strong>
+           of clicks
+          </li>
+         </ul>
+         <p>
+          What you do
+          <strong>
+           not
+          </strong>
+          get: exact street address, precise identity, or private content. VPNs can also mask true origin.
+         </p>
+        </section>
+        <section id="how-to">
+         <h2>
+          Track an IP from a Link in 3 Steps (No Coding)
+         </h2>
+         <div class="card">
+          <ol>
+           <li>
+            <strong>
+             Create a trackable link:
+            </strong>
+            Visit
+            <a href="https://whatstheirip.tech" rel="noopener" target="_blank">
+             WhatsTheirIP.tech
+            </a>
+            and generate a unique link.
+           </li>
+           <li>
+            <strong>
+             Share with notice:
+            </strong>
+            Send the link to your audience/friends with a clear note that analytics (IP, region, ISP, device) will be collected.
+           </li>
+           <li>
+            <strong>
+             View the dashboard:
+            </strong>
+            Open your analytics page to see clicks with high-level details and timestamps.
+           </li>
+          </ol>
+         </div>
+         <p>
+          Optional tips:
+         </p>
+         <ul>
+          <li>
+           Add context in your message (e. g. , “This link uses Data Analytics to show where responses come from”).
+          </li>
+          <li>
+           Combine with campaign tags (e.g.,
+           <code class="k">
+            ?ref=friends
+           </code>
+           ) to segment clicks.
+          </li>
+         </ul>
+         <p>
+          Generate a tracking link
+         </p>
+        </section>
+        <section id="use-cases">
+         <h2>
+          Fun &amp; Legit Use Cases
+         </h2>
+         <ul>
+          <li>
+           <strong>
+            “Where are people voting from?”
+           </strong>
+           Run a quick poll and view regional interest.
+          </li>
+          <li>
+           <strong>
+            Group trips &amp; events:
+           </strong>
+           See whether responses came from home, campus, or abroad (coarse level).
+          </li>
+          <li>
+           <strong>
+            Learning lab:
+           </strong>
+           Demonstrate IP, ISPs, and geolocation in class with consent.
+          </li>
+          <li>
+           <strong>
+            Marketing tests:
+           </strong>
+           Gauge city/region engagement on a teaser link.
+          </li>
+         </ul>
+        </section>
+        <section id="accuracy">
+         <h2>
+          Accuracy, VPNs, and Common Myths
+         </h2>
+         <ul>
+          <li>
+           <strong>
+            IP ≠ exact address:
+           </strong>
+           You’ll typically get city/region accuracy, not someone’s doorstep.
+          </li>
+          <li>
+           <strong>
+            VPNs &amp; proxies:
+           </strong>
+           You’ll see the egress location/network of the VPN, which may differ from the user’s physical location.
+          </li>
+          <li>
+           <strong>
+            Mobile networks:
+           </strong>
+           Carrier NATs can map many users to shared IP ranges, reducing granularity.
+          </li>
+         </ul>
+        </section>
+        <section class="card" id="cta">
+         <h2>
+          Try WhatsTheirIP — Privacy-Aware Link Analytics
+         </h2>
+         <p>
+          Create a trackable link in seconds, view IP/region/ISP/device data, and keep things respectful with clear notice and consent.
+         </p>
+         <p>
+          Start now
+         </p>
+        </section>
+        <section class="faq" id="faq">
+         <h2>
+          FAQ
+         </h2>
+         <details>
+          <summary>
+           Do I need to code or run a server?
+          </summary>
+          <p>
+           No.  WhatsTheirIP generates the link and Data Analytics for you—no scripts, no hosting.
+          </p>
+         </details>
+         <details>
+          <summary>
+           Can I identify a person from their IP?
+          </summary>
+          <p>
+           No.  You’ll see high-level network/region info, not personally identifying details.
+          </p>
+         </details>
+         <details>
+          <summary>
+           Is this legal where I live?
+          </summary>
+          <p>
+           Data Analytics are generally lawful with notice/consent and adherence to local privacy laws (e. g. , 欧盟数据保护条例/加州消费者隐私法-style rules).  When in doubt, seek legal advice.
+          </p>
+         </details>
+         <details>
+          <summary>
+           What if someone uses a VPN?
+          </summary>
+          <p>
+           You'll see the VPN exit IP/location.  That's normal and expected behavior.
+          </p>
+         </details>
+        </section>
+        <!-- Related Articles -->
+        <div class="related-articles">
+         <h3>
+          <i class="fas fa-bookmark">
+          </i>
+          Related Articles
+         </h3>
+         <div class="related-articles-grid">
+          <a class="related-article-card" href="how-to-find-someones-ip-address">
+           <h4>
+            <i class="fas fa-search">
+            </i>
+            How to Find Someone's IP
+           </h4>
+           <p>
+            A complete guide on finding IP addresses responsibly and legally.
+           </p>
+          </a>
+          <a class="related-article-card" href="ip-address-basics">
+           <h4>
+            <i class="fas fa-info-circle">
+            </i>
+            IP Address Basics
+           </h4>
+           <p>
+            Learn the fundamentals of IP addresses and how they work.
+           </p>
+          </a>
+          <a class="related-article-card" href="legal-ethical-ip-tracking">
+           <h4>
+            <i class="fas fa-gavel">
+            </i>
+            Legal &amp; Ethical IP Tracking
+           </h4>
+           <p>
+            Understanding the legal and ethical considerations of IP tracking.
+           </p>
+          </a>
+         </div>
+        </div>
+        <section class="foot">
+         <p>
+          <a class="btn" href="https://whatstheirip.tech" rel="noopener" target="_blank">
+           <i class="fas fa-rocket">
+           </i>
+           Generate a Tracking Link Now
+          </a>
+         </p>
+         <p class="muted">
+          Disclaimer: Educational/analytic use only.  Always inform participants and comply with applicable laws and platform policies.
+         </p>
+        </section>
+       </div>
       </div>
-      <p>Optional tips:</p>
-      <ul>
-        <li>Add context in your message (e.g., “This link uses analytics to show where responses come from”).</li>
-        <li>Combine with campaign tags (e.g., <code class="k">?ref=friends</code>) to segment clicks.</li>
-      </ul>
-      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Generate a tracking link</a></p>
-    </section>
-
-    <section id="use-cases">
-      <h2>Fun & Legit Use Cases</h2>
-      <ul>
-        <li><strong>“Where are people voting from?”</strong> Run a quick poll and view regional interest.</li>
-        <li><strong>Group trips & events:</strong> See whether responses came from home, campus, or abroad (coarse level).</li>
-        <li><strong>Learning lab:</strong> Demonstrate IP, ISPs, and geolocation in class with consent.</li>
-        <li><strong>Marketing tests:</strong> Gauge city/region engagement on a teaser link.</li>
-      </ul>
-    </section>
-
-    <section id="accuracy">
-      <h2>Accuracy, VPNs, and Common Myths</h2>
-      <ul>
-        <li><strong>IP ≠ exact address:</strong> You’ll typically get city/region accuracy, not someone’s doorstep.</li>
-        <li><strong>VPNs & proxies:</strong> You’ll see the egress location/network of the VPN, which may differ from the user’s physical location.</li>
-        <li><strong>Mobile networks:</strong> Carrier NATs can map many users to shared IP ranges, reducing granularity.</li>
-      </ul>
-    </section>
-
-    <section id="cta" class="card">
-      <h2>Try WhatsTheirIP — Privacy-Aware Link Analytics</h2>
-      <p>Create a trackable link in seconds, view IP/region/ISP/device data, and keep things respectful with clear notice and consent.</p>
-      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener">Start now</a></p>
-    </section>
-
-    <section id="faq" class="faq">
-      <h2>FAQ</h2>
-
-      <details>
-        <summary>Do I need to code or run a server?</summary>
-        <p>No. WhatsTheirIP generates the link and analytics for you—no scripts, no hosting.</p>
-      </details>
-
-      <details>
-        <summary>Can I identify a person from their IP?</summary>
-        <p>No. You’ll see high-level network/region info, not personally identifying details.</p>
-      </details>
-
-      <details>
-        <summary>Is this legal where I live?</summary>
-        <p>Analytics are generally lawful with notice/consent and adherence to local privacy laws (e.g., GDPR/CCPA-style rules). When in doubt, seek legal advice.</p>
-      </details>
-
-      <details>
-        <summary>What if someone uses a VPN?</summary>
-        <p>You'll see the VPN exit IP/location. That's normal and expected behavior.</p>
-      </details>
-    </section>
-
-    <!-- Related Articles -->
-    <div class="related-articles">
-      <h3><i class="fas fa-bookmark"></i> Related Articles</h3>
-      <div class="related-articles-grid">
-        <a href="how-to-find-someones-ip-address" class="related-article-card">
-          <h4><i class="fas fa-search"></i> How to Find Someone's IP</h4>
-          <p>A complete guide on finding IP addresses responsibly and legally.</p>
-        </a>
-        <a href="ip-address-basics" class="related-article-card">
-          <h4><i class="fas fa-info-circle"></i> IP Address Basics</h4>
-          <p>Learn the fundamentals of IP addresses and how they work.</p>
-        </a>
-        <a href="legal-ethical-ip-tracking" class="related-article-card">
-          <h4><i class="fas fa-gavel"></i> Legal & Ethical IP Tracking</h4>
-          <p>Understanding the legal and ethical considerations of IP tracking.</p>
-        </a>
-      </div>
-    </div>
-
-    <section class="foot">
-      <p><a class="btn" href="https://whatstheirip.tech" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Generate a Tracking Link Now</a></p>
-      <p class="muted">Disclaimer: Educational/analytic use only. Always inform participants and comply with applicable laws and platform policies.</p>
-    </section>
+     </body>
+    </meta>
+   </div>
   </div>
-</body>
+ </body>
 </html>

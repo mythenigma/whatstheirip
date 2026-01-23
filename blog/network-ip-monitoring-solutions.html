@@ -1,264 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://whatstheirip.tech/blog/network-ip-monitoring-solutions">
-  <title>Network IP Monitoring Solutions | whatstheirip.tech</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="icon" type="image/svg+xml" href="../favicon.ico" type="image/x-icon">
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
-</head>
-<body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="https://whatstheirip.tech/blog/network-ip-monitoring-solutions" rel="canonical"/>
+  <title>
+   Network IP Monitoring Solutions | whatstheirip.tech
+  </title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+  <link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+  <style>
+   <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
+      color: var(--dark-color);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .article-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 8rem 0 4rem;
+      color: white;
+    }
+    
+    .article-content {
+      padding: 3rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .highlight {
+      background: rgba(102, 126, 234, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .diagram-container {
+      margin: 3rem 0;
+      text-align: center;
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+    }
+    
+    .diagram-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .mermaid-diagram {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin: 0.5rem 0;
+      line-height: 1.8;
+    }
+    
+    p {
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+    
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9em;
+    }
+    
+    blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #555;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .article-content { padding: 2rem 1rem; }
+    }
+  </style>
+  <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+ </head>
+ <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">whatstheirip.tech</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html#url">URL Tracker</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html#email">Email Tracker</a>
-          </li>
-        </ul>
-      </div>
+   <div class="container">
+    <a class="navbar-brand" href="../index.html">
+     whatstheirip.tech
+    </a>
+    <button class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav">
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html">
+        Home
+       </a>
+      </li>
+      <li class="nav-item active">
+       <a class="nav-link" href="#">
+        Blog
+        <span class="sr-only">
+         (current)
+        </span>
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html#url">
+        URL Tracker
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html#email">
+        Email Tracker
+       </a>
+      </li>
+     </ul>
     </div>
+   </div>
   </nav>
-
   <!-- Article Header -->
   <header class="article-header">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h1 class="mb-4">Network IP Monitoring Solutions: A Comprehensive Guide</h1>
-          <p class="lead">Simple tools and best practices for monitoring IP traffic for personal and small website use</p>
-          <div class="mt-4">
-            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> May 14, 2025</span>
-            <span><i class="far fa-clock mr-1"></i> 12 min read</span>
-          </div>
-        </div>
+   <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-lg-8 text-center">
+      <h1 class="mb-4">
+       Network IP Monitoring Solutions: A Comprehensive Guide
+      </h1>
+      <p class="lead">
+       Simple tools and best practices for monitoring IP traffic for personal and small website use
+      </p>
+      <div class="mt-4">
+       <span class="mr-3">
+        <i class="far fa-calendar-alt mr-1">
+        </i>
+        May 14, 2025
+       </span>
+       <span>
+        <i class="far fa-clock mr-1">
+        </i>
+        12 min read
+       </span>
       </div>
+     </div>
     </div>
+   </div>
   </header>
-
   <!-- Article Content -->
   <section class="article-content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <!-- Table of Contents -->
-          <div class="table-of-contents">
-            <h5>Table of Contents</h5>
-            <ul>
-              <li><a href="#introduction">Introduction to Network IP Monitoring</a></li>
-              <!-- Removed enterprise tools section for normal users -->
-              <li><a href="#real-time-monitoring">Real-time IP Traffic Analysis</a></li>
-              <li><a href="#network-visualization">Network Traffic Visualization</a></li>
-              <li><a href="#alert-systems">Alert and Notification Systems</a></li>
-              <li><a href="#scalability">Scaling Your Monitoring Solution</a></li>
-              <li><a href="#best-practices">Best Practices and Implementation</a></li>
-              <li><a href="#conclusion">Conclusion</a></li>
-            </ul>
-          </div>
-
-          <!-- Introduction -->
-          <h2 id="introduction" class="mt-5">Introduction to Network IP Monitoring</h2>
-          <p>Understanding and monitoring IP traffic can help you keep your website or home network secure and running smoothly. This guide is for personal and small website users. No enterprise or commercial features required.</p>
-
-          <!-- Enterprise Tools -->
-          <!-- Removed enterprise monitoring tools section for normal users -->
-            <li>Historical data retention</li>
-          </ul>
-
-          <!-- Real-time Monitoring -->
-          <h2 id="real-time-monitoring" class="mt-5">Real-time IP Traffic Analysis</h2>
-          <p>Real-time monitoring is essential for identifying and responding to network issues quickly. Learn how to:</p>
-          <ul>
-            <li>Set up live traffic monitoring</li>
-            <li>Implement packet inspection</li>
-            <li>Track connection states</li>
-            <li>Monitor bandwidth usage</li>
-            <li>Detect anomalies in real-time</li>
-          </ul>
-
-          <!-- Network Visualization -->
-          <h2 id="network-visualization" class="mt-5">Network Traffic Visualization</h2>
-          <p>Visualizing network traffic helps identify patterns and potential issues:</p>
-          <ul>
-            <li>Traffic flow diagrams</li>
-            <li>Heat maps</li>
-            <li>Geographic distribution maps</li>
-            <li>Time-series graphs</li>
-            <li>Custom dashboards</li>
-          </ul>
-
-          <!-- Alert Systems -->
-          <h2 id="alert-systems" class="mt-5">Alert and Notification Systems</h2>
-          <p>Effective monitoring requires a robust alert system:</p>
-          <ul>
-            <li>Threshold-based alerts</li>
-            <li>Anomaly detection</li>
-            <li>Custom alert rules</li>
-            <li>Alert prioritization</li>
-            <li>Notification channels</li>
-          </ul>
-
-          <!-- Scalability -->
-          <h2 id="scalability" class="mt-5">Scaling Your Monitoring Solution</h2>
-          <p>As your network grows, your monitoring solution needs to scale:</p>
-          <ul>
-            <li>Distributed monitoring</li>
-            <li>Load balancing</li>
-            <li>Data aggregation</li>
-            <li>Storage optimization</li>
-            <li>Performance tuning</li>
-          </ul>
-
-          <!-- Best Practices -->
-          <h2 id="best-practices" class="mt-5">Best Practices and Implementation</h2>
-          <p>Follow these best practices for optimal monitoring:</p>
-          <ul>
-            <li>Regular baseline updates</li>
-            <li>Documentation maintenance</li>
-            <li>Team training</li>
-            <li>Regular audits</li>
-            <li>Continuous improvement</li>
-          </ul>
-
-          <!-- Conclusion -->
-          <h2 id="conclusion" class="mt-5">Conclusion</h2>
-          <p>Implementing a comprehensive IP monitoring solution is crucial for maintaining a healthy network infrastructure. By following the guidelines and best practices outlined in this article, you can build a robust monitoring system that grows with your organization.</p>
-
-          <div class="alert alert-info mt-5">
-            <p class="mb-0"><strong>Pro Tip:</strong> Start small and gradually expand your monitoring capabilities as you better understand your network's specific needs and challenges.</p>
-          </div>
-
-          <!-- Related Articles -->
-          <div class="mt-5">
-            <h4><i class="fas fa-bookmark text-primary"></i> Related Articles</h4>
-            <div class="row">
-              <div class="col-md-4 mb-3">
-                <a href="realtime-ip-monitoring" class="text-decoration-none">
-                  <div class="card h-100 border-primary" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-primary"><i class="fas fa-chart-line"></i> Realtime IP Monitoring</h5>
-                      <p class="card-text text-muted">Learn about real-time IP tracking and monitoring techniques</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="ip-tracking-cybersecurity" class="text-decoration-none">
-                  <div class="card h-100 border-danger" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-danger"><i class="fas fa-shield-alt"></i> IP Tracking for Cybersecurity</h5>
-                      <p class="card-text text-muted">Enhance your security with IP monitoring</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="how-ip-tracking-works" class="text-decoration-none">
-                  <div class="card h-100 border-info" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-info"><i class="fas fa-cogs"></i> How IP Tracking Works</h5>
-                      <p class="card-text text-muted">Understand the technical fundamentals of IP tracking</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="ip-tracking-analytics" class="text-decoration-none">
-                  <div class="card h-100 border-success" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-success"><i class="fas fa-chart-bar"></i> IP Tracking Analytics</h5>
-                      <p class="card-text text-muted">Make sense of your IP tracking data</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="ip-tracking-remote-work-security" class="text-decoration-none">
-                  <div class="card h-100 border-warning" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-warning"><i class="fas fa-laptop-house"></i> Remote Work Security</h5>
-                      <p class="card-text text-muted">Secure your remote workforce with IP monitoring</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="ip-address-basics" class="text-decoration-none">
-                  <div class="card h-100 border-secondary" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-secondary"><i class="fas fa-network-wired"></i> IP Address Basics</h5>
-                      <p class="card-text text-muted">Master the fundamentals of IP addresses</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <style>
-            .card:hover {
-              transform: translateY(-5px);
-              box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
-            }
-          </style>
-        </div>
+   <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-lg-8">
+      <!-- Table of Contents -->
+      <div class="table-of-contents">
+       <h5>
+        Table of Contents
+       </h5>
+       <ul>
+        <li>
+         Introduction to Network IP Monitoring
+        </li>
+        <!-- Removed enterprise tools section for normal users -->
+        <li>
+         Real-time IP Traffic Analysis
+        </li>
+        <li>
+         Network Traffic Visualization
+        </li>
+        <li>
+         Alert and Notification Systems
+        </li>
+        <li>
+         Scaling Your Monitoring Solution
+        </li>
+        <li>
+         Best Practices and Implementation
+        </li>
+        <li>
+         Conclusion
+        </li>
+       </ul>
       </div>
+      <!-- Introduction -->
+      <div class="diagram-container">
+       <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
+        Flow Diagram
+       </h4>
+       <div class="mermaid-diagram">
+        <h5 style="margin-bottom: 1rem; color: #2d3748;">
+         Interactive Flow Diagram
+        </h5>
+        <div class="mermaid">
+         flowchart TD
+    A[Start] --> B[Process Step]
+    B --> C[Collect Data]
+    C --> D[Analyze Results]
+    D --> E[Done]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style E fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+        </div>
+       </div>
+      </div>
+      <h2 class="mt-5" id="introduction">
+       Introduction to Network IP Monitoring
+      </h2>
+      <p>
+       Understanding and monitoring IP traffic can help you keep your website or home network secure and running smoothly.  This guide is for personal and small website users.  No enterprise or commercial features required.
+      </p>
+      <!-- Enterprise Tools -->
+      <!-- Removed enterprise monitoring tools section for normal users -->
+      <li>
+       Historical data retention
+      </li>
+      <!-- Real-time Monitoring -->
+      <h2 class="mt-5" id="real-time-monitoring">
+       Real-time IP Traffic Analysis
+      </h2>
+      <p>
+       Real-time monitoring is essential for identifying and responding to network issues quickly.  Learn how to:
+      </p>
+      <ul>
+       <li>
+        Set up live traffic monitoring
+       </li>
+       <li>
+        Implement packet inspection
+       </li>
+       <li>
+        Track connection states
+       </li>
+       <li>
+        Monitor bandwidth usage
+       </li>
+       <li>
+        Detect anomalies in real-time
+       </li>
+      </ul>
+      <!-- Network Visualization -->
+      <h2 class="mt-5" id="network-visualization">
+       Network Traffic Visualization
+      </h2>
+      <p>
+       Visualizing network traffic helps identify patterns and potential issues:
+      </p>
+      <ul>
+       <li>
+        Traffic flow diagrams
+       </li>
+       <li>
+        Heat maps
+       </li>
+       <li>
+        Geographic distribution maps
+       </li>
+       <li>
+        Time-series graphs
+       </li>
+       <li>
+        Custom dashboards
+       </li>
+      </ul>
+      <!-- Alert Systems -->
+      <h2 class="mt-5" id="alert-systems">
+       Alert and Notification Systems
+      </h2>
+      <p>
+       Effective monitoring requires a robust alert system:
+      </p>
+      <ul>
+       <li>
+        Threshold-based alerts
+       </li>
+       <li>
+        Anomaly detection
+       </li>
+       <li>
+        Custom alert rules
+       </li>
+       <li>
+        Alert prioritization
+       </li>
+       <li>
+        Notification channels
+       </li>
+      </ul>
+      <!-- Scalability -->
+      <h2 class="mt-5" id="scalability">
+       Scaling Your Monitoring Solution
+      </h2>
+      <p>
+       As your network grows, your monitoring solution needs to scale:
+      </p>
+      <ul>
+       <li>
+        Distributed monitoring
+       </li>
+       <li>
+        Load balancing
+       </li>
+       <li>
+        Data aggregation
+       </li>
+       <li>
+        Storage 优化
+       </li>
+       <li>
+        Performance tuning
+       </li>
+      </ul>
+      <!-- Best Practices -->
+      <h2 class="mt-5" id="best-practices">
+       Best Practices and Implementation
+      </h2>
+      <p>
+       Follow these best practices for optimal monitoring:
+      </p>
+      <ul>
+       <li>
+        Regular baseline updates
+       </li>
+       <li>
+        Documentation maintenance
+       </li>
+       <li>
+        Team training
+       </li>
+       <li>
+        Regular audits
+       </li>
+       <li>
+        Continuous improvement
+       </li>
+      </ul>
+      <!-- Conclusion -->
+      <h2 class="mt-5" id="conclusion">
+       Conclusion
+      </h2>
+      <p>
+       Implementing a comprehensive IP monitoring solution is crucial for maintaining a healthy network 基础设施.  By following the guidelines and best practices outlined in this article, you can build a robust monitoring system that grows with your organization.
+      </p>
+      <div class="alert alert-info mt-5">
+       <p class="mb-0">
+        <strong>
+         Pro Tip:
+        </strong>
+        Start small and gradually expand your monitoring capabilities as you better understand your network's specific needs and challenges.
+       </p>
+      </div>
+      <!-- Related Articles -->
+      <div class="mt-5">
+       <h4>
+        <i class="fas fa-bookmark text-primary">
+        </i>
+        Related Articles
+       </h4>
+       <div class="row">
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="realtime-ip-monitoring">
+          <div class="card h-100 border-primary" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-primary">
+             <i class="fas fa-chart-line">
+             </i>
+             Realtime IP Monitoring
+            </h5>
+            <p class="card-text text-muted">
+             Learn about real-time IP tracking and monitoring techniques
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="ip-tracking-cybersecurity">
+          <div class="card h-100 border-danger" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-danger">
+             <i class="fas fa-shield-alt">
+             </i>
+             IP Tracking for Cybersecurity
+            </h5>
+            <p class="card-text text-muted">
+             Enhance your security with IP monitoring
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="how-ip-tracking-works">
+          <div class="card h-100 border-info" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-info">
+             <i class="fas fa-cogs">
+             </i>
+             How IP Tracking Works
+            </h5>
+            <p class="card-text text-muted">
+             Understand the technical fundamentals of IP tracking
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="ip-tracking-analytics">
+          <div class="card h-100 border-success" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-success">
+             <i class="fas fa-chart-bar">
+             </i>
+             IP Tracking Analytics
+            </h5>
+            <p class="card-text text-muted">
+             Make sense of your IP tracking data
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="ip-tracking-remote-work-security">
+          <div class="card h-100 border-warning" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-warning">
+             <i class="fas fa-laptop-house">
+             </i>
+             Remote Work Security
+            </h5>
+            <p class="card-text text-muted">
+             Secure your remote workforce with IP monitoring
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="ip-address-basics">
+          <div class="card h-100 border-secondary" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-secondary">
+             <i class="fas fa-network-wired">
+             </i>
+             IP Address Basics
+            </h5>
+            <p class="card-text text-muted">
+             Master the fundamentals of IP addresses
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
+   </div>
   </section>
-
   <!-- Footer -->
   <footer class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h5>whatstheirip.tech</h5>
-          <p>Advanced IP tracking solutions for various use cases, helping you understand who's visiting your links, opening your emails, and viewing your content.</p>
-        </div>
-        <div class="col-md-2 mb-4">
-          <h5>Tools</h5>
-          <ul class="list-unstyled">
-            <li><a href="../index.html#url">URL Tracker</a></li>
-            <li><a href="../index.html#email">Email Tracker</a></li>
-            <li><a href="https://maipdf.com/qr.php#pic">Image Tracker</a></li>
-            <li><a href="https://www.maipdf.com/pdf/boot.php">PDF Tracker</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 mb-4">
-          <h5>Resources</h5>
-          <ul class="list-unstyled">
-            <li><a href="how-ip-tracking-works">How IP Tracking Works</a></li>
-            <li><a href="protect-your-online-privacy">Protect Your Privacy</a></li>
-            <li><a href="ip-tracking-methods-comparison">Methods Comparison</a></li>
-            <li><a href="ip-tracking-use-cases">Use Cases</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5>Legal</h5>
-          <p class="small text-muted">The information provided on this website is for general informational purposes only. All information is provided in good faith, however we make no representation or warranty of any kind regarding the accuracy or completeness of any information.</p>
-          <p class="small text-muted">Copyright © 2025 whatstheirip.tech - All Rights Reserved.</p>
-        </div>
-      </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-4 mb-4">
+      <h5>
+       whatstheirip.tech
+      </h5>
+      <p>
+       Advanced IP tracking solutions for various use cases, helping you understand who's visiting your links, opening your emails, and viewing your content.
+      </p>
+     </div>
+     <div class="col-md-2 mb-4">
+      <h5>
+       Tools
+      </h5>
+      <ul class="list-unstyled">
+       <li>
+        Image Tracker
+       </li>
+       <li>
+        PDF Tracker
+       </li>
+      </ul>
+     </div>
+     <div class="col-md-2 mb-4">
+      <h5>
+       Resources
+      </h5>
+      <ul class="list-unstyled">
+       <li>
+        How IP Tracking Works
+       </li>
+       <li>
+        Protect Your Privacy
+       </li>
+       <li>
+        Methods Comparison
+       </li>
+       <li>
+        Use Cases
+       </li>
+      </ul>
+     </div>
+     <div class="col-md-4">
+      <h5>
+       Legal
+      </h5>
+      <p class="small text-muted">
+       The information provided on this website is for general informational purposes only.  All information is provided in good faith.  however we make no representation or warranty of any kind regarding the accuracy or completeness of any information.
+      </p>
+      <p class="small text-muted">
+       Copyright © 2025 whatstheirip. tech - All Rights Reserved.
+      </p>
+     </div>
     </div>
+   </div>
   </footer>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+  </script>
+ </body>
 </html>

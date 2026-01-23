@@ -1,184 +1,372 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>实时IP分析和地理情报完整指南 - WhatsTheirIP</title>
-    <meta name="description" content="深入了解实时IP分析技术，掌握地理情报收集、设备检测、威胁识别和网络监控的专业方法。">
-    <meta name="keywords" content="实时IP分析, 地理情报, 设备检测, 网络监控, IP追踪, WhatsTheirIP">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="canonical" href="https://whatstheirip.com/blog/zh/realtime-ip-analytics-geographic-intelligence.html">
-    <meta property="og:title" content="实时IP分析和地理情报完整指南 - WhatsTheirIP">
-    <meta property="og:description" content="深入了解实时IP分析技术，掌握地理情报收集、设备检测、威胁识别和网络监控的专业方法。">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://whatstheirip.com/blog/zh/realtime-ip-analytics-geographic-intelligence.html">
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%);
-            color: white;
-            padding: 60px 0;
-        }
-        .feature-card {
-            transition: transform 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        .code-block {
-            background-color: #f8f9fa;
-            border-left: 4px solid #007bff;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .analytics-box {
-            background: linear-gradient(45deg, #74b9ff, #0984e3);
-            color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .warning-box {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .success-box {
-            background-color: #d1edff;
-            border: 1px solid #74b9ff;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .metric-card {
-            background: linear-gradient(135deg, #00cec9, #55a3ff);
-            color: white;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../../index">WhatsTheirIP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">博客</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../realtime-ip-analytics-geographic-intelligence">English</a>
-                    </li>
-                </ul>
-            </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   实时IP分析和地理情报完整指南 - WhatsTheirIP
+  </title>
+  <meta content="深入了解实时IP分析技术，掌握地理情报收集、设备检测、威胁识别和网络监控的专业方法。" name="description"/>
+  <meta content="实时IP分析, 地理情报, 设备检测, 网络监控, IP追踪, WhatsTheirIP" name="keywords"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://whatstheirip.com/blog/zh/realtime-ip-analytics-geographic-intelligence.html" rel="canonical"/>
+  <meta content="实时IP分析和地理情报完整指南 - WhatsTheirIP" property="og:title"/>
+  <meta content="深入了解实时IP分析技术，掌握地理情报收集、设备检测、威胁识别和网络监控的专业方法。" property="og:description"/>
+  <meta content="article" property="og:type"/>
+  <meta content="https://whatstheirip.com/blog/zh/realtime-ip-analytics-geographic-intelligence.html" property="og:url"/>
+  <style>
+   <style>
+    :root {
+      --primary-color: #4A90E2;
+      --secondary-color: #FF5733;
+      --accent-color: #FF9F1C;
+      --dark-color: #2C3E50;
+      --light-color: #ECF0F1;
+    }
+    
+    body {
+      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
+      color: var(--dark-color);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .article-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 8rem 0 4rem;
+      color: white;
+    }
+    
+    .article-content {
+      padding: 3rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .highlight {
+      background: rgba(102, 126, 234, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .diagram-container {
+      margin: 3rem 0;
+      text-align: center;
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+    }
+    
+    .diagram-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .mermaid-diagram {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin: 0.5rem 0;
+      line-height: 1.8;
+    }
+    
+    p {
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+    
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9em;
+    }
+    
+    blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #555;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .article-content { padding: 2rem 1rem; }
+    }
+  </style>
+  <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+ </head>
+ <body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container">
+    <a class="navbar-brand" href="../../index">
+     WhatsTheirIP
+    </a>
+    <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="../../index">
+        首页
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html">
+        博客
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../realtime-ip-analytics-geographic-intelligence">
+        English
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-section">
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 mx-auto text-center">
+      <h1 class="display-4 fw-bold mb-4">
+       实时IP分析和地理情报完整指南
+      </h1>
+      <p class="lead mb-4">
+       掌握实时IP分析技术，获得强大的地理情报能力，增强网络安全防护和业务洞察
+      </p>
+      <p class="text-light">
+       <i class="bi bi-calendar">
+       </i>
+       2025年6月3日更新
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Main Content -->
+  <div class="container my-5">
+   <div class="row">
+    <div class="col-lg-8 mx-auto">
+     <!-- Introduction -->
+     <section class="mb-5">
+      <div class_="diagram-container">
+       <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
+        流程图
+       </h4>
+       <div class="mermaid-diagram">
+        <h5 style="margin-bottom: 1rem; color: #2d3748;">
+         交互式流程图
+        </h5>
+        <div class="mermaid">
+         flowchart TD
+    A[开始] --&gt; B[处理步骤]
+    B --&gt; C[收集数据]
+    C --&gt; D[分析结果]
+    D --&gt; E[完成]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style E fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold mb-4">实时IP分析和地理情报完整指南</h1>
-                    <p class="lead mb-4">掌握实时IP分析技术，获得强大的地理情报能力，增强网络安全防护和业务洞察</p>
-                    <p class="text-light"><i class="bi bi-calendar"></i> 2025年6月3日更新</p>
-                </div>
-            </div>
+       </div>
+      </div>
+      <h2>
+       什么是实时IP分析？
+      </h2>
+      <p>
+       实时IP分析是一种先进的网络情报技术，通过即时分析IP地址信息来获得关于网络访问者的详细洞察。WhatsTheirIP平台适合所有普通用户，结合地理定位、设备识别、威胁检测等多维度数据，为用户提供全面的网络情报参考。
+      </p>
+      <div class="analytics-box">
+       <h5>
+        <i class="bi bi-globe text-white">
+        </i>
+        核心分析维度
+       </h5>
+       <div class="row mt-3">
+        <div class="col-md-6">
+         <ul class="text-white mb-0">
+          <li>
+           <strong>
+            地理位置
+           </strong>
+           ：国家、城市、经纬度定位
+          </li>
+          <li>
+           <strong>
+            网络信息
+           </strong>
+           ：ISP、ASN、网络类型
+          </li>
+          <li>
+           <strong>
+            设备检测
+           </strong>
+           ：操作系统、浏览器、设备类型
+          </li>
+         </ul>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- Introduction -->
-                <section class="mb-5">
-                    <h2>什么是实时IP分析？</h2>
-                        <p>实时IP分析是一种先进的网络情报技术，通过即时分析IP地址信息来获得关于网络访问者的详细洞察。WhatsTheirIP平台适合所有普通用户，结合地理定位、设备识别、威胁检测等多维度数据，为用户提供全面的网络情报参考。</p>
-                    
-                    <div class="analytics-box">
-                        <h5><i class="bi bi-globe text-white"></i> 核心分析维度</h5>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <ul class="text-white mb-0">
-                                    <li><strong>地理位置</strong>：国家、城市、经纬度定位</li>
-                                    <li><strong>网络信息</strong>：ISP、ASN、网络类型</li>
-                                    <li><strong>设备检测</strong>：操作系统、浏览器、设备类型</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="text-white mb-0">
-                                    <li><strong>安全评级</strong>：威胁级别、代理检测</li>
-                                    <li><strong>时区信息</strong>：本地时间、UTC偏移</li>
-                                    <li><strong>连接质量</strong>：延迟、带宽估算</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Real-time Analytics Architecture -->
-                <section class="mb-5">
-                    <h2>实时分析架构</h2>
-                    <p>WhatsTheirIP的实时IP分析系统采用分布式架构，确保毫秒级响应时间和全球范围的数据覆盖。</p>
-
-                    <div class="row g-4 mt-3">
-                        <div class="col-md-6">
-                            <div class="card feature-card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">⚡ 高速数据处理</h5>
-                                    <p class="card-text">采用内存数据库和CDN加速，确保亚秒级响应时间，支持每秒数百万次查询。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card feature-card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">🌍 全球数据中心</h5>
-                                    <p class="card-text">在全球多个地区部署数据中心，提供最低延迟的本地化IP分析服务。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card feature-card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">🔄 实时数据同步</h5>
-                                    <p class="card-text">持续更新IP地址数据库，确保地理位置和网络信息的准确性和时效性。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card feature-card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">📊 智能分析引擎</h5>
-                                    <p class="card-text">集成机器学习算法，提供智能威胁检测和异常行为识别功能。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Implementation Guide -->
-                <section class="mb-5">
-                    <h2>实时IP分析实施指南</h2>
-                    <p>以下是使用WhatsTheirIP平台实施实时IP分析的详细步骤和代码示例：</p>
-
-                    <h3 class="mt-4">1. 基础IP分析示例（已移除API相关内容）</h3>
-                    <div class="code-block">
-                        <h6>JavaScript实时IP分析：</h6>
-                        <pre><code>// 获取访问者IP并进行实时分析
+        <div class="col-md-6">
+         <ul class="text-white mb-0">
+          <li>
+           <strong>
+            安全评级
+           </strong>
+           ：威胁级别、代理检测
+          </li>
+          <li>
+           <strong>
+            时区信息
+           </strong>
+           ：本地时间、UTC偏移
+          </li>
+          <li>
+           <strong>
+            连接质量
+           </strong>
+           ：延迟、带宽估算
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Real-time Analytics Architecture -->
+     <section class="mb-5">
+      <h2>
+       实时分析架构
+      </h2>
+      <p>
+       WhatsTheirIP的实时IP分析系统采用分布式架构，确保毫秒级响应时间和全球范围的数据覆盖。
+      </p>
+      <div class="row g-4 mt-3">
+       <div class="col-md-6">
+        <div class="card feature-card h-100">
+         <div class="card-body">
+          <h5 class="card-title text-primary">
+           ⚡ 高速数据处理
+          </h5>
+          <p class="card-text">
+           采用内存数据库和CDN加速，确保亚秒级响应时间，支持每秒数百万次查询。
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card feature-card h-100">
+         <div class="card-body">
+          <h5 class="card-title text-primary">
+           🌍 全球数据中心
+          </h5>
+          <p class="card-text">
+           在全球多个地区部署数据中心，提供最低延迟的本地化IP分析服务。
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card feature-card h-100">
+         <div class="card-body">
+          <h5 class="card-title text-primary">
+           🔄 实时数据同步
+          </h5>
+          <p class="card-text">
+           持续更新IP地址数据库，确保地理位置和网络信息的准确性和时效性。
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card feature-card h-100">
+         <div class="card-body">
+          <h5 class="card-title text-primary">
+           📊 智能分析引擎
+          </h5>
+          <p class="card-text">
+           集成机器学习算法，提供智能威胁检测和异常行为识别功能。
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Implementation Guide -->
+     <section class="mb-5">
+      <h2>
+       实时IP分析实施指南
+      </h2>
+      <p>
+       以下是使用WhatsTheirIP平台实施实时IP分析的详细步骤和代码示例：
+      </p>
+      <h3 class="mt-4">
+       1. 基础IP分析示例（已移除API相关内容）
+      </h3>
+      <div class="code-block">
+       <h6>
+        JavaScript实时IP分析：
+       </h6>
+       <pre><code>// 获取访问者IP并进行实时分析
 async function analyzeVisitorIP() {
     try {
         // 获取访问者IP
@@ -221,24 +409,27 @@ async function analyzeVisitorIP() {
 }
 
 // 使用示例
-analyzeVisitorIP().then(data => {
+analyzeVisitorIP().then(data =&gt; {
     if (data) {
         console.log('访问者分析结果:', data);
         updateAnalyticsDashboard(data);
     }
 });</code></pre>
-                    </div>
-
-                    <h3 class="mt-4">2. 批量IP分析处理</h3>
-                    <div class="code-block">
-                        <h6>PHP批量IP分析系统：</h6>
-                        <pre><code>&lt;?php
+      </div>
+      <h3 class="mt-4">
+       2. 批量IP分析处理
+      </h3>
+      <div class="code-block">
+       <h6>
+        PHP批量IP分析系统：
+       </h6>
+       <pre><code>&lt;?php
 class WhatsTheirIPAnalyzer {
     private $apiKey;
     private $baseUrl = 'https://grabify.icu/api';
     
     public function __construct($apiKey) {
-        $this->apiKey = $apiKey;
+        $this-&gt;apiKey = $apiKey;
     }
     
     // 批量IP分析
@@ -249,7 +440,7 @@ class WhatsTheirIPAnalyzer {
         $batches = array_chunk($ipAddresses, $batchSize);
         
         foreach ($batches as $batch) {
-            $batchResults = $this->processBatch($batch);
+            $batchResults = $this-&gt;processBatch($batch);
             $results = array_merge($results, $batchResults);
             
             // 避免API限制
@@ -261,22 +452,22 @@ class WhatsTheirIPAnalyzer {
     
     private function processBatch($ipBatch) {
         $postData = json_encode([
-            'ips' => $ipBatch,
-            'fields' => ['country', 'city', 'isp', 'proxy', 'threat_score']
+            'ips' =&gt; $ipBatch,
+            'fields' =&gt; ['country', 'city', 'isp', 'proxy', 'threat_score']
         ]);
         
         $ch = curl_init();
         curl_setopt_array($ch, [
-            CURLOPT_URL => $this->baseUrl . '/batch-analyze',
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $postData,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HTTPHEADER => [
-                'Authorization: Bearer ' . $this->apiKey,
+            CURLOPT_URL =&gt; $this-&gt;baseUrl . '/batch-analyze',
+            CURLOPT_POST =&gt; true,
+            CURLOPT_POSTFIELDS =&gt; $postData,
+            CURLOPT_RETURNTRANSFER =&gt; true,
+            CURLOPT_HTTPHEADER =&gt; [
+                'Authorization: Bearer ' . $this-&gt;apiKey,
                 'Content-Type: application/json',
                 'Content-Length: ' . strlen($postData)
             ],
-            CURLOPT_TIMEOUT => 30
+            CURLOPT_TIMEOUT =&gt; 30
         ]);
         
         $response = curl_exec($ch);
@@ -292,12 +483,12 @@ class WhatsTheirIPAnalyzer {
     
     // 实时威胁检测
     public function checkThreat($ip) {
-        $url = $this->baseUrl . "/threat-check/{$ip}";
+        $url = $this-&gt;baseUrl . "/threat-check/{$ip}";
         
         $context = stream_context_create([
-            'http' => [
-                'method' => 'GET',
-                'header' => "Authorization: Bearer {$this->apiKey}\r\n"
+            'http' =&gt; [
+                'method' =&gt; 'GET',
+                'header' =&gt; "Authorization: Bearer {$this-&gt;apiKey}\r\n"
             ]
         ]);
         
@@ -305,10 +496,10 @@ class WhatsTheirIPAnalyzer {
         $data = json_decode($response, true);
         
         return [
-            'is_threat' => $data['is_threat'],
-            'threat_score' => $data['score'],
-            'threat_types' => $data['types'],
-            'recommendation' => $data['action']
+            'is_threat' =&gt; $data['is_threat'],
+            'threat_score' =&gt; $data['score'],
+            'threat_types' =&gt; $data['types'],
+            'recommendation' =&gt; $data['action']
         ];
     }
 }
@@ -317,26 +508,29 @@ class WhatsTheirIPAnalyzer {
 $analyzer = new WhatsTheirIPAnalyzer('YOUR_API_KEY');
 
 // 分析单个IP的威胁级别
-$threatInfo = $analyzer->checkThreat('192.168.1.1');
+$threatInfo = $analyzer-&gt;checkThreat('192.168.1.1');
 if ($threatInfo['is_threat']) {
     echo "检测到威胁: " . implode(', ', $threatInfo['threat_types']);
 }
 
 // 批量分析多个IP
 $ipList = ['1.1.1.1', '8.8.8.8', '192.168.1.1'];
-$results = $analyzer->batchAnalyze($ipList);
+$results = $analyzer-&gt;batchAnalyze($ipList);
 foreach ($results as $result) {
     echo "IP: {$result['ip']} - 国家: {$result['country']} - ISP: {$result['isp']}\n";
 }
 ?&gt;</code></pre>
-                    </div>
+      </div>
+      <h3 class="mt-4">
+       3. 实时地理情报仪表板
+      </h3>
+      <div class="code-block">
+       <h6>
+        React实时分析仪表板：
+       </h6>
+       <pre><code>import React, { useState, useEffect } from 'react';
 
-                    <h3 class="mt-4">3. 实时地理情报仪表板</h3>
-                    <div class="code-block">
-                        <h6>React实时分析仪表板：</h6>
-                        <pre><code>import React, { useState, useEffect } from 'react';
-
-const RealTimeAnalyticsDashboard = () => {
+const RealTimeAnalyticsDashboard = () =&gt; {
     const [analytics, setAnalytics] = useState({
         activeVisitors: 0,
         countries: {},
@@ -344,11 +538,11 @@ const RealTimeAnalyticsDashboard = () => {
         devices: {}
     });
 
-    useEffect(() => {
+    useEffect(() =&gt; {
         // 建立WebSocket连接获取实时数据
         const ws = new WebSocket('wss://api.whatstheirip.com/live-analytics');
         
-        ws.onmessage = (event) => {
+        ws.onmessage = (event) =&gt; {
             const data = JSON.parse(event.data);
             updateAnalytics(data);
         };
@@ -356,13 +550,13 @@ const RealTimeAnalyticsDashboard = () => {
         // 定期获取聚合数据
         const interval = setInterval(fetchAggregatedData, 5000);
 
-        return () => {
+        return () =&gt; {
             ws.close();
             clearInterval(interval);
         };
     }, []);
 
-    const fetchAggregatedData = async () => {
+    const fetchAggregatedData = async () =&gt; {
         try {
             const response = await fetch('https://api.whatstheirip.com/analytics/summary', {
                 headers: {
@@ -371,7 +565,7 @@ const RealTimeAnalyticsDashboard = () => {
             });
             const data = await response.json();
             
-            setAnalytics(prev => ({
+            setAnalytics(prev =&gt; ({
                 ...prev,
                 countries: data.geographic_distribution,
                 devices: data.device_breakdown,
@@ -382,8 +576,8 @@ const RealTimeAnalyticsDashboard = () => {
         }
     };
 
-    const updateAnalytics = (newData) => {
-        setAnalytics(prev => ({
+    const updateAnalytics = (newData) =&gt; {
+        setAnalytics(prev =&gt; ({
             ...prev,
             activeVisitors: newData.active_count,
             countries: {
@@ -420,63 +614,107 @@ const RealTimeAnalyticsDashboard = () => {
 };
 
 export default RealTimeAnalyticsDashboard;</code></pre>
-                    </div>
-                </section>
-
-                <!-- Geographic Intelligence -->
-                <section class="mb-5">
-                    <h2>地理情报深度分析</h2>
-                    
-                    <div class="success-box">
-                        <h5><i class="bi bi-globe text-success"></i> 地理情报能力</h5>
-                        <p class="mb-2">WhatsTheirIP平台的地理情报系统提供多层次的位置分析：</p>
-                        <ul class="mb-0">
-                            <li><strong>精确定位</strong>：城市级别定位，平均精度半径小于50公里</li>
-                            <li><strong>网络拓扑</strong>：ISP网络结构和路由路径分析</li>
-                            <li><strong>时区智能</strong>：自动时区检测和本地时间计算</li>
-                            <li><strong>经济指标</strong>：基于地理位置的经济发展水平评估</li>
-                        </ul>
-                    </div>
-
-                    <h3 class="mt-4">高级地理分析功能</h3>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title">🗺️ 地理围栏检测</h6>
-                                    <p class="card-text">基于预定义的地理区域进行访问控制和合规性检查。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title">📍 位置历史追踪</h6>
-                                    <p class="card-text">跟踪IP地址的位置变化历史，识别可疑的位置跳转。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title">🌐 网络路径分析</h6>
-                                    <p class="card-text">分析数据包路由路径，识别网络延迟和性能瓶颈。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title">🏢 企业网络识别</h6>
-                                    <p class="card-text">识别企业专用网络和数据中心IP地址段。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="code-block mt-4">
-                        <h6>地理围栏实施示例：</h6>
-                        <pre><code>// 地理围栏检查功能
+      </div>
+     </section>
+     <!-- Geographic Intelligence -->
+     <section class="mb-5">
+      <h2>
+       地理情报深度分析
+      </h2>
+      <div class="success-box">
+       <h5>
+        <i class="bi bi-globe text-success">
+        </i>
+        地理情报能力
+       </h5>
+       <p class="mb-2">
+        WhatsTheirIP平台的地理情报系统提供多层次的位置分析：
+       </p>
+       <ul class="mb-0">
+        <li>
+         <strong>
+          精确定位
+         </strong>
+         ：城市级别定位，平均精度半径小于50公里
+        </li>
+        <li>
+         <strong>
+          网络拓扑
+         </strong>
+         ：ISP网络结构和路由路径分析
+        </li>
+        <li>
+         <strong>
+          时区智能
+         </strong>
+         ：自动时区检测和本地时间计算
+        </li>
+        <li>
+         <strong>
+          经济指标
+         </strong>
+         ：基于地理位置的经济发展水平评估
+        </li>
+       </ul>
+      </div>
+      <h3 class="mt-4">
+       高级地理分析功能
+      </h3>
+      <div class="row g-4">
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           🗺️ 地理围栏检测
+          </h6>
+          <p class="card-text">
+           基于预定义的地理区域进行访问控制和合规性检查。
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           📍 位置历史追踪
+          </h6>
+          <p class="card-text">
+           跟踪IP地址的位置变化历史，识别可疑的位置跳转。
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           🌐 网络路径分析
+          </h6>
+          <p class="card-text">
+           分析数据包路由路径，识别网络延迟和性能瓶颈。
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           🏢 企业网络识别
+          </h6>
+          <p class="card-text">
+           识别企业专用网络和数据中心IP地址段。
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="code-block mt-4">
+       <h6>
+        地理围栏实施示例：
+       </h6>
+       <pre><code>// 地理围栏检查功能
 class GeofenceAnalyzer {
     constructor(apiKey) {
         this.apiKey = apiKey;
@@ -503,7 +741,7 @@ class GeofenceAnalyzer {
             fence.center.lat, fence.center.lng
         );
         
-        return distance <= fence.radius;
+        return distance &lt;= fence.radius;
     }
     
     async getIPLocation(ip) {
@@ -542,72 +780,131 @@ const analyzer = new GeofenceAnalyzer('YOUR_API_KEY');
 analyzer.addGeofence('NYC', {lat: 40.7128, lng: -74.0060}, 50);
 
 // 检查IP是否在纽约市围栏内
-analyzer.checkGeofence('192.168.1.1', 'NYC').then(isInside => {
+analyzer.checkGeofence('192.168.1.1', 'NYC').then(isInside =&gt; {
     if (isInside) {
         console.log('访问者位于纽约市范围内');
     } else {
         console.log('访问者位于纽约市范围外');
     }
 });</code></pre>
-                    </div>
-                </section>
-
-                <!-- Security and Threat Detection -->
-                <section class="mb-5">
-                    <h2>安全威胁检测与防护</h2>
-                    
-                    <div class="warning-box">
-                        <h5><i class="bi bi-shield-exclamation text-warning"></i> 威胁类型识别</h5>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <ul class="mb-0">
-                                    <li><strong>代理检测</strong>：HTTP/HTTPS代理识别</li>
-                                    <li><strong>VPN识别</strong>：商业和免费VPN服务检测</li>
-                                    <li><strong>Tor网络</strong>：暗网流量识别</li>
-                                    <li><strong>僵尸网络</strong>：已知恶意IP数据库比对</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="mb-0">
-                                    <li><strong>数据中心IP</strong>：云服务器和托管IP检测</li>
-                                    <li><strong>恶意软件</strong>：C&C服务器IP识别</li>
-                                    <li><strong>扫描活动</strong>：端口扫描和暴力破解检测</li>
-                                    <li><strong>异常行为</strong>：基于ML的异常模式识别</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row g-4 mt-3">
-                        <div class="col-md-4">
-                            <div class="metric-card">
-                                <h4>99.8%</h4>
-                                <p>威胁检测准确率</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="metric-card">
-                                <h4>&lt;50ms</h4>
-                                <p>威胁评估响应时间</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="metric-card">
-                                <h4>24/7</h4>
-                                <p>实时威胁监控</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Performance Optimization -->
-                <section class="mb-5">
-                    <h2>性能优化最佳实践</h2>
-                    
-                    <h3 class="mt-4">API调用优化策略</h3>
-                    <div class="code-block">
-                        <h6>智能缓存和批处理：</h6>
-                        <pre><code>// IP分析结果缓存管理
+      </div>
+     </section>
+     <!-- Security and Threat Detection -->
+     <section class="mb-5">
+      <h2>
+       安全威胁检测与防护
+      </h2>
+      <div class="warning-box">
+       <h5>
+        <i class="bi bi-shield-exclamation text-warning">
+        </i>
+        威胁类型识别
+       </h5>
+       <div class="row mt-3">
+        <div class="col-md-6">
+         <ul class="mb-0">
+          <li>
+           <strong>
+            代理检测
+           </strong>
+           ：HTTP/HTTPS代理识别
+          </li>
+          <li>
+           <strong>
+            VPN识别
+           </strong>
+           ：商业和免费VPN服务检测
+          </li>
+          <li>
+           <strong>
+            Tor网络
+           </strong>
+           ：暗网流量识别
+          </li>
+          <li>
+           <strong>
+            僵尸网络
+           </strong>
+           ：已知恶意IP数据库比对
+          </li>
+         </ul>
+        </div>
+        <div class="col-md-6">
+         <ul class="mb-0">
+          <li>
+           <strong>
+            数据中心IP
+           </strong>
+           ：云服务器和托管IP检测
+          </li>
+          <li>
+           <strong>
+            恶意软件
+           </strong>
+           ：C&amp;C服务器IP识别
+          </li>
+          <li>
+           <strong>
+            扫描活动
+           </strong>
+           ：端口扫描和暴力破解检测
+          </li>
+          <li>
+           <strong>
+            异常行为
+           </strong>
+           ：基于ML的异常模式识别
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="row g-4 mt-3">
+       <div class="col-md-4">
+        <div class="metric-card">
+         <h4>
+          99.8%
+         </h4>
+         <p>
+          威胁检测准确率
+         </p>
+        </div>
+       </div>
+       <div class="col-md-4">
+        <div class="metric-card">
+         <h4>
+          &lt;50ms
+         </h4>
+         <p>
+          威胁评估响应时间
+         </p>
+        </div>
+       </div>
+       <div class="col-md-4">
+        <div class="metric-card">
+         <h4>
+          24/7
+         </h4>
+         <p>
+          实时威胁监控
+         </p>
+        </div>
+       </div>
+      </div>
+     </section>
+     <!-- Performance Optimization -->
+     <section class="mb-5">
+      <h2>
+       性能优化最佳实践
+      </h2>
+      <h3 class="mt-4">
+       API调用优化策略
+      </h3>
+      <div class="code-block">
+       <h6>
+        智能缓存和批处理：
+       </h6>
+       <pre><code>// IP分析结果缓存管理
 class IPAnalyticsCache {
     constructor(cacheSize = 10000, ttl = 3600000) { // 1小时TTL
         this.cache = new Map();
@@ -635,7 +932,7 @@ class IPAnalyticsCache {
         if (!item) return null;
         
         // 检查TTL
-        if (Date.now() - item.timestamp > this.ttl) {
+        if (Date.now() - item.timestamp &gt; this.ttl) {
             this.cache.delete(ip);
             this.accessOrder.delete(ip);
             return null;
@@ -648,9 +945,9 @@ class IPAnalyticsCache {
     
     set(ip, data) {
         // LRU缓存管理
-        if (this.cache.size >= this.maxSize) {
+        if (this.cache.size &gt;= this.maxSize) {
             const oldestIP = [...this.accessOrder.entries()]
-                .sort((a, b) => a[1] - b[1])[0][0];
+                .sort((a, b) =&gt; a[1] - b[1])[0][0];
             this.cache.delete(oldestIP);
             this.accessOrder.delete(oldestIP);
         }
@@ -690,114 +987,188 @@ async function preloadHotIPs(analyzer, ipList) {
     const batchSize = 50;
     const batches = [];
     
-    for (let i = 0; i < ipList.length; i += batchSize) {
+    for (let i = 0; i &lt; ipList.length; i += batchSize) {
         batches.push(ipList.slice(i, i + batchSize));
     }
     
     for (const batch of batches) {
-        const promises = batch.map(ip => analyzer.analyze(ip));
+        const promises = batch.map(ip =&gt; analyzer.analyze(ip));
         await Promise.all(promises);
         
         // 控制请求频率
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve =&gt; setTimeout(resolve, 100));
     }
 }</code></pre>
-                    </div>
-                </section>
-
-                <!-- Best Practices -->
-                <section class="mb-5">
-                    <h2>实时IP分析最佳实践</h2>
-                    
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h4>技术实施建议</h4>
-                            <ul>
-                                <li><strong>异步处理</strong>：使用异步API调用避免阻塞用户体验</li>
-                                <li><strong>智能缓存</strong>：实施多层缓存策略提升响应速度</li>
-                                <li><strong>错误处理</strong>：建立完善的错误处理和重试机制</li>
-                                <li><strong>数据验证</strong>：验证IP分析结果的准确性和完整性</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>安全防护措施</h4>
-                            <ul>
-                                <li><strong>API密钥保护</strong>：安全存储和定期轮换API密钥</li>
-                                <li><strong>访问控制</strong>：限制API访问权限和频率</li>
-                                <li><strong>数据加密</strong>：确保传输和存储数据的加密保护</li>
-                                <li><strong>合规监控</strong>：遵守数据保护法规和隐私政策</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="success-box mt-4">
-                        <h5><i class="bi bi-lightbulb text-success"></i> 专家建议</h5>
-                        <p class="mb-0">实施实时IP分析时，建议采用渐进式部署策略：从基础的地理定位开始，逐步增加威胁检测、设备识别等高级功能。同时，建立完善的监控和告警机制，确保系统稳定性和数据准确性。</p>
-                    </div>
-                </section>
-
-                <!-- Conclusion -->
-                <section class="mb-5">
-                    <h2>总结</h2>
-                    <p>实时IP分析和地理情报是现代网络安全和业务智能的核心技术。通过WhatsTheirIP平台的强大功能，您可以获得全面的网络访问者洞察，增强安全防护能力，优化用户体验，并做出更明智的业务决策。</p>
-                    
-                    <p>掌握这些技术并遵循最佳实践，将帮助您构建更安全、更智能的网络应用系统。记住始终保持技术更新，关注新兴威胁，并持续优化分析性能。</p>
-
-                    <div class="text-center mt-4">
-                        <a href="../../index" class="btn btn-primary btn-lg">立即体验WhatsTheirIP</a>
-                    </div>
-                </section>
-
-                <!-- Related Articles -->
-                <section class="mt-5">
-                    <h3>相关文章</h3>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title"><a href="qr-code-url-tracking-guide" class="text-decoration-none">二维码URL追踪完整指南</a></h6>
-                                    <p class="card-text small text-muted">学习如何创建和使用智能二维码进行URL追踪</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title"><a href="pdf-tracking-document-intelligence" class="text-decoration-none">PDF跟踪和文档智能指南</a></h6>
-                                    <p class="card-text small text-muted">掌握PDF文档跟踪和智能分析技术</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+      </div>
+     </section>
+     <!-- Best Practices -->
+     <section class="mb-5">
+      <h2>
+       实时IP分析最佳实践
+      </h2>
+      <div class="row g-4">
+       <div class="col-md-6">
+        <h4>
+         技术实施建议
+        </h4>
+        <ul>
+         <li>
+          <strong>
+           异步处理
+          </strong>
+          ：使用异步API调用避免阻塞用户体验
+         </li>
+         <li>
+          <strong>
+           智能缓存
+          </strong>
+          ：实施多层缓存策略提升响应速度
+         </li>
+         <li>
+          <strong>
+           错误处理
+          </strong>
+          ：建立完善的错误处理和重试机制
+         </li>
+         <li>
+          <strong>
+           数据验证
+          </strong>
+          ：验证IP分析结果的准确性和完整性
+         </li>
+        </ul>
+       </div>
+       <div class="col-md-6">
+        <h4>
+         安全防护措施
+        </h4>
+        <ul>
+         <li>
+          <strong>
+           API密钥保护
+          </strong>
+          ：安全存储和定期轮换API密钥
+         </li>
+         <li>
+          <strong>
+           访问控制
+          </strong>
+          ：限制API访问权限和频率
+         </li>
+         <li>
+          <strong>
+           数据加密
+          </strong>
+          ：确保传输和存储数据的加密保护
+         </li>
+         <li>
+          <strong>
+           合规监控
+          </strong>
+          ：遵守数据保护法规和隐私政策
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="success-box mt-4">
+       <h5>
+        <i class="bi bi-lightbulb text-success">
+        </i>
+        专家建议
+       </h5>
+       <p class="mb-0">
+        实施实时IP分析时，建议采用渐进式部署策略：从基础的地理定位开始，逐步增加威胁检测、设备识别等高级功能。同时，建立完善的监控和告警机制，确保系统稳定性和数据准确性。
+       </p>
+      </div>
+     </section>
+     <!-- Conclusion -->
+     <section class="mb-5">
+      <h2>
+       总结
+      </h2>
+      <p>
+       实时IP分析和地理情报是现代网络安全和业务智能的核心技术。通过WhatsTheirIP平台的强大功能，您可以获得全面的网络访问者洞察，增强安全防护能力，优化用户体验，并做出更明智的业务决策。
+      </p>
+      <p>
+       掌握这些技术并遵循最佳实践，将帮助您构建更安全、更智能的网络应用系统。记住始终保持技术更新，关注新兴威胁，并持续优化分析性能。
+      </p>
+      <div class="text-center mt-4">
+       <a class="btn btn-primary btn-lg" href="../../index">
+        立即体验WhatsTheirIP
+       </a>
+      </div>
+     </section>
+     <!-- Related Articles -->
+     <section class="mt-5">
+      <h3>
+       相关文章
+      </h3>
+      <div class="row g-3">
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           <a class="text-decoration-none" href="qr-code-url-tracking-guide">
+            二维码URL追踪完整指南
+           </a>
+          </h6>
+          <p class="card-text small text-muted">
+           学习如何创建和使用智能二维码进行URL追踪
+          </p>
+         </div>
         </div>
+       </div>
+       <div class="col-md-6">
+        <div class="card">
+         <div class="card-body">
+          <h6 class="card-title">
+           <a class="text-decoration-none" href="pdf-tracking-document-intelligence">
+            PDF跟踪和文档智能指南
+           </a>
+          </h6>
+          <p class="card-text small text-muted">
+           掌握PDF文档跟踪和智能分析技术
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>WhatsTheirIP</h5>
-                    <p>领先的IP分析和网络情报平台，为企业提供全面的网络安全和业务洞察解决方案。</p>
-                </div>
-                <div class="col-md-6">
-                    <h5>快速链接</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../../index" class="text-light text-decoration-none">首页</a></li>
-                        <li><a href="../index.html" class="text-light text-decoration-none">博客</a></li>
-                        <li><a href="../../index.html#privacy" class="text-light text-decoration-none">隐私政策</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                <p>&copy; 2025 WhatsTheirIP. 保留所有权利。</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4 mt-5">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-6">
+      <h5>
+       WhatsTheirIP
+      </h5>
+      <p>
+       领先的IP分析和网络情报平台，为企业提供全面的网络安全和业务洞察解决方案。
+      </p>
+     </div>
+     <div class="col-md-6">
+      <h5>
+       快速链接
+      </h5>
+      <ul class="list-unstyled">
+       <li>
+        隐私政策
+       </li>
+      </ul>
+     </div>
+    </div>
+    <hr/>
+    <div class="text-center">
+     <p>
+      © 2025 WhatsTheirIP.  保留所有权利。
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+ </body>
 </html>

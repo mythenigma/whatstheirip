@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Learn about mobile IP tracking: Understanding cellular networks, handling dynamic IPs, 4G/5G implications, and best practices for tracking mobile users effectively.">
-    <link rel="canonical" href="https://whatstheirip.tech/blog/mobile-ip-tracking-guide">
-  <meta name="keywords" content="mobile IP tracking, cellular IP tracking, 4G tracking, 5G tracking, mobile geolocation, cell network tracking, mobile device tracking">
-  <meta name="author" content="whatstheirip.tech">
-  <meta name="theme-color" content="#4A90E2">
-  <meta property="og:title" content="Mobile IP Tracking: Understanding Cellular Networks and Data | whatstheirip.tech">
-  <meta property="og:description" content="Master mobile IP tracking with insights into cellular networks, dynamic IP handling, and best practices for tracking mobile users.">
-  <meta property="og:url" content="https://whatstheirip.tech/blog/mobile-ip-tracking-guide">
-  <meta property="og:type" content="article">
-  <title>Mobile App IP Tracking Guide - WhatsTheirIP.tech</title>
-  
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
-  
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="Learn about mobile IP tracking: Understanding cellular networks, handling dynamic IPs, 4G/5G implications, and best practices for tracking mobile users effectively." name="description"/>
+  <link href="https://whatstheirip.tech/blog/mobile-ip-tracking-guide" rel="canonical"/>
+  <meta content="mobile IP tracking, cellular IP tracking, 4G tracking, 5G tracking, mobile geolocation, cell network tracking, mobile device tracking" name="keywords"/>
+  <meta content="whatstheirip.tech" name="author"/>
+  <meta content="#4A90E2" name="theme-color"/>
+  <meta content="Mobile IP Tracking: Understanding Cellular Networks and Data | whatstheirip.tech" property="og:title"/>
+  <meta content="Master mobile IP tracking with insights into cellular networks, dynamic IP handling, and best practices for tracking mobile users." property="og:description"/>
+  <meta content="https://whatstheirip.tech/blog/mobile-ip-tracking-guide" property="og:url"/>
+  <meta content="article" property="og:type"/>
+  <title>
+   Mobile App IP Tracking Guide - WhatsTheirIP.tech
+  </title>
+  <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
   <!-- Bootstrap core CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
-  
-  <style>
+   <!-- Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css"/>
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"/>
+   <style>
     :root {
       --primary-color: #4A90E2;
       --secondary-color: #FF5733;
@@ -101,289 +97,522 @@
       padding-left: 1.5rem;
       margin-bottom: 0;
     }
-  </style>
-</head>
-
-<body>
+   </style>
+  </link>
+  <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  </script>
+ </head>
+ <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">WhatsTheirIP.tech</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html#url">URL Tracker</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html#email">Email Tracker</a>
-          </li>
-        </ul>
-      </div>
+   <div class="container">
+    <a class="navbar-brand" href="../index.html">
+     WhatsTheirIP.tech
+    </a>
+    <button class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html#url">
+        URL Tracker
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="../index.html#email">
+        Email Tracker
+       </a>
+      </li>
+     </ul>
     </div>
+   </div>
   </nav>
-
   <!-- Article Header -->
   <header class="article-header">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h1 class="mb-4">Mobile App IP Tracking Guide</h1>
-          <p class="lead">A comprehensive guide to implementing IP tracking in mobile applications</p>
-          <div class="mt-4">
-            <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> May 14, 2025</span>
-            <span><i class="far fa-clock mr-1"></i> 10 min read</span>
-          </div>
-        </div>
+   <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-lg-8 text-center">
+      <h1 class="mb-4">
+       Mobile App IP Tracking Guide
+      </h1>
+      <p class="lead">
+       A comprehensive guide to implementing IP tracking in mobile applications
+      </p>
+      <div class="mt-4">
+       <span class="mr-3">
+        <i class="far fa-calendar-alt mr-1">
+        </i>
+        May 14, 2025
+       </span>
+       <span>
+        <i class="far fa-clock mr-1">
+        </i>
+        10 min read
+       </span>
       </div>
+     </div>
     </div>
+   </div>
   </header>
-
   <!-- Article Content -->
   <section class="article-content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <!-- Table of Contents -->
-          <div class="table-of-contents">
-            <h5>Table of Contents</h5>
-            <ul>
-              <li><a href="#introduction">Introduction</a></li>
-              <li><a href="#unique-challenges">Unique Challenges in Mobile IP Tracking</a></li>
-              <li><a href="#implementation">Implementation Guide</a></li>
-              <li><a href="#best-practices">Best Practices</a></li>
-              <li><a href="#privacy">Privacy and Legal Considerations</a></li>
-              <li><a href="#use-cases">Mobile-Specific Use Cases</a></li>
-            </ul>
-          </div>
-
-          <!-- Introduction -->
-          <h2 id="introduction" class="mt-5">Introduction</h2>
-          <p>Mobile IP tracking presents unique challenges and opportunities compared to traditional web-based tracking. With the increasing prevalence of mobile devices, understanding how to effectively implement IP tracking in mobile applications is crucial for developers and businesses alike.</p>
-
-          <!-- Unique Challenges -->
-          <h2 id="unique-challenges" class="mt-5">Unique Challenges in Mobile IP Tracking</h2>
-          
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Key Challenges</h5>
-              <ul class="mb-0">
-                <li><strong>Dynamic IP Addresses:</strong> Mobile devices frequently switch between cellular networks and Wi-Fi, causing IP changes</li>
-                <li><strong>Carrier-Level NAT:</strong> Mobile carriers often use Network Address Translation, making individual device identification harder</li>
-                <li><strong>VPN Usage:</strong> Increased adoption of VPN apps on mobile devices can mask true IP addresses</li>
-                <li><strong>Battery Considerations:</strong> Continuous IP tracking can impact device battery life</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Implementation Guide -->
-          <h2 id="implementation" class="mt-5">Implementation Guide</h2>
-          
-          <h4>1. Basic IP Detection</h4>
-          <p>Implement these methods to capture IP addresses in your mobile app:</p>
-          <ul>
-            <li>Use HTTP requests to your server to capture the client IP</li>
-            <li>Implement WebView-based tracking for hybrid apps</li>
-            <li>Utilize mobile-specific APIs for network information</li>
-          </ul>
-
-          <h4>2. Network Type Detection</h4>
-          <p>Always check the network type (Wi-Fi/Cellular) to:</p>
-          <ul>
-            <li>Adjust tracking frequency based on connection type</li>
-            <li>Handle IP changes during network switching</li>
-            <li>Optimize data collection for battery life</li>
-          </ul>
-
-          <h4>3. Background vs. Foreground Tracking</h4>
-          <p>Consider implementing different tracking strategies based on app state:</p>
-          <ul>
-            <li>Reduce tracking frequency in background state</li>
-            <li>Implement push notifications for critical IP changes</li>
-            <li>Use batch processing for multiple IP recordings</li>
-          </ul>
-
-          <!-- Best Practices -->
-          <h2 id="best-practices" class="mt-5">Best Practices</h2>
-          
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Mobile IP Tracking Best Practices</h5>
-              <ol class="mb-0">
-                <li>Implement efficient caching mechanisms to store IP data</li>
-                <li>Use batch processing to reduce server requests</li>
-                <li>Implement retry logic for failed tracking attempts</li>
-                <li>Include timestamp data with each IP record</li>
-                <li>Handle offline scenarios gracefully</li>
-                <li>Implement proper error handling for network changes</li>
-              </ol>
-            </div>
-          </div>
-
-          <!-- Privacy and Legal -->
-          <h2 id="privacy" class="mt-5">Privacy and Legal Considerations</h2>
-          <p>Mobile IP tracking requires special attention to privacy and legal compliance:</p>
-          
-          <div class="alert alert-warning">
-            <h5><i class="fas fa-exclamation-triangle mr-2"></i>Important Privacy Considerations</h5>
-            <ul class="mb-0">
-              <li>Always obtain explicit user consent for IP tracking</li>
-              <li>Clearly disclose tracking in your privacy policy</li>
-              <li>Implement proper data encryption for stored IP addresses</li>
-              <li>Follow platform-specific guidelines (iOS/Android)</li>
-              <li>Comply with regional privacy laws (GDPR, CCPA)</li>
-            </ul>
-          </div>
-
-          <!-- Use Cases -->
-          <h2 id="use-cases" class="mt-5">Mobile-Specific Use Cases</h2>
-          
-          <h4>1. Fraud Prevention</h4>
-          <p>Use IP tracking to:</p>
-          <ul>
-            <li>Detect suspicious login attempts from new locations</li>
-            <li>Identify potential account sharing</li>
-            <li>Flag unusual device-IP combinations</li>
-          </ul>
-
-          <h4>2. User Experience Enhancement</h4>
-          <p>Improve app functionality through:</p>
-          <ul>
-            <li>Location-based content delivery</li>
-            <li>Regional feature availability</li>
-            <li>Network-aware performance optimization</li>
-          </ul>
-
-          <h4>3. Analytics and Marketing</h4>
-          <p>Gather insights through:</p>
-          <ul>
-            <li>User movement patterns</li>
-            <li>Regional usage statistics</li>
-            <li>Network type preferences</li>
-          </ul>
-
-          <!-- Conclusion -->
-          <h2 class="mt-5">Conclusion</h2>
-          <p>Mobile IP tracking, while challenging, provides valuable insights when implemented correctly. By following best practices and maintaining a strong focus on privacy, developers can create effective tracking solutions that benefit both the application and its users.</p>
-
-          <div class="alert alert-primary mt-5">
-            <p class="mb-0"><strong>Need help with implementation?</strong> Check out our <a href="ip-tracking-methods-comparison" class="alert-link">IP tracking methods comparison</a> for more detailed technical guidance.</p>
-          </div>
-
-          <!-- Related Articles -->
-          <div class="mt-5">
-            <h4><i class="fas fa-bookmark text-primary"></i> Related Articles</h4>
-            <div class="row">
-              <div class="col-md-4 mb-3">
-                <a href="how-ip-tracking-works" class="text-decoration-none">
-                  <div class="card h-100 border-primary" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-primary"><i class="fas fa-cogs"></i> How IP Tracking Works</h5>
-                      <p class="card-text text-muted">Understand the fundamentals of IP tracking technology</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="ip-tracking-methods-comparison" class="text-decoration-none">
-                  <div class="card h-100 border-info" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-info"><i class="fas fa-balance-scale"></i> IP Tracking Methods Comparison</h5>
-                      <p class="card-text text-muted">Compare different tracking approaches</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="dynamic-vs-static-ips" class="text-decoration-none">
-                  <div class="card h-100 border-success" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-success"><i class="fas fa-exchange-alt"></i> Dynamic vs Static IPs</h5>
-                      <p class="card-text text-muted">Understanding IP address types and challenges</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="browser-fingerprinting-beyond-ip-tracking" class="text-decoration-none">
-                  <div class="card h-100 border-warning" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-warning"><i class="fas fa-fingerprint"></i> Browser Fingerprinting</h5>
-                      <p class="card-text text-muted">Advanced tracking beyond IP addresses</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="ip-tracking-gdpr-compliance" class="text-decoration-none">
-                  <div class="card h-100 border-danger" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-danger"><i class="fas fa-gavel"></i> GDPR Compliance</h5>
-                      <p class="card-text text-muted">Ensure your tracking is legally compliant</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-md-4 mb-3">
-                <a href="protect-your-online-privacy" class="text-decoration-none">
-                  <div class="card h-100 border-secondary" style="transition: all 0.3s ease;">
-                    <div class="card-body">
-                      <h5 class="card-title text-secondary"><i class="fas fa-user-shield"></i> Protect Your Privacy</h5>
-                      <p class="card-text text-muted">Learn how to protect against tracking</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <style>
-            .card:hover {
-              transform: translateY(-5px);
-              box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
-            }
-          </style>
-        </div>
+   <div class="container">
+    <div class="row justify-content-center">
+     <div class="col-lg-8">
+      <!-- Table of Contents -->
+      <div class="table-of-contents">
+       <h5>
+        Table of Contents
+       </h5>
+       <ul>
+        <li>
+         Introduction
+        </li>
+        <li>
+         Unique Challenges in Mobile IP Tracking
+        </li>
+        <li>
+         Implementation Guide
+        </li>
+        <li>
+         Best Practices
+        </li>
+        <li>
+         Privacy and Legal Considerations
+        </li>
+        <li>
+         Mobile-Specific Use Cases
+        </li>
+       </ul>
       </div>
+      <!-- Introduction -->
+      <div class="diagram-container">
+       <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
+        IP Tracking Process Flow
+       </h4>
+       <figure style="margin-bottom: 2rem;">
+        <img alt="IP Tracking Process Flow" loading="lazy" src="../diagrams/en/how-ip-tracking-works.svg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"/>
+        <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">
+         Visual representation of the IP tracking process
+        </figcaption>
+       </figure>
+       <div class="mermaid-diagram">
+        <h5 style="margin-bottom: 1rem; color: #2d3748;">
+         Interactive Flow Diagram
+        </h5>
+        <div class="mermaid">
+         flowchart TD
+    A[User Visits Website] --> B[Browser Sends Request]
+    B --> C[Server Receives Request]
+    C --> D[Server Logs IP Address]
+    D --> E[IP Geolocation Lookup]
+    E --> F[Data Collection]
+    F --> G[Analytics Processing]
+    G --> H[Display Results]
+    
+    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
+    style H fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+        </div>
+       </div>
+      </div>
+      <h2 class="mt-5" id="introduction">
+       Introduction
+      </h2>
+      <p>
+       Mobile IP tracking presents unique challenges and opportunities compared to traditional web-based tracking.  With the increasing prevalence of mobile devices.  understanding how to effectively implement IP tracking in mobile applications is crucial for developers and businesses alike.
+      </p>
+      <!-- Unique Challenges -->
+      <h2 class="mt-5" id="unique-challenges">
+       Unique Challenges in Mobile IP Tracking
+      </h2>
+      <div class="card mb-4">
+       <div class="card-body">
+        <h5 class="card-title">
+         Key Challenges
+        </h5>
+        <ul class="mb-0">
+         <li>
+          <strong>
+           Dynamic IP Addresses:
+          </strong>
+          Mobile devices frequently switch between cellular networks and Wi-Fi, causing IP changes
+         </li>
+         <li>
+          <strong>
+           Carrier-Level NAT:
+          </strong>
+          Mobile carriers often use Network Address Translation, making individual device identification harder
+         </li>
+         <li>
+          <strong>
+           VPN Usage:
+          </strong>
+          Increased adoption of VPN apps on mobile devices can mask true IP addresses
+         </li>
+         <li>
+          <strong>
+           Battery Considerations:
+          </strong>
+          Continuous IP tracking can impact device battery life
+         </li>
+        </ul>
+       </div>
+      </div>
+      <!-- Implementation Guide -->
+      <h2 class="mt-5" id="implementation">
+       Implementation Guide
+      </h2>
+      <h4>
+       1. Basic IP Detection
+      </h4>
+      <p>
+       Implement these methods to capture IP addresses in your mobile app:
+      </p>
+      <ul>
+       <li>
+        Use HTTP requests to your server to capture the client IP
+       </li>
+       <li>
+        Implement WebView-based tracking for hybrid apps
+       </li>
+       <li>
+        Utilize mobile-specific APIs for network information
+       </li>
+      </ul>
+      <h4>
+       2. Network Type Detection
+      </h4>
+      <p>
+       Always check the network type (Wi-Fi/Cellular) to:
+      </p>
+      <ul>
+       <li>
+        Adjust tracking frequency based on connection type
+       </li>
+       <li>
+        Handle IP changes during network switching
+       </li>
+       <li>
+        Optimize data collection for battery life
+       </li>
+      </ul>
+      <h4>
+       3. Background vs. Foreground Tracking
+      </h4>
+      <p>
+       Consider implementing different tracking strategies based on app state:
+      </p>
+      <ul>
+       <li>
+        Reduce tracking frequency in background state
+       </li>
+       <li>
+        Implement push notifications for critical IP changes
+       </li>
+       <li>
+        Use batch processing for multiple IP recordings
+       </li>
+      </ul>
+      <!-- Best Practices -->
+      <h2 class="mt-5" id="best-practices">
+       Best Practices
+      </h2>
+      <div class="card mb-4">
+       <div class="card-body">
+        <h5 class="card-title">
+         Mobile IP Tracking Best Practices
+        </h5>
+        <ol class="mb-0">
+         <li>
+          Implement efficient caching mechanisms to store IP data
+         </li>
+         <li>
+          Use batch processing to reduce server requests
+         </li>
+         <li>
+          Implement retry logic for failed tracking attempts
+         </li>
+         <li>
+          Include timestamp data with each IP record
+         </li>
+         <li>
+          Handle offline scenarios gracefully
+         </li>
+         <li>
+          Implement proper error handling for network changes
+         </li>
+        </ol>
+       </div>
+      </div>
+      <!-- Privacy and Legal -->
+      <h2 class="mt-5" id="privacy">
+       Privacy and Legal Considerations
+      </h2>
+      <p>
+       Mobile IP tracking requires special attention to privacy and legal 合规:
+      </p>
+      <div class="alert alert-warning">
+       <h5>
+        <i class="fas fa-exclamation-triangle mr-2">
+        </i>
+        Important Privacy Considerations
+       </h5>
+       <ul class="mb-0">
+        <li>
+         Always obtain explicit user consent for IP tracking
+        </li>
+        <li>
+         Clearly disclose tracking in your privacy policy
+        </li>
+        <li>
+         Implement proper data 加密 for stored IP addresses
+        </li>
+        <li>
+         Comply with regional privacy laws (欧盟数据保护条例, 加州消费者隐私法)
+        </li>
+       </ul>
+      </div>
+      <!-- Use Cases -->
+      <h2 class="mt-5" id="use-cases">
+       Mobile-Specific Use Cases
+      </h2>
+      <h4>
+       1. Fraud Prevention
+      </h4>
+      <p>
+       Use IP tracking to:
+      </p>
+      <ul>
+       <li>
+        Detect suspicious login attempts from new locations
+       </li>
+       <li>
+        Identify potential account sharing
+       </li>
+       <li>
+        Flag unusual device-IP combinations
+       </li>
+      </ul>
+      <h4>
+       2. User Experience Enhancement
+      </h4>
+      <p>
+       Improve app functionality through:
+      </p>
+      <ul>
+       <li>
+        Location-based content delivery
+       </li>
+       <li>
+        Regional feature availability
+       </li>
+      </ul>
+      <h4>
+       3. Analytics and Marketing
+      </h4>
+      <p>
+       Gather insights through:
+      </p>
+      <ul>
+       <li>
+        User movement patterns
+       </li>
+       <li>
+        Regional usage statistics
+       </li>
+       <li>
+        Network type preferences
+       </li>
+      </ul>
+      <!-- Conclusion -->
+      <h2 class="mt-5">
+       Conclusion
+      </h2>
+      <p>
+       Mobile IP tracking, while challenging, provides valuable insights when implemented correctly.  By following best practices and maintaining a strong focus on privacy.  developers can create effective tracking solutions that benefit both the application and its users.
+      </p>
+      <div class="alert alert-primary mt-5">
+       <p class="mb-0">
+        <strong>
+         Need help with implementation?
+        </strong>
+        Check out our
+        <a class="alert-link" href="ip-tracking-methods-comparison">
+         IP tracking methods comparison
+        </a>
+        for more detailed technical guidance.
+       </p>
+      </div>
+      <!-- Related Articles -->
+      <div class="mt-5">
+       <h4>
+        <i class="fas fa-bookmark text-primary">
+        </i>
+        Related Articles
+       </h4>
+       <div class="row">
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="how-ip-tracking-works">
+          <div class="card h-100 border-primary" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-primary">
+             <i class="fas fa-cogs">
+             </i>
+             How IP Tracking Works
+            </h5>
+            <p class="card-text text-muted">
+             Understand the fundamentals of IP tracking technology
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="ip-tracking-methods-comparison">
+          <div class="card h-100 border-info" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-info">
+             <i class="fas fa-balance-scale">
+             </i>
+             IP Tracking Methods Comparison
+            </h5>
+            <p class="card-text text-muted">
+             Compare different tracking approaches
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="dynamic-vs-static-ips">
+          <div class="card h-100 border-success" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-success">
+             <i class="fas fa-exchange-alt">
+             </i>
+             Dynamic vs Static IPs
+            </h5>
+            <p class="card-text text-muted">
+             Understanding IP address types and challenges
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="browser-fingerprinting-beyond-ip-tracking">
+          <div class="card h-100 border-warning" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-warning">
+             <i class="fas fa-fingerprint">
+             </i>
+             Browser Fingerprinting
+            </h5>
+            <p class="card-text text-muted">
+             Advanced tracking beyond IP addresses
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="ip-tracking-gdpr-compliance">
+          <div class="card h-100 border-danger" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-danger">
+             <i class="fas fa-gavel">
+             </i>
+             GDPR Compliance
+            </h5>
+            <p class="card-text text-muted">
+             Ensure your tracking is legally compliant
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+        <div class="col-md-4 mb-3">
+         <a class="text-decoration-none" href="protect-your-online-privacy">
+          <div class="card h-100 border-secondary" style="transition: all 0.3s ease;">
+           <div class="card-body">
+            <h5 class="card-title text-secondary">
+             <i class="fas fa-user-shield">
+             </i>
+             Protect Your Privacy
+            </h5>
+            <p class="card-text text-muted">
+             Learn how to protect against tracking
+            </p>
+           </div>
+          </div>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
+   </div>
   </section>
-
   <!-- Footer -->
   <footer class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h5>WhatsTheirIP.tech</h5>
-          <p>Advanced IP tracking solutions for various use cases, helping you understand who's visiting your links, opening your emails, and viewing your content.</p>
-        </div>
-        <div class="col-md-2 mb-4">
-          <h5>Tools</h5>
-          <ul class="list-unstyled">
-            <li><a href="../index.html#url">URL Tracker</a></li>
-            <li><a href="../index.html#email">Email Tracker</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 mb-4">
-          <h5>Resources</h5>
-          <ul class="list-unstyled">
-            <li><a href="how-ip-tracking-works">How IP Tracking Works</a></li>
-            <li><a href="protect-your-online-privacy">Protect Your Privacy</a></li>
-            <li><a href="ip-tracking-methods-comparison">Methods Comparison</a></li>
-            <li><a href="ip-tracking-use-cases">Use Cases</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5>Legal</h5>
-          <p class="small text-muted">The information provided on this website is for general informational purposes only. All information is provided in good faith, however we make no representation or warranty of any kind regarding the accuracy or completeness of any information.</p>
-          <p class="small text-muted">Copyright © 2025 WhatsTheirIP.tech - All Rights Reserved.</p>
-        </div>
-      </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-4 mb-4">
+      <h5>
+       WhatsTheirIP.tech
+      </h5>
+      <p>
+       Advanced IP tracking solutions for various use cases, helping you understand who's visiting your links, opening your emails, and viewing your content.
+      </p>
+     </div>
+     <div class="col-md-2 mb-4">
+      <h5>
+       Tools
+      </h5>
+      <ul class="list-unstyled">
+      </ul>
+     </div>
+     <div class="col-md-2 mb-4">
+      <h5>
+       Resources
+      </h5>
+      <ul class="list-unstyled">
+       <li>
+        How IP Tracking Works
+       </li>
+       <li>
+        Protect Your Privacy
+       </li>
+       <li>
+        Methods Comparison
+       </li>
+       <li>
+        Use Cases
+       </li>
+      </ul>
+     </div>
+     <div class="col-md-4">
+      <h5>
+       Legal
+      </h5>
+      <p class="small text-muted">
+       The information provided on this website is for general informational purposes only.  All information is provided in good faith.  however we make no representation or warranty of any kind regarding the accuracy or completeness of any information.
+      </p>
+      <p class="small text-muted">
+       Copyright © 2025 WhatsTheirIP. tech - All Rights Reserved.
+      </p>
+     </div>
     </div>
+   </div>
   </footer>
-
   <!-- Bootstrap core JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
-</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js">
+  </script>
+ </body>
 </html>
