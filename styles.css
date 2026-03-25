@@ -704,6 +704,17 @@
     font-weight: 600;
     border: 1px solid rgba(102, 126, 234, 0.2);
   }
+
+  /* Text contrast fixes for strong gradient backgrounds (homepage) */
+  .page-section .text-muted {
+    /* Override Bootstrap's default muted gray for readability on dark/purple sections */
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  /* Keep muted text dark when the section explicitly uses a light background */
+  .page-section.bg-light .text-muted {
+    color: #6c757d !important;
+  }
   
   /* Animations */
   @keyframes slideInUp {
@@ -856,6 +867,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Improve readability when gradient blends into the background */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   }
   
   /* Scroll Behavior */

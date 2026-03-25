@@ -49,6 +49,43 @@
     document.cookie = "usertime=" + d;
     document.cookie = "userjoe=" + d;
   </script>
+  
+  <!-- Basic structured data for homepage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://whatstheirip.tech/#organization",
+          "name": "whatstheirip.tech",
+          "url": "https://whatstheirip.tech/",
+          "logo": "https://whatstheirip.tech/favicon.svg"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://whatstheirip.tech/#webpage",
+          "url": "https://whatstheirip.tech/",
+          "name": "whatstheirip - Advanced IP Tracking Solutions",
+          "isPartOf": {
+            "@id": "https://whatstheirip.tech/#organization"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://whatstheirip.tech/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://whatstheirip.tech/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body id="page-top">
@@ -628,8 +665,8 @@
         </div>
         <div class="col-md-4 text-center text-md-right">
         
-          <p class="small text-muted">Copyright &copy; 2025 </p>
-          <p class="small text-muted">Last updated: May 13, 2025</p>
+          <p class="small text-muted">Copyright &copy; 2026 </p>
+          <p class="small text-muted">Last updated: Mar 25, 2026</p>
         </div>
       </div>
     </div>
