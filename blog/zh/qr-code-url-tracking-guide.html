@@ -1,442 +1,183 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   二维码URL追踪完整指南 - IP追踪技术
-  </title>
-  <meta content="学习如何使用二维码进行URL追踪，获取访客IP地址、地理位置和设备信息的完整技术指南。" name="description"/>
-  <meta content="二维码追踪, URL追踪, IP地址获取, 地理位置追踪, 设备检测" name="keywords"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>二维码 URL 访问记录说明 | WhatsTheirIP 中文博客</title>
+  <meta name="description" content="这篇文章说明二维码 URL 场景里的访问记录从哪里产生、通常能看到哪些字段，以及为什么重点应该放在落地页而不是二维码本身。">
+  <meta name="keywords" content="二维码 URL, 访问记录, 落地页, 请求日志, 数据边界">
+  <link rel="canonical" href="https://whatstheirip.tech/blog/zh/qr-code-url-tracking-guide.html">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <style>
-   <style>
     :root {
-      --primary-color: #4A90E2;
-      --secondary-color: #FF5733;
-      --accent-color: #FF9F1C;
-      --dark-color: #2C3E50;
-      --light-color: #ECF0F1;
+      --paper: #fffdfa;
+      --ink: #2a251d;
+      --muted: #72685c;
+      --line: #ddd1c3;
+      --accent: #8a5c1a;
+      --accent-soft: #f2e6d1;
+      --warn: #fff4de;
+      --shadow: 0 18px 44px rgba(42, 37, 29, 0.08);
     }
-    
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
-      color: var(--dark-color);
-      line-height: 1.8;
-      font-size: 16px;
+      margin: 0;
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at top right, rgba(138, 92, 26, 0.08), transparent 22rem),
+        linear-gradient(180deg, #faf5ed 0%, #f5efe6 100%);
     }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
-      font-weight: 600;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(980px, calc(100% - 2rem)); margin: 0 auto; }
+    .topbar {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(221, 209, 195, 0.92);
+      background: rgba(255, 253, 250, 0.84);
+      backdrop-filter: blur(12px);
     }
-    
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
+    .topbar-inner, .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    
-    h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-    }
-    
-    .navbar {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .navbar-brand {
+    .brand { font-weight: 700; letter-spacing: 0.03em; color: var(--ink); }
+    .nav { display: flex; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
+    .hero { padding: 4rem 0 2rem; }
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 1px;
     }
-    
-    .article-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 8rem 0 4rem;
-      color: white;
-    }
-    
-    .article-content {
-      padding: 3rem 0;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .highlight {
-      background: rgba(102, 126, 234, 0.1);
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      border-left: 4px solid var(--primary-color);
-    }
-    
+    h1 { margin: 1rem 0; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; max-width: 12ch; }
+    .lead { max-width: 760px; color: var(--muted); font-size: 1.08rem; }
+    .meta { margin-top: 1.4rem; justify-content: flex-start; color: var(--muted); font-size: 0.95rem; }
     .card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: var(--paper);
+      border: 1px solid rgba(221, 209, 195, 0.95);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
     }
-    
-    .diagram-container {
-      margin: 3rem 0;
-      text-align: center;
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 15px;
-    }
-    
-    .diagram-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .mermaid-diagram {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 10px;
+    .hero-grid {
       margin-top: 2rem;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
-    
-    ul, ol {
-      margin: 1rem 0;
-      padding-left: 2rem;
+    .hero-grid strong { display: block; margin-bottom: 0.4rem; }
+    .hero-grid p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    main { padding: 1rem 0 4rem; }
+    .article { padding: 2rem; }
+    .warn, .info {
+      margin: 1.2rem 0;
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
     }
-    
-    li {
-      margin: 0.5rem 0;
-      line-height: 1.8;
-    }
-    
-    p {
-      margin: 1rem 0;
-      line-height: 1.8;
-    }
-    
-    code {
-      background: #f4f4f4;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Monaco', 'Menlo', monospace;
-      font-size: 0.9em;
-    }
-    
-    blockquote {
-      border-left: 4px solid var(--primary-color);
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-      font-style: italic;
-      color: #555;
-    }
-    
-    @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      .article-content { padding: 2rem 1rem; }
+    .warn { background: var(--warn); border: 1px solid #e6d19a; }
+    .info { background: #faf4ea; border: 1px solid #ead7ba; }
+    h2 { margin-top: 2.4rem; font-size: 1.5rem; line-height: 1.3; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.45rem 0; }
+    footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.95rem; }
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .article { padding: 1.35rem; }
     }
   </style>
-  <script type="module">
-   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'default' });
-  </script>
- </head>
- <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <div class="container">
-    <a class="navbar-brand" href="/">
-     WhatsTheirIP
-    </a>
-    <button class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
-     <span class="navbar-toggler-icon">
-     </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-       首页
-      </li>
-      <li class="nav-item">
-       博客
-      </li>
-      <li class="nav-item">
-       English
-      </li>
-     </ul>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../../index">WhatsTheirIP.tech</a>
+      <nav class="nav">
+        <a href="../../index">首页</a>
+        <a href="../index.html">English Blog</a>
+        <a href="index.html">中文博客</a>
+      </nav>
     </div>
-   </div>
-  </nav>
-  <section class="hero-section">
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-8 mx-auto text-center">
-      <h1 class="display-4 mb-4">
-       二维码URL追踪完整指南
-      </h1>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">二维码 URL 说明</span>
+      <h1>二维码 URL 场景里，真正记录数据的是落地页</h1>
       <p class="lead">
-       掌握二维码追踪技术，获取访客IP地址、地理位置和设备信息
+        二维码 URL 的本质仍然是一个地址入口。用户扫码后，浏览器或应用会去访问其中编码的链接。真正能留下请求记录的是打开后的目标资源，而不是二维码图像本身。
       </p>
-     </div>
+      <div class="meta">
+        <span>更新日期：2026年4月7日</span>
+        <span>阅读时间：5 分钟</span>
+        <span>主题：二维码 URL / 落地页 / 请求记录</span>
+      </div>
+      <div class="hero-grid card">
+        <div>
+          <strong>二维码是入口</strong>
+          <p>它负责把用户带到某个地址，不负责记录访问者数据。</p>
+        </div>
+        <div>
+          <strong>落地页是记录点</strong>
+          <p>页面、文件或图片地址在被访问时，服务端才会看到请求。</p>
+        </div>
+        <div>
+          <strong>扫码环境会影响结果</strong>
+          <p>系统相机、微信扫一扫和第三方扫码器的表现并不完全一致。</p>
+        </div>
+      </div>
     </div>
-   </div>
   </section>
-  <div class="container my-5">
-   <div class="row">
-    <div class="col-lg-8 mx-auto">
-     <article>
-      <div class_="diagram-container">
-       <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
-        流程图
-       </h4>
-       <div class="mermaid-diagram">
-        <h5 style="margin-bottom: 1rem; color: #2d3748;">
-         交互式流程图
-        </h5>
-        <div class="mermaid">
-         flowchart TD
-    A[开始] --&gt; B[处理步骤]
-    B --&gt; C[收集数据]
-    C --&gt; D[分析结果]
-    D --&gt; E[完成]
-    
-    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
-    style E fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
+
+  <main>
+    <div class="container">
+      <article class="article card">
+        <div class="warn">
+          本页只保留关于落地页日志、扫码环境和解释边界的说明，不保留旧式“完整教程”语气。
         </div>
-       </div>
-      </div>
-      <h2>
-       什么是二维码URL追踪？
-      </h2>
-      <p>
-       二维码URL追踪是一种现代数字分析技术，通过在二维码中嵌入特殊的追踪URL来收集访客数据。当用户扫描二维码时，系统会自动记录其IP地址、地理位置、设备信息等详细数据。
-      </p>
-      <h3>
-       核心技术原理
-      </h3>
-      <div class="code-block">
-       <h5>
-        二维码生成规格
-       </h5>
-       <ul>
-        <li>
-         <strong>
-          尺寸：
-         </strong>
-         170x170像素（标准追踪二维码）
-        </li>
-        <li>
-         <strong>
-          格式：
-         </strong>
-         PNG格式，确保清晰度
-        </li>
-        <li>
-         <strong>
-          容错率：
-         </strong>
-         中等级别（M级），平衡可靠性和数据容量
-        </li>
-        <li>
-         <strong>
-          追踪URL：
-         </strong>
-         集成grabify.icu域名系统
-        </li>
-       </ul>
-      </div>
-      <h3>
-       IP数据收集能力
-      </h3>
-      <div class="row">
-       <div class="col-md-6">
-        <div class="card feature-card mb-4">
-         <div class="card-body">
-          <h5 class="card-title">
-           地理位置数据
-          </h5>
-          <ul class="list-unstyled">
-           <li>
-            • 国家和城市定位
-           </li>
-           <li>
-            • ISP服务商识别
-           </li>
-           <li>
-            • 时区自动检测
-           </li>
-           <li>
-            • 经纬度坐标
-           </li>
-          </ul>
-         </div>
+
+        <h2>二维码 URL 的真实工作方式</h2>
+        <p>
+          用户扫描二维码后，设备会尝试打开编码其中的 URL。如果该 URL 指向你控制的页面，那么你的服务端就可能记录访问时间、请求路径、IP、User-Agent 和其他有限字段。整个过程仍然是普通的网页访问，而不是一个特殊的“隐藏能力”。
+        </p>
+
+        <div class="info">
+          更准确的说法应该是“二维码落地页的访问记录”，而不是“二维码追踪工具自动知道一切”。
         </div>
-       </div>
-       <div class="col-md-6">
-        <div class="card feature-card mb-4">
-         <div class="card-body">
-          <h5 class="card-title">
-           设备信息检测
-          </h5>
-          <ul class="list-unstyled">
-           <li>
-            • 操作系统识别
-           </li>
-           <li>
-            • 浏览器类型和版本
-           </li>
-           <li>
-            • 设备型号检测
-           </li>
-           <li>
-            • 屏幕分辨率
-           </li>
-          </ul>
-         </div>
-        </div>
-       </div>
-      </div>
-      <h3>
-       安全验证机制
-      </h3>
-      <p>
-       WhatsTheirIP平台集成了拖拽验证滑块系统，用户需要将滑块拖拽到100%位置才能完成二维码生成，这有效防止了自动化滥用和恶意批量生成。
-      </p>
-      <div class="code-block">
-       <h5>
-        验证流程：
-       </h5>
-       <ol>
-        <li>
-         输入目标URL
-        </li>
-        <li>
-         拖拽安全验证滑块至100%
-        </li>
-        <li>
-         系统生成170x170像素追踪二维码
-        </li>
-        <li>
-         获取追踪链接和分析仪表板
-        </li>
-       </ol>
-      </div>
-      <h3>
-       实际应用场景
-      </h3>
-      <div class="row">
-       <div class="col-md-4">
-        <div class="card feature-card mb-4">
-         <div class="card-body text-center">
-          <h5>
-           营销活动
-          </h5>
-          <p>
-           追踪线下活动参与者的地理分布和设备偏好
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="col-md-4">
-        <div class="card feature-card mb-4">
-         <div class="card-body text-center">
-          <h5>
-           产品推广
-          </h5>
-          <p>
-           分析不同地区对产品的关注度和访问模式
-          </p>
-         </div>
-        </div>
-       </div>
-       <div class="col-md-4">
-        <div class="card feature-card mb-4">
-         <div class="card-body text-center">
-          <h5>
-           用户研究
-          </h5>
-          <p>
-           收集目标用户群体的技术特征和行为数据
-          </p>
-         </div>
-        </div>
-       </div>
-      </div>
-      <h3>
-       技术集成优势
-      </h3>
-      <p>
-       WhatsTheirIP使用Bootstrap 4. 6. 0和jQuery 3. 6. 0框架，确保二维码生成界面在所有设备上的兼容性和响应性。同时集成grabb. site域名作为备用系统，提供99. 9%的服务可用性。
-      </p>
-      <h3>
-       数据隐私与合规性
-      </h3>
-      <p>
-       使用二维码追踪技术时，必须遵守当地的数据保护法规。建议在二维码旁边明确说明数据收集目的，并提供隐私政策链接，确保用户知情同意。
-      </p>
-      <div class="alert alert-info">
-       <h5>
-        最佳实践建议
-       </h5>
-       <ul class="mb-0">
-        <li>
-         在显眼位置标注二维码用途
-        </li>
-        <li>
-         提供清晰的隐私政策说明
-        </li>
-        <li>
-         定期审查和删除过期的追踪数据
-        </li>
-        <li>
-         使用HTTPS确保数据传输安全
-        </li>
-       </ul>
-      </div>
-      <h3>
-       结论
-      </h3>
-      <p>
-       二维码URL追踪技术为数字营销和用户分析提供了强大的工具。通过WhatsTheirIP平台的170x170像素标准二维码和综合分析系统，您可以深入了解目标受众的地理分布、设备偏好和访问模式，为业务决策提供有价值的数据支持。
-      </p>
-     </article>
+
+        <h2>最常见的误解</h2>
+        <ul>
+          <li>把二维码本身当成记录点，而不是把目标资源当成记录点</li>
+          <li>把一次扫描后的访问直接理解成某个具体个人的唯一身份</li>
+          <li>忽略预加载、缓存或应用内浏览器对日志的影响</li>
+          <li>把粗粒度地理位置估计写成精确定位</li>
+        </ul>
+
+        <h2>更适合保留的结论</h2>
+        <ul>
+          <li>二维码 URL 只是把用户带到某个页面</li>
+          <li>记录发生在该页面的服务端、CDN 或分析系统</li>
+          <li>日志字段适合做基础访问分析和安全排查</li>
+          <li>这些字段不应被写成确定性的身份判断</li>
+        </ul>
+
+        <h2>结论</h2>
+        <p>
+          只要把重点放在“二维码是入口、落地页是记录点、日志有边界”，这类页面就会比旧模板更准确，也更适合长期保留。
+        </p>
+      </article>
     </div>
-   </div>
-  </div>
-  <footer class="bg-dark text-white py-4">
-   <div class="container">
-    <div class="row">
-     <div class="col-md-6">
-      <p>
-       © 2025 WhatsTheirIP.  保留所有权利。
-      </p>
-     </div>
-     <div class="col-md-6 text-right">
-      <a class="text-white" href="/">
-       首页
-      </a>
-      |
-      <a class="text-white" href="/blog/">
-       博客
-      </a>
-      |
-      <a class="text-white" href="/blog/">
-       English
-      </a>
-     </div>
-    </div>
-   </div>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 WhatsTheirIP.tech. 保留所有权利。</div>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js">
-  </script>
- </body>
+</body>
 </html>
