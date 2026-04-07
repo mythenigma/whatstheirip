@@ -9,6 +9,7 @@
   <meta content="Learn how to get someone's IP address from social media platforms like Facebook, Instagram, Twitter, TikTok, and more. Step-by-step methods." name="description"/>
   <link href="https://whatstheirip.tech/blog/how-to-find-someones-ip-address-social-media" rel="canonical"/>
   <meta content="social media IP tracking, Facebook IP, Instagram IP, Twitter IP, TikTok IP, Discord IP, IP grabber social media" name="keywords"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="../styles.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
@@ -17,7 +18,6 @@
   <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860">
   </script>
   <style>
-   <style>
     :root {
       --primary-color: #4A90E2;
       --secondary-color: #FF5733;
@@ -31,6 +31,7 @@
       color: var(--dark-color);
       line-height: 1.8;
       font-size: 16px;
+      background: #f5f7fb;
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -55,24 +56,33 @@
     }
     
     .navbar {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 0.85rem 0;
     }
     
     .navbar-brand {
       font-weight: 700;
       letter-spacing: 1px;
     }
+
+    .nav-link {
+      color: #526071 !important;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+
+    .nav-link.active {
+      color: var(--primary-color) !important;
+    }
     
     .article-header {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 8rem 0 4rem;
+      padding: 5rem 0 3.5rem;
       color: white;
     }
     
     .article-content {
       padding: 3rem 0;
-      max-width: 900px;
-      margin: 0 auto;
     }
     
     .highlight {
@@ -113,6 +123,101 @@
       border-radius: 10px;
       margin-top: 2rem;
     }
+
+    .warning-box,
+    .platform-card,
+    .alert,
+    .card {
+      border-radius: 18px;
+      border: 1px solid rgba(44, 62, 80, 0.08);
+      box-shadow: 0 10px 30px rgba(31, 45, 61, 0.07);
+    }
+
+    .warning-box {
+      background: #fff8e8;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .platform-card {
+      background: #fff;
+      padding: 1.75rem;
+      margin: 1.5rem 0 2rem;
+      position: relative;
+    }
+
+    .platform-icon {
+      font-size: 1.35rem;
+      margin-right: 0.55rem;
+    }
+
+    .difficulty-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .difficulty-easy {
+      background: rgba(40, 167, 69, 0.12);
+      color: #1f8a43;
+    }
+
+    .difficulty-medium {
+      background: rgba(255, 193, 7, 0.18);
+      color: #9a6a00;
+    }
+
+    .difficulty-hard {
+      background: rgba(220, 53, 69, 0.12);
+      color: #b42333;
+    }
+
+    .step-box {
+      background: #f8fbff;
+      border: 1px solid rgba(74, 144, 226, 0.12);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      margin: 1rem 0;
+    }
+
+    .step-number {
+      width: 2rem;
+      height: 2rem;
+      min-width: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--primary-color);
+      color: #fff;
+      font-weight: 700;
+      margin-right: 0.75rem;
+    }
+
+    .card-header {
+      border-bottom: none;
+      border-top-left-radius: 18px !important;
+      border-top-right-radius: 18px !important;
+      padding: 1rem 1.25rem;
+    }
+
+    .card-body {
+      padding: 1.25rem;
+    }
+
+    .sticky-top {
+      top: 1.5rem !important;
+    }
+
+    .list-unstyled li {
+      margin-bottom: 0.8rem;
+    }
     
     ul, ol {
       margin: 1rem 0;
@@ -149,6 +254,14 @@
       h1 { font-size: 2rem; }
       h2 { font-size: 1.5rem; }
       .article-content { padding: 2rem 1rem; }
+      .article-header { padding: 4rem 0 2.5rem; }
+      .difficulty-badge {
+        position: static;
+        margin: 0.5rem 0 1rem;
+      }
+      .nav-link {
+        margin-left: 0;
+      }
     }
   </style>
   <script type="module">
@@ -201,7 +314,7 @@
         <i class="fas fa-calendar text-white-50 mb-2" style="font-size: 2rem;">
         </i>
         <p>
-         Updated: Dec 2024
+         Updated: April 7, 2026
         </p>
        </div>
        <div class="col-md-4">
@@ -938,7 +1051,7 @@
   <footer class="bg-dark text-white py-4 mt-5">
    <div class="container text-center">
     <p>
-     © 2024 whatstheirip. tech.  All rights reserved.
+     © 2026 whatstheirip.tech. All rights reserved.
     </p>
     <p>
      This guide is for educational purposes only.  Please use responsibly.

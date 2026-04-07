@@ -1,0 +1,66 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="154" y1="96" x2="1437" y2="843" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081225"/>
+      <stop offset="0.48" stop-color="#102C59"/>
+      <stop offset="1" stop-color="#1B7FEA"/>
+    </linearGradient>
+    <linearGradient id="card" x1="318" y1="206" x2="1279" y2="706" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.22)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0.08)"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7FE7FF"/>
+      <stop offset="1" stop-color="#8BFFB7"/>
+    </linearGradient>
+    <filter id="blur" x="-120" y="-120" width="1840" height="1140" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.55" filter="url(#blur)">
+    <circle cx="284" cy="135" r="150" fill="#50E3C2"/>
+    <circle cx="1328" cy="244" r="176" fill="#2E8DFF"/>
+    <circle cx="1226" cy="724" r="208" fill="#FF8F5A"/>
+  </g>
+
+  <rect x="180" y="128" width="1240" height="644" rx="38" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.14" stroke-width="2"/>
+  <rect x="228" y="176" width="706" height="548" rx="28" fill="#071120" fill-opacity="0.68" stroke="white" stroke-opacity="0.1"/>
+  <rect x="972" y="176" width="400" height="548" rx="28" fill="#081A33" fill-opacity="0.82" stroke="white" stroke-opacity="0.1"/>
+
+  <text x="268" y="266" fill="#9FD7FF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="4">WHATS THEIR IP</text>
+  <text x="268" y="350" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">One-Click IP</text>
+  <text x="268" y="430" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">Tracking That</text>
+  <text x="268" y="510" fill="url(#accent)" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">Looks Professional</text>
+
+  <text x="268" y="582" fill="#D9E8FF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400">
+    Generate a branded tracking link, share it once,
+  </text>
+  <text x="268" y="620" fill="#D9E8FF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400">
+    and review IP, geolocation, and visit data in seconds.
+  </text>
+
+  <rect x="268" y="660" width="230" height="54" rx="27" fill="#2EA3FF"/>
+  <text x="319" y="695" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Track in One Click</text>
+
+  <rect x="530" y="660" width="250" height="54" rx="27" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.18"/>
+  <text x="579" y="695" fill="#E5F1FF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Live Visitor Insights</text>
+
+  <rect x="1012" y="220" width="320" height="92" rx="22" fill="#0C2749"/>
+  <circle cx="1070" cy="266" r="18" fill="#56F0C8"/>
+  <text x="1104" y="259" fill="#D9E8FF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">New Visit Captured</text>
+  <text x="1104" y="285" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">203.0.113.24</text>
+
+  <rect x="1012" y="340" width="320" height="146" rx="22" fill="#102C59"/>
+  <text x="1044" y="388" fill="#9FD7FF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Live Snapshot</text>
+  <text x="1044" y="432" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800">1 Click</text>
+  <text x="1202" y="432" fill="#8BFFB7" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800">3 Data Points</text>
+  <text x="1044" y="466" fill="#D9E8FF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400">IP, region, and visit timing in one view</text>
+
+  <rect x="1012" y="514" width="320" height="166" rx="22" fill="#0A1C35"/>
+  <text x="1044" y="560" fill="#9FD7FF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Use Cases</text>
+  <text x="1044" y="606" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Security teams</text>
+  <text x="1044" y="642" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Lead capture</text>
+  <text x="1044" y="678" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Campaign attribution</text>
+</svg>
