@@ -1,878 +1,213 @@
 <!DOCTYPE html>
-<html lang="zh">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   如何通过二维码获取他人IP地址 - 完整指南 | WhatsTheirIP 中文博客
-  </title>
-  <meta content="学习如何通过二维码获取他人IP地址的详细方法。了解二维码追踪技术、工具使用和最佳实践。" name="description"/>
-  <meta content="二维码IP追踪, QR码追踪, IP地址获取, 二维码监控, 移动设备追踪" name="keywords"/>
-  <link href="../../styles.css" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-  <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="../../favicon.ico" rel="icon" type="image/x-icon"/>
-  <!-- Google AdSense -->
-  <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860">
-  </script>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>二维码访问日志与落地页说明 | WhatsTheirIP 中文博客</title>
+  <meta name="description" content="这篇文章解释二维码场景中的访问日志通常来自扫码后的落地页，而不是二维码本身，并说明常见字段、平台限制和误判来源。">
+  <meta name="keywords" content="二维码, 访问日志, 落地页, 请求记录, 平台限制">
+  <link rel="canonical" href="https://whatstheirip.tech/blog/zh/qr-code-ip-tracking-complete-guide.html">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <style>
-   <style>
     :root {
-      --primary-color: #4A90E2;
-      --secondary-color: #FF5733;
-      --accent-color: #FF9F1C;
-      --dark-color: #2C3E50;
-      --light-color: #ECF0F1;
+      --paper: #fffdfa;
+      --ink: #2a251d;
+      --muted: #72685c;
+      --line: #ddd1c3;
+      --accent: #8a5c1a;
+      --accent-soft: #f2e6d1;
+      --warn: #fff4de;
+      --shadow: 0 18px 44px rgba(42, 37, 29, 0.08);
     }
-    
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
-      color: var(--dark-color);
-      line-height: 1.8;
-      font-size: 16px;
+      margin: 0;
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at top right, rgba(138, 92, 26, 0.08), transparent 22rem),
+        linear-gradient(180deg, #faf5ed 0%, #f5efe6 100%);
     }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
-      font-weight: 600;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(980px, calc(100% - 2rem)); margin: 0 auto; }
+    .topbar {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(221, 209, 195, 0.92);
+      background: rgba(255, 253, 250, 0.84);
+      backdrop-filter: blur(12px);
     }
-    
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
+    .topbar-inner, .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    
-    h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-    }
-    
-    .navbar {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .navbar-brand {
+    .brand { font-weight: 700; letter-spacing: 0.03em; color: var(--ink); }
+    .nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.95rem; color: var(--muted); }
+    .hero { padding: 4rem 0 2rem; }
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
       font-weight: 700;
-      letter-spacing: 1px;
+      font-size: 0.9rem;
     }
-    
-    .article-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 8rem 0 4rem;
-      color: white;
-    }
-    
-    .article-content {
-      padding: 3rem 0;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .highlight {
-      background: rgba(102, 126, 234, 0.1);
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      border-left: 4px solid var(--primary-color);
-    }
-    
+    h1 { margin: 1rem 0; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; max-width: 12ch; }
+    .lead { max-width: 760px; color: var(--muted); font-size: 1.08rem; }
+    .meta { margin-top: 1.4rem; justify-content: flex-start; color: var(--muted); font-size: 0.95rem; }
     .card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: var(--paper);
+      border: 1px solid rgba(221, 209, 195, 0.95);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
     }
-    
-    .diagram-container {
-      margin: 3rem 0;
-      text-align: center;
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 15px;
-    }
-    
-    .diagram-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .mermaid-diagram {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 10px;
+    .hero-grid {
       margin-top: 2rem;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
-    
-    ul, ol {
-      margin: 1rem 0;
-      padding-left: 2rem;
+    .hero-grid strong { display: block; margin-bottom: 0.4rem; }
+    .hero-grid p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    main { padding: 1rem 0 4rem; }
+    .article { padding: 2rem; }
+    .warn, .info {
+      margin: 1.2rem 0;
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
     }
-    
-    li {
-      margin: 0.5rem 0;
-      line-height: 1.8;
-    }
-    
-    p {
-      margin: 1rem 0;
-      line-height: 1.8;
-    }
-    
-    code {
-      background: #f4f4f4;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Monaco', 'Menlo', monospace;
-      font-size: 0.9em;
-    }
-    
-    blockquote {
-      border-left: 4px solid var(--primary-color);
-      padding-left: 1rem;
+    .warn { background: var(--warn); border: 1px solid #e6d19a; }
+    .info { background: #faf4ea; border: 1px solid #ead7ba; }
+    h2 { margin-top: 2.4rem; font-size: 1.5rem; line-height: 1.3; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.45rem 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
       margin: 1.5rem 0;
-      font-style: italic;
-      color: #555;
     }
-    
-    @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      .article-content { padding: 2rem 1rem; }
+    .grid .item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      background: #fffefb;
+    }
+    footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.95rem; }
+    @media (max-width: 760px) {
+      .hero-grid, .grid { grid-template-columns: 1fr; }
+      .article { padding: 1.35rem; }
     }
   </style>
-  <script type="module">
-   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'default' });
-  </script>
- </head>
- <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-   <div class="container">
-    <a class="navbar-brand" href="../../index">
-     whatstheirip.tech
-    </a>
-    <div class="navbar-nav ml-auto">
-     <a class="nav-link" href="../../index">
-      首页
-     </a>
-     <a class="nav-link" href="../index.html">
-      English Blog
-     </a>
-     <a class="nav-link active" href="index.html">
-      中文博客
-     </a>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../../index">WhatsTheirIP.tech</a>
+      <nav class="nav">
+        <a href="../../index">首页</a>
+        <a href="../index.html">English Blog</a>
+        <a href="index.html">中文博客</a>
+      </nav>
     </div>
-   </div>
-  </nav>
-  <!-- Article Header -->
-  <section class="article-header text-center">
-   <div class="container">
-    <div class="row justify-content-center">
-     <div class="col-lg-8">
-      <h1 class="display-4 font-weight-bold mb-4">
-       <i class="fas fa-qrcode mr-3">
-       </i>
-       如何通过二维码获取他人IP地址
-      </h1>
-      <p class="lead mb-4">
-       二维码IP追踪的完整技术指南
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">二维码场景说明</span>
+      <h1>二维码本身不记录数据，落地页才会</h1>
+      <p class="lead">
+        二维码只是把一个地址编码成可扫描的形式。真正产生访问日志的，是扫码后打开的网页、文件页或资源地址。因此更准确的内容结构应该解释落地页日志，而不是把二维码写成某种独立的“获取工具”。
       </p>
-      <div class="row text-center mt-4">
-       <div class="col-md-4">
-        <i class="fas fa-clock text-white-50 mb-2" style="font-size: 2rem;">
-        </i>
-        <p>
-         阅读时间: 10分钟
-        </p>
-       </div>
-       <div class="col-md-4">
-        <i class="fas fa-calendar text-white-50 mb-2" style="font-size: 2rem;">
-        </i>
-        <p>
-         更新时间: 2024年12月
-        </p>
-       </div>
-       <div class="col-md-4">
-        <i class="fas fa-eye text-white-50 mb-2" style="font-size: 2rem;">
-        </i>
-        <p>
-         难度: 中级
-        </p>
-       </div>
+      <div class="meta">
+        <span>更新日期：2026年4月7日</span>
+        <span>阅读时间：5 分钟</span>
+        <span>主题：二维码 / 落地页 / 请求日志</span>
       </div>
-     </div>
+      <div class="hero-grid card">
+        <div>
+          <strong>二维码只是入口</strong>
+          <p>它负责把用户带到目标地址，本身并不“保存访问者信息”。</p>
+        </div>
+        <div>
+          <strong>日志发生在目标资源</strong>
+          <p>网页、文档页、下载页和图片地址都可能留下请求记录。</p>
+        </div>
+        <div>
+          <strong>扫描环境会影响结果</strong>
+          <p>微信、浏览器、扫码器和缓存层的行为并不完全相同。</p>
+        </div>
+      </div>
     </div>
-   </div>
   </section>
-  <!-- Article Content -->
-  <section class="article-content">
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-8">
-      <article>
-       <div class="warning-box">
-        <h5>
-         <i class="fas fa-exclamation-triangle text-warning mr-2">
-         </i>
-         重要提醒
-        </h5>
-        <p class="mb-0">
-         本文仅用于教育目的和合法的网络管理。请确保在获取IP地址时遵守当地法律法规，尊重他人隐私，并获得必要的授权。
-        </p>
-       </div>
-       <div class_="diagram-container">
-        <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
-         IP追踪流程图
-        </h4>
-        <figure style="margin-bottom: 2rem;">
-         <img alt="IP追踪流程图" loading="lazy" src="../diagrams/en/how-ip-tracking-works.svg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"/>
-         <figcaption style="margin-top: 1rem; color: #4a5568; font-size: 0.9rem;">
-          IP追踪过程的可视化流程图
-         </figcaption>
-        </figure>
-        <div class="mermaid-diagram">
-         <h5 style="margin-bottom: 1rem; color: #2d3748;">
-          交互式流程图
-         </h5>
-         <div class="mermaid">
-          flowchart TD
-    A[用户访问网站] --&gt; B[浏览器发送请求]
-    B --&gt; C[服务器接收请求]
-    C --&gt; D[服务器记录IP地址]
-    D --&gt; E[IP地理位置查询]
-    E --&gt; F[数据收集]
-    F --&gt; G[分析处理]
-    G --&gt; H[显示结果]
-    
-    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
-    style H fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
-         </div>
+
+  <main>
+    <div class="container">
+      <article class="article card">
+        <div class="warn">
+          本文只解释二维码与落地页日志的关系，不提供短链伪装、诱导访问或替代工具清单。
         </div>
-       </div>
-       <h2>
-        二维码IP追踪的优势
-       </h2>
-       <p>
-        相比传统的链接追踪，二维码追踪具有以下独特优势：
-       </p>
-       <ul>
-        <li>
-         <strong>
-          移动设备友好
-         </strong>
-         ：大多数用户通过手机扫描二维码
-        </li>
-        <li>
-         <strong>
-          隐蔽性更强
-         </strong>
-         ：二维码本身不会暴露追踪意图
-        </li>
-        <li>
-         <strong>
-          分享便利
-         </strong>
-         ：可以打印、贴纸、电子屏幕等多种形式传播
-        </li>
-        <li>
-         <strong>
-          高转化率
-         </strong>
-         ：用户扫描二维码的意愿通常较高
-        </li>
-        <li>
-         <strong>
-          跨平台兼容
-         </strong>
-         ：支持iOS、Android等所有主流平台
-        </li>
-       </ul>
-       <h2>
-        技术原理
-       </h2>
-       <p>
-        二维码IP追踪的核心原理是将追踪链接编码到二维码中：
-       </p>
-       <div class="qr-demo">
-        <h4>
-         <i class="fas fa-cogs text-primary mr-2">
-         </i>
-         技术流程
-        </h4>
-        <div class="row">
-         <div class="col-md-6">
-          <i class="fas fa-qrcode" style="font-size: 4rem; color: #667eea;">
-          </i>
-          <p>
-           1.  生成追踪链接
-          </p>
-         </div>
-         <div class="col-md-6">
-          <i class="fas fa-arrow-right" style="font-size: 2rem; color: #667eea;">
-          </i>
-         </div>
-        </div>
-        <div class="row mt-3">
-         <div class="col-md-6">
-          <i class="fas fa-qrcode" style="font-size: 4rem; color: #764ba2;">
-          </i>
-          <p>
-           2.  编码为二维码
-          </p>
-         </div>
-         <div class="col-md-6">
-          <i class="fas fa-arrow-right" style="font-size: 2rem; color: #764ba2;">
-          </i>
-         </div>
-        </div>
-        <div class="row mt-3">
-         <div class="col-md-6">
-          <i class="fas fa-mobile-alt" style="font-size: 4rem; color: #f093fb;">
-          </i>
-          <p>
-           3.  用户扫描访问
-          </p>
-         </div>
-         <div class="col-md-6">
-          <i class="fas fa-arrow-right" style="font-size: 2rem; color: #f093fb;">
-          </i>
-         </div>
-        </div>
-        <div class="row mt-3">
-         <div class="col-md-6">
-          <i class="fas fa-server" style="font-size: 4rem; color: #4facfe;">
-          </i>
-          <p>
-           4.  记录IP信息
-          </p>
-         </div>
-        </div>
-       </div>
-       <h2>
-        具体实现方法
-       </h2>
-       <div class="method-card">
-        <h3>
-         <i class="fas fa-magic text-primary mr-2">
-         </i>
-         方法一：使用在线二维码生成器
-        </h3>
+
+        <h2>二维码场景里的真实工作流</h2>
         <p>
-         这是最简单的方法，适合快速创建追踪二维码。
+          用户扫描二维码后，设备会尝试打开其中编码的地址。如果该地址指向你控制的页面，那么你的服务器、CDN 或分析系统就可能记录到一次访问请求。也就是说，真正的记录点不是二维码，而是被打开的目标资源。
         </p>
-        <ol class="step-list">
-         <li>
-          <strong>
-           选择追踪服务
-          </strong>
-          <p>
-           访问whatstheirip. tech或其他IP追踪服务
-          </p>
-         </li>
-         <li>
-          <strong>
-           创建追踪链接
-          </strong>
-          <p>
-           输入目标URL，生成追踪链接
-          </p>
-         </li>
-         <li>
-          <strong>
-           生成二维码
-          </strong>
-          <p>
-           使用在线二维码生成器将追踪链接转换为二维码
-          </p>
-         </li>
-         <li>
-          <strong>
-           下载和分享
-          </strong>
-          <p>
-           下载生成的二维码图片，通过多种方式分享
-          </p>
-         </li>
-        </ol>
-        <h4>
-         推荐的二维码生成器：
-        </h4>
+
+        <div class="info">
+          更合适的标题通常是“二维码落地页会记录什么”，而不是“通过二维码获取某人的 IP”。
+        </div>
+
+        <h2>常见可见字段</h2>
         <ul>
-         <li>
-          <strong>
-           QR Code Generator
-          </strong>
-          - 功能全面，支持自定义样式
-         </li>
-         <li>
-          <strong>
-           GoQR.me
-          </strong>
-          - 简单易用，支持多种格式
-         </li>
-         <li>
-          <strong>
-           QRCode Monkey
-          </strong>
-          - 支持Logo和颜色自定义
-         </li>
-         <li>
-          <strong>
-           Unitag QR
-          </strong>
-          - 专业级二维码生成工具
-         </li>
+          <li>访问时间、请求路径和响应状态</li>
+          <li>出口 IP 或代理后的来源地址</li>
+          <li>User-Agent 与设备大类</li>
+          <li>粗粒度地理位置估计</li>
+          <li>部分来源信息，但它经常不完整</li>
         </ul>
-       </div>
-       <div class="method-card">
-        <h3>
-         <i class="fas fa-code text-success mr-2">
-         </i>
-         方法二：编程生成二维码
-        </h3>
-        <p>
-         适合开发者，可以集成到自己的应用中。
-        </p>
-        <h4>
-         Python实现示例：
-        </h4>
-        <div class="code-example">
-         <pre><code>import qrcode
-from PIL import Image
 
-def create_tracking_qr(tracking_url, filename="tracking_qr.png"):
-    """创建追踪二维码"""
-    
-    # 创建QR码实例
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
-    
-    # 添加数据
-    qr.add_data(tracking_url)
-    qr.make(fit=True)
-    
-    # 创建图像
-    img = qr.make_image(fill_color="black", back_color="white")
-    
-    # 保存图像
-    img.save(filename)
-    print(f"二维码已保存为: {filename}")
-
-# 使用示例
-tracking_link = "https://whatstheirip.tech/track/abc123"
-create_tracking_qr(tracking_link)</code></pre>
+        <h2>为什么扫码结果会有偏差</h2>
+        <div class="grid">
+          <div class="item">
+            <strong>扫码入口不同</strong>
+            <p>微信扫一扫、系统相机和第三方扫码器会触发不同的打开环境。</p>
+          </div>
+          <div class="item">
+            <strong>缓存和预加载存在</strong>
+            <p>某些系统或平台会先做预取，导致日志里出现额外请求。</p>
+          </div>
+          <div class="item">
+            <strong>网络出口可能共享</strong>
+            <p>商场、校园、企业和家庭网络都可能对应多个终端共用一个出口。</p>
+          </div>
+          <div class="item">
+            <strong>IP 地理库有误差</strong>
+            <p>它更像近似映射，而不是精确定位。</p>
+          </div>
         </div>
-        <h4>
-         JavaScript实现示例：
-        </h4>
-        <div class="code-example">
-         <pre><code>// 使用qrcode.js库
-&lt;script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"&gt;&lt;/script&gt;
 
-&lt;script&gt;
-async function generateQR(trackingUrl) {
-    try {
-        const canvas = document.getElementById('qr-canvas');
-        await QRCode.toCanvas(canvas, trackingUrl, {
-            width: 256,
-            margin: 2,
-            color: {
-                dark: '#000000',
-                light: '#FFFFFF'
-            }
-        });
-        
-        // 下载二维码
-        const link = document.createElement('a');
-        link.download = 'tracking-qr.png';
-        link.href = canvas.toDataURL();
-        link.click();
-    } catch (err) {
-        console.error('生成二维码失败:', err);
-    }
-}
-
-// 使用示例
-generateQR('https://whatstheirip.tech/track/abc123');
-&lt;/script&gt;</code></pre>
-        </div>
-       </div>
-       <div class="method-card">
-        <h3>
-         <i class="fas fa-mobile-alt text-info mr-2">
-         </i>
-         方法三：移动应用集成
-        </h3>
+        <h2>更适合保留的内容方向</h2>
         <p>
-         在移动应用中集成二维码生成和扫描功能。
+          这类中文页更适合围绕“二维码是入口、落地页才是记录点、日志有哪些限制、如何避免误判”来写。这样既能解释技术原理，也能避免旧模板那种过度刺激的语气。
         </p>
-        <h4>
-         Android实现（Kotlin）：
-        </h4>
-        <div class="code-example">
-         <pre><code>// 添加依赖
-// implementation 'com.google.zxing:core:3.4.1'
-// implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
 
-class QRGeneratorActivity : AppCompatActivity() {
-    
-    fun generateTrackingQR(trackingUrl: String) {
-        val hints = EnumMap&lt;EncodeHintType, Any&gt;(EncodeHintType::class.java)
-        hints[EncodeHintType.CHARACTER_SET] = "UTF-8"
-        hints[EncodeHintType.MARGIN] = 1
-        
-        val writer = QRCodeWriter()
-        val bitMatrix = writer.encode(trackingUrl, BarcodeFormat.QR_CODE, 512, 512, hints)
-        
-        val width = bitMatrix.width
-        val height = bitMatrix.height
-        val pixels = IntArray(width * height)
-        
-        for (y in 0 until height) {
-            for (x in 0 until width) {
-                pixels[y * width + x] = if (bitMatrix[x, y]) Color.BLACK else Color.WHITE
-            }
-        }
-        
-        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        bitmap.setPixels(pixels, 0, width, 0, 0, width, height)
-        
-        // 显示或保存二维码
-        imageView.setImageBitmap(bitmap)
-    }
-}</code></pre>
-        </div>
-       </div>
-       <h2>
-        高级追踪技术
-       </h2>
-       <h3>
-        1. 动态二维码
-       </h3>
-       <p>
-        创建可以动态更新的追踪二维码：
-       </p>
-       <ul>
-        <li>
-         <strong>
-          短链接技术
-         </strong>
-         ：使用短链接服务，可以随时更改目标URL
-        </li>
-        <li>
-         <strong>
-          API集成
-         </strong>
-         ：通过API动态生成不同的追踪链接
-        </li>
-        <li>
-         <strong>
-          时间限制
-         </strong>
-         ：设置二维码的有效期
-        </li>
-        <li>
-         <strong>
-          访问次数限制
-         </strong>
-         ：限制单个二维码的访问次数
-        </li>
-       </ul>
-       <h3>
-        2. 增强型追踪
-       </h3>
-       <p>
-        在基础IP追踪基础上收集更多信息：
-       </p>
-       <div class="code-example">
-        <pre><code>// 增强型追踪代码示例
-&lt;script&gt;
-// 收集设备信息
-const deviceInfo = {
-    screen: `${screen.width}x${screen.height}`,
-    viewport: `${window.innerWidth}x${window.innerHeight}`,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    language: navigator.language,
-    platform: navigator.platform,
-    userAgent: navigator.userAgent,
-    cookieEnabled: navigator.cookieEnabled,
-    doNotTrack: navigator.doNotTrack,
-    hardwareConcurrency: navigator.hardwareConcurrency,
-    maxTouchPoints: navigator.maxTouchPoints
-};
-
-// 收集网络信息
-const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-if (connection) {
-    deviceInfo.connectionType = connection.effectiveType;
-    deviceInfo.downlink = connection.downlink;
-    deviceInfo.rtt = connection.rtt;
-}
-
-// 发送到追踪服务器
-fetch('/track/enhanced', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(deviceInfo)
-});
-&lt;/script&gt;</code></pre>
-       </div>
-       <h3>
-        3. 地理位置增强
-       </h3>
-       <p>
-        结合多种技术提高地理位置准确性：
-       </p>
-       <ul>
-        <li>
-         <strong>
-          IP地理位置数据库
-         </strong>
-         ：使用MaxMind、IP2Location等数据库
-        </li>
-        <li>
-         <strong>
-          GPS定位
-         </strong>
-         ：在用户同意的情况下获取精确位置
-        </li>
-        <li>
-         <strong>
-          WiFi定位
-         </strong>
-         ：通过WiFi接入点信息辅助定位
-        </li>
-        <li>
-         <strong>
-          基站定位
-         </strong>
-         ：利用移动网络基站信息
-        </li>
-       </ul>
-       <h2>
-        工具和服务对比
-       </h2>
-       <div class="tool-comparison">
-       </div>
-       <h2>
-        最佳实践和技巧
-       </h2>
-       <h2>
-        隐私和法律考虑
-       </h2>
-       <div class="warning-box">
-        <h5>
-         <i class="fas fa-gavel text-warning mr-2">
-         </i>
-         法律合规要求
-        </h5>
+        <h2>结论</h2>
         <p>
-         在使用二维码IP追踪技术时，必须遵守以下法律法规：
+          二维码不会单独生成“识别能力”，它只是把用户带到某个地址。真正产生数据的是扫码后访问的目标资源。把重点放在落地页日志和解释边界上，页面就会更准确。
         </p>
-        <ul>
-         <li>
-          <strong>
-           GDPR合规
-          </strong>
-          ：欧盟用户需要明确同意
-         </li>
-         <li>
-          <strong>
-           CCPA合规
-          </strong>
-          ：加州用户有权知道数据收集情况
-         </li>
-         <li>
-          <strong>
-           当地法规
-          </strong>
-          ：遵守所在地区的数据保护法律
-         </li>
-         <li>
-          <strong>
-           行业标准
-          </strong>
-          ：遵循相关行业的最佳实践
-         </li>
-        </ul>
-       </div>
-       <h2>
-        常见问题和解决方案
-       </h2>
-       <h2>
-        总结
-       </h2>
-       <p>
-        二维码IP追踪是一种强大而隐蔽的追踪技术，特别适合移动设备环境。通过合理的设计和实施，可以显著提高追踪的成功率和用户体验。但必须始终牢记隐私保护和法律合规的重要性，确保技术的负责任使用。
-       </p>
-       <div class="alert alert-info">
-        <h5>
-         <i class="fas fa-info-circle mr-2">
-         </i>
-         相关资源
-        </h5>
-        <ul class="mb-0">
-         <li>
-          如何通过链接获取他人IP
-         </li>
-         <li>
-          微信IP追踪方法
-         </li>
-         <li>
-          移动设备IP追踪指南
-         </li>
-         <li>
-          IP追踪隐私合规指南
-         </li>
-        </ul>
-       </div>
       </article>
-     </div>
-     <div class="col-lg-4">
-      <div class="card sticky-top" style="top: 2rem;">
-       <div class="card-header bg-primary text-white">
-        <h5 class="mb-0">
-         <i class="fas fa-list mr-2">
-         </i>
-         文章目录
-        </h5>
-       </div>
-       <div class="card-body">
-        <ul class="list-unstyled">
-         <li>
-          二维码IP追踪的优势
-         </li>
-         <li>
-          技术原理
-         </li>
-         <li>
-          具体实现方法
-         </li>
-         <li>
-          高级追踪技术
-         </li>
-         <li>
-          工具和服务对比
-         </li>
-         <li>
-          最佳实践和技巧
-         </li>
-         <li>
-          隐私和法律考虑
-         </li>
-         <li>
-          常见问题和解决方案
-         </li>
-        </ul>
-       </div>
-      </div>
-      <div class="card mt-4">
-       <div class="card-header bg-success text-white">
-        <h5 class="mb-0">
-         <i class="fas fa-tools mr-2">
-         </i>
-         推荐工具
-        </h5>
-       </div>
-       <div class="card-body">
-        <ul class="list-unstyled">
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          whatstheirip.tech
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          Grabify IP Logger
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          IP Logger
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          QR Code Generator
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          GoQR.me
-         </li>
-        </ul>
-       </div>
-      </div>
-      <div class="card mt-4">
-       <div class="card-header bg-info text-white">
-        <h5 class="mb-0">
-         <i class="fas fa-book mr-2">
-         </i>
-         学习资源
-        </h5>
-       </div>
-       <div class="card-body">
-        <ul class="list-unstyled">
-         <li>
-          <i class="fas fa-link text-info mr-2">
-          </i>
-          QR码技术标准
-         </li>
-         <li>
-          <i class="fas fa-link text-info mr-2">
-          </i>
-          移动设备追踪指南
-         </li>
-         <li>
-          <i class="fas fa-link text-info mr-2">
-          </i>
-          隐私保护最佳实践
-         </li>
-         <li>
-          <i class="fas fa-link text-info mr-2">
-          </i>
-          GDPR合规指南
-         </li>
-        </ul>
-       </div>
-      </div>
-     </div>
     </div>
-   </div>
-  </section>
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-4 mt-5">
-   <div class="container text-center">
-    <p>
-     © 2024 whatstheirip. tech.  保留所有权利。
-    </p>
-    <p>
-     本文仅供教育和合法用途参考，请遵守当地法律法规。
-    </p>
-   </div>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 WhatsTheirIP.tech. 保留所有权利。</div>
   </footer>
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-  </script>
- </body>
+</body>
 </html>

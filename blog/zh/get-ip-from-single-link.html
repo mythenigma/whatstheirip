@@ -1,623 +1,301 @@
 <!DOCTYPE html>
-<html lang="zh">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   如何通过一个链接获取他人IP地址 - 完整指南 | WhatsTheirIP 中文博客
-  </title>
-  <meta content="学习如何通过单个链接获取他人IP地址的详细方法。了解链接追踪技术、隐私考虑和最佳实践。" name="description"/>
-  <meta content="IP获取, 链接追踪, IP地址, 网络追踪, 隐私保护, 链接监控" name="keywords"/>
-  <link href="../../styles.css" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-  <link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="../../favicon.ico" rel="icon" type="image/x-icon"/>
-  <!-- Google AdSense -->
-  <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860">
-  </script>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单链接访问日志是怎么工作的 | WhatsTheirIP 中文博客</title>
+  <meta name="description" content="这篇文章解释单链接访问日志的基本原理、能够记录哪些数据、有哪些限制，以及为什么平台本身通常不会直接暴露他人的 IP 地址。">
+  <meta name="keywords" content="访问日志, 请求日志, 链接分析, IP 可见性, 网络基础">
+  <link rel="canonical" href="https://whatstheirip.tech/blog/zh/get-ip-from-single-link.html">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <style>
-   <style>
     :root {
-      --primary-color: #4A90E2;
-      --secondary-color: #FF5733;
-      --accent-color: #FF9F1C;
-      --dark-color: #2C3E50;
-      --light-color: #ECF0F1;
+      --bg: #f5f1e8;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #5b6773;
+      --line: #d8cfc0;
+      --accent: #1e6f5c;
+      --accent-soft: #e5f3ef;
+      --warn: #fff1d6;
+      --shadow: 0 20px 45px rgba(31, 41, 51, 0.08);
     }
-    
+
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Roboto', 'Microsoft YaHei', sans-serif;
-      color: var(--dark-color);
-      line-height: 1.8;
-      font-size: 16px;
+      margin: 0;
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(30, 111, 92, 0.08), transparent 26rem),
+        linear-gradient(180deg, #f7f3eb 0%, #f3eee4 100%);
+      line-height: 1.75;
     }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
-      font-weight: 600;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-    }
-    
-    h2 {
-      font-size: 2rem;
-      color: var(--primary-color);
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-    }
-    
-    .navbar {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .navbar-brand {
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    
-    .article-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 8rem 0 4rem;
-      color: white;
-    }
-    
-    .article-content {
-      padding: 3rem 0;
-      max-width: 900px;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container {
+      width: min(980px, calc(100% - 2rem));
       margin: 0 auto;
     }
-    
-    .highlight {
-      background: rgba(102, 126, 234, 0.1);
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      border-left: 4px solid var(--primary-color);
+    .topbar {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(216, 207, 192, 0.9);
+      background: rgba(255, 253, 248, 0.82);
+      backdrop-filter: blur(12px);
     }
-    
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+    .nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 1rem 0 1rem;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      max-width: 12ch;
+    }
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
     .card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: var(--paper);
+      border: 1px solid rgba(216, 207, 192, 0.95);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
     }
-    
-    .diagram-container {
-      margin: 3rem 0;
-      text-align: center;
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 15px;
-    }
-    
-    .diagram-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .mermaid-diagram {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 10px;
+    .hero-panel {
       margin-top: 2rem;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
-    
-    ul, ol {
-      margin: 1rem 0;
-      padding-left: 2rem;
+    .hero-panel strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
     }
-    
+    .hero-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    main {
+      padding: 1rem 0 4rem;
+    }
+    .article {
+      padding: 2rem;
+    }
+    .notice, .summary {
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      margin: 1.25rem 0;
+    }
+    .notice {
+      background: var(--warn);
+      border: 1px solid #ebcf8d;
+    }
+    .summary {
+      background: #f3f7f6;
+      border: 1px solid #cfe0da;
+    }
+    h2 {
+      margin-top: 2.4rem;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    ul {
+      padding-left: 1.25rem;
+    }
     li {
-      margin: 0.5rem 0;
-      line-height: 1.8;
+      margin: 0.45rem 0;
     }
-    
-    p {
-      margin: 1rem 0;
-      line-height: 1.8;
-    }
-    
-    code {
-      background: #f4f4f4;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Monaco', 'Menlo', monospace;
-      font-size: 0.9em;
-    }
-    
-    blockquote {
-      border-left: 4px solid var(--primary-color);
-      padding-left: 1rem;
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
       margin: 1.5rem 0;
-      font-style: italic;
-      color: #555;
     }
-    
-    @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      .article-content { padding: 2rem 1rem; }
+    .compare .block {
+      padding: 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fcfaf5;
+    }
+    .links {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (max-width: 760px) {
+      .hero-panel,
+      .compare {
+        grid-template-columns: 1fr;
+      }
+      .article {
+        padding: 1.35rem;
+      }
     }
   </style>
-  <script type="module">
-   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'default' });
-  </script>
- </head>
- <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-   <div class="container">
-    <a class="navbar-brand" href="../../index">
-     whatstheirip.tech
-    </a>
-    <div class="navbar-nav ml-auto">
-     <a class="nav-link" href="../../index">
-      首页
-     </a>
-     <a class="nav-link" href="../index.html">
-      English Blog
-     </a>
-     <a class="nav-link active" href="index.html">
-      中文博客
-     </a>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../../index">WhatsTheirIP.tech</a>
+      <nav class="nav">
+        <a href="../../index">首页</a>
+        <a href="../index.html">English Blog</a>
+        <a href="index.html">中文博客</a>
+      </nav>
     </div>
-   </div>
-  </nav>
-  <!-- Article Header -->
-  <section class="article-header text-center">
-   <div class="container">
-    <div class="row justify-content-center">
-     <div class="col-lg-8">
-      <h1 class="display-4 font-weight-bold mb-4">
-       <i class="fas fa-link mr-3">
-       </i>
-       如何通过一个链接获取他人IP地址
-      </h1>
-      <p class="lead mb-4">
-       完整的技术指南和最佳实践
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">访问日志说明</span>
+      <h1>单个链接能记录什么，不能记录什么</h1>
+      <p class="lead">
+        很多人会把这类页面写成“通过一个链接获取他人 IP”的教程，但更准确的说法是：当用户访问你控制的页面时，目标站点可以记录一次普通 HTTP 请求。记录到的数据来自请求日志，而不是社交平台或聊天工具直接把别人的 IP 暴露出来。
       </p>
-      <div class="row text-center mt-4">
-       <div class="col-md-4">
-        <i class="fas fa-clock text-white-50 mb-2" style="font-size: 2rem;">
-        </i>
-        <p>
-         阅读时间: 8分钟
-        </p>
-       </div>
-       <div class="col-md-4">
-        <i class="fas fa-calendar text-white-50 mb-2" style="font-size: 2rem;">
-        </i>
-        <p>
-         更新时间: 2024年12月
-        </p>
-       </div>
-       <div class="col-md-4">
-        <i class="fas fa-eye text-white-50 mb-2" style="font-size: 2rem;">
-        </i>
-        <p>
-         难度: 中级
-        </p>
-       </div>
+      <div class="meta">
+        <span>更新日期：2026年4月7日</span>
+        <span>阅读时间：6 分钟</span>
+        <span>主题：请求日志 / 链接分析</span>
       </div>
-     </div>
+      <div class="hero-panel card">
+        <div>
+          <strong>记录发生在目标站点</strong>
+          <p>真正产生数据的是用户访问的落地页、表单页或静态资源地址。</p>
+        </div>
+        <div>
+          <strong>可见数据有限</strong>
+          <p>常见字段包括 IP、时间、User-Agent、Referer，以及粗粒度地理位置。</p>
+        </div>
+        <div>
+          <strong>不能替代身份验证</strong>
+          <p>IP 不能稳定识别一个具体个人，也不能证明操作者身份。</p>
+        </div>
+      </div>
     </div>
-   </div>
   </section>
-  <!-- Article Content -->
-  <section class="article-content">
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-8">
-      <article>
-       <div class="warning-box">
-        <h5>
-         <i class="fas fa-exclamation-triangle text-warning mr-2">
-         </i>
-         重要提醒
-        </h5>
-        <p class="mb-0">
-         本文仅用于教育目的和合法的网络管理。请确保在获取IP地址时遵守当地法律法规，尊重他人隐私，并获得必要的授权。
-        </p>
-       </div>
-       <div class_="diagram-container">
-        <h4 style="margin-bottom: 1.5rem; color: #2d3748;">
-         流程图
-        </h4>
-        <div class="mermaid-diagram">
-         <h5 style="margin-bottom: 1rem; color: #2d3748;">
-          交互式流程图
-         </h5>
-         <div class="mermaid">
-          flowchart TD
-    A[开始] --&gt; B[处理步骤]
-    B --&gt; C[收集数据]
-    C --&gt; D[分析结果]
-    D --&gt; E[完成]
-    
-    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
-    style E fill:#48bb78,stroke:#38a169,stroke-width:2px,color:#fff
-         </div>
+
+  <main>
+    <div class="container">
+      <article class="article card">
+        <div class="notice">
+          这篇文章只解释访问日志的工作方式、数据边界和合规注意事项，不提供诱导点击、伪装链接或定向识别个人的操作方案。
         </div>
-       </div>
-       <h2>
-        什么是链接IP追踪？
-       </h2>
-       <p>
-        链接IP追踪是一种通过发送特殊链接来获取访问者IP地址的技术。当目标用户点击链接时，系统会记录他们的IP地址、地理位置、设备信息等数据。
-       </p>
-       <h2>
-        核心原理
-       </h2>
-       <p>
-        链接IP追踪的工作原理基于以下几个技术要点：
-       </p>
-       <ul>
-        <li>
-         <strong>
-          HTTP请求记录
-         </strong>
-         ：记录访问者的HTTP请求头信息
-        </li>
-        <li>
-         <strong>
-          服务器日志
-         </strong>
-         ：在服务器端记录访问者IP
-        </li>
-        <li>
-         <strong>
-          JavaScript追踪
-         </strong>
-         ：通过客户端脚本收集额外信息
-        </li>
-        <li>
-         <strong>
-          重定向技术
-         </strong>
-         ：使用重定向来确保数据收集
-        </li>
-       </ul>
-       <h2>
-        具体实现方法
-       </h2>
-       <div class="method-card">
-        <h3>
-         <i class="fas fa-code text-primary mr-2">
-         </i>
-         方法一：使用专业IP追踪服务
-        </h3>
-        <p>
-         这是最简单且最可靠的方法，适合大多数用户。
-        </p>
-        <ol class="step-list">
-         <li>
-          <strong>
-           选择追踪服务
-          </strong>
-          <p>
-           推荐使用专业的IP追踪服务，如whatstheirip. tech、Grabify等
-          </p>
-         </li>
-         <li>
-          <strong>
-           创建追踪链接
-          </strong>
-          <p>
-           在服务平台上输入你想要分享的原始链接
-          </p>
-         </li>
-         <li>
-          <strong>
-           生成追踪链接
-          </strong>
-          <p>
-           系统会生成一个包含追踪代码的新链接
-          </p>
-         </li>
-         <li>
-          <strong>
-           分享链接
-          </strong>
-          <p>
-           将生成的链接发送给目标用户
-          </p>
-         </li>
-         <li>
-          <strong>
-           查看结果
-          </strong>
-          <p>
-           当用户点击链接后，在控制面板中查看IP信息
-          </p>
-         </li>
-        </ol>
-       </div>
-       <div class="method-card">
-        <h3>
-         <i class="fas fa-server text-success mr-2">
-         </i>
-         方法二：自建追踪系统
-        </h3>
-        <p>
-         适合有技术背景的用户，可以完全控制追踪过程。
-        </p>
-        <h4>
-         技术架构：
-        </h4>
-        <div class="code-example">
-         <pre><code>// 简化的PHP追踪代码示例
-&lt;?php
-// 记录访问者信息
-$ip = $_SERVER['REMOTE_ADDR'];
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-$referer = $_SERVER['HTTP_REFERER'] ?? 'Direct';
-$timestamp = date('Y-m-d H:i:s');
 
-// 保存到数据库或文件
-$log_data = "$ip|$user_agent|$referer|$timestamp\n";
-file_put_contents('ip_logs.txt', $log_data, FILE_APPEND);
-
-// 重定向到目标页面
-header("Location: https://target-website.com");
-exit;
-?&gt;</code></pre>
+        <h2>核心原理</h2>
+        <p>
+          单链接场景的本质并不复杂。你创建一个指向自己控制页面的 URL，当用户访问这个地址时，服务器就会收到一次请求。服务器日志、CDN 统计或分析平台会记录这一事件，并展示与该请求相关的网络信息。
+        </p>
+        <div class="summary">
+          简化理解：不是“链接本身会抓取 IP”，而是“访问你的页面时，服务端自然能看到请求来源”。
         </div>
-       </div>
-       <div class="method-card">
-        <h3>
-         <i class="fas fa-shield-alt text-info mr-2">
-         </i>
-         方法三：使用云服务追踪
-        </h3>
-        <p>
-         结合云服务的优势，提供更强大的追踪能力。
-        </p>
-        <h4>
-         推荐服务：
-        </h4>
-        <ul>
-         <li>
-          <strong>
-           AWS CloudFront
-          </strong>
-          ：通过CDN记录访问日志
-         </li>
-         <li>
-          <strong>
-           Google Analytics
-          </strong>
-          ：提供详细的访问者分析
-         </li>
-         <li>
-          <strong>
-           Cloudflare
-          </strong>
-          ：记录访问者IP和地理位置
-         </li>
-        </ul>
-       </div>
-       <h2>
-        高级追踪技术
-       </h2>
-       <h3>
-        1. 地理位置追踪
-       </h3>
-       <p>
-        通过IP地址可以获取访问者的地理位置信息：
-       </p>
-       <ul>
-        <li>
-         国家/地区
-        </li>
-        <li>
-         城市
-        </li>
-        <li>
-         ISP提供商
-        </li>
-        <li>
-         时区信息
-        </li>
-       </ul>
-       <h3>
-        2. 设备指纹识别
-       </h3>
-       <p>
-        收集更多设备信息来增强追踪效果：
-       </p>
-       <div class="code-example">
-        <pre><code>// JavaScript设备指纹收集
-const deviceInfo = {
-    screen: `${screen.width}x${screen.height}`,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    language: navigator.language,
-    platform: navigator.platform,
-    userAgent: navigator.userAgent
-};
 
-// 发送到服务器
-fetch('/track', {
-    method: 'POST',
-    body: JSON.stringify(deviceInfo)
-});</code></pre>
-       </div>
-       <h3>
-        3. 行为追踪
-       </h3>
-       <p>
-        记录用户在页面上的行为模式：
-       </p>
-       <ul>
-        <li>
-         页面停留时间
-        </li>
-        <li>
-         点击行为
-        </li>
-        <li>
-         滚动行为
-        </li>
-        <li>
-         表单填写情况
-        </li>
-       </ul>
-       <h2>
-        隐私和法律考虑
-       </h2>
-       <div class="warning-box">
-        <h5>
-         <i class="fas fa-gavel text-warning mr-2">
-         </i>
-         法律提醒
-        </h5>
-        <p>
-         在实施IP追踪之前，请确保了解并遵守以下法律法规：
-        </p>
+        <h2>通常可以记录到哪些字段</h2>
         <ul>
-         <li>
-          欧盟数据保护条例（欧盟通用数据保护条例）
-         </li>
-         <li>
-          加州消费者隐私法（加州消费者隐私法案）
-         </li>
-         <li>
-          当地的数据保护法律
-         </li>
-         <li>
-          网络犯罪相关法规
-         </li>
+          <li>请求时间和访问频率</li>
+          <li>来源 IP 或经过代理后的出口 IP</li>
+          <li>浏览器与系统标识，例如 User-Agent</li>
+          <li>来源页面字段，例如 Referer，但它经常为空或被裁剪</li>
+          <li>基于 IP 的粗略地区判断，例如城市级或国家级范围</li>
         </ul>
-       </div>
-       <h2>
-        常见问题和解决方案
-       </h2>
-       <h2>
-        总结
-       </h2>
-       <p>
-        通过链接获取他人IP地址是一项需要谨慎对待的技术。虽然技术上相对简单，但必须考虑法律、道德和隐私等多个方面。建议在使用前充分了解相关法规，采用最佳实践，确保技术的合法和负责任使用。
-       </p>
-       <div class="alert alert-info">
-        <h5>
-         <i class="fas fa-info-circle mr-2">
-         </i>
-         相关资源
-        </h5>
-        <ul class="mb-0">
-         <li>
-          微信IP追踪方法
-         </li>
-         <li>
-          二维码IP追踪指南
-         </li>
-         <li>
-          IP地址基础知识
-         </li>
-         <li>
-          IP追踪GDPR合规指南
-         </li>
+
+        <h2>为什么“通过一个链接直接拿到他人 IP”这个说法不准确</h2>
+        <div class="compare">
+          <div class="block">
+            <strong>常见误解</strong>
+            <p>只要发送一个链接，就能直接知道某个人的真实地址、身份和设备位置。</p>
+          </div>
+          <div class="block">
+            <strong>更接近事实的说法</strong>
+            <p>只有当用户访问你控制的目标地址时，服务端才会记录一次请求，而且记录到的通常只是网络层和浏览器层的有限信息。</p>
+          </div>
+        </div>
+
+        <h2>需要注意的限制</h2>
+        <ul>
+          <li>很多流量来自运营商 NAT、企业出口、VPN 或云代理，不一定对应单个终端。</li>
+          <li>移动网络和家庭宽带会频繁变化，IP 往往不是稳定标识。</li>
+          <li>邮件、社交平台和应用内浏览器可能隐藏或重写部分请求头。</li>
+          <li>IP 地理位置通常只能做近似判断，误差并不少见。</li>
+          <li>同一个用户在不同时间访问，可能表现为不同 IP。</li>
         </ul>
-       </div>
+
+        <h2>更合适的使用场景</h2>
+        <ul>
+          <li>排查站点访问异常或滥用流量</li>
+          <li>分析公开落地页的访问来源</li>
+          <li>核对活动页面是否被正常打开</li>
+          <li>配合频率限制、风控规则或工单调查做辅助判断</li>
+        </ul>
+
+        <h2>合规边界</h2>
+        <p>
+          如果页面面向真实用户，应当在隐私政策、活动说明或产品条款中明确说明日志和分析的存在。对访问数据的保存周期、访问权限和用途也应当尽量清楚。把日志用于安全审计和运营分析，和把它描述成“精准定位某个人”，是两种完全不同的叙述方式。
+        </p>
+
+        <h2>结论</h2>
+        <p>
+          单链接场景更适合被理解为“目标站点记录一次访问请求”，而不是“直接获取某个人的 IP”。只要把重点放在日志来源、字段边界和合规说明上，这类内容就能回到正常的技术说明范围内。
+        </p>
+
+        <div class="links">
+          <strong>相关阅读：</strong>
+          <a href="how-to-find-someones-ip-address-social-media.html">社交媒体平台上的 IP 可见性说明</a>
+          <span> | </span>
+          <a href="one-click-ip-grabbing-methods.html">“一键获取 IP”为什么是误导性说法</a>
+        </div>
       </article>
-     </div>
-     <div class="col-lg-4">
-      <div class="card sticky-top" style="top: 2rem;">
-       <div class="card-header bg-primary text-white">
-        <h5 class="mb-0">
-         <i class="fas fa-list mr-2">
-         </i>
-         文章目录
-        </h5>
-       </div>
-       <div class="card-body">
-        <ul class="list-unstyled">
-         <li>
-          什么是链接IP追踪？
-         </li>
-         <li>
-          核心原理
-         </li>
-         <li>
-          具体实现方法
-         </li>
-         <li>
-          高级追踪技术
-         </li>
-         <li>
-          隐私和法律考虑
-         </li>
-         <li>
-          常见问题和解决方案
-         </li>
-        </ul>
-       </div>
-      </div>
-      <div class="card mt-4">
-       <div class="card-header bg-success text-white">
-        <h5 class="mb-0">
-         <i class="fas fa-tools mr-2">
-         </i>
-         推荐工具
-        </h5>
-       </div>
-       <div class="card-body">
-        <ul class="list-unstyled">
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          whatstheirip.tech
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          Grabify IP Logger
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          IP Logger
-         </li>
-         <li>
-          <i class="fas fa-check text-success mr-2">
-          </i>
-          ShortURL
-         </li>
-        </ul>
-       </div>
-      </div>
-     </div>
     </div>
-   </div>
-  </section>
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-4 mt-5">
-   <div class="container text-center">
-    <p>
-     © 2024 whatstheirip. tech.  保留所有权利。
-    </p>
-    <p>
-     本文仅供教育和合法用途参考，请遵守当地法律法规。
-    </p>
-   </div>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 WhatsTheirIP.tech. 保留所有权利。</div>
   </footer>
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-  </script>
- </body>
+</body>
 </html>
