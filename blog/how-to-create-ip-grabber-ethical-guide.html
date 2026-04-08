@@ -295,9 +295,9 @@ file_put_contents('ip_log.txt', "$timestamp - $visitor_ip\n", FILE_APPEND);
 
 // Optionally, get more information about the IP
 $ip_data = json_decode(file_get_contents("https://ipinfo.io/$visitor_ip/json"));
-$country = $ip_data-&gt;country ?? 'Unknown';
-$region = $ip_data-&gt;region ?? 'Unknown';
-$city = $ip_data-&gt;city ?? 'Unknown';
+$country = $ip_data-&gt;country ? 'Unknown';
+$region = $ip_data-&gt;region ? 'Unknown';
+$city = $ip_data-&gt;city ? 'Unknown';
 
 echo "Thank you for visiting our site!";
 // Note: Don't display the collected IP to users unless necessary
@@ -465,8 +465,8 @@ getWebRTCIP((ip) =&gt; {
 // Log visitor information
 $ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = date('Y-m-d H:i:s');
-$source = $_GET['src'] ?? 'unknown';
-$destination = $_GET['url'] ?? 'https://yourdomain.com';
+$source = $_GET['src'] ? 'unknown';
+$destination = $_GET['url'] ? 'https://yourdomain.com';
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
 // Validate destination URL (prevent open redirect vulnerabilities)
@@ -519,7 +519,7 @@ exit;
 // Log visitor information
 $ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = date('Y-m-d H:i:s');
-$campaign = $_GET['c'] ?? 'unknown';
+$campaign = $_GET['c'] ? 'unknown';
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
 // Log the information
@@ -595,7 +595,7 @@ echo base64_decode('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
        Verify data accuracy by comparing with known IP addresses
       </li>
       <li>
-       Check 閸氬牐顫?with privacy laws in your target regions
+       Check compliance with privacy laws in your target regions
       </li>
       <li>
        Conduct a security review to identify any vulnerabilities
@@ -607,7 +607,7 @@ echo base64_decode('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
       Conclusion
      </h2>
      <p>
-      Creating an IP grabber for legitimate business purposes can provide valuable insights for website Data Analytics, security, and user experience 娴兼ê瀵?  The key is implementing the solution ethically, with proper disclosure and data protection measures.
+      Creating an IP grabber for legitimate business purposes can provide valuable insights for website analytics, security, and user experience optimization. The key is implementing the solution ethically, with proper disclosure and data protection measures.
      </p>
      <p>
       Always prioritize user privacy and comply with relevant regulations when collecting IP addresses.  By following the best practices outlined in this guide.  you can build an effective IP tracking system that respects user privacy while meeting your business needs.

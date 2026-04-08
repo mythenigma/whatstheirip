@@ -339,8 +339,8 @@
        <pre><code class="language-php">&lt;?php
 // PDF Download Tracker with IP Analytics
 function trackPDFDownload($filename, $visitorIP) {
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
-    $referer = $_SERVER['HTTP_REFERER'] ?? 'Direct';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ? 'Unknown';
+    $referer = $_SERVER['HTTP_REFERER'] ? 'Direct';
     $timestamp = date('Y-m-d H:i:s');
     
     // Get geographic data (you'll need a geolocation service)
@@ -353,9 +353,9 @@ function trackPDFDownload($filename, $visitorIP) {
         'ip_address' =&gt; $visitorIP,
         'user_agent' =&gt; $userAgent,
         'referer' =&gt; $referer,
-        'country' =&gt; $geoData['country'] ?? 'Unknown',
-        'city' =&gt; $geoData['city'] ?? 'Unknown',
-        'isp' =&gt; $geoData['isp'] ?? 'Unknown'
+        'country' =&gt; $geoData['country'] ? 'Unknown',
+        'city' =&gt; $geoData['city'] ? 'Unknown',
+        'isp' =&gt; $geoData['isp'] ? 'Unknown'
     ];
     
     // Save to database or log file
@@ -760,7 +760,7 @@ const pdfTracker = new PDFTracker('/api/track-pdf.php');
          Build real-time dashboards for actionable insights
         </li>
         <li>
-         Prioritize privacy 合规 and data security
+      Prioritize privacy compliance and data security
         </li>
         <li>
          Optimize for performance and user experience
