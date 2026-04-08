@@ -70,9 +70,44 @@
           <li><strong>Often misleading:</strong> mobile carriers, shared office networks, CGNAT, VPNs, and cloud hosts.</li>
         </ul>
       </section>
+      <section class="blog-card" id="routing">
+        <h2>How an IP Appears in a Request</h2>
+        <p>When someone opens a website, the destination sees the address that reaches it over the network. For a home user, that might be the public address assigned by an ISP. For a phone, it may be a carrier gateway. For a company, it may be an office gateway or VPN. For a privacy tool, it may be a proxy or VPN exit node.</p>
+        <p>This is why IP analytics should be interpreted as request context. The visible address tells you where the request appeared to come from on the internet, not necessarily where the person is sitting or who they are.</p>
+        <table class="blog-table">
+          <thead>
+            <tr>
+              <th>Network path</th>
+              <th>What the destination may see</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Home broadband</td>
+              <td>A residential ISP address, often with approximate city or region data.</td>
+            </tr>
+            <tr>
+              <td>Mobile carrier</td>
+              <td>A carrier-owned address that may map to a broad or distant region.</td>
+            </tr>
+            <tr>
+              <td>Corporate VPN</td>
+              <td>The company VPN exit location rather than the employee's physical location.</td>
+            </tr>
+            <tr>
+              <td>Public Wi-Fi</td>
+              <td>A shared network address used by many unrelated visitors.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       <section class="blog-card" id="privacy">
         <h2>Privacy-Aware Interpretation</h2>
         <p>Use IP data as one analytics signal. If you collect it, disclose the purpose, limit retention, restrict access, and avoid making claims that the data cannot support.</p>
+        <p>For most product and marketing analytics, aggregate region and network trends are enough. Raw IP logs should be treated as operational data: useful for debugging, abuse prevention, and campaign review, but not something that should be shared broadly or kept forever by default.</p>
+        <div class="blog-note blog-note--warning">
+          <strong>Practical rule:</strong> if a decision affects a person, account, payment, or access right, do not rely on IP data alone. Combine it with stronger evidence such as authentication status, account history, explicit user input, or support confirmation.
+        </div>
       </section>
       <section class="blog-card" id="faq">
         <h2>Quick FAQ</h2>

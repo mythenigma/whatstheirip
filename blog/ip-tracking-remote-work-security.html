@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IP Tracking for Remote Work Security | WhatsTheirIP.tech</title>
+  <meta name="description" content="Use IP and request metadata responsibly in remote work security: login review, VPN context, anomaly detection, privacy notices, and retention limits.">
+  <link rel="canonical" href="https://whatstheirip.tech/blog/ip-tracking-remote-work-security">
+  <meta property="og:title" content="IP Tracking for Remote Work Security">
+  <meta property="og:description" content="A practical guide to using IP context in remote work security without overclaiming what logs can prove.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://whatstheirip.tech/blog/ip-tracking-remote-work-security">
+  <meta property="og:site_name" content="WhatsTheirIP.tech">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="blog-unified.css" rel="stylesheet">
+</head>
+<body class="blog-page">
+  <nav class="blog-nav" aria-label="Primary navigation">
+    <div class="blog-shell blog-nav__inner">
+      <a class="blog-brand" href="../index.html">
+        <span class="blog-brand__mark">IP</span>
+        <span>WhatsTheirIP</span>
+      </a>
+      <div class="blog-nav__links">
+        <a href="../index.html">Home</a>
+        <a href="index">Blog</a>
+        <a href="../index.html#features">Features</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="blog-shell">
+      <div class="blog-hero__card">
+        <div class="blog-hero__content">
+          <span class="blog-kicker">Remote work security</span>
+          <h1>IP Tracking for Remote Work Security</h1>
+          <p class="blog-lead">IP context can help teams review unusual logins, VPN usage, and repeated access patterns. It should support risk review, not replace authentication or investigation.</p>
+        </div>
+        <aside class="blog-hero__aside" aria-label="Article summary">
+          <div class="blog-meta">
+            <div class="blog-meta__row">
+              <span>Updated</span>
+              <strong>April 8, 2026</strong>
+            </div>
+            <div class="blog-meta__row">
+              <span>Read time</span>
+              <strong>9 min</strong>
+            </div>
+            <div class="blog-meta__row">
+              <span>Focus</span>
+              <strong>Login context, VPN, policy</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-shell blog-layout">
+    <aside class="blog-toc" aria-label="Table of contents">
+      <p class="blog-toc__title">On this page</p>
+      <a href="#why-ip-context">Why IP context matters</a>
+      <a href="#signals">Useful signals</a>
+      <a href="#workflows">Security workflows</a>
+      <a href="#false-positives">False positives</a>
+      <a href="#policy">Policy checklist</a>
+      <a href="#response">Response playbook</a>
+    </aside>
+
+    <article class="blog-article">
+      <section class="blog-card" id="why-ip-context">
+        <h2>Why IP Context Matters in Remote Work</h2>
+        <p>Remote teams create messy access patterns. A user may sign in from home Wi-Fi in the morning, a mobile hotspot during travel, a coworking network in the afternoon, and a corporate VPN at night. IP tracking is useful because it helps security teams organize that activity into a reviewable timeline.</p>
+        <p>But IP data should not be treated as a final identity signal. The same public IP can represent many people behind a shared office network or carrier-grade NAT. A VPN can make a legitimate employee appear to be in another city. A cloud provider IP can indicate automation, but it can also be a developer using a legitimate remote environment.</p>
+        <div class="blog-note">
+          <strong>Good use:</strong> flag unusual access for review. <strong>Bad use:</strong> assume a single unfamiliar IP proves account compromise.
+        </div>
+      </section>
+
+      <section class="blog-card" id="signals">
+        <h2>Useful Remote-Work Signals</h2>
+        <div class="blog-grid">
+          <div class="blog-mini-card">
+            <strong>Approximate region</strong>
+            Helps spot logins far outside expected work locations, especially when combined with travel status or recent session history.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Network type</strong>
+            Residential, mobile, corporate, VPN, proxy, and data-center networks all imply different risk levels.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Timestamp</strong>
+            Useful for unusual access hours, impossible-travel checks, and incident timelines.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Device hints</strong>
+            Browser and user-agent context can support review when a familiar account suddenly uses an unfamiliar environment.
+          </div>
+          <div class="blog-mini-card">
+            <strong>ASN or ISP</strong>
+            The network owner can help separate home broadband, mobile carriers, corporate networks, and hosting infrastructure.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Session behavior</strong>
+            Repeated attempts, rapid resource access, and failed logins can matter more than location alone.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="workflows">
+        <h2>Where IP Context Helps</h2>
+        <ul class="blog-list">
+          <li><strong>Login anomaly review.</strong> Compare new access events with normal region, device, and network patterns.</li>
+          <li><strong>VPN policy checks.</strong> Confirm whether access comes through approved corporate VPN infrastructure or unexpected anonymization networks.</li>
+          <li><strong>Incident response.</strong> Use timestamps and network metadata to reconstruct access sequences for a suspicious account.</li>
+          <li><strong>Abuse throttling.</strong> Rate-limit suspicious repeated requests without blocking legitimate shared networks too aggressively.</li>
+          <li><strong>Vendor access review.</strong> Check whether contractors or service accounts are connecting from expected regions and networks.</li>
+          <li><strong>Data access auditing.</strong> Add network context to downloads, exports, or admin actions that deserve closer review.</li>
+        </ul>
+      </section>
+
+      <section class="blog-card" id="false-positives">
+        <h2>False Positives Are Normal</h2>
+        <p>Remote work breaks simple location assumptions. Employees travel. Mobile carriers route traffic through distant gateways. Home ISPs change addresses. Corporate VPNs centralize traffic. Security teams need a workflow that acknowledges those realities instead of treating every mismatch as malicious.</p>
+        <table class="blog-table">
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Possible explanation</th>
+              <th>Better response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>New country or region</td>
+              <td>Travel, VPN, relocation, or account compromise</td>
+              <td>Trigger step-up authentication or user confirmation.</td>
+            </tr>
+            <tr>
+              <td>Data-center IP</td>
+              <td>Proxy, automation, developer environment, or malicious infrastructure</td>
+              <td>Check account type, user-agent, request rate, and action sensitivity.</td>
+            </tr>
+            <tr>
+              <td>Mobile carrier IP</td>
+              <td>Hotspot, phone browser, or carrier routing</td>
+              <td>Expect coarse geolocation and avoid precise location claims.</td>
+            </tr>
+            <tr>
+              <td>Many users on one IP</td>
+              <td>Office network, VPN, NAT, or shared workspace</td>
+              <td>Rate-limit carefully and avoid blocking the whole network without review.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="blog-card" id="policy">
+        <h2>Remote Work Logging Policy Checklist</h2>
+        <div class="blog-steps">
+          <div class="blog-step">
+            <strong>Disclose security logging</strong>
+            Tell employees, contractors, or users that access logs may include IP address, approximate region, device metadata, and timestamp.
+          </div>
+          <div class="blog-step">
+            <strong>Define approved networks</strong>
+            Document whether corporate VPN is required, optional, or only required for sensitive systems.
+          </div>
+          <div class="blog-step">
+            <strong>Set retention limits</strong>
+            Keep raw access logs only as long as needed for security, compliance, and incident response.
+          </div>
+          <div class="blog-step">
+            <strong>Restrict dashboard access</strong>
+            Treat raw access logs as sensitive operational data and limit who can view or export them.
+          </div>
+          <div class="blog-step">
+            <strong>Document escalation rules</strong>
+            Decide which patterns trigger MFA, confirmation, temporary holds, manual review, or incident response.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="response">
+        <h2>A Proportional Response Playbook</h2>
+        <p>IP metadata is strongest when it guides the next safe action. For a low-confidence anomaly, ask for step-up verification. For a high-confidence pattern involving failed logins, data-center traffic, and unusual exports, escalate to security review. The response should match the evidence.</p>
+        <ul class="blog-list">
+          <li>Use MFA challenges for unusual but plausible access.</li>
+          <li>Notify the user when access comes from an unfamiliar network or region.</li>
+          <li>Temporarily limit sensitive actions when multiple risk signals combine.</li>
+          <li>Preserve relevant logs during an incident, then return to normal retention rules afterward.</li>
+        </ul>
+      </section>
+
+      <section class="blog-cta">
+        <div>
+          <h2>Use Logs as Context</h2>
+          <p>IP metadata is most valuable when it supports a documented security workflow instead of acting as a standalone verdict.</p>
+        </div>
+        <a class="blog-button" href="ip-tracking-cybersecurity">Cybersecurity guide</a>
+      </section>
+    </article>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="blog-shell blog-footer__grid">
+      <div>
+        <h2>WhatsTheirIP.tech</h2>
+        <p>Guides about request logs, IP visibility, link analytics, and privacy-aware interpretation.</p>
+      </div>
+      <div>
+        <h3>Product</h3>
+        <ul>
+          <li><a href="../index.html#url">URL Tracker</a></li>
+          <li><a href="../index.html#email">Email Tracker</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="index">Blog</a></li>
+          <li><a href="legal-ethical-ip-tracking">Legal Guide</a></li>
+          <li><a href="advanced-ip-tracking-techniques">Advanced Techniques</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <p>Copyright &copy; 2026 WhatsTheirIP.tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

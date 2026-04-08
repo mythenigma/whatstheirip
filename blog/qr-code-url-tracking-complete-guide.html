@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Code URL Tracking: Complete Privacy-Aware Guide | WhatsTheirIP.tech</title>
+  <meta name="description" content="Learn how QR code URL tracking works, what analytics it can collect, how to design campaigns, and how to respect privacy and consent.">
+  <link rel="canonical" href="https://whatstheirip.tech/blog/qr-code-url-tracking-complete-guide">
+  <meta property="og:title" content="QR Code URL Tracking: Complete Privacy-Aware Guide">
+  <meta property="og:description" content="A practical guide to QR code tracking links, campaign analytics, scan context, and privacy limits.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://whatstheirip.tech/blog/qr-code-url-tracking-complete-guide">
+  <meta property="og:site_name" content="WhatsTheirIP.tech">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="blog-unified.css" rel="stylesheet">
+</head>
+<body class="blog-page">
+  <nav class="blog-nav" aria-label="Primary navigation">
+    <div class="blog-shell blog-nav__inner">
+      <a class="blog-brand" href="../index.html">
+        <span class="blog-brand__mark">IP</span>
+        <span>WhatsTheirIP</span>
+      </a>
+      <div class="blog-nav__links">
+        <a href="../index.html">Home</a>
+        <a href="index">Blog</a>
+        <a href="../index.html#features">Features</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="blog-shell">
+      <div class="blog-hero__card">
+        <div class="blog-hero__content">
+          <span class="blog-kicker">QR campaigns</span>
+          <h1>QR Code URL Tracking</h1>
+          <p class="blog-lead">A QR code is a doorway to a URL. When that URL is a tracked redirect, scans become useful campaign analytics without pretending to identify the person behind every scan.</p>
+        </div>
+        <aside class="blog-hero__aside" aria-label="Article summary">
+          <div class="blog-meta">
+            <div class="blog-meta__row">
+              <span>Updated</span>
+              <strong>April 8, 2026</strong>
+            </div>
+            <div class="blog-meta__row">
+              <span>Read time</span>
+              <strong>9 min</strong>
+            </div>
+            <div class="blog-meta__row">
+              <span>Focus</span>
+              <strong>QR codes, links, campaigns</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-shell blog-layout">
+    <aside class="blog-toc" aria-label="Table of contents">
+      <p class="blog-toc__title">On this page</p>
+      <a href="#workflow">How QR tracking works</a>
+      <a href="#data">What you can measure</a>
+      <a href="#campaigns">Campaign design</a>
+      <a href="#testing">Testing before launch</a>
+      <a href="#privacy">Privacy and accuracy limits</a>
+      <a href="#checklist">Implementation checklist</a>
+    </aside>
+
+    <article class="blog-article">
+      <section class="blog-card" id="workflow">
+        <h2>How QR Code Tracking Works</h2>
+        <p>A QR code usually stores a URL. When someone scans it, their phone opens that URL in a browser or in-app web view. If the URL points directly to your final page, you may only see ordinary website analytics. If the URL first passes through a tracking redirect, the redirect service can log a scan event and then forward the visitor to the destination.</p>
+        <p>The tracking layer is not special hardware inside the QR code. It is just a web request. That matters because it keeps the model honest: the scan is visible only when the tracked URL is requested, and the data is limited to request metadata such as timestamp, IP-derived region, user-agent hints, campaign ID, and destination.</p>
+        <div class="blog-steps">
+          <div class="blog-step">
+            <strong>Create a tracked URL</strong>
+            Generate a link that records the scan event before redirecting to the final landing page, PDF, signup form, or campaign destination.
+          </div>
+          <div class="blog-step">
+            <strong>Turn the tracked URL into a QR code</strong>
+            Put the tracked URL inside the QR code. If you encode the final destination directly, you will lose the campaign-level tracking layer.
+          </div>
+          <div class="blog-step">
+            <strong>Place the QR code with context</strong>
+            Use clear labels for posters, flyers, product inserts, trade show booths, printed menus, or packaging so scans are easy to interpret later.
+          </div>
+          <div class="blog-step">
+            <strong>Review scan analytics</strong>
+            Check scan time, approximate region, device hints, referrer context where available, and which QR placement generated the request.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="data">
+        <h2>What QR Tracking Can Measure</h2>
+        <p>QR analytics is most useful for comparing placements and timing. It is less useful for identifying individuals. A good dashboard should make that distinction obvious.</p>
+        <div class="blog-grid">
+          <div class="blog-mini-card">
+            <strong>Scan time</strong>
+            The timestamp when the tracked URL was requested. This helps compare event windows, launch timing, and campaign decay.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Approximate region</strong>
+            IP-based country, region, or city estimates. These are useful for broad context, not exact physical location.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Device hints</strong>
+            Browser, operating-system family, and mobile/desktop clues from the user-agent string when available.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Placement or source</strong>
+            Campaign labels such as poster, flyer, event booth, product insert, packaging, or newsletter QR.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Destination performance</strong>
+            Whether scans lead to a signup, download, purchase, or other downstream event if your landing page measures it.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Repeat patterns</strong>
+            Repeated scans from similar networks can show interest, scanner behavior, or testing activity. Treat it as context only.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="campaigns">
+        <h2>Campaign Design Tips</h2>
+        <p>The biggest QR tracking mistake is using one code everywhere. If the same tracked URL appears on a poster, a handout, a menu, and a product label, the dashboard can show total scans but not which placement worked.</p>
+        <ul class="blog-list">
+          <li><strong>Use one tracked URL per placement.</strong> Create separate links for poster A, flyer B, event booth, packaging, and email attachment.</li>
+          <li><strong>Use readable campaign names.</strong> Labels like <code>?source=poster-a</code> or dashboard notes like <code>event-booth-2026-shanghai</code> are easier to debug later.</li>
+          <li><strong>Keep the destination mobile-friendly.</strong> Most QR scans happen on phones, so the landing page should load fast and have one clear action.</li>
+          <li><strong>Use short fallback text.</strong> Printed material should include a short URL or brand cue so users know where the QR code leads.</li>
+          <li><strong>Separate test scans from launch scans.</strong> Test scans can pollute the first hour of a campaign if they are not filtered or labeled.</li>
+        </ul>
+      </section>
+
+      <section class="blog-card" id="testing">
+        <h2>Testing Before You Print</h2>
+        <p>QR mistakes are expensive once materials are printed. Test the exact file that will be sent to print, not just the URL in a browser.</p>
+        <table class="blog-table">
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Scan distance</td>
+              <td>Large posters and small stickers need different QR code sizes and contrast.</td>
+            </tr>
+            <tr>
+              <td>Lighting and angle</td>
+              <td>Glossy prints, curved packaging, and low-light environments can make scans fail.</td>
+            </tr>
+            <tr>
+              <td>Redirect speed</td>
+              <td>Slow redirects make users think the QR code is broken.</td>
+            </tr>
+            <tr>
+              <td>Dashboard labeling</td>
+              <td>Confirm the scan appears under the right campaign before distributing the code.</td>
+            </tr>
+            <tr>
+              <td>Destination page</td>
+              <td>Make sure the final page works on iOS, Android, and common in-app browsers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="blog-card" id="privacy">
+        <h2>Privacy and Accuracy Limits</h2>
+        <p>QR analytics can show request context, not exact identity. A scan may come through a mobile carrier, shared Wi-Fi, a corporate network, or a VPN. Some apps may open previews or prefetch URLs. Some users may scan the same code multiple times. These details make QR tracking useful for campaign measurement, but weak as personal attribution.</p>
+        <div class="blog-note blog-note--warning">
+          <strong>Safer default:</strong> use QR tracking to compare placements and aggregate engagement. Do not describe it as a way to identify exactly who scanned a code.
+        </div>
+        <ul class="blog-list">
+          <li>Add a short notice near the QR code when the context is sensitive, such as events, classrooms, workplaces, or private documents.</li>
+          <li>Keep raw scan logs only as long as the campaign requires them.</li>
+          <li>Report aggregate region and campaign performance when individual event logs are not necessary.</li>
+          <li>Be careful with scans from internal testing, app previews, security scanners, and link checkers.</li>
+        </ul>
+      </section>
+
+      <section class="blog-card" id="checklist">
+        <h2>Implementation Checklist</h2>
+        <div class="blog-steps">
+          <div class="blog-step">
+            <strong>Define the campaign question</strong>
+            Decide whether you are measuring placement, timing, geography, device mix, or conversion rate.
+          </div>
+          <div class="blog-step">
+            <strong>Create separate tracked URLs</strong>
+            Give every major placement its own link so the results do not collapse into one unhelpful total.
+          </div>
+          <div class="blog-step">
+            <strong>Generate and test QR assets</strong>
+            Test the printed-size QR code on multiple phones and networks before launch.
+          </div>
+          <div class="blog-step">
+            <strong>Document privacy expectations</strong>
+            Add disclosure where appropriate and make sure your team knows what the data can and cannot prove.
+          </div>
+          <div class="blog-step">
+            <strong>Review and clean up</strong>
+            After the campaign, export aggregate results, remove stale raw logs, and retire links that should no longer be active.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-cta">
+        <div>
+          <h2>Make QR Results Actionable</h2>
+          <p>Use separate tracked URLs per placement so scans turn into clean campaign data instead of one messy total.</p>
+        </div>
+        <a class="blog-button" href="track-ip-from-a-link">Track a link</a>
+      </section>
+    </article>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="blog-shell blog-footer__grid">
+      <div>
+        <h2>WhatsTheirIP.tech</h2>
+        <p>Guides about request logs, IP visibility, link analytics, and privacy-aware interpretation.</p>
+      </div>
+      <div>
+        <h3>Product</h3>
+        <ul>
+          <li><a href="../index.html#url">URL Tracker</a></li>
+          <li><a href="../index.html#email">Email Tracker</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="index">Blog</a></li>
+          <li><a href="track-ip-from-a-link">Track a Link</a></li>
+          <li><a href="legal-ethical-ip-tracking">Legal Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <p>Copyright &copy; 2026 WhatsTheirIP.tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

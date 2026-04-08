@@ -17,18 +17,178 @@
   <link href="blog-unified.css" rel="stylesheet">
 </head>
 <body class="blog-page">
-  <nav class="blog-nav" aria-label="Primary navigation"><div class="blog-shell blog-nav__inner"><a class="blog-brand" href="../index.html"><span class="blog-brand__mark">IP</span><span>WhatsTheirIP</span></a><div class="blog-nav__links"><a href="../index.html">Home</a><a href="index">Blog</a><a href="../index.html#features">Features</a></div></div></nav>
-  <header class="blog-hero"><div class="blog-shell"><div class="blog-hero__card"><div class="blog-hero__content"><span class="blog-kicker">Image requests</span><h1>Image Tracking and Invisible Pixels</h1><p class="blog-lead">A tracking pixel is just an image request with analytics attached. It can show that a resource was loaded, but it has real limits and privacy obligations.</p></div><aside class="blog-hero__aside"><div class="blog-meta"><div class="blog-meta__row"><span>Updated</span><strong>April 8, 2026</strong></div><div class="blog-meta__row"><span>Read time</span><strong>6 min</strong></div><div class="blog-meta__row"><span>Focus</span><strong>Pixels, logs, consent</strong></div></div></aside></div></div></header>
+  <nav class="blog-nav" aria-label="Primary navigation">
+    <div class="blog-shell blog-nav__inner">
+      <a class="blog-brand" href="../index.html">
+        <span class="blog-brand__mark">IP</span>
+        <span>WhatsTheirIP</span>
+      </a>
+      <div class="blog-nav__links">
+        <a href="../index.html">Home</a>
+        <a href="index">Blog</a>
+        <a href="../index.html#features">Features</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="blog-shell">
+      <div class="blog-hero__card">
+        <div class="blog-hero__content">
+          <span class="blog-kicker">Image requests</span>
+          <h1>Image Tracking and Invisible Pixels</h1>
+          <p class="blog-lead">A tracking pixel is just an image request with analytics attached. It can show that a resource was loaded, but it has real limits and privacy obligations.</p>
+        </div>
+        <aside class="blog-hero__aside" aria-label="Article summary">
+          <div class="blog-meta">
+            <div class="blog-meta__row"><span>Updated</span><strong>April 8, 2026</strong></div>
+            <div class="blog-meta__row"><span>Read time</span><strong>8 min</strong></div>
+            <div class="blog-meta__row"><span>Focus</span><strong>Pixels, logs, consent</strong></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
   <main class="blog-shell blog-layout">
-    <aside class="blog-toc" aria-label="Table of contents"><p class="blog-toc__title">On this page</p><a href="#how-it-works">How it works</a><a href="#visible-data">Visible data</a><a href="#limits">Limits</a><a href="#responsible-use">Responsible use</a></aside>
+    <aside class="blog-toc" aria-label="Table of contents">
+      <p class="blog-toc__title">On this page</p>
+      <a href="#how-it-works">How it works</a>
+      <a href="#visible-data">Visible data</a>
+      <a href="#email">Email and document use</a>
+      <a href="#limits">Limits</a>
+      <a href="#responsible-use">Responsible use</a>
+    </aside>
+
     <article class="blog-article">
-      <section class="blog-card" id="how-it-works"><h2>How Image Tracking Works</h2><p>When a page or email loads an image from a server, that server receives a normal HTTP request. If the image URL is unique, the request can be associated with a campaign, message, or document view.</p><div class="blog-note"><strong>Not magic:</strong> the analytics come from the image request reaching a server you control or a service you use.</div></section>
-      <section class="blog-card" id="visible-data"><h2>What an Image Request Can Log</h2><div class="blog-grid"><div class="blog-mini-card"><strong>IP address</strong> The visible source address for the request.</div><div class="blog-mini-card"><strong>Timestamp</strong> When the image was requested.</div><div class="blog-mini-card"><strong>User-agent</strong> Browser, app, or mail client hints when available.</div><div class="blog-mini-card"><strong>Campaign key</strong> The unique URL or token tied to the image.</div></div></section>
-      <section class="blog-card" id="limits"><h2>Important Limits</h2><ul class="blog-list"><li>Email clients may block remote images by default.</li><li>Privacy proxies may fetch images through a shared infrastructure.</li><li>Previews and scanners can create automated opens.</li><li>A pixel load does not prove that a specific person read the full content.</li></ul></section>
-      <section class="blog-card" id="responsible-use"><h2>Responsible Use</h2><p>Use image tracking for aggregate analytics, campaign measurement, security review, or consent-aware document workflows. Do not use hidden pixels for harassment, surprise monitoring, or exaggerated identity claims.</p><div class="blog-steps"><div class="blog-step"><strong>Disclose analytics</strong> Explain that image loads or link clicks may be logged.</div><div class="blog-step"><strong>Expect false positives</strong> Separate human views from automated scanners where possible.</div><div class="blog-step"><strong>Limit retention</strong> Keep raw logs only as long as they serve a clear purpose.</div></div></section>
-      <section class="blog-cta"><div><h2>Prefer Clear Analytics</h2><p>Use tracking pixels as a measurement tool, not as a hidden identity system.</p></div><a class="blog-button" href="legal-ethical-ip-tracking">Read legal guide</a></section>
+      <section class="blog-card" id="how-it-works">
+        <h2>How Image Tracking Works</h2>
+        <p>When a page, email, or document loads an image from a server, that server receives a normal HTTP request. A tracking pixel uses this simple behavior: it gives each campaign or recipient a unique image URL, then records the request when that image is loaded.</p>
+        <p>The image might be a visible banner, a small transparent image, or a hosted asset inside a document viewer. The tracking is not caused by the pixel being invisible. It is caused by the image request reaching a destination that can log the request.</p>
+        <div class="blog-note">
+          <strong>Plain-language version:</strong> the server can log that an image URL was requested. That request can contain IP, time, user-agent, and campaign identifier.
+        </div>
+      </section>
+
+      <section class="blog-card" id="visible-data">
+        <h2>What an Image Request Can Log</h2>
+        <div class="blog-grid">
+          <div class="blog-mini-card"><strong>IP address</strong> The visible source address for the request, which may be a proxy, VPN, mail provider, or shared network.</div>
+          <div class="blog-mini-card"><strong>Timestamp</strong> When the image was requested by a browser, app, scanner, or proxy.</div>
+          <div class="blog-mini-card"><strong>User-agent</strong> Browser, app, mail client, security scanner, or proxy hints when available.</div>
+          <div class="blog-mini-card"><strong>Campaign key</strong> The unique URL or token tied to the image, campaign, message, or document.</div>
+          <div class="blog-mini-card"><strong>Referrer context</strong> Sometimes available for web pages, often limited or absent for email and private contexts.</div>
+          <div class="blog-mini-card"><strong>Approximate region</strong> IP-derived location estimates, which should be treated as broad context only.</div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="email">
+        <h2>Email and Document Tracking Context</h2>
+        <p>Image tracking is common in email analytics because emails can include remote images. It is also used in hosted document pages and marketing landing pages. In each case, the basic mechanism is the same, but the reliability is different.</p>
+        <table class="blog-table">
+          <thead>
+            <tr>
+              <th>Context</th>
+              <th>What can happen</th>
+              <th>Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td>Images may be blocked, cached, or fetched through privacy proxies.</td>
+              <td>Open events can be useful trends, but not precise read receipts.</td>
+            </tr>
+            <tr>
+              <td>Hosted web page</td>
+              <td>Images usually load with the page unless blocked by the browser or network.</td>
+              <td>More reliable than email, but still affected by VPNs and shared networks.</td>
+            </tr>
+            <tr>
+              <td>Document viewer</td>
+              <td>A hosted document page can request images or assets when opened.</td>
+              <td>Good for access events, not proof that every page was carefully read.</td>
+            </tr>
+            <tr>
+              <td>Security scanning</td>
+              <td>Automated systems may fetch images before a human opens the message.</td>
+              <td>Filter or label likely scanner events when possible.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="blog-card" id="limits">
+        <h2>Important Limits</h2>
+        <ul class="blog-list">
+          <li>Email clients may block remote images by default.</li>
+          <li>Privacy proxies may fetch images through shared infrastructure.</li>
+          <li>Previews and scanners can create automated opens before a human reads the content.</li>
+          <li>A pixel load does not prove that a specific person read the full message or document.</li>
+          <li>IP geolocation can be approximate, stale, or distorted by VPNs and mobile carrier networks.</li>
+          <li>Repeated image requests can reflect caching behavior, retries, forwarding, or automated checks.</li>
+        </ul>
+      </section>
+
+      <section class="blog-card" id="responsible-use">
+        <h2>Responsible Use</h2>
+        <p>Use image tracking for aggregate analytics, campaign measurement, security review, or consent-aware document workflows. Do not use hidden pixels for harassment, surprise monitoring, or exaggerated identity claims.</p>
+        <div class="blog-steps">
+          <div class="blog-step">
+            <strong>Disclose analytics</strong>
+            Explain that image loads, link clicks, or document views may be logged when the context requires notice.
+          </div>
+          <div class="blog-step">
+            <strong>Expect false positives</strong>
+            Separate human views from automated scanners, proxy fetches, and previews where possible.
+          </div>
+          <div class="blog-step">
+            <strong>Limit retention</strong>
+            Keep raw logs only as long as they serve a clear analytics or security purpose.
+          </div>
+          <div class="blog-step">
+            <strong>Report carefully</strong>
+            Use language like "image request" or "open signal" instead of claiming a guaranteed read.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-cta">
+        <div>
+          <h2>Prefer Clear Analytics</h2>
+          <p>Use tracking pixels as a measurement tool, not as a hidden identity system.</p>
+        </div>
+        <a class="blog-button" href="legal-ethical-ip-tracking">Read legal guide</a>
+      </section>
     </article>
   </main>
-  <footer class="blog-footer"><div class="blog-shell blog-footer__grid"><div><h2>WhatsTheirIP.tech</h2><p>Guides about request logs, IP visibility, link analytics, and privacy-aware interpretation.</p></div><div><h3>Product</h3><ul><li><a href="../index.html#url">URL Tracker</a></li><li><a href="../index.html#email">Email Tracker</a></li></ul></div><div><h3>Resources</h3><ul><li><a href="index">Blog</a></li><li><a href="email-tracking-pixel-technology-guide">Email Tracking Pixels</a></li></ul></div><div><h3>Legal</h3><p>Copyright &copy; 2026 WhatsTheirIP.tech. All rights reserved.</p></div></div></footer>
+
+  <footer class="blog-footer">
+    <div class="blog-shell blog-footer__grid">
+      <div>
+        <h2>WhatsTheirIP.tech</h2>
+        <p>Guides about request logs, IP visibility, link analytics, and privacy-aware interpretation.</p>
+      </div>
+      <div>
+        <h3>Product</h3>
+        <ul>
+          <li><a href="../index.html#url">URL Tracker</a></li>
+          <li><a href="../index.html#email">Email Tracker</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="index">Blog</a></li>
+          <li><a href="email-tracking-pixel-technology-guide">Email Tracking Pixels</a></li>
+          <li><a href="legal-ethical-ip-tracking">Legal Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <p>Copyright &copy; 2026 WhatsTheirIP.tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

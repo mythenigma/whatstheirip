@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Realtime IP Analytics and Geographic Intelligence | WhatsTheirIP.tech</title>
+  <meta name="description" content="A practical guide to realtime IP analytics, geographic enrichment, dashboard signals, alerts, and privacy-aware interpretation.">
+  <link rel="canonical" href="https://whatstheirip.tech/blog/realtime-ip-analytics-geographic-intelligence">
+  <meta property="og:title" content="Realtime IP Analytics and Geographic Intelligence">
+  <meta property="og:description" content="Understand realtime IP analytics dashboards, geo enrichment, alerts, and responsible interpretation.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://whatstheirip.tech/blog/realtime-ip-analytics-geographic-intelligence">
+  <meta property="og:site_name" content="WhatsTheirIP.tech">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="blog-unified.css" rel="stylesheet">
+</head>
+<body class="blog-page">
+  <nav class="blog-nav" aria-label="Primary navigation">
+    <div class="blog-shell blog-nav__inner">
+      <a class="blog-brand" href="../index.html">
+        <span class="blog-brand__mark">IP</span>
+        <span>WhatsTheirIP</span>
+      </a>
+      <div class="blog-nav__links">
+        <a href="../index.html">Home</a>
+        <a href="index">Blog</a>
+        <a href="../index.html#features">Features</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="blog-shell">
+      <div class="blog-hero__card">
+        <div class="blog-hero__content">
+          <span class="blog-kicker">Realtime analytics</span>
+          <h1>Realtime IP Analytics</h1>
+          <p class="blog-lead">Realtime dashboards help teams see where requests are coming from, which campaigns are active, and which network patterns deserve review.</p>
+        </div>
+        <aside class="blog-hero__aside" aria-label="Article summary">
+          <div class="blog-meta">
+            <div class="blog-meta__row">
+              <span>Updated</span>
+              <strong>April 8, 2026</strong>
+            </div>
+            <div class="blog-meta__row">
+              <span>Read time</span>
+              <strong>9 min</strong>
+            </div>
+            <div class="blog-meta__row">
+              <span>Focus</span>
+              <strong>Dashboards, geo, alerts</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-shell blog-layout">
+    <aside class="blog-toc" aria-label="Table of contents">
+      <p class="blog-toc__title">On this page</p>
+      <a href="#events">Event stream</a>
+      <a href="#geo">Geographic enrichment</a>
+      <a href="#dashboards">Dashboard design</a>
+      <a href="#alerts">Alerts</a>
+      <a href="#limits">Limits</a>
+      <a href="#retention">Retention and access</a>
+    </aside>
+
+    <article class="blog-article">
+      <section class="blog-card" id="events">
+        <h2>What a Realtime Event Contains</h2>
+        <p>A realtime IP analytics event usually starts as a normal request log. A visitor clicks a link, scans a QR code, opens a tracked resource, or loads a page. The system records the request, enriches it, and displays it quickly enough for campaign, support, or security teams to react.</p>
+        <p>The important word is <strong>context</strong>. Realtime analytics can tell you that a request arrived from a certain visible network at a certain time. It should not be framed as exact identity or exact physical location.</p>
+        <div class="blog-grid">
+          <div class="blog-mini-card">
+            <strong>Request</strong>
+            URL, timestamp, campaign, redirect target, and referrer context where available.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Network</strong>
+            IP address, ISP, ASN, VPN or hosting hints, and broad connection type.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Geo estimate</strong>
+            Country, region, and city when available, with accuracy limits.
+          </div>
+          <div class="blog-mini-card">
+            <strong>Device hint</strong>
+            Browser, OS, and device class from user-agent data.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="geo">
+        <h2>Geographic Intelligence</h2>
+        <p>Geographic enrichment is useful for regional campaign performance, fraud review, localization, and incident response. It becomes risky when the dashboard makes approximate data look precise. A good interface labels location as an estimate and keeps city-level data in proportion.</p>
+        <ul class="blog-list">
+          <li>Compare campaign activity across countries or broad regions.</li>
+          <li>Detect sudden spikes from unexpected regions or hosting providers.</li>
+          <li>Route support or follow-up based on broad region, not exact street-level assumptions.</li>
+          <li>Use aggregated maps for reporting when raw event logs are not necessary.</li>
+          <li>Separate human traffic from scanners, previews, and automated checks where possible.</li>
+        </ul>
+      </section>
+
+      <section class="blog-card" id="dashboards">
+        <h2>Dashboard Design That Avoids Overclaiming</h2>
+        <p>The dashboard should help people make better decisions without encouraging false certainty. That means grouping events, showing confidence levels, and making it easy to filter test traffic or automated requests.</p>
+        <table class="blog-table">
+          <thead>
+            <tr>
+              <th>Dashboard element</th>
+              <th>Better design choice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Map view</td>
+              <td>Use region-level aggregation by default instead of precise pins.</td>
+            </tr>
+            <tr>
+              <td>Realtime feed</td>
+              <td>Show timestamp, campaign, network, and confidence notes together.</td>
+            </tr>
+            <tr>
+              <td>VPN or proxy flags</td>
+              <td>Label them as risk indicators, not proof of malicious behavior.</td>
+            </tr>
+            <tr>
+              <td>Exports</td>
+              <td>Limit who can export raw logs and prefer aggregate reports for routine work.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="blog-card" id="alerts">
+        <h2>Useful Realtime Alerts</h2>
+        <div class="blog-steps">
+          <div class="blog-step">
+            <strong>Campaign spike</strong>
+            Alert when a link suddenly receives unusual traffic compared with its recent baseline.
+          </div>
+          <div class="blog-step">
+            <strong>Data-center traffic</strong>
+            Flag high-volume requests from hosting networks, known proxies, or unexpected infrastructure.
+          </div>
+          <div class="blog-step">
+            <strong>Region mismatch</strong>
+            Review access patterns far outside expected geography, especially for sensitive workflows.
+          </div>
+          <div class="blog-step">
+            <strong>Repeated events</strong>
+            Detect rapid repeated opens that may indicate scanners, bots, or broken integrations.
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-card" id="limits">
+        <h2>Accuracy Limits</h2>
+        <p>Realtime does not mean certain. Fast enrichment can still be stale, incomplete, or wrong. Mobile carrier traffic may resolve to a distant city. VPNs show exit networks. Corporate gateways can make many employees look like one source. Automated preview systems can generate events before a human sees the page.</p>
+        <div class="blog-note blog-note--warning">
+          <strong>Safer default:</strong> use realtime views for triage and aggregate insight, then verify important decisions with additional evidence.
+        </div>
+      </section>
+
+      <section class="blog-card" id="retention">
+        <h2>Retention and Access Control</h2>
+        <p>Realtime dashboards often feel operational, but the underlying data can still be sensitive. Keep raw logs behind access controls, define retention periods, and document why each enrichment field is collected.</p>
+        <ul class="blog-list">
+          <li>Use role-based access for raw event views.</li>
+          <li>Prefer aggregate campaign reports for routine marketing review.</li>
+          <li>Remove or anonymize old event logs when they no longer serve a clear purpose.</li>
+          <li>Keep security incident exports separate from everyday analytics exports.</li>
+        </ul>
+      </section>
+
+      <section class="blog-cta">
+        <div>
+          <h2>Turn Events into Decisions</h2>
+          <p>Realtime IP analytics works best when alerts are narrow, documented, and paired with conservative interpretation.</p>
+        </div>
+        <a class="blog-button" href="ip-tracking-analytics">Analytics guide</a>
+      </section>
+    </article>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="blog-shell blog-footer__grid">
+      <div>
+        <h2>WhatsTheirIP.tech</h2>
+        <p>Guides about request logs, IP visibility, link analytics, and privacy-aware interpretation.</p>
+      </div>
+      <div>
+        <h3>Product</h3>
+        <ul>
+          <li><a href="../index.html#url">URL Tracker</a></li>
+          <li><a href="../index.html#email">Email Tracker</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="index">Blog</a></li>
+          <li><a href="ip-tracking-analytics">IP Analytics</a></li>
+          <li><a href="advanced-ip-tracking-techniques">Advanced Techniques</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <p>Copyright &copy; 2026 WhatsTheirIP.tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
